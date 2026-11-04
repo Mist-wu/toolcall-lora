@@ -1,0 +1,40 @@
+{
+  "experiment_id": "E2",
+  "run_id": "E2-formal-baselines-20261104-01",
+  "session": "exp-preflight-l4",
+  "snapshot_observed_at": "2026-11-04T12:20:15Z",
+  "run_state": "running",
+  "request_path": "/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json",
+  "runtime_source_commit": "00932e411fc6a6441c1512955ffadecc90c41f27",
+  "baseline_1_5b": {
+    "state": "completed",
+    "cases": 1240,
+    "micro_accuracy": 0.7475806451612903,
+    "ci95": [
+      0.7241935483870968,
+      0.7725806451612903
+    ],
+    "drive_receipt": "baseline-1.5b.drive-receipt.json"
+  },
+  "baseline_7b": {
+    "state": "running",
+    "observed_prediction_lines": 698,
+    "total_cases": 1240,
+    "progress_file_downloaded_at": "2026-11-04T12:18:14Z"
+  },
+  "training_state": "not_started",
+  "next_owner": "server pi",
+  "gpu_priority_after_baselines": [
+    "E1 retrieval",
+    "E4 Qwen",
+    "E2 main seeds 42 43 44"
+  ],
+  "training_data_runtime_path": "/content/data/e2-glaive",
+  "training_data_persisted": false,
+  "training_command": "bash scripts/formal_train.sh",
+  "e3_adapter_expected_path": "/content/e2-artifacts/main-seed42/adapter",
+  "e3_adapter_receipt_expected_path": "results/main-seed42.adapter-receipt.json",
+  "blockers": [
+    "30k ablation unavailable from current 18547-example Glaive train split"
+  ]
+}

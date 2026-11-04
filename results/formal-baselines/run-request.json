@@ -1,0 +1,20 @@
+{
+  "session": "exp-preflight-l4",
+  "payload": {
+    "run_id": "E2-formal-baselines-20261104-01",
+    "run_root": "/content/experiment-runs/E2-formal-baselines-20261104-01",
+    "archive": "/content/experiment-E2-formal-baselines-20261104-01-c372c17f5594.tgz",
+    "archive_sha256": "c372c17f55940774479bef5913f7bb11e29111469962d6c3ab0f6d5f746d82ca",
+    "git": {
+      "commit": "00932e411fc6a6441c1512955ffadecc90c41f27",
+      "dirty": false
+    },
+    "argv": [
+      "bash",
+      "scripts/formal_baselines.sh"
+    ],
+    "install": false,
+    "env_file": null
+  },
+  "fingerprint": "ed02b839a30490c2a0ff9f325847bdfafd2dabed41267ed6f2081bfcfe7efdad"
+}
