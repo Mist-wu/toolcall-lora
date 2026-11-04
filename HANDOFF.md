@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 14:48 UTC
+
+Existing foreground run `E2-main-resume-20261104-03` is running; output reached seed 42 step 536/1288, and `exp-iopub-e24.service` remains active. The step-500 checkpoint was copied to `gdrive:exp/runs/E2/E2-main-s42-step500-3f88f4ca1b6a` at 14:46 UTC (rclone exit status 0); receipt: `results/main-seed42-checkpoint-500.receipt.json`. This checkpoint is not the finished adapter; E3 still awaits seed 42 completion. Continue polling with the commands below, without resubmission.
+
 ## Update 2026-11-04 14:41 UTC
 
 The existing `E2-main-resume-20261104-03` job remains running on `exp-e24-recovery-a100`: HTTP status reports running and its real output reached seed 42 step 440/1288. The server's `exp-iopub-e24.service` is active. The checkpoint-400 rclone copy completed successfully at 14:38:56 UTC; receipt is `results/main-seed42-checkpoint-400.receipt.json` and destination is `gdrive:exp/runs/E2/E2-main-s42-step400-93abe7d040e8`. This is a resume checkpoint, **not** a finished adapter; E3 still waits for the final seed42 adapter and train record. At 14:41 UTC `colab usage` reported shared account balance 157.48 CU and total rate 17.34 CU/h across four assignments, not E2-only spending.
