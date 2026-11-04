@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 19:18 UTC: seed44 checkpoint 600
+
+Existing foreground pipeline reached seed44 step612/1288 at 19:17:47 UTC. Step600 copied to `gdrive:exp/runs/E2/E2-main-s44-step600-e8de2eb0b363`, rclone exit 0; actual receipt `results/main-seed44-checkpoint-600.receipt.json`. Training-time 256-example dev loss was 0.000504885 at epoch 0.93, not a test score. The actual output subscriber `exp-iopub-e24-scope.service` remains active. Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Continue polling existing output/status/checkpoint using the download commands below.
+
 ## Update 2026-11-04 19:12 UTC: seed44 checkpoint 500
 
 Existing foreground pipeline reached seed44 step531/1288 at 19:11:43 UTC. Step500 copied to `gdrive:exp/runs/E2/E2-main-s44-step500-a1d0588a969b`, rclone exit 0; actual receipt `results/main-seed44-checkpoint-500.receipt.json`. Training-time 256-example dev loss was 0.000669655 at epoch 0.78, not a test score. The actual output subscriber `exp-iopub-e24-scope.service` is active. Shared account reading at 19:12 UTC: 83.77 CU balance, 17.34 CU/hour, four assignments (not E2-only cost). Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Continue polling existing output/status/checkpoint using the download commands below.
