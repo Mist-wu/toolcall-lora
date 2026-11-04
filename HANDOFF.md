@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:34 UTC: main three-seed BFCL statistics complete
+
+Added reproducible small-CPU analysis `scripts/summarize_main_bfcl.py` and actual aggregate results `results/formal-main-summary/bfcl.summary.{json,md}` using the three completed BFCL score/detail sets. Main mean **56.7473%**, sample SD **2.7376 pp**, seed-t 95% CI **49.9468–63.5478%** (df2, weak normal-seed assumption). Mean change versus 1.5B **−18.0108 pp**, seed-t CI **[−24.8113, −11.2102]**; versus 7B **−29.6237 pp**, seed-t CI **[−36.4242, −22.8231]**. Separately reported paired case-bootstrap CIs conditional on the three fitted models: **[−21.0215, −15.1613]** and **[−32.6075, −26.5054]** pp. These are different uncertainties, not 3,720 independent cases or a joint seed/data CI. Category results and input hashes retained. All seeds underperform both baselines overall; main does not catch 7B. Glaive/agent-review limitations remain explicit.
+
+Reproduce: `python3 scripts/summarize_main_bfcl.py` (no training/inference). Existing seed44 held-out inference reached **832/2000** at 20:32:33 UTC; its incomplete snapshot remains only in `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed44-heldout.partial.jsonl`, unscored. Original foreground pipeline and active real subscriber `exp-iopub-e24-scope.service` preserved. Next poll output/status and collect complete seed44 held-out files, then individual seed44 comparison and held-out aggregate. Six exploratory ablations and final seven-category error analysis still remain; E2 is not complete. Use download commands below without resubmission.
+
 ## Update 2026-11-04 20:27 UTC: seed44 BFCL complete
 
 Collected all four seed44 BFCL artifacts in `results/formal-main-seed44/bfcl.*`: **734/1240 = 59.1935%**, bootstrap 95% CI **56.5323–61.8548%**. Category scores: simple_python 340/400 (85%), multiple 143/200 (71.5%), parallel 1/200 (0.5%), parallel_multiple 34/200 (17%), irrelevance 216/240 (90%). The prediction SHA256 matches score provenance; all 1,240 scored detail records are collected. Incomplete snapshots remain unscored history and are superseded by the full files.

@@ -1,0 +1,412 @@
+{
+  "scope": "main seeds 42,43,44 BFCL only; ablations and held-out summary not included",
+  "training_seeds": [
+    42,
+    43,
+    44
+  ],
+  "data_seed": 42,
+  "metric_boundary": "Official AST checker on five single-turn categories with custom strict Qwen parser; not overall leaderboard score",
+  "uncertainty": {
+    "seed_t_ci95": "Unclipped mean +/- t(0.975,df=2)*sample_sd/sqrt(3). Only three training seeds with fixed data; normal-seed assumption is weak and this is not data-sampling uncertainty.",
+    "paired_case_bootstrap": "1000 paired case resamples, RNG seed42, percentile indices25/975, conditional on these three fitted models. Resample shared case IDs, averaging seeds within each case; never treat 3720 seed-case outcomes as independent cases.",
+    "interpretation": "Case and seed intervals measure different uncertainty; neither establishes uncontaminated generalization or isolated causal effects of negative training."
+  },
+  "categories": {
+    "simple_python": {
+      "n_cases_per_seed": 400,
+      "main_accuracy": {
+        "values": [
+          0.84,
+          0.85,
+          0.85
+        ],
+        "mean": 0.8466666666666667,
+        "sample_sd": 0.005773502691896263,
+        "seed_t_ci95": [
+          0.8323244909002957,
+          0.8610088424330377
+        ]
+      },
+      "comparisons": {
+        "baseline-1.5b": {
+          "baseline_accuracy": 0.84,
+          "delta_main_minus_baseline": {
+            "values": [
+              0.0,
+              0.010000000000000009,
+              0.010000000000000009
+            ],
+            "mean": 0.006666666666666672,
+            "sample_sd": 0.005773502691896263,
+            "seed_t_ci95": [
+              -0.007675509099704258,
+              0.021008842433037602
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.0275,
+            0.042499999999999996
+          ]
+        },
+        "baseline-7b": {
+          "baseline_accuracy": 0.955,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.11499999999999999,
+              -0.10499999999999998,
+              -0.10499999999999998
+            ],
+            "mean": -0.10833333333333332,
+            "sample_sd": 0.005773502691896263,
+            "seed_t_ci95": [
+              -0.12267550909970426,
+              -0.09399115756696239
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.14333333333333334,
+            -0.07416666666666667
+          ]
+        }
+      }
+    },
+    "multiple": {
+      "n_cases_per_seed": 200,
+      "main_accuracy": {
+        "values": [
+          0.575,
+          0.56,
+          0.715
+        ],
+        "mean": 0.6166666666666667,
+        "sample_sd": 0.08548879068821438,
+        "seed_t_ci95": [
+          0.40430073777815634,
+          0.829032595555177
+        ]
+      },
+      "comparisons": {
+        "baseline-1.5b": {
+          "baseline_accuracy": 0.83,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.255,
+              -0.2699999999999999,
+              -0.11499999999999999
+            ],
+            "mean": -0.2133333333333333,
+            "sample_sd": 0.08548879068821438,
+            "seed_t_ci95": [
+              -0.4256992622218437,
+              -0.0009674044448229058
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.2816666666666667,
+            -0.14833333333333334
+          ]
+        },
+        "baseline-7b": {
+          "baseline_accuracy": 0.955,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.38,
+              -0.3949999999999999,
+              -0.24
+            ],
+            "mean": -0.3383333333333333,
+            "sample_sd": 0.08548879068821438,
+            "seed_t_ci95": [
+              -0.5506992622218437,
+              -0.12596740444482293
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.40166666666666667,
+            -0.28
+          ]
+        }
+      }
+    },
+    "parallel": {
+      "n_cases_per_seed": 200,
+      "main_accuracy": {
+        "values": [
+          0,
+          0,
+          0.005
+        ],
+        "mean": 0.0016666666666666668,
+        "sample_sd": 0.002886751345948129,
+        "seed_t_ci95": [
+          -0.005504421216518792,
+          0.008837754549852125
+        ]
+      },
+      "comparisons": {
+        "baseline-1.5b": {
+          "baseline_accuracy": 0.655,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.655,
+              -0.655,
+              -0.65
+            ],
+            "mean": -0.6533333333333333,
+            "sample_sd": 0.0028867513459481316,
+            "seed_t_ci95": [
+              -0.6605044212165188,
+              -0.6461622454501479
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.7233333333333334,
+            -0.585
+          ]
+        },
+        "baseline-7b": {
+          "baseline_accuracy": 0.9,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.9,
+              -0.9,
+              -0.895
+            ],
+            "mean": -0.8983333333333333,
+            "sample_sd": 0.0028867513459481316,
+            "seed_t_ci95": [
+              -0.9055044212165188,
+              -0.8911622454501479
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.9366666666666666,
+            -0.855
+          ]
+        }
+      }
+    },
+    "parallel_multiple": {
+      "n_cases_per_seed": 200,
+      "main_accuracy": {
+        "values": [
+          0.21,
+          0.015,
+          0.17
+        ],
+        "mean": 0.13166666666666665,
+        "sample_sd": 0.1029967637032025,
+        "seed_t_ci95": [
+          -0.12419147824631849,
+          0.3875248115796518
+        ]
+      },
+      "comparisons": {
+        "baseline-1.5b": {
+          "baseline_accuracy": 0.625,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.41500000000000004,
+              -0.61,
+              -0.45499999999999996
+            ],
+            "mean": -0.49333333333333335,
+            "sample_sd": 0.10299676370320249,
+            "seed_t_ci95": [
+              -0.7491914782463185,
+              -0.23747518842034826
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.555,
+            -0.4266666666666667
+          ]
+        },
+        "baseline-7b": {
+          "baseline_accuracy": 0.865,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.655,
+              -0.85,
+              -0.695
+            ],
+            "mean": -0.7333333333333333,
+            "sample_sd": 0.10299676370320249,
+            "seed_t_ci95": [
+              -0.9891914782463184,
+              -0.4774751884203482
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.7833333333333333,
+            -0.675
+          ]
+        }
+      }
+    },
+    "irrelevance": {
+      "n_cases_per_seed": 240,
+      "main_accuracy": {
+        "values": [
+          0.9041666666666667,
+          0.8833333333333333,
+          0.9
+        ],
+        "mean": 0.8958333333333334,
+        "sample_sd": 0.011023963796102484,
+        "seed_t_ci95": [
+          0.868448289133435,
+          0.9232183775332318
+        ]
+      },
+      "comparisons": {
+        "baseline-1.5b": {
+          "baseline_accuracy": 0.7041666666666667,
+          "delta_main_minus_baseline": {
+            "values": [
+              0.19999999999999996,
+              0.17916666666666659,
+              0.1958333333333333
+            ],
+            "mean": 0.19166666666666662,
+            "sample_sd": 0.011023963796102484,
+            "seed_t_ci95": [
+              0.16428162246676822,
+              0.21905171086656502
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            0.1388888888888889,
+            0.24722222222222223
+          ]
+        },
+        "baseline-7b": {
+          "baseline_accuracy": 0.6041666666666666,
+          "delta_main_minus_baseline": {
+            "values": [
+              0.30000000000000004,
+              0.2791666666666667,
+              0.2958333333333334
+            ],
+            "mean": 0.2916666666666667,
+            "sample_sd": 0.011023963796102484,
+            "seed_t_ci95": [
+              0.2642816224667683,
+              0.3190517108665651
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            0.2375,
+            0.3472222222222222
+          ]
+        }
+      }
+    },
+    "overall_subset": {
+      "n_cases_per_seed": 1240,
+      "main_accuracy": {
+        "values": [
+          0.5725806451612904,
+          0.5379032258064517,
+          0.5919354838709677
+        ],
+        "mean": 0.5674731182795699,
+        "sample_sd": 0.02737583516576687,
+        "seed_t_ci95": [
+          0.4994677737510701,
+          0.6354784628080697
+        ]
+      },
+      "comparisons": {
+        "baseline-1.5b": {
+          "baseline_accuracy": 0.7475806451612903,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.17499999999999993,
+              -0.20967741935483863,
+              -0.15564516129032258
+            ],
+            "mean": -0.18010752688172038,
+            "sample_sd": 0.02737583516576687,
+            "seed_t_ci95": [
+              -0.24811287141022023,
+              -0.11210218235322053
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.21021505376344088,
+            -0.15161290322580645
+          ]
+        },
+        "baseline-7b": {
+          "baseline_accuracy": 0.8637096774193549,
+          "delta_main_minus_baseline": {
+            "values": [
+              -0.2911290322580645,
+              -0.3258064516129032,
+              -0.27177419354838717
+            ],
+            "mean": -0.29623655913978497,
+            "sample_sd": 0.02737583516576687,
+            "seed_t_ci95": [
+              -0.3642419036682848,
+              -0.22823121461128512
+            ]
+          },
+          "paired_case_bootstrap_ci95_conditional_on_three_seeds": [
+            -0.32607526881720433,
+            -0.26505376344086023
+          ]
+        }
+      }
+    }
+  },
+  "sources": {
+    "main-seed42": {
+      "path": "results/formal-main-seed42",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "ae09392ebac7207abd3daa385e6d09bca8f9d479ada1e65be664d21c68fa1c9f",
+      "score_sha256": "38f801d877afb6ce960633d7609853c8daf1ea09c096efebe2bcfb3c44d94cc9",
+      "details_sha256": "c7524199779fc54249c1b3f7754e6980b4aaa175dd6d24e0f91b11232c90c951"
+    },
+    "main-seed43": {
+      "path": "results/formal-main-seed43",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "1e8d510f10c792ccecb89e0a0a98be4747b9fa94391e4577d0596d91e19b6e38",
+      "score_sha256": "e4ebf189f9fffc5a36188128071537d6bc573de4041152ce32822704aeecfb30",
+      "details_sha256": "a1970476e948b636b59001b25fe8f498ad456000f9092858e388d3c5c614bf7f"
+    },
+    "main-seed44": {
+      "path": "results/formal-main-seed44",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "001c002ae7053ead4062ee12b46e27efea800b855d74c616e1621ab2a552034a",
+      "score_sha256": "72aee8fe9b3adb39503b0a06541c24fbd3f508c9088c968122993f5f1330207f",
+      "details_sha256": "c713fbc84ded8381636ca4a78350f269daddccfcbf59c913ce50248321661c6d"
+    },
+    "baseline-1.5b": {
+      "path": "results/formal-baselines/baseline-1.5b",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "da6990c41e6097055811f9425a73f6f3fb38d7991a123e9b4a60465921e9149c",
+      "score_sha256": "d3bb71d595b8a5bc825d0565fa86eca9e254a04daae731106d264cf8e163698a",
+      "details_sha256": "8dab2d30c1a509b570790ae3d8b1dec3c15faf1976ad6e1ca087918047641510"
+    },
+    "baseline-7b": {
+      "path": "results/formal-baselines/baseline-7b",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "16a1ebe045cf627182a5973016b8bc65e183175200e6bfd2a51c7c68047c3928",
+      "score_sha256": "e0a44907810edd1f661cabb0f21d8984b19e2ae7d74ca13494def37728dd6d29",
+      "details_sha256": "ff997c66a67ddc28bd0f7c930d4ebbb90ad29f27dca11f70ffbe1bb521da3866"
+    }
+  },
+  "reviewer_type": "agent",
+  "human_validation_complete": false,
+  "human_validation_required": false,
+  "limitations": [
+    "Authorized Glaive fallback, not xLAM; 18547 selected positives, fixed data_seed42.",
+    "Glaive semantic near-duplicates limit separate held-out independence.",
+    "Agent negative review: one clear mislabel and two uncertain among50; not human-gold.",
+    "Public BFCL pretraining contamination remains possible.",
+    "Six single-seed exploratory ablations and final seven-category error analysis remain outstanding."
+  ]
+}
