@@ -1,0 +1,9 @@
+{
+  "experiment": "E2",
+  "run_id": "E2-formal-baselines-20261104-01-baseline-1.5b",
+  "source": "results/formal-baselines/baseline-1.5b",
+  "destination": "gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b",
+  "state": "verified",
+  "started_at": "2026-11-04T11:55:44.532717+00:00",
+  "verified_at": "2026-11-04T11:55:56.344894+00:00"
+}

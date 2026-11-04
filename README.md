@@ -2,12 +2,16 @@
 
 E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The full 1.5B and 7B BFCL baselines are now running on the assigned L4; no completed accuracy or improvement is claimed yet.**
 
-| Evidence | Current status |
-|---|---|
-| Core parser, split, masking and evaluation logic | Implemented with offline tests |
-| Real Qwen tokenizer/template | Checked with pinned model tokenizer |
-| BFCL package and data | `bfcl-eval==2026.3.23`, 1,240 cases in selected categories |
-| LoRA training/ablation accuracy | Main three-seed run follows the active full baselines |
+| BFCL category | Qwen2.5 1.5B | Qwen2.5 7B |
+|---|---:|---:|
+| simple_python (400) | 84.00% | Running |
+| multiple (200) | 83.00% | Running |
+| parallel (200) | 65.50% | Running |
+| parallel_multiple (200) | 62.50% | Running |
+| irrelevance (240) | 70.42% | Running |
+| Micro-average (1,240) | **74.76%** | Running |
+
+1.5B bootstrap 95% CI: **72.42%–77.26%**. These are measured five-category subset results; the 7B comparison and LoRA improvements are not yet available. Raw responses and score provenance are saved with verified Drive copies.
 
 ## Current execution
 

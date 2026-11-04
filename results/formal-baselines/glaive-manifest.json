@@ -1,0 +1,17 @@
+{
+  "source": "glaiveai/glaive-function-calling-v2",
+  "revision": "e7f4b6456019f5d8bcb991ef0dd67d8ff23221ac",
+  "license": "Apache-2.0",
+  "source_rows_used": 22550,
+  "skipped_unsupported_or_no_first_call": 78009,
+  "counts": {
+    "dev": 2003,
+    "test": 2000,
+    "train": 18547
+  },
+  "split_seed": 42,
+  "split_policy": "first turn only; normalized query grouped; distinct dev/test; no follow-up flattening",
+  "fixture": false,
+  "source_is_model_generated": true,
+  "fallback_reason": "xLAM gated; scores not claimed to reproduce xLAM training"
+}
