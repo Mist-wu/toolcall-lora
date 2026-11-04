@@ -1,0 +1,10 @@
+{
+  "experiment": "E2",
+  "run_id": "E2-main-resume-20261104-03-n10000-r8-neg0-seed42-adapter",
+  "source": "/content/e2-artifacts/n10000-r8-neg0-seed42/adapter",
+  "destination": "gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r8-neg0-seed42-adapter",
+  "started_at": "2026-11-04T21:30:01.767270+00:00",
+  "state": "verified",
+  "verification": "rclone_copy_exit_status",
+  "ended_at": "2026-11-04T21:30:18.869258+00:00"
+}

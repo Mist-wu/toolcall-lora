@@ -1,0 +1,74 @@
+{
+  "config": {
+    "run_name": "n10000-r8-neg0",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "train_size": 10000,
+    "seed": 42,
+    "data_seed": 42,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "negative_fraction": 0,
+    "max_length": 2048,
+    "epochs": 2,
+    "eval_size": 256,
+    "device_profile": "l4",
+    "smoke": false
+  },
+  "versions": {
+    "torch": "2.6.0",
+    "transformers": "4.51.3",
+    "peft": "0.15.2",
+    "accelerate": "1.6.0",
+    "datasets": "3.5.0",
+    "bfcl-eval": "2026.3.23"
+  },
+  "git_commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
+  "dirty": false,
+  "started_at": "2026-11-04T20:44:30Z",
+  "gpu_sharing": "A100 runtime exp-e24-recovery-a100 allocated jointly with E4; timings are not throughput benchmarks",
+  "cuda": "12.4",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "data_manifest": {
+    "source": "glaiveai/glaive-function-calling-v2",
+    "revision": "e7f4b6456019f5d8bcb991ef0dd67d8ff23221ac",
+    "license": "Apache-2.0",
+    "source_rows_used": 22550,
+    "skipped_unsupported_or_no_first_call": 78009,
+    "counts": {
+      "dev": 2003,
+      "test": 2000,
+      "train": 18547
+    },
+    "split_seed": 42,
+    "split_policy": "first turn only; normalized query grouped; distinct dev/test; no follow-up flattening",
+    "fixture": false,
+    "source_is_model_generated": true,
+    "fallback_reason": "xLAM gated; scores not claimed to reproduce xLAM training"
+  },
+  "selected_positive_examples": 10000,
+  "input_examples_with_negatives": 10000,
+  "finished_at": "2026-11-04T21:30:00Z",
+  "metrics": {
+    "train_runtime": 2705.1175,
+    "train_samples_per_second": 7.393,
+    "train_steps_per_second": 0.231,
+    "total_flos": 5.637513517490995e+16,
+    "train_loss": 0.004194882408811305,
+    "epoch": 1.9952
+  },
+  "train_examples": 10000,
+  "dev_examples": 256,
+  "dropped_overlength_train": 0,
+  "dropped_overlength_dev": 0,
+  "adapter_path": "/content/e2-artifacts/n10000-r8-neg0-seed42/adapter",
+  "seed": 42,
+  "status": "train_complete",
+  "development_selection": {
+    "metric": "eval_loss",
+    "value": 0.0005151689983904362,
+    "step": 600,
+    "examples": 256,
+    "split": "dev"
+  }
+}

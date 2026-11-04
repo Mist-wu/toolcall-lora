@@ -1,5 +1,20 @@
 # E2 current handoff
 
+## Update 2026-11-04 21:33 UTC: first exploratory ablation training complete
+
+Collected `results/formal-ablations/n10000-r8-neg0-seed42/{train.json,request.json,env.txt,adapter-receipt.json,checkpoint-624.receipt.json}`. The two-epoch request finished **624 steps at 21:30:00 UTC**, retaining all 10,000 examples, zero overlength drops; Trainer reports epoch1.9952, not exactly2.0. Runtime2,705.1175 s versus wall interval2,730 s (20:44:30–21:30:00), documented in `docs/cost.md`; shared timing is not an isolated throughput benchmark. Adapter copied successfully at **21:30:18 UTC** to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r8-neg0-seed42-adapter`. Latest dev loss0.000515169 is from step600/256 examples, not a final test score.
+
+Original pipeline is evaluating this adapter; no completed ablation BFCL/held-out score yet. Actual subscriber `exp-iopub-e24-scope.service` remains active; preserve command/client without resubmission. First ablation training complete, remaining five trainings plus all ablation evaluations/comparisons and final report incomplete. Account-wide at21:32UTC: **43.45 CU**, **17.34 CU/hour**, four assignments, not E2-only charges; no purchase/recharge. Reuse all completed main experiments and analyses.
+
+Collected with:
+
+```sh
+for f in train.json request.json env.txt; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg0-seed42/$f results/formal-ablations/n10000-r8-neg0-seed42/$f; done
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/n10000-r8-neg0-seed42.adapter-receipt.json results/formal-ablations/n10000-r8-neg0-seed42/adapter-receipt.json
+```
+
+Next poll existing output/status and collect `/content/e2-artifacts/n10000-r8-neg0-seed42-bfcl.*` and `n10000-r8-neg0-seed42-heldout.*` (predictions, metadata, score, score details) when complete into this ablation result directory. Continue later variants without resubmission; all six remain single-seed exploratory.
+
 ## Update 2026-11-04 21:24 UTC: first ablation checkpoint 500
 
 Existing **n10000-r8-neg0 seed42** foreground training reached step533/624 at 21:23:13 UTC. Step500 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg0-s42-step500-81a3c8f620fe`, rclone exit0, ended 21:20:55 UTC. Actual receipt `results/formal-ablations/n10000-r8-neg0-seed42/checkpoint-500.receipt.json`. Fixed256-example training-time dev loss at epoch1.60 was 0.000534404, not a test score. Actual output subscriber `exp-iopub-e24-scope.service` remains active; original command/client preserved without resubmission. None of the six exploratory ablations has completed yet. Continue polling output/status/checkpoint using commands below; collect completed train/config/environment/adapter receipt and full BFCL/held-out outputs when ready. Reuse completed main results and analyses.
