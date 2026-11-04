@@ -1,0 +1,194 @@
+[
+  {
+    "run": "main-seed42",
+    "config": "configs/matrix/main-seed42.json",
+    "seed": 42,
+    "train_size": "all",
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "main-seed43",
+    "config": "configs/matrix/main-seed43.json",
+    "seed": 43,
+    "train_size": "all",
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "main-seed44",
+    "config": "configs/matrix/main-seed44.json",
+    "seed": 44,
+    "train_size": "all",
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r8-neg0-seed42",
+    "config": "configs/matrix/n10000-r8-neg0-seed42.json",
+    "seed": 42,
+    "train_size": 10000,
+    "rank": 8,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r8-neg0-seed43",
+    "config": "configs/matrix/n10000-r8-neg0-seed43.json",
+    "seed": 43,
+    "train_size": 10000,
+    "rank": 8,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r8-neg0-seed44",
+    "config": "configs/matrix/n10000-r8-neg0-seed44.json",
+    "seed": 44,
+    "train_size": 10000,
+    "rank": 8,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r8-neg10-seed42",
+    "config": "configs/matrix/n10000-r8-neg10-seed42.json",
+    "seed": 42,
+    "train_size": 10000,
+    "rank": 8,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r8-neg10-seed43",
+    "config": "configs/matrix/n10000-r8-neg10-seed43.json",
+    "seed": 43,
+    "train_size": 10000,
+    "rank": 8,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r8-neg10-seed44",
+    "config": "configs/matrix/n10000-r8-neg10-seed44.json",
+    "seed": 44,
+    "train_size": 10000,
+    "rank": 8,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r16-neg0-seed42",
+    "config": "configs/matrix/n10000-r16-neg0-seed42.json",
+    "seed": 42,
+    "train_size": 10000,
+    "rank": 16,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r16-neg0-seed43",
+    "config": "configs/matrix/n10000-r16-neg0-seed43.json",
+    "seed": 43,
+    "train_size": 10000,
+    "rank": 16,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r16-neg0-seed44",
+    "config": "configs/matrix/n10000-r16-neg0-seed44.json",
+    "seed": 44,
+    "train_size": 10000,
+    "rank": 16,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r16-neg10-seed42",
+    "config": "configs/matrix/n10000-r16-neg10-seed42.json",
+    "seed": 42,
+    "train_size": 10000,
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r16-neg10-seed43",
+    "config": "configs/matrix/n10000-r16-neg10-seed43.json",
+    "seed": 43,
+    "train_size": 10000,
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r16-neg10-seed44",
+    "config": "configs/matrix/n10000-r16-neg10-seed44.json",
+    "seed": 44,
+    "train_size": 10000,
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r64-neg0-seed42",
+    "config": "configs/matrix/n10000-r64-neg0-seed42.json",
+    "seed": 42,
+    "train_size": 10000,
+    "rank": 64,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r64-neg0-seed43",
+    "config": "configs/matrix/n10000-r64-neg0-seed43.json",
+    "seed": 43,
+    "train_size": 10000,
+    "rank": 64,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r64-neg0-seed44",
+    "config": "configs/matrix/n10000-r64-neg0-seed44.json",
+    "seed": 44,
+    "train_size": 10000,
+    "rank": 64,
+    "negative_fraction": 0
+  },
+  {
+    "run": "n10000-r64-neg10-seed42",
+    "config": "configs/matrix/n10000-r64-neg10-seed42.json",
+    "seed": 42,
+    "train_size": 10000,
+    "rank": 64,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r64-neg10-seed43",
+    "config": "configs/matrix/n10000-r64-neg10-seed43.json",
+    "seed": 43,
+    "train_size": 10000,
+    "rank": 64,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n10000-r64-neg10-seed44",
+    "config": "configs/matrix/n10000-r64-neg10-seed44.json",
+    "seed": 44,
+    "train_size": 10000,
+    "rank": 64,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n30000-r16-neg10-seed42",
+    "config": "configs/matrix/n30000-r16-neg10-seed42.json",
+    "seed": 42,
+    "train_size": 30000,
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n30000-r16-neg10-seed43",
+    "config": "configs/matrix/n30000-r16-neg10-seed43.json",
+    "seed": 43,
+    "train_size": 30000,
+    "rank": 16,
+    "negative_fraction": 0.1
+  },
+  {
+    "run": "n30000-r16-neg10-seed44",
+    "config": "configs/matrix/n30000-r16-neg10-seed44.json",
+    "seed": 44,
+    "train_size": 30000,
+    "rank": 16,
+    "negative_fraction": 0.1
+  }
+]

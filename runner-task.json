@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "experiment_id": "E2",
+  "verify_commands": [["python3", "scripts/verify_completion.py"]],
+  "required_artifacts": ["README.md", "docs/baselines.md", "docs/cost.md", "results/formal-summary.json"],
+  "human_pending": []
+}
