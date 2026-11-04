@@ -1,74 +1,45 @@
-# Latest recovery state
+# E2 current handoff
 
-At 2026-11-04 22:49 JST, `exp-e4-qwen` disappeared from actual assignments. E2 and E4 did not intentionally stop it; the cause remains unknown. Both baselines and Glaive are fully persisted. Seed42 step300 was recovered from `gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6`; its model, optimizer, scheduler, RNG state and TrainerState(global_step300) were downloaded to `artifacts/E2-checkpoint-300/`. No training is currently accessible on that old runtime.
+**2026-11-04 23:25 JST: prepared, waiting for E4 to release the GPU.** Local Mac agent owns execution until root explicitly freezes writes. The new runtime is `exp-e24-recovery-a100`, endpoint `gpu-a100-s-ass1b0-kysuwtw187ve` (A100 40GB). E4 completes its remaining 359 cases first; E2 then starts immediately. Do not stop this runtime while either experiment owns unfinished work.
 
-Replacement A100 `exp-e24-recovery-a100` is READY at endpoint `gpu-a100-s-ass1b0-kysuwtw187ve`. E4 uses it first; E2 only prepares its environment until E4 finishes. Root's latest order is E4's remaining 359 cases first, then E2 main resume, then six exploratory ablations at seed42. The failed follow-on upload `E2-exploratory-ablations-20261104-01` never started. The new direct continuation payload will be `bash scripts/resume_formal.sh gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6`; it restores the actual checkpoint/config/data, completes main42/43/44, and immediately invokes the six exploratory variants. Execute real work through the existing Jupyter kernel foreground via the official SSH/IPC method; do not leave only a detached external trainer while the kernel is idle.
+## Current run and exact next action
 
-The older receipts and historical observations below are retained as provenance, not current liveness evidence.
+Prepared run: **`E2-main-resume-20261104-03`**, source commit **`04506d9943f5d9835d97a5edc25d5f76ae60ab60`**. Local request: `artifacts/E2-main-resume-20261104-03/request.json`; remote source and foreground entrypoint are already uploaded. Independent `/content/e2-venv`, Glaive data, step 300 checkpoint, and pinned 1.5B weights are prepared. No E2 training model is loaded while E4 runs.
 
-# E2 local recovery and execution
-
-Local Mac agents own E2 execution; server pi is paused. **Formal recovery is running on the existing shared A100 session `exp-e4-qwen`.** L4/A100 allocation requests were refused and H100 lacked entitlement; no replacement assignment was created. Root authorized sharing E4's A100 after measuring 33,044 MiB free. Do not stop this runtime until E2 and E4 both finish.
-
-- Run: `E2-formal-recovery-20261104-02`; source `0ac6399b38a1cf5bc6f3869fed4be70126cab23c`, clean at submission.
-- Launch: 2026-11-04 12:51:14 UTC; wrapper status `running`, PID 9592.
-- Local receipts: `artifacts/E2-formal-recovery-20261104-02/`; tracked copies `results/formal-baselines/recovery-request.json` and `recovery-status.json`.
-- Remote: `/content/experiment-runs/E2-formal-recovery-20261104-02`.
-- Independent E2 Python environment `/content/e2-venv`; private files `/content/e2-experiment-env.json` and `/content/e2-rclone.conf`. E4's environment and process are unchanged.
-- Payload: remaining 542 7B cases, full merged 1,240-case scoring, then main seeds 42/43/44. GPU sharing is recorded in inference/training metadata; timings are not a throughput benchmark.
-
-## Recovered evidence
-
-The original run `E2-formal-baselines-20261104-01` used `exp-preflight-l4`. At 2026-11-04 12:30 UTC, that session was absent from actual Colab assignments and downloads returned `Session 'exp-preflight-l4' not found`. Its old lease and `running` status are historical. The disappearance cause and any later progress are unknown.
-
-- **1.5B complete:** 1,240 official selected BFCL cases, micro-accuracy **0.7475806452**, bootstrap 95% CI **[0.7241935484, 0.7725806452]**. The raw predictions, metadata, score and details were recovered from Drive into `results/formal-baselines/baseline-1.5b/`.
-- Verified 1.5B destination: `gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b`; receipt `results/formal-baselines/baseline-1.5b.drive-receipt.json`. Do not repeat this completed baseline.
-- **Historical 7B interruption:** `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl` contains 698 of 1,240 cases, downloaded at 2026-11-04 12:18:14 UTC. Recovery has now completed those 542 cases and scored all 1,240: **86.37097%**, 95% CI **[84.35484%, 88.14516%]**. The final raw predictions and score are in `results/formal-baselines/baseline-7b/`; Drive copy `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-baseline-7b` completed at 13:16:40 UTC.
-- The original Glaive split had **18,547 train / 2,003 dev / 2,000 test** examples. Its manifest survives at `results/formal-baselines/glaive-manifest.json`, but `/content/data/e2-glaive` was not persisted before the runtime disappeared. The same revision and seed were reconstructed on Mac and copied to `gdrive:exp/runs/E2/E2-glaive-data-20261104` at 12:46:27 UTC. The normal copy receipt is `results/formal-baselines/glaive-data.drive-receipt.json`; local files are `data/glaive/`.
-- Main seed 42 began initialization at 13:17 UTC and has reached step 136/1288. Step100 was durably copied at 13:26:30 UTC; receipt `results/main-seed42.last-verified-checkpoint.json`. No completed final adapter exists yet.
-
-The original request remains at `/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json`; copies of the request and last observed status are in `results/formal-baselines/`. These are provenance for the interrupted run, not current execution status.
-
-## Recovery command
-
-The already-running payload is below. Poll or collect its existing run ID; do not submit it again:
+Payload (already prepared; do not resubmit once its remote status exists):
 
 ```sh
-bash scripts/recover_formal.sh
+bash scripts/resume_formal.sh gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6
 ```
 
-The recovery entrypoint prepares Python 3.12, reconstructs and persists Glaive data, resumes the missing 7B cases without repeating 1.5B, and continues the main training campaign. The observed run and receipt paths are recorded above. Keep the original partial snapshot unchanged as provenance.
+The payload restores seed 42 at step 300, completes main seeds 42/43/44, then directly runs all six 10k variants at seed 42. The original two baselines are not rerun. Actual work is submitted to the existing Jupyter kernel foreground and the client continuously consumes real IOPub output. Root/e8 own server connection continuity after the Mac handoff; attach to the existing message/run, never submit another model.
 
-This shared runtime uses private `/content/e2-experiment-env.json`, `RCLONE_CONFIG=/content/e2-rclone.conf`, and the staged quota header. Credentials stay outside the repository and logs. Dataset, completed baseline, checkpoint and adapter copies use `gdrive:exp/runs`.
-
-The pinned stack is an isolated `/content/e2-venv`: Python 3.12, torch 2.6.0+cu124, Transformers 4.51.3, PEFT 0.15.2, Accelerate 1.6.0, datasets 3.5.0, and BFCL 2026.3.23. `scripts/colab_bootstrap.sh` installs it without replacing Colab's default Python environment.
-
-## Main three-seed training and E3 adapter
-
-After data and baseline recovery, the direct continuation command is:
+Remote root: `/content/experiment-runs/E2-main-resume-20261104-03`. HTTP downloads work while the kernel is busy:
 
 ```sh
-bash scripts/formal_train.sh
+colab download -s exp-e24-recovery-a100 \
+  /content/experiment-runs/E2-main-resume-20261104-03/status.json status.json
+colab download -s exp-e24-recovery-a100 \
+  /content/experiment-runs/E2-main-resume-20261104-03/output.log output.log
+colab download -s exp-e24-recovery-a100 \
+  /content/experiment-runs/E2-main-resume-20261104-03/kernel-client.json kernel-client.json
 ```
 
-This uses `/content/data/e2-glaive`, main seeds **42, 43, 44**, and artifacts `/content/e2-artifacts`. Each seed trains, exports its adapter, and evaluates the five selected BFCL categories and independent held-out test. Normal checkpoint copies use `EXP_CHECKPOINT_SYNC`; completed checkpoints support resume. Record actual retained example counts and elapsed training time.
+`kernel-client.json` records the executed message ID and connection-file path for attaching a real output client. Use official SSH for file packaging or runtime inspection while the kernel is busy; an extra `colab exec` waits behind the active foreground job. Do not stop the only output client before the server client has attached.
 
-**E3 contract:** seed 42 adapter `/content/e2-artifacts/main-seed42/adapter`; its portable Drive destination is recorded in `results/main-seed42.adapter-receipt.json`. Send E3 the completed receipt and matching `main-seed42.train.json` when available. This is an expected output path, not a completed adapter claim.
+## Durable evidence and resume files
 
-## Remaining work and limitations
+- Both formal BFCL subset baselines completed 1240 cases: 1.5B **74.758%** (95% CI 72.419–77.258), 7B **86.371%** (84.355–88.145). Paired overall difference **+11.613pp** [9.113,14.274]. **Negative result:** 7B irrelevance is 60.42%, versus 1.5B 70.42%; paired difference −10pp [−15.83,−4.17]. Raw results and comparison are in `results/formal-baselines/`.
+- Drive baselines: `gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b` and `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-baseline-7b`.
+- Fixed Glaive split: train 18547/dev 2003/test 2000, saved at `gdrive:exp/runs/E2/E2-glaive-data-20261104`. Native runtime path `/content/data/e2-glaive`.
+- Latest recovered main checkpoint: `gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6`; downloaded complete model/optimizer/scheduler/RNG/TrainerState(global_step 300). Matching request: `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-main-seed42-config/request.json`.
+- Current local training output will be `/content/e2-artifacts/main-seed42`. Latest durable checkpoint receipt: `last-verified-checkpoint.json` there; checkpoints save every 100 optimizer steps. New saves include `request.json`; final adapter exports include `train.json`, `env.txt`, and `request.json`.
+- E3 needs `/content/e2-artifacts/main-seed42/adapter` after seed 42 completes. Its Drive destination will be in the current workspace's `results/main-seed42.adapter-receipt.json`; matching training evidence is `results/main-seed42.train.json`. No final adapter exists yet.
 
-- Run main with seeds42/43/44, then each of the six 10k rank/negative ablations with seed42 as single-seed exploration. Only development-selected contrasts used for stable main conclusions receive seeds43/44; never select based on test scores. The **30k ablation is blocked by only 18,547 unique training positives**. Additional valid licensed data is required; repeating examples does not produce a 30k dataset.
-- The campaign uses public Glaive because xLAM is gated. Do not describe its results as xLAM reproduction.
-- Human review of the fixed synthetic tool-swapped negative sample remains pending; model-generated checks do not complete that review.
-- These BFCL results use five single-turn categories and the official AST checker with the native Qwen parser. They are not the full published leaderboard aggregate. Record the BFCL package-version difference before comparing published numbers.
-- Preserve raw predictions, score hashes, independent held-out results, per-seed records, adapter receipts, costs, failed runs and negative findings. Create `results/formal-summary.json` only after the actual required coverage and analysis.
+## Scope, limits, and historical failures
 
-## First durable main checkpoint
+Main requires seeds 42/43/44. Six 10k rank/negative variants first run seed 42 only and remain **single-seed exploratory**. Stable main-conclusion contrasts receive 43/44 only after selection on development data, never test scores. New train records include the most recent fixed 256-example dev loss and its evaluation step. The 30k variant remains blocked by only 18547 unique training positives. All 50 human negative-audit verdicts in `results/negative-audit/` are null; do not mark human review completed.
 
-Seed42 step100 is saved at `gdrive:exp/runs/E2/E2-main-s42-step100-c5f44d7e4713`. The normal copy receipt records exit0. The matching run configuration is independently saved at `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-main-seed42-config/request.json`. For a future runtime recovery, copy the checkpoint into `/content/e2-artifacts/main-seed42/checkpoints/checkpoint-100`, restore the request to `/content/e2-artifacts/main-seed42/request.json`, restore the fixed Glaive directory, then invoke `bash scripts/formal_train.sh`; it resumes the newest complete checkpoint. Use the latest receipt once later checkpoints exist.
+The earlier `exp-preflight-l4` and `exp-e4-qwen` runtimes disappeared; causes were not established. `E2-formal-recovery-20261104-02` is historical, not running. The follow-on `E2-exploratory-ablations-20261104-01` upload failed before execution; no separate follow-on process should be resumed. The new payload chains ablations directly.
 
-Current measured training is about 4.2 seconds per optimizer step before evaluation/copy overhead. One seed therefore needs roughly 90 minutes plus evaluation; all three seeds are not claimed to finish before bedtime. The fixed human-review sample is `results/negative-audit/main-seed42-fixed-sample.jsonl`; all 50 human verdicts remain null.
-
-## Automatic continuation after main
-
-`scripts/formal_ablations.sh --after-run E2-formal-recovery-20261104-02` waits for the existing main run to succeed, then uses the same assigned runtime to execute `n10000-r8-neg0`, `n10000-r8-neg10`, `n10000-r16-neg0`, `n10000-r16-neg10`, `n10000-r64-neg0`, and `n10000-r64-neg10`, each with seed42. It installs the new isolated editable source only after the main process exits. The six runs are exploratory; do not claim stable improvements from a single seed. Each new training record stores the most recent fixed-256-example development loss and actual evaluation step for subsequent selection. Adding seeds43/44 is reserved for contrasts chosen on development data before main-result claims. The 30k case remains explicitly blocked.
+Pinned stack: Python 3.12, torch 2.6.0+cu124, Transformers 4.51.3, PEFT 0.15.2, Accelerate 1.6.0, datasets 3.5.0, BFCL 2026.3.23. Private runtime files are `/content/e2-experiment-env.json` and `/content/e2-rclone.conf`; normal copies use `gdrive:exp/runs` with the existing quota header. Earlier shared throughput was about 4.2s/optimizer step; do not promise all seeds before bedtime or treat shared/resumed timings as a throughput benchmark. CU snapshots in `results/formal-baselines/usage-snapshots.jsonl` are account-wide, not E2-only charges.
