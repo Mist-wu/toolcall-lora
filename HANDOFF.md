@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 16:30 UTC: seed43 training
+
+Existing foreground `E2-main-resume-20261104-03` has advanced to main seed43 step 110/1288. Step 100 was copied to `gdrive:exp/runs/E2/E2-main-s43-step100-a71af6992b25`; actual rclone receipt `results/main-seed43-checkpoint-100.receipt.json`. The current output subscriber is `exp-iopub-e24-scope.service`, active; the older PID 82069 is obsolete. Do not resubmit the existing job. Poll its output/status using the commands below.
+
+**Review scope updated 2026-11-05:** the 50-example agent audit is the accepted review; no new human annotation or delayed retest is requested. `human_validation_complete=false` and `human_validation_required=false`; retain uncertain audit findings as limitations and never use agent ratings as human-gold labels. This supersedes historical pending-human wording below.
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed43/last-verified-checkpoint.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed43-checkpoint-observed.json
+```
+
 ## Update 2026-11-04 16:23 UTC: seed 42 held-out score collected
 
 The existing run completed 2,000 Glaive held-out predictions for main seed42: **94.5%** accuracy, bootstrap 95% CI **93.4–95.55%**. Full predictions, metadata, score and details are in `results/formal-main-seed42/heldout.*`. This is a single-seed result on the Glaive test split, not xLAM or a three-seed aggregate; the separately documented semantic near-duplicates across Glaive splits limit the test's independence. The existing foreground pipeline and output subscriber remain active; continue the remaining main seeds and variants without resubmitting.
