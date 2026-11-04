@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 15:37 UTC
+
+Existing A100 foreground run continues at seed 42 step 1203/1288; its output subscriber is active. Step 1200 copied to `gdrive:exp/runs/E2/E2-main-s42-step1200-599d0b33cb61` (rclone exit 0); receipt `results/main-seed42-checkpoint-1200.receipt.json`. The 256-example training-time dev loss at epoch 1.86 was 0.0005691974656656384, not a final test metric. The completed E3 adapter is still pending; collect its receipt and train record when ready. Poll below without resubmitting.
+
 ## Update 2026-11-04 15:30 UTC
 
 The existing A100 foreground run continues, reaching seed 42 step 1103/1288; the actual output subscriber is active. Step 1100 copied to `gdrive:exp/runs/E2/E2-main-s42-step1100-751e50e86d79` (rclone exit 0); receipt `results/main-seed42-checkpoint-1100.receipt.json`. Training-time 256-example dev loss at epoch 1.71 was 0.0006018654676154256, not a final test result. The finished E3 adapter remains pending. Poll using the commands below; do not resubmit.
