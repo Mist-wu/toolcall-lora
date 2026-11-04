@@ -124,6 +124,9 @@ def train(config, data_dir, output_dir, resume=None):
     trainer.save_model(str(out / "adapter"))
     tokenizer.save_pretrained(str(out / "adapter"))
     metadata.update({"finished_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "metrics": metrics, "train_examples": len(dataset), "dev_examples": len(evalset), "dropped_overlength_train": len(encoded)-len(dataset), "dropped_overlength_dev": len(encoded_dev)-len(evalset), "adapter_path": str(out / "adapter"), "seed": seed, "status": "train_complete"})
+    development = [entry for entry in trainer.state.log_history if "eval_loss" in entry]
+    if development:
+        metadata["development_selection"] = {"metric":"eval_loss", "value":development[-1]["eval_loss"], "step":development[-1]["step"], "examples":len(evalset), "split":"dev"}
     (out / "train.json").write_text(json.dumps(metadata, indent=2) + "\n")
     # uv-created environments need not ship pip; write installed distribution versions.
     import importlib.metadata

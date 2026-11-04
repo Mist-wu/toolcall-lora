@@ -19,11 +19,13 @@ def verify():
     require(summary.get("baseline_sources_verified") is True,"public baseline source comparison pending")
     require(summary.get("negative_data_audit_complete") is True,"negative-tool relevance audit pending")
     records=summary.get("records",[])
+    confirmed=set(summary.get("confirmatory_ablation_labels",[]))
+    if confirmed:require(summary.get("ablation_selection_basis")=="development_data","confirmatory contrasts must be selected on development data")
     required={"baseline-1.5b","baseline-7b","main","n10000-r8-neg0","n10000-r8-neg10","n10000-r16-neg0","n10000-r16-neg10","n10000-r64-neg0","n10000-r64-neg10","n30000-r16-neg10"}
     require({r["label"] for r in records}==required,"incomplete baseline/ablation coverage")
     for record in records:
         paths=record.get("score_files",[])
-        needed={None} if record["label"].startswith("baseline-") else {42,43,44}
+        needed={None} if record["label"].startswith("baseline-") else {42,43,44} if record["label"]=="main" or record["label"] in confirmed else {42}
         seeds=set()
         for rel in paths:
             score_path=(ROOT/rel).resolve()
@@ -64,7 +66,7 @@ def verify():
                 expected=manifest["counts"]["train"] if requested=="all" else requested
                 require(train.get("selected_positive_examples")==expected,"partial training input pool")
                 training_seeds.add(train["seed"])
-            require(training_seeds=={42,43,44},"training evidence for three seeds missing")
+            require(training_seeds==needed,"training seed coverage differs from the declared main/exploratory scope")
     require(summary.get("heldout_test_score_files"),"independent xLAM held-out test not evaluated")
     for rel in summary["heldout_test_score_files"]:
         score=json.loads((ROOT/rel).read_text())

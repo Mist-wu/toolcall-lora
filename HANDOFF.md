@@ -49,7 +49,7 @@ This uses `/content/data/e2-glaive`, main seeds **42, 43, 44**, and artifacts `/
 
 ## Remaining work and limitations
 
-- Run main and six 10k rank/negative ablations with seeds 42/43/44. The **30k ablation is blocked by only 18,547 unique training positives**. Additional valid licensed data is required; repeating examples does not produce a 30k dataset.
+- Run main with seeds42/43/44, then each of the six 10k rank/negative ablations with seed42 as single-seed exploration. Only development-selected contrasts used for stable main conclusions receive seeds43/44; never select based on test scores. The **30k ablation is blocked by only 18,547 unique training positives**. Additional valid licensed data is required; repeating examples does not produce a 30k dataset.
 - The campaign uses public Glaive because xLAM is gated. Do not describe its results as xLAM reproduction.
 - Human review of the fixed synthetic tool-swapped negative sample remains pending; model-generated checks do not complete that review.
 - These BFCL results use five single-turn categories and the official AST checker with the native Qwen parser. They are not the full published leaderboard aggregate. Record the BFCL package-version difference before comparing published numbers.
@@ -60,3 +60,7 @@ This uses `/content/data/e2-glaive`, main seeds **42, 43, 44**, and artifacts `/
 Seed42 step100 is saved at `gdrive:exp/runs/E2/E2-main-s42-step100-c5f44d7e4713`. The normal copy receipt records exit0. The matching run configuration is independently saved at `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-main-seed42-config/request.json`. For a future runtime recovery, copy the checkpoint into `/content/e2-artifacts/main-seed42/checkpoints/checkpoint-100`, restore the request to `/content/e2-artifacts/main-seed42/request.json`, restore the fixed Glaive directory, then invoke `bash scripts/formal_train.sh`; it resumes the newest complete checkpoint. Use the latest receipt once later checkpoints exist.
 
 Current measured training is about 4.2 seconds per optimizer step before evaluation/copy overhead. One seed therefore needs roughly 90 minutes plus evaluation; all three seeds are not claimed to finish before bedtime. The fixed human-review sample is `results/negative-audit/main-seed42-fixed-sample.jsonl`; all 50 human verdicts remain null.
+
+## Automatic continuation after main
+
+`scripts/formal_ablations.sh E2-formal-recovery-20261104-02` waits for the existing main run to succeed, then uses the same assigned runtime to execute `n10000-r8-neg0`, `n10000-r8-neg10`, `n10000-r16-neg0`, `n10000-r16-neg10`, `n10000-r64-neg0`, and `n10000-r64-neg10`, each with seed42. It installs the new isolated editable source only after the main process exits. The six runs are exploratory; do not claim stable improvements from a single seed. Each new training record stores the most recent fixed-256-example development loss and actual evaluation step for subsequent selection. Adding seeds43/44 is reserved for contrasts chosen on development data before main-result claims. The 30k case remains explicitly blocked.

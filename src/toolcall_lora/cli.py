@@ -124,6 +124,7 @@ def matrix(args):
 
 def report(args):
     paths = sorted(Path(args.input).glob("*.score.json"))
+    paths += sorted(Path(args.input).glob("formal-baselines/baseline-*/bfcl.score.json"))
     records = [json.loads(p.read_text()) for p in paths]
     if not records: raise ValueError("No *.score.json files found")
     groups = {}
@@ -135,7 +136,7 @@ def report(args):
         values = [r["overall_subset"]["accuracy"] for r in group]
         sd = f"{statistics.stdev(values):.4f}" if len(values)>1 else "not applicable"
         lines.append(f"| {name} | {dataset} | {len(values)} | {statistics.mean(values):.4f} | {sd} |")
-    lines += ["", "## Error counts", "", "Held-out JSON errors use explicit semantic categories; BFCL keeps the official error_type rather than inventing equivalent labels.", "", "| Configuration | Dataset | Error | Count |", "|---|---|---|---:|"]
+    lines += ["", "Main training uses seeds 42/43/44. Single-seed ablations are exploratory and do not establish stable gains. Confirmatory contrasts must be selected using development data before adding seeds 43/44; test scores are not a selection criterion.", "", "## Error counts", "", "Held-out JSON errors use explicit semantic categories; BFCL keeps the official error_type rather than inventing equivalent labels.", "", "| Configuration | Dataset | Error | Count |", "|---|---|---|---:|"]
     for path,record in zip(paths,records):
         details=path.with_suffix(".details.jsonl")
         if not details.exists():continue

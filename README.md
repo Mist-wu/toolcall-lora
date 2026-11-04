@@ -1,6 +1,6 @@
 # Tool-calling LoRA: Qwen2.5 1.5B versus 7B
 
-E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The recovered 7B baseline also completed all 1,240 cases at 86.37%. Main seed 42 is now initializing on the shared A100; no LoRA improvement is claimed.**
+E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The recovered 7B baseline also completed all 1,240 cases at 86.37%. Main seed 42 is now training on the shared A100; no LoRA improvement is claimed.**
 
 | BFCL category | Qwen2.5 1.5B | Qwen2.5 7B |
 |---|---:|---:|
@@ -12,6 +12,8 @@ E2 implements native Qwen tool-call training, separate development/test splits, 
 | Micro-average (1,240) | **74.76%** | 86.37% |
 
 1.5B bootstrap 95% CI: **72.42%–77.26%**. 7B bootstrap 95% CI: **84.35%–88.15%**. The paired difference is **+11.61 percentage points**, 95% CI **[+9.11, +14.27]**. These are measured five-category subset baselines; LoRA improvements are not yet available. Raw responses and score provenance are saved with verified Drive copies.
+
+On the 240 irrelevance cases, 7B is **10.00 percentage points worse** than 1.5B, with paired 95% CI **[-15.83, -4.17]**. This negative result is retained alongside the higher overall score.
 
 ## Current execution
 
@@ -41,7 +43,7 @@ Colab currently supplies Python 3.13 and newer torch/CUDA packages. This reposit
 
 ## Run on an already-owned Colab GPU
 
-Use the shared experiment-runner transport from the Mac. On the replacement GPU, after staging the private rclone environment, submit:
+Use the shared experiment-runner transport from the Mac. The current recovery already runs on the shared A100; for a future approved recovery, stage the private rclone environment and submit:
 
 ```sh
 bash scripts/recover_formal.sh
@@ -49,7 +51,7 @@ bash scripts/recover_formal.sh
 
 After recovery, `bash scripts/formal_train.sh` is the direct command for the main three-seed campaign using `/content/data/e2-glaive`. Artifacts are written to `/content/e2-artifacts`; normal checkpoint callbacks copy completed checkpoints through the configured rclone remote, and final adapters are exported for E3. Small scores are also copied to `results/`. Existing 1.5B results must be reused rather than running the original two-model baseline script again.
 
-The planned matrix contains main, six 10k rank/negative variants, and a 30k variant: **24 training runs** across three seeds. Current Glaive data supports main and the six 10k variants; the three 30k runs remain blocked by insufficient unique training data. Completed matching training records are reused; incomplete runs resume the newest checkpoint after configuration validation. Evaluation is deterministically rerun rather than trusting partial files. Default inference is Transformers; `.[vllm]` plus `--backend vllm` enables batched vLLM inference. The formal baseline uses Transformers; vLLM has not been used for these results.
+The initial formal schedule is **main seeds 42/43/44 plus six 10k ablations at seed42** (9 training runs). The 10k variants are single-seed exploratory results, so they do not establish stable gains. Only contrasts selected using development data receive seeds43/44 before contributing stable main conclusions; never choose them using test scores. The 30k variant remains blocked by insufficient unique training data. The configuration catalog includes all seed files for later confirmation, but does not imply that every ablation runs three seeds. Completed matching training records are reused; incomplete runs resume the newest checkpoint after configuration validation. Evaluation is deterministically rerun rather than trusting partial files. Default inference is Transformers; `.[vllm]` plus `--backend vllm` enables batched vLLM inference. The formal baseline uses Transformers; vLLM has not been used for these results.
 
 For T4 use `--profile t4`: fp16 with Trainer loss scaling, microbatch 2 and accumulation 16. L4/A100 use bf16, microbatch 4 and accumulation 8. Overlength training examples are dropped and counted, never partially truncated into invalid target JSON. Development loss uses a fixed 256-example sample; test data is never used for early selection.
 
@@ -59,7 +61,7 @@ BFCL scores are the `simple_python`, `multiple`, `parallel`, `parallel_multiple`
 
 Negative examples use name-disjoint donated tools from the training split only. Name-disjointness does not prove semantic irrelevance: examine a fixed sample before claiming negative-training gains and record the limitation. The original answer/tool descriptions can still reveal semantically equivalent tools. Label noise is not hidden.
 
-`docs/baselines.md` defines sources and comparability. `docs/cost.md` records CU, GPU duration, storage and API use. Finalization requires all configured runs, three seeds, raw prediction provenance, independent held-out scores, source comparison and negative-data review. Completion requires actual formal results for the reported coverage. Public benchmark contamination remains possible; held-out synthetic source data does not establish uncontaminated generalization.
+`docs/baselines.md` defines sources and comparability. `docs/cost.md` records CU, GPU duration, storage and API use. Finalization requires three seeds for main and any development-selected confirmatory contrasts, single-seed exploratory ablations clearly labeled, raw prediction provenance, independent held-out scores, source comparison and negative-data review. Completion requires actual formal results for the reported coverage. Public benchmark contamination remains possible; held-out synthetic source data does not establish uncontaminated generalization.
 
 See [HANDOFF.md](HANDOFF.md) for the exact next commands and current blockers.
 

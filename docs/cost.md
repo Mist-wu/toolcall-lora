@@ -11,8 +11,10 @@ The original formal run `E2-formal-baselines-20261104-01` used the coordinator-a
 
 The 1.5B timestamps come from `results/formal-baselines/baseline-1.5b/predictions.jsonl.metadata.json`. The interval excludes scoring and the verified Drive copy at 11:55:44–11:55:56 UTC. The original wrapper started at 11:42:43 UTC. `results/formal-baselines/run-status-at-handoff.json` is historical; current recovery receipts are `recovery-request.json` and `recovery-status.json`. Add the replacement session's actual allocation, inference, training and release timestamps when observed; no purchase or spending ceiling was added.
 
-The manual's roughly ten-hour E2 estimate is unvalidated for the full eight-configuration, three-seed campaign. The fixed Glaive preparation supplies 18,547 training positives, so the 30k configuration is unavailable. Record measured training duration and retained sequence counts before forecasting the remaining campaign.
+The manual's roughly ten-hour E2 estimate is unvalidated for the expanded confirmation campaign. The fixed Glaive preparation supplies 18,547 training positives, so the 30k configuration is unavailable. Record measured training duration and retained sequence counts before forecasting the remaining campaign.
 
 Recovery allocation requests for L4 and A100 were refused; H100 was rejected for missing quota/entitlement. No new E2 assignment was created. Account-wide balance fell from 189.21 to 187.69 CU across the observed request interval, with 7 existing assignments and an unchanged 18.65 CU/hour rate; the 1.52 CU difference is not attributed to E2. See `results/formal-baselines/recovery-allocation.json`.
 
 Post-baseline account snapshot: 178.22 CU remaining, 18.49 CU/hour, 5 assignments at 2026-11-04T13:21:01.961798+00:00. Raw account snapshots are in `results/formal-baselines/usage-snapshots.jsonl`; these are not E2-only CU charges.
+
+The corrected initial scope is main×3 plus six 10k ablations×1, not all six ablations×3. At the current shared throughput, main alone is roughly 4.5 training hours plus generation evaluation; the six exploratory variants add roughly 4.4 training hours plus evaluation. These are operational estimates, not measured completed-run costs. Development-selected confirmatory repeats are additional work only if those contrasts become main conclusions.
