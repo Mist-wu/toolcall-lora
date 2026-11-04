@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:04 UTC: seed43 BFCL partial predictions collected
+
+Existing foreground pipeline continues seed43 BFCL inference. Downloaded 512/1,240 predictions with 512 unique case IDs to `results/formal-main-seed43/bfcl.predictions.partial-512.jsonl`. This is an incomplete, unscored snapshot, not a final accuracy or a three-seed result. `exp-iopub-e24-scope.service` is active. Do not resubmit or replace the running job/client; seed43 complete scores/held-out evaluation, seed44 and ablations remain outstanding.
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed43-bfcl.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed43-bfcl.partial.jsonl
+```
+
+Continue polling existing output/status and the prediction file; collect full predictions, metadata, score and details once complete using the seed42 pattern below.
+
 ## Update 2026-11-04 17:57 UTC: seed43 training and adapter complete
 
 Main seed43 finished two epochs at 17:56:39 UTC: 18,547 selected positives, 20,608 retained training examples including negatives, zero overlength drops. Collected `results/main-seed43.train.json`, `results/main-seed43.request.json`, and `results/main-seed43.env.txt`. Adapter copied to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed43-adapter` at 17:56:58 UTC; actual receipt `results/main-seed43.adapter-receipt.json`. The full timestamp interval is 5,673 s versus Trainer runtime 5,625.1212 s, not a throughput benchmark. Recorded these boundaries and account-wide usage (102.51 CU, 17.34 CU/hour, four assignments) in `docs/cost.md`.
