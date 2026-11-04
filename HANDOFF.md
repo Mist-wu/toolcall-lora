@@ -1,5 +1,21 @@
 # E2 current handoff
 
+## Update 2026-11-04 22:24 UTC: first exploratory ablation fully collected; rank8 neg10 training
+
+Collected all four actual held-out artifacts in `results/formal-ablations/n10000-r8-neg0-seed42/heldout.*`: **1889/2000 = 94.45%**, bootstrap 95% CI **93.40–95.55%**. All2,000 scored details are present; prediction SHA256 matches score provenance. Inference21:57:53–22:17:41UTC (1,188s), documented in `docs/cost.md`. This remains separate JSON exact match with Glaive semantic-near-duplicate independence limitations, not BFCL or xLAM. Historical held-out snapshot remains unscored and superseded. **1/6 exploratory configurations is fully collected**, including training/config/environment/adapter, BFCL and held-out evidence.
+
+Actual ablation status records completed=[n10000-r8-neg0], current=**n10000-r8-neg10 seed42**, running. Existing foreground training reached step71/694 at22:23UTC. Collected actual next configuration `results/formal-ablations/n10000-r8-neg10-seed42/request.json`. Real subscriber `exp-iopub-e24-scope.service` remains active; preserve command/client without resubmission. Five variants still require their actual training/evaluations, and paired ablation comparisons/final report remain incomplete. Do not select confirmation runs using test scores; retain single-seed exploratory scope.
+
+Commands used / next checkpoint observation:
+
+```sh
+for f in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg0-seed42-heldout.$f results/formal-ablations/n10000-r8-neg0-seed42/heldout.$f; done
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg10-seed42/request.json results/formal-ablations/n10000-r8-neg10-seed42/request.json
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg10-seed42/last-verified-checkpoint.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-checkpoint-observed.json
+```
+
+Continue existing output/ablation-status polling using commands below; collect new actual checkpoints and completed outputs without resubmission.
+
 ## Update 2026-11-04 22:17 UTC: first ablation held-out inference 1904/2000
 
 Original **n10000-r8-neg0 seed42** held-out inference advanced to **1904/2000** at22:16:49UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg0-seed42/heldout.predictions.partial-1904.jsonl`, explicitly unscored and not a complete held-out result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; original pipeline/client preserved without resubmission or replacement. Shared account at22:17UTC: **31.13 CU**, **15.40 CU/hour**, three assignments, not E2-only cost; no purchase/recharge. Next collect all four complete held-out files and follow next n10000-r8-neg10 training using existing output/status/download commands below. Remaining five trainings, evaluations/comparisons and final report remain pending; reuse completed main and first-ablation BFCL/error results. Do not score partial predictions.
