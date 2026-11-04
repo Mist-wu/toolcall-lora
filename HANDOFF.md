@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:43 UTC: seed44 checkpoint 100
+
+The existing foreground pipeline reached seed44 step134/1288. Step100 copied to `gdrive:exp/runs/E2/E2-main-s44-step100-9154d0ffd01f`, rclone exit 0; receipt `results/main-seed44-checkpoint-100.receipt.json`. Collected the actual seed44 configuration in `results/main-seed44.request.json`. Training-time 256-example dev loss was 0.005073927 at epoch 0.16, not a test score. `exp-iopub-e24-scope.service` is active. Preserve the existing running command/client without resubmission. Main seed44, six exploratory ablations and final analysis remain incomplete. Continue polling output/status and the seed44 checkpoint with the commands below.
+
 ## Update 2026-11-04 18:36 UTC: seed43 held-out complete; seed44 training
 
 Collected all seed43 Glaive held-out predictions, metadata, score and details in `results/formal-main-seed43/heldout.*`: **1,893/2,000 = 94.65%**, bootstrap 95% CI **93.65–95.65%**. Prediction hash matches the score record. Inference ran 18:12:19–18:32:10 UTC (1,191 s); recorded in `docs/cost.md`. This is a single-seed Glaive result, not xLAM, a three-seed aggregate or evidence of uncontaminated generalization: agent-observed semantic near-duplicates across Glaive splits limit independence.
