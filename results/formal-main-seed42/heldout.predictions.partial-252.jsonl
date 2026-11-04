@@ -1,0 +1,252 @@
+{"id": "glaive-13400", "text": "<tool_call>\n{\"name\": \"calculate_mortgage\", \"arguments\": {\"loan_amount\": 200000, \"interest_rate\": 3.5, \"loan_term\": 30}}\n</tool_call>", "output_tokens": 44}
+{"id": "glaive-49500", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"keyword\": \"friendship\", \"genre\": \"comedy\", \"year\": 1990}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-21969", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"job_title\": \"software engineer\", \"location\": \"San Francisco\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-28920", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"location\": \"San Francisco\", \"job_title\": \"software engineer\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-39472", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"location\": \"San Francisco\", \"job_title\": \"software engineer\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-87728", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"location\": \"San Francisco\", \"title\": \"software engineer\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-76468", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\", \"date\": \"tomorrow\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-82468", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\", \"date\": \"2022-04-15\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-17391", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"ingredients\": [\"chicken\", \"tomatoes\", \"garlic\"]}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-26360", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"data\": \"1234567890\", \"format\": \"QR code\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-2890", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-16946", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-17110", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-18701", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-19150", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_rate\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-27204", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-31333", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-32991", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-39165", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-44199", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-44293", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-57524", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-60429", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-74954", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-83684", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-89157", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-96767", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-100558", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 100, \"discount\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-80060", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-72683", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"author\": \"\", \"genre\": \"science fiction\", \"year\": 1984}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-22288", "text": "<tool_call>\n{\"name\": \"generate_invoice\", \"arguments\": {\"client_name\": \"John Doe\", \"services\": [\"web development\", \"graphic design\"], \"amount_due\": 2000}}\n</tool_call>", "output_tokens": 42}
+{"id": "glaive-61304", "text": "<tool_call>\n{\"name\": \"analyze_sentiment\", \"arguments\": {\"text\": \"I had a wonderful day at the park, the weather was perfect and I enjoyed a delicious ice cream.\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-79931", "text": "<tool_call>\n{\"name\": \"analyze_sentiment\", \"arguments\": {\"text\": \"I had a wonderful day at the park, the weather was perfect and I enjoyed a delicious ice cream.\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-71714", "text": "<tool_call>\n{\"name\": \"get_user_details\", \"arguments\": {\"user_id\": \"12345\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-75418", "text": "<tool_call>\n{\"name\": \"find_nearby_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-49118", "text": "<tool_call>\n{\"name\": \"generate_uuid\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-48029", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-71820", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-75440", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-109408", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-1211", "text": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 70, \"height\": 175}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-22653", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-24449", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"Arthur C. Clarke\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-25066", "text": "<tool_call>\n{\"name\": \"get_note\", \"arguments\": {\"note_id\": 123}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20037", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-26001", "text": "<tool_call>\n{\"name\": \"get_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-38973", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-43283", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-84850", "text": "<tool_call>\n{\"name\": \"generate_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-95597", "text": "<tool_call>\n{\"name\": \"generate_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-45787", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"event_title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\", \"location\": \"conference room\"}}\n</tool_call>", "output_tokens": 79}
+{"id": "glaive-103486", "text": "<tool_call>\n{\"name\": \"generate_random_quote_by_author\", \"arguments\": {\"author\": \"Albert Einstein\"}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-7656", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-13777", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-38076", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-64821", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-53096", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\", \"service\": \"standard\"}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-1732", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-26060", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-49624", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-64767", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-86171", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-98105", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-98843", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-109757", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-21003", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"H\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-49233", "text": "<tool_call>\n{\"name\": \"search_book\", \"arguments\": {\"title\": \"Sun\", \"author\": \"H\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-36141", "text": "<tool_call>\n{\"name\": \"get_random_joke\", \"arguments\": {\"category\": \"programming\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-76683", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"latest\", \"technology\", \"advancements\"]}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-9081", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-12687", "text": "<tool_call>\n{\"name\": \"search_restaurant\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-72305", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-90874", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-111644", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-7538", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 5000, \"from_currency\": \"USD\", \"to_currency\": \"EUR\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-23623", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 5000, \"from_currency\": \"USD\", \"to_currency\": \"EUR\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-5151", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-6119", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-29416", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-44010", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-68616", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_requirements\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 35}
+{"id": "glaive-111602", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-5431", "text": "<tool_call>\n{\"name\": \"analyze_image\", \"arguments\": {\"image_url\": \"www.example.com/image.jpg\", \"features\": [\"objects\", \"faces\"]}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-36282", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"ingredient\": \"chicken\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25001", "text": "<tool_call>\n{\"name\": \"calculate_rental_profit\", \"arguments\": {\"rental_income\": 2000, \"expenses\": 500}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-47312", "text": "<tool_call>\n{\"name\": \"find_nearby_restaurants\", \"arguments\": {\"location\": \"San Francisco, CA\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-72579", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"total_bill\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-72121", "text": "<tool_call>\n{\"name\": \"get_news_articles\", \"arguments\": {\"source\": \"BBC\", \"language\": \"English\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-34516", "text": "<tool_call>\n{\"name\": \"get_next_holiday\", \"arguments\": {}}\n</tool_call>", "output_tokens": 17}
+{"id": "glaive-68", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-70", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-667", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-752", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-888", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-1050", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-1344", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-1379", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-1573", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-2013", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-2785", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-2903", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-4769", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-5401", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-5495", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-5543", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-6509", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-6751", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-8081", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-8153", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-9976", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-10638", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-11900", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-12673", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-12825", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-13956", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-14275", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-14755", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-16139", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-16190", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-16252", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-16638", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20328", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-20561", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20705", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-22516", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-23805", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25529", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25566", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-26669", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-26671", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-28956", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-30040", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-33806", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-34540", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-34901", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-36917", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-37621", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-38107", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-38163", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-38654", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-40877", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-41906", "text": "<tool_call>\n{\"name\": \"search_stock\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-42009", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-42419", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-42438", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-44798", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-44913", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-45017", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-45393", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-45412", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-46081", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-46430", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-48483", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-48657", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-50904", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-51503", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-51704", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-52605", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-53317", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-53323", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-54408", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-58489", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-59692", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-62276", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-62433", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-62765", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-66197", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-66630", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-67735", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-70408", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-71276", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-74118", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-76248", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-77410", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-78566", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-80260", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-81952", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-82852", "text": "<tool_call>\n{\"name\": \"get_stock_prices\", \"arguments\": {\"stock_code\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-84086", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-86006", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-86251", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-87153", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-88655", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-91660", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-92551", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-93174", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-93842", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-94538", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-95175", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-96412", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-96456", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-97770", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-99063", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-100536", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-102604", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-102908", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-103854", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-104097", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-107297", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-107629", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-110080", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-110230", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-110251", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-111084", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-112537", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_code\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-102199", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20, \"additional_discount\": 10}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-1737", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-7948", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-11509", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-12094", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-23573", "text": "<tool_call>\n{\"name\": \"get_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-23686", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-27476", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-28951", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-33245", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-36834", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-48677", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-56485", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-57744", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-59667", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-68978", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-70249", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-72607", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-81222", "text": "<tool_call>\n{\"name\": \"get_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-81915", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-82587", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-84332", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-85778", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-101171", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-104431", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-104901", "text": "<tool_call>\n{\"name\": \"get_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-107436", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-110431", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-13474", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"keywords\": \"artificial intelligence\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-88679", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"keywords\": [\"artificial intelligence\"]}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-75107", "text": "<tool_call>\n{\"name\": \"find_prime_numbers\", \"arguments\": {\"start\": 10, \"end\": 50}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-106700", "text": "<tool_call>\n{\"name\": \"find_prime_numbers\", \"arguments\": {\"start\": 10, \"end\": 50}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-5797", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"stock_exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-79029", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-104985", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-100007", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-62035", "text": "<tool_call>\n{\"name\": \"get_driving_directions\", \"arguments\": {\"source\": \"New York\", \"destination\": \"Los Angeles\"}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-51355", "text": "<tool_call>\n{\"name\": \"find_nearby_gas_stations\", \"arguments\": {\"latitude\": 40.7128, \"longitude\": -74.006, \"radius\": 5000}}\n</tool_call>", "output_tokens": 49}
+{"id": "glaive-106194", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 80000, \"deductions\": 10000}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-14140", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-53881", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percent\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-56251", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percent\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-66690", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-79504", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-80436", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-110683", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-38852", "text": "<tool_call>\n{\"name\": \"search_lyrics\", \"arguments\": {\"artist\": \"John Lennon\", \"title\": \"Imagine\"}}\n</tool_call>", "output_tokens": 27}

@@ -1,5 +1,18 @@
 # E2 current handoff
 
+## Update 2026-11-04 16:04 UTC: seed 42 BFCL score collected
+
+The existing run completed all 1,240 five-category BFCL cases for main seed42. Collected predictions, metadata, score, and case details in `results/formal-main-seed42/`. Measured accuracy **57.258%** (bootstrap 95% CI **54.677–60.0%**), versus the same-dataset 1.5B baseline **74.758%**; parallel accuracy **0/200**, versus baseline **65.5%**. This is a negative single-seed result, not the three-seed aggregate or full leaderboard. Irrelevance accuracy was 90.42%. Preserve these results rather than rerunning to improve them. Held-out inference is underway: saved an unscored 252/2000 snapshot to `results/formal-main-seed42/heldout.predictions.partial-252.jsonl`. The foreground job and output subscriber PID 82069 remain active; do not resubmit.
+
+```sh
+root=/content/e2-artifacts
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-bfcl.predictions.jsonl" results/formal-main-seed42/bfcl.predictions.jsonl
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-bfcl.predictions.jsonl.metadata.json" results/formal-main-seed42/bfcl.predictions.jsonl.metadata.json
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-bfcl.score.json" results/formal-main-seed42/bfcl.score.json
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-bfcl.score.details.jsonl" results/formal-main-seed42/bfcl.score.details.jsonl
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-heldout.predictions.jsonl" /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed42-heldout.partial.jsonl
+```
+
 ## Update 2026-11-04 15:57 UTC
 
 The existing foreground run remains running; seed42 BFCL predictions reached **896/1240**. Saved the incomplete snapshot to `results/formal-main-seed42/bfcl.predictions.partial-896.jsonl`; it is not a score. `exp-iopub-e24.service` was no longer present and no matching subscriber process was found; the reason is unknown. Attached one real-output subscriber to the existing busy kernel (PID 82069, log `/srv/exp-runner/logs/exp-e24-recovery-a100-iopub.log`), without submitting another job:
