@@ -1,11 +1,11 @@
 {
   "experiment_id": "E2",
-  "run_id": "E2-formal-recovery-20261104-02",
-  "session": "exp-e4-qwen",
+  "run_id": "E2-main-resume-20261104-03",
+  "session": "exp-e24-recovery-a100",
   "snapshot_observed_at": "2026-11-04T13:21:00.880019+00:00",
-  "run_state": "runtime_unavailable",
-  "request_path": "/Users/wu/Github/toolcall-lora/artifacts/E2-formal-recovery-20261104-02/request.json",
-  "runtime_source_commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
+  "run_state": "running",
+  "request_path": "results/resume-03-request.json",
+  "runtime_source_commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
   "baseline_1_5b": {
     "state": "completed",
     "cases": 1240,
@@ -29,7 +29,7 @@
     ],
     "drive_receipt": "baseline-7b.drive-receipt.json"
   },
-  "training_state": "checkpoint300_recovered_waiting_for_replacement",
+  "training_state": "restoring_main_seed42_checkpoint300",
   "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
   "training_data_persisted": true,
@@ -82,5 +82,6 @@
     "E4 completes its remaining359 cases on replacement A100",
     "E2 resumes main seed42 from step300, then seeds43/44",
     "Six10k configurations run exploratory seed42"
-  ]
+  ],
+  "kernel_message_id": "4344e714-5beab0aa0d35eec67cb710a4_9905_1"
 }

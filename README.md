@@ -1,6 +1,6 @@
 # Tool-calling LoRA: Qwen2.5 1.5B versus 7B
 
-E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The recovered 7B baseline also completed all 1,240 cases at 86.37%. The shared runtime subsequently disappeared; main seed42 has a recovered step300 checkpoint awaiting the replacement A100; no LoRA improvement is claimed.**
+E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The recovered 7B baseline also completed all 1,240 cases at 86.37%. The former shared runtime disappeared; main seed42 is now resuming its saved step300 on the replacement A100; no LoRA improvement is claimed.**
 
 | BFCL category | Qwen2.5 1.5B | Qwen2.5 7B |
 |---|---:|---:|

@@ -1,0 +1,25 @@
+{
+  "session": "exp-e24-recovery-a100",
+  "submission_state": "submitted_foreground",
+  "payload": {
+    "run_id": "E2-main-resume-20261104-03",
+    "run_root": "/content/experiment-runs/E2-main-resume-20261104-03",
+    "archive": "/content/E2-main-resume-20261104-03.tgz",
+    "git": {
+      "commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
+      "dirty": false
+    },
+    "argv": [
+      "bash",
+      "scripts/resume_formal.sh",
+      "gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6"
+    ],
+    "install": false,
+    "env_file": "/content/e2-experiment-env.json"
+  },
+  "artifact_paths": [
+    "results"
+  ],
+  "kernel_message_id": "4344e714-5beab0aa0d35eec67cb710a4_9905_1",
+  "submitted_at": "2026-11-04T14:30:16.599793+00:00"
+}

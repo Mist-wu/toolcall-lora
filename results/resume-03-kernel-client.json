@@ -1,0 +1,17 @@
+{
+  "submitted": "4344e714-5beab0aa0d35eec67cb710a4_9905_1",
+  "connection_file": "/root/.local/share/jupyter/runtime/kernel-66b45375-3f56-45c3-aedf-6272148d3275.json",
+  "client_pid": 9905,
+  "submitted_at": "2026-11-04T14:30:16.599793+00:00",
+  "status": {
+    "run_id": "E2-main-resume-20261104-03",
+    "state": "running",
+    "returncode": null,
+    "started_at_unix": 1793802616.5041263,
+    "git": {
+      "commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
+      "dirty": false
+    },
+    "pid": 6202
+  }
+}
