@@ -17,7 +17,7 @@ The original run `E2-formal-baselines-20261104-01` used `exp-preflight-l4`. At 2
 - Verified 1.5B destination: `gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b`; receipt `results/formal-baselines/baseline-1.5b.drive-receipt.json`. Do not repeat this completed baseline.
 - **Historical 7B interruption:** `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl` contains 698 of 1,240 cases, downloaded at 2026-11-04 12:18:14 UTC. Recovery has now completed those 542 cases and scored all 1,240: **86.37097%**, 95% CI **[84.35484%, 88.14516%]**. The final raw predictions and score are in `results/formal-baselines/baseline-7b/`; Drive copy `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-baseline-7b` completed at 13:16:40 UTC.
 - The original Glaive split had **18,547 train / 2,003 dev / 2,000 test** examples. Its manifest survives at `results/formal-baselines/glaive-manifest.json`, but `/content/data/e2-glaive` was not persisted before the runtime disappeared. The same revision and seed were reconstructed on Mac and copied to `gdrive:exp/runs/E2/E2-glaive-data-20261104` at 12:46:27 UTC. The normal copy receipt is `results/formal-baselines/glaive-data.drive-receipt.json`; local files are `data/glaive/`.
-- Main seed 42 began initialization at 13:17 UTC after both baseline copies completed. No completed adapter exists yet.
+- Main seed 42 began initialization at 13:17 UTC and has reached step 136/1288. Step100 was durably copied at 13:26:30 UTC; receipt `results/main-seed42.last-verified-checkpoint.json`. No completed final adapter exists yet.
 
 The original request remains at `/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json`; copies of the request and last observed status are in `results/formal-baselines/`. These are provenance for the interrupted run, not current execution status.
 
@@ -54,3 +54,9 @@ This uses `/content/data/e2-glaive`, main seeds **42, 43, 44**, and artifacts `/
 - Human review of the fixed synthetic tool-swapped negative sample remains pending; model-generated checks do not complete that review.
 - These BFCL results use five single-turn categories and the official AST checker with the native Qwen parser. They are not the full published leaderboard aggregate. Record the BFCL package-version difference before comparing published numbers.
 - Preserve raw predictions, score hashes, independent held-out results, per-seed records, adapter receipts, costs, failed runs and negative findings. Create `results/formal-summary.json` only after the actual required coverage and analysis.
+
+## First durable main checkpoint
+
+Seed42 step100 is saved at `gdrive:exp/runs/E2/E2-main-s42-step100-c5f44d7e4713`. The normal copy receipt records exit0. The matching run configuration is independently saved at `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-main-seed42-config/request.json`. For a future runtime recovery, copy the checkpoint into `/content/e2-artifacts/main-seed42/checkpoints/checkpoint-100`, restore the request to `/content/e2-artifacts/main-seed42/request.json`, restore the fixed Glaive directory, then invoke `bash scripts/formal_train.sh`; it resumes the newest complete checkpoint. Use the latest receipt once later checkpoints exist.
+
+Current measured training is about 4.2 seconds per optimizer step before evaluation/copy overhead. One seed therefore needs roughly 90 minutes plus evaluation; all three seeds are not claimed to finish before bedtime. The fixed human-review sample is `results/negative-audit/main-seed42-fixed-sample.jsonl`; all 50 human verdicts remain null.

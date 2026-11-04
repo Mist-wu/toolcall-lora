@@ -1,0 +1,9 @@
+{
+  "state": "copied",
+  "recorded_at": "2026-11-04T13:33:38.937530+00:00",
+  "source": "results/main-seed42.request.json",
+  "destination": "gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-main-seed42-config/request.json",
+  "copy_exit_code": 0,
+  "verification": "rclone_copy_exit_status",
+  "source_sha256": "70c2d88851408cf3d34aa328daf8d27b2d03caee067f94b5e16829b8afa1229e"
+}

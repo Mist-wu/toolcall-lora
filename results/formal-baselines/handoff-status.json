@@ -29,7 +29,7 @@
     ],
     "drive_receipt": "baseline-7b.drive-receipt.json"
   },
-  "training_state": "main_seed42_initializing",
+  "training_state": "main_seed42_training",
   "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
   "training_data_persisted": true,
@@ -69,5 +69,12 @@
   },
   "training_data_drive": "gdrive:exp/runs/E2/E2-glaive-data-20261104",
   "training_data_local_path": "/Users/wu/Github/toolcall-lora/data/glaive",
-  "gpu_sharing": "Shared A100 with E4; not a throughput benchmark"
+  "gpu_sharing": "Shared A100 with E4; not a throughput benchmark",
+  "training_progress": {
+    "observed_optimizer_step": 136,
+    "optimizer_steps_total": 1288,
+    "last_durable_checkpoint_step": 100,
+    "last_durable_receipt": "results/main-seed42.last-verified-checkpoint.json",
+    "first_dev_eval_loss": 0.0011036377400159836
+  }
 }
