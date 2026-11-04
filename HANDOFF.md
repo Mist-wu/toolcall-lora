@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 14:55 UTC
+
+The existing `E2-main-resume-20261104-03` foreground run remains active, with output at seed 42 step 626/1288; `exp-iopub-e24.service` is active. Step 600 copied successfully to `gdrive:exp/runs/E2/E2-main-s42-step600-483a953ed830` at 14:53 UTC; the actual receipt is `results/main-seed42-checkpoint-600.receipt.json`. This is a checkpoint, not the finished adapter required by E3. Continue polling with the commands below; do not resubmit.
+
 ## Update 2026-11-04 14:48 UTC
 
 Existing foreground run `E2-main-resume-20261104-03` is running; output reached seed 42 step 536/1288, and `exp-iopub-e24.service` remains active. The step-500 checkpoint was copied to `gdrive:exp/runs/E2/E2-main-s42-step500-3f88f4ca1b6a` at 14:46 UTC (rclone exit status 0); receipt: `results/main-seed42-checkpoint-500.receipt.json`. This checkpoint is not the finished adapter; E3 still awaits seed 42 completion. Continue polling with the commands below, without resubmission.
