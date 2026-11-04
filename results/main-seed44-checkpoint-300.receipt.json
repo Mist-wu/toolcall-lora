@@ -1,0 +1,11 @@
+{
+  "experiment": "E2",
+  "run_id": "E2-main-s44-step300-380a5f3d0e13",
+  "source": "/content/e2-artifacts/main-seed44/checkpoints/checkpoint-300",
+  "destination": "gdrive:exp/runs/E2/E2-main-s44-step300-380a5f3d0e13",
+  "started_at": "2026-11-04T18:54:41.828196+00:00",
+  "state": "verified",
+  "verification": "rclone_copy_exit_status",
+  "ended_at": "2026-11-04T18:54:59.133052+00:00",
+  "hook_exit_code": 0
+}
