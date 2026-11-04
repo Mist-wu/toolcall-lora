@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 22:17 UTC: first ablation held-out inference 1904/2000
+
+Original **n10000-r8-neg0 seed42** held-out inference advanced to **1904/2000** at22:16:49UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg0-seed42/heldout.predictions.partial-1904.jsonl`, explicitly unscored and not a complete held-out result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; original pipeline/client preserved without resubmission or replacement. Shared account at22:17UTC: **31.13 CU**, **15.40 CU/hour**, three assignments, not E2-only cost; no purchase/recharge. Next collect all four complete held-out files and follow next n10000-r8-neg10 training using existing output/status/download commands below. Remaining five trainings, evaluations/comparisons and final report remain pending; reuse completed main and first-ablation BFCL/error results. Do not score partial predictions.
+
 ## Update 2026-11-04 22:11 UTC: first ablation seven-category BFCL evidence collected
 
 Extended `scripts/analyze_bfcl_errors.py` to include the actually collected completed ablation BFCL scores; reran only the small saved-outcome analysis, not inference/checker. `results/formal-error-analysis/{report.md,summary.json,cases.jsonl}` now covers baselines, main seeds and **1/6 exploratory ablations**. For n10000-r8-neg0 seed42, 425 failed cases: wrong_function9, missing_argument19, wrong_type5, wrong_value43, extra_call4, missed_call31, false_call235, unresolved79 (8 parser failures +71 ambiguous parallel no-match). Irrelevance0/240 comprises **235 parsed false calls and5 parser failures**, not240 confirmed parsed calls. Reference hash matches score provenance. Rules/uncertainty/agent-only review boundaries unchanged; no isolated causal conclusion about negatives before matched results.
