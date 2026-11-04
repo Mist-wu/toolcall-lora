@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 23:24 UTC: consolidated formal report (explicitly incomplete)
+
+Wrote `results/report.md`, consolidating actual baselines, three-seed main BFCL/held-out statistics, uncertainty boundaries, executed fallback/configuration, first complete exploratory variant, seven-category evidence, agent-review limitations, costs, artifact links, reproduction commands and E3 adapter receipt. Pending variants and final published-source reconciliation remain explicitly pending; no missing score/label is invented and no E2 completion is claimed. No model/checker reruns or changes to formal data/metrics. Matched ablation comparisons await the actual rank8 neg10 results.
+
+Original rank8 neg10 BFCL inference advanced to **732/1240** at23:21:31UTC. The actual incomplete observation remains unscored at `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r8-neg10-seed42-bfcl.partial.jsonl`. Real subscriber `exp-iopub-e24-scope.service` is active; original pipeline/client preserved without resubmission. Next collect complete rank8 neg10 BFCL/held-out outputs using commands below, analyze the matched rank8 pair descriptively, and follow the four remaining variants. Main/first-ablation completed work is reused. Preserve actual progress/wait at zero CU without automatic purchase/recharge.
+
 ## Update 2026-11-04 23:16 UTC: rank8 neg10 BFCL inference 500/1240
 
 Original **n10000-r8-neg10 seed42** BFCL inference reached **500/1240** predictions at23:15:27UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg10-seed42/bfcl.predictions.partial-500.jsonl`, explicitly unscored and not a complete result. Actual subscriber `exp-iopub-e24-scope.service` remains active; original pipeline/client preserved without resubmission or replacement. Two ablation trainings complete, one fully evaluated/collected. This evaluation pair, four later variants, matched comparisons and final report remain incomplete. Continue existing output/ablation-status polling and collect all four BFCL/held-out files when complete using commands below. Do not score partial predictions or select confirmation runs using test results. Reuse completed experiments; preserve progress/wait at zero CU without automatic purchase/recharge.
