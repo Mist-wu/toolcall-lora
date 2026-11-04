@@ -1,5 +1,19 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:27 UTC: seed44 BFCL complete
+
+Collected all four seed44 BFCL artifacts in `results/formal-main-seed44/bfcl.*`: **734/1240 = 59.1935%**, bootstrap 95% CI **56.5323–61.8548%**. Category scores: simple_python 340/400 (85%), multiple 143/200 (71.5%), parallel 1/200 (0.5%), parallel_multiple 34/200 (17%), irrelevance 216/240 (90%). The prediction SHA256 matches score provenance; all 1,240 scored detail records are collected. Incomplete snapshots remain unscored history and are superseded by the full files.
+
+All three main BFCL scores are now available (42: 57.26%; 43: 53.79%; 44: 59.19%), each below both baselines overall. Final three-seed statistics remain to be written, not inferred from case CIs. Seed44 BFCL inference ran 20:06:40–20:24:09 UTC (1,049 s); documented in `docs/cost.md` with shared-cost limits. Seed44 held-out evaluation is now running in the original foreground pipeline; actual subscriber `exp-iopub-e24-scope.service` remains active. Preserve the command/client without resubmission. Held-out outputs, six exploratory ablations and final analysis remain pending.
+
+Collected with:
+
+```sh
+for f in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed44-bfcl.$f results/formal-main-seed44/bfcl.$f; done
+```
+
+Next poll existing output/status and `/content/e2-artifacts/main-seed44-heldout.predictions.jsonl`; collect all four held-out files when complete, then run `python3 scripts/compare_main_seed42.py --seed 44` and complete three-seed statistics. The current comparison script reads the completed held-out score for its limitations paragraph, so do not run it for seed44 before that score exists.
+
 ## Update 2026-11-04 20:20 UTC: seed44 BFCL inference 908/1240
 
 Existing foreground pipeline advanced to **908/1240** seed44 BFCL predictions. Collected `results/formal-main-seed44/bfcl.predictions.partial-908.jsonl`, explicitly incomplete and unscored; it supersedes the 524-case progress snapshot, not a final score. Actual output subscriber `exp-iopub-e24-scope.service` remains active. Original command/client preserved without resubmission or replacement. Seed44 complete BFCL/held-out evaluations, six exploratory ablations and final three-seed/error analysis remain pending. Continue polling with the download commands below; collect the full four-file BFCL/held-out outputs when complete and do not score partial snapshots.
