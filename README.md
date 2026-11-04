@@ -7,13 +7,13 @@ E2 implements native Qwen tool-call training, separate development/test splits, 
 | Core parser, split, masking and evaluation logic | Implemented with offline tests |
 | Real Qwen tokenizer/template | Checked with pinned model tokenizer |
 | BFCL package and data | `bfcl-eval==2026.3.23`, 1,240 cases in selected categories |
-| LoRA training/ablation accuracy | Pending Colab GPU execution |
+| LoRA training/ablation accuracy | Main three-seed run follows the active full baselines |
 
 ## Current execution
 
 The detached formal run is `E2-formal-baselines-20261104-01` on `exp-preflight-l4`. It evaluates all 1,240 official cases with 1.5B, then 7B, while preparing the public Glaive fallback data in parallel. Its source command is `bash scripts/formal_baselines.sh`.
 
-Results are written under `results/formal-baselines/`. The shared runner records status and exit code on AWS; completed per-model outputs are copied to Drive when the runtime configuration is available. No standalone smoke entrypoint remains.
+Results are written under `results/formal-baselines/`. The shared runner records status and exit code on AWS; completed per-model outputs are copied to Drive when the runtime configuration is available. 
 
 ## Prepare data on Colab CPU
 
@@ -37,15 +37,15 @@ Colab currently supplies Python 3.13 and newer torch/CUDA packages. This reposit
 
 ## Run on an already-owned Colab GPU
 
-Use the shared experiment-runner transport. This repository never creates or stops a Colab session. Stage data from Drive to `/content/data` before these commands. Point `--artifacts` at the run's persistent Drive directory; checkpoints and raw predictions are saved there, small scores are also copied to `results/`.
+Use the shared experiment-runner transport. This repository never creates or stops a Colab session. Stage data from Drive to `/content/data` before these commands. Point `--artifacts` at local `/content/e2-artifacts`; normal checkpoint callbacks copy completed checkpoints through the configured rclone remote, and final adapters are exported for E3. Small scores are also copied to `results/`.
 
 ```sh
 python3 scripts/run_campaign.py --stage baselines --data data/xlam \
-  --artifacts /content/drive/MyDrive/exp/runs/e2/r01
+  --artifacts /content/e2-artifacts
 python3 scripts/run_campaign.py --stage train --run main --seeds 42 43 44 \
-  --data data/xlam --artifacts /content/drive/MyDrive/exp/runs/e2/r01
+  --data data/xlam --artifacts /content/e2-artifacts
 python3 scripts/run_campaign.py --stage train --run all --seeds 42 43 44 \
-  --data data/xlam --artifacts /content/drive/MyDrive/exp/runs/e2/r01
+  --data data/xlam --artifacts /content/e2-artifacts
 ```
 
 `run all` includes the main configuration and six 10k rank/negative variants plus the 30k variant: **24 training runs**, with three seeds each. Completed matching training records are reused; incomplete runs resume the newest checkpoint after configuration validation. Evaluation is deterministically rerun rather than trusting partial files. Default inference is Transformers; `.[vllm]` plus `--backend vllm` enables batched vLLM inference. vLLM has separate CUDA compatibility requirements and must pass the GPU probe before selection.

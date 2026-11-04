@@ -6,6 +6,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import os
 
 def run(*args):
     subprocess.run([sys.executable,"-m","toolcall_lora.cli",*map(str,args)],check=True)
@@ -62,6 +63,7 @@ def main():
                 if checkpoints:call += ["--resume",checkpoints[-1]]
                 run(*call)
             shutil.copy2(complete,local/f"{item['run']}.train.json")
+            subprocess.run([sys.executable,"-m","exp_common.checkpoint","--source",str(dest/"adapter"),"--experiment","E2","--run-id",os.environ.get("EXPERIMENT_RUN_ID","E2-main")+"-"+item["run"]+"-adapter","--receipt",str(local/f"{item['run']}.adapter-receipt.json")],check=True)
             evaluate(cfg["model"],cfg["run_name"],cfg["seed"],dest/"adapter")
     subprocess.run([sys.executable,"scripts/collect_results.py",str(persistent)],check=True)
     run("report")
