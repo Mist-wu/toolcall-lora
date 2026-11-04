@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 16:38 UTC: seed43 checkpoint 200
+
+The existing foreground pipeline reached seed43 step 208/1288; `exp-iopub-e24-scope.service` is active. Step 200 copied to `gdrive:exp/runs/E2/E2-main-s43-step200-42893b83bcb2`, rclone exit 0; actual receipt `results/main-seed43-checkpoint-200.receipt.json`. Training-time dev loss on 256 examples was 0.001469 at epoch 0.31, not a test score. Account-wide usage at 16:38 UTC was 122.77 CU balance at 17.34 CU/hour across four assignments, not E2-only cost. Continue polling the existing job; do not resubmit. Seed43/44 and the ablations remain incomplete.
+
 ## Update 2026-11-04 16:30 UTC: seed43 training
 
 Existing foreground `E2-main-resume-20261104-03` has advanced to main seed43 step 110/1288. Step 100 was copied to `gdrive:exp/runs/E2/E2-main-s43-step100-a71af6992b25`; actual rclone receipt `results/main-seed43-checkpoint-100.receipt.json`. The current output subscriber is `exp-iopub-e24-scope.service`, active; the older PID 82069 is obsolete. Do not resubmit the existing job. Poll its output/status using the commands below.
