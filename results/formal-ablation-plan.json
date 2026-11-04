@@ -1,0 +1,24 @@
+{
+  "scope": "exploratory_single_seed",
+  "configs": [
+    "n10000-r8-neg0",
+    "n10000-r8-neg10",
+    "n10000-r16-neg0",
+    "n10000-r16-neg10",
+    "n10000-r64-neg0",
+    "n10000-r64-neg10"
+  ],
+  "seeds": [
+    42
+  ],
+  "main_seeds": [
+    42,
+    43,
+    44
+  ],
+  "confirmation_rule": "Only contrasts selected using development data receive seeds 43/44 before stable main-result claims; never select using test scores.",
+  "development_metric": "Most recent fixed-256-example development loss, with its actual evaluation step recorded in each train.json",
+  "blocked": {
+    "n30000-r16-neg10": "Current training split has only 18547 unique positives"
+  }
+}

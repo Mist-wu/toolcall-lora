@@ -1,5 +1,21 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:49 UTC: seed44 held-out complete; exploratory ablations running
+
+Collected all four seed44 Glaive held-out artifacts in `results/formal-main-seed44/heldout.*`: **1896/2000 = 94.80%**, bootstrap 95% CI **93.75–95.75%**. All 2,000 detail records are present and prediction SHA256 matches score provenance. Inference ran 20:24:21–20:44:19 UTC (1,198 s), recorded in `docs/cost.md`. This separate JSON exact-match result is not BFCL/xLAM or evidence of uncontaminated generalization; agent-observed Glaive semantic near-duplicates limit independence. All main training and both evaluations per seed are now collected.
+
+Ran `python3 scripts/compare_main_seed42.py --seed 44` on saved outcomes; collected `results/formal-main-seed44/comparison.{json,md}`. Seed44 overall paired changes: **−15.56 pp** versus 1.5B, 95% CI **[−18.71, −12.82]**, 99 improved/292 regressed; **−27.18 pp** versus 7B, **[−30.32, −24.19]**, 82 improved/419 regressed. No model reruns, metrics or training data changed.
+
+Original foreground pipeline now runs exploratory **n10000-r8-neg0 seed42**, observed step22/624 at 20:46 UTC. Actual status says running, completed list empty. Collected real `results/formal-ablation-plan.json` from remote workspace; all six variants remain single-seed exploratory. One status download timed out; retry succeeded without any runtime recovery/resubmission. Real output subscriber `exp-iopub-e24-scope.service` remains active. Preserve both command and client. Next summarize the three held-out scores, finish seven-category error analysis, and collect ablation checkpoints/train/evaluation outputs as they finish. 30k remains unavailable; do not fabricate samples or select confirmations using test scores.
+
+Commands used / next observation:
+
+```sh
+for f in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed44-heldout.$f results/formal-main-seed44/heldout.$f; done
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/ablation-status.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-status-observed.json
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log /srv/exp-runner/state/remote/E2-main-resume-20261104-03/output-observed.log
+```
+
 ## Update 2026-11-04 20:41 UTC: README reflects three-seed BFCL conclusion
 
 Updated `README.md` with seed44 BFCL category results and the completed three-seed main summary (56.75% mean, 2.74 pp sample SD), negative transfer against both baselines, and separate seed-t/case-bootstrap uncertainty. Linked actual aggregate artifacts and reproduction command; explicitly kept E2 incomplete. No training/evaluation reruns or metric changes.
