@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 15:57 UTC
+
+The existing foreground run remains running; seed42 BFCL predictions reached **896/1240**. Saved the incomplete snapshot to `results/formal-main-seed42/bfcl.predictions.partial-896.jsonl`; it is not a score. `exp-iopub-e24.service` was no longer present and no matching subscriber process was found; the reason is unknown. Attached one real-output subscriber to the existing busy kernel (PID 82069, log `/srv/exp-runner/logs/exp-e24-recovery-a100-iopub.log`), without submitting another job:
+
+```sh
+setsid -f /srv/exp-runner/runtime/python/bin/python /srv/exp-runner/app/ops/attach_existing_output.py exp-e24-recovery-a100 </dev/null >>/srv/exp-runner/logs/exp-e24-recovery-a100-iopub.log 2>&1
+```
+
+Continue polling the existing output/status and collect the full BFCL score and held-out results when ready. Do not resubmit.
+
 ## Update 2026-11-04 15:50 UTC
 
 The existing foreground run remains active and is evaluating the completed main seed42 adapter on BFCL. Downloaded a **partial 536/1240 prediction snapshot**, `results/formal-main-seed42/bfcl.predictions.partial-536.jsonl`; it is not a scored result. The real output subscriber remains active. Shared account usage at 15:50 UTC: 137.24 CU balance, 17.34 CU/h across four assignments (not E2-only cost). Collect full predictions and scores when complete; held-out evaluation and later seeds/ablations remain in the running pipeline.
