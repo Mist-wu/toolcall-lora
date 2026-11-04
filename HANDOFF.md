@@ -1,5 +1,18 @@
 # E2 current handoff
 
+## Update 2026-11-04 17:57 UTC: seed43 training and adapter complete
+
+Main seed43 finished two epochs at 17:56:39 UTC: 18,547 selected positives, 20,608 retained training examples including negatives, zero overlength drops. Collected `results/main-seed43.train.json`, `results/main-seed43.request.json`, and `results/main-seed43.env.txt`. Adapter copied to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed43-adapter` at 17:56:58 UTC; actual receipt `results/main-seed43.adapter-receipt.json`. The full timestamp interval is 5,673 s versus Trainer runtime 5,625.1212 s, not a throughput benchmark. Recorded these boundaries and account-wide usage (102.51 CU, 17.34 CU/hour, four assignments) in `docs/cost.md`.
+
+The existing foreground pipeline has started seed43 BFCL inference; no final seed43 test metric has been collected yet. `exp-iopub-e24-scope.service` was active at 17:56 UTC. Preserve the running job/client, seed44 and ablations without resubmitting. Poll the existing output/status; when complete, collect `main-seed43-bfcl.*` then `main-seed43-heldout.*` from `/content/e2-artifacts` using the seed42 download pattern below.
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed43/train.json results/main-seed43.train.json
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed43/request.json results/main-seed43.request.json
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed43/env.txt results/main-seed43.env.txt
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/main-seed43.adapter-receipt.json results/main-seed43.adapter-receipt.json
+```
+
 ## Update 2026-11-04 17:51 UTC: seed43 checkpoint 1200
 
 The existing foreground pipeline reached seed43 step 1204/1288. Step1200 copied to `gdrive:exp/runs/E2/E2-main-s43-step1200-6dac6aa18ae3`, rclone exit 0; receipt `results/main-seed43-checkpoint-1200.receipt.json`. The 256-example training-time dev loss was 0.000569355 at epoch 1.86, not a test score. `exp-iopub-e24-scope.service` was active at 17:49 UTC. Preserve the running command and subscriber without resubmission. Seed43 final adapter/evaluations, seed44 and ablations remain incomplete. Next poll the output/status, then collect `/content/e2-artifacts/main-seed43/train.json` and the workspace's `results/main-seed43.adapter-receipt.json` when they exist; follow the seed42 collection pattern below.
