@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 22:43 UTC: rank8 neg10 checkpoint 300
+
+Existing **n10000-r8-neg10 seed42** foreground training reached step332/694 at22:42:27UTC. Step300 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg10-s42-step300-d91e42d0040d`, rclone exit0, ended22:40:11UTC. Actual receipt `results/formal-ablations/n10000-r8-neg10-seed42/checkpoint-300.receipt.json`. Fixed256-example training-time dev loss at epoch0.86 was0.001314335, not a test score. Actual subscriber `exp-iopub-e24-scope.service` remains active; original command/client preserved without resubmission. Account-wide reading: **23.46 CU**, **15.40 CU/hour**, three assignments, not E2-only cost; no purchase/recharge. First exploratory configuration is fully collected; this and four later variants, comparisons and final report remain incomplete. Continue existing output/ablation-status/checkpoint polling with commands below; collect actual completed outputs as ready and reuse completed results. At zero CU, preserve actual progress and wait without automatic purchase/recharge.
+
 ## Update 2026-11-04 22:37 UTC: rank8 neg10 checkpoint 200
 
 Existing **n10000-r8-neg10 seed42** foreground training reached step245/694 at22:36:27UTC. Step200 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg10-s42-step200-6208804f5039`, rclone exit0, ended22:32:57UTC. Actual receipt `results/formal-ablations/n10000-r8-neg10-seed42/checkpoint-200.receipt.json`. Fixed256-example training-time dev loss at epoch0.58 was0.000919598, not a test score. Actual subscriber `exp-iopub-e24-scope.service` remains active; original pipeline/client preserved without resubmission. First exploratory configuration is fully collected; this and four later variants, comparisons and final report remain incomplete. Continue existing output/ablation-status/checkpoint polling with commands below; collect completed outputs as ready and reuse all completed results.
