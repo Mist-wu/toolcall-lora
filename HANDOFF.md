@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:29 UTC: seed43 held-out 1700-case snapshot
+
+The existing foreground pipeline advanced to 1,700/2,000 seed43 Glaive held-out predictions (1,700 unique IDs). Collected `results/formal-main-seed43/heldout.predictions.partial-1700.jsonl` as an incomplete, unscored snapshot. It is not a final accuracy or aggregate; semantic near-duplicates across Glaive splits still limit independence. `exp-iopub-e24-scope.service` is active. Preserve the running command/client without resubmission. Next poll using the commands below and collect full predictions, metadata, score and details when complete, then follow seed44 training. Seed44, ablations and final analysis remain outstanding.
+
 ## Update 2026-11-04 18:23 UTC: seed43 held-out partial snapshot
 
 The existing foreground pipeline reached 1,104/2,000 Glaive held-out predictions for seed43 (1,104 unique IDs). Collected `results/formal-main-seed43/heldout.predictions.partial-1104.jsonl` as an incomplete, unscored snapshot, not a final metric. `exp-iopub-e24-scope.service` is active; preserve the same running command/client without resubmission. Glaive semantic near-duplicates remain a test-independence limitation. Seed43 complete held-out scores, seed44, exploratory ablations and final analysis are outstanding.
