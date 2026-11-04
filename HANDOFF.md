@@ -1,6 +1,6 @@
 # E2 handoff
 
-Status: implementation and local validation; **formal experiments not started**. Worktree: `toolcall-lora`. Heavy processes run in Colab, never on the 2GB coordinator. Scheduler root owns all GPU lifecycle.
+Status: **formal 1.5B and 7B BFCL baselines running** in detached run `E2-formal-baselines-20261104-01` on `exp-preflight-l4`. AWS receipt directory: `/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01`. Worktree: `toolcall-lora`. Heavy processes run in Colab, never on the 2GB coordinator. Scheduler root owns all GPU lifecycle.
 
 ## Ready
 
@@ -14,10 +14,10 @@ Status: implementation and local validation; **formal experiments not started**.
 
 ## Next commands
 
-1. On Colab CPU, run `bash scripts/colab_bootstrap.sh`, then use `/content/e2-venv/bin/python` for all E2 commands (or activate that environment). Do not change the runtime's Python3.13/torch2.11 stack. Run `python3 -m unittest discover -s tests -v` and the real-tokenizer test in the new Python3.12 environment. Freeze actual GPU environment after compatibility probe.
+1. On Colab CPU, run `bash scripts/colab_bootstrap.sh`, then use `/content/e2-venv/bin/python` for all E2 commands (or activate that environment). Do not change the runtime's Python3.13/torch2.11 stack. The existing L4 already has the isolated environment; use it directly.
 2. Check already-authorized HF token for xLAM. Run `python3 -m toolcall_lora.cli prepare --output data/xlam`. If gated access unavailable, use `prepare-glaive --output data/glaive` and keep the fallback label in every report. Never accept terms or harvest credentials automatically.
 3. Run `python3 -m toolcall_lora.cli prepare-bfcl`; persist `data/*/manifest.json` and actual datasets to Drive. Stage training data on `/content` when a GPU session starts.
-4. On the owned L4, run a two-step `train --smoke` with a separate output directory, then `scripts/run_campaign.py --stage baselines --data data/xlam --artifacts /content/drive/MyDrive/exp/runs/e2/r01` (substitute `data/glaive` if fallback).
+4. Adopt the already-running formal baseline job rather than launching it again. It writes `results/formal-baselines/<model>/bfcl.score.json` and prepares `/content/data/e2-glaive` in parallel. After successful completion, collect the official baseline outputs and the data manifest.
 5. Run `scripts/run_campaign.py --stage train --run main --seeds 42 43 44 --data data/xlam --artifacts /content/drive/MyDrive/exp/runs/e2/r01`. Then all ablations with `--run all`. Record timing/CU and check non-finite loss before expanding. Campaign's train completion is distinct from evaluation completion.
 6. Review fixed negative-tool samples for semantic label noise, compare to correctly versioned public baselines, inspect seven error families, and create final report. All claims must retain model revisions, package version, actual train size, discarded overlength counts and confidence intervals.
 
@@ -26,6 +26,10 @@ Status: implementation and local validation; **formal experiments not started**.
 Create `results/formal-summary.json` only after actual runs. Fields: `experiment_id:"E2"`, `status:"formal_complete"`, `synthetic:false`, `smoke:false`, `baseline_sources_verified:true`, `negative_data_audit_complete:true`, `records:[...]`, `heldout_test_score_files:[...]`. Each record has `label`, `score_files` (BFCL only), and non-baseline records have `train_files`. Labels: `baseline-1.5b`, `baseline-7b`, `main`, `n10000-r8-neg0`, `n10000-r8-neg10`, `n10000-r16-neg0`, `n10000-r16-neg10`, `n10000-r64-neg0`, `n10000-r64-neg10`, `n30000-r16-neg10`. Train and score seed coverage is 42/43/44; deterministic baselines have null seed. Scores reference persistent raw prediction files and hashes. Independent held-out test must have at least 2,000 examples.
 
 `run_campaign.py` automatically runs `scripts/collect_results.py`: it copies raw predictions into ignored `results/raw/`, rewrites score paths to portable relative locations, and builds `results/collected-results.tar.gz`. Download/extract that archive into the server repo after each phase so the coordinator's verifier can check raw hashes without a Colab Drive mount. Keep checkpoints on Drive. The collector also works independently: `python3 scripts/collect_results.py /content/drive/MyDrive/exp/runs/e2/r01`. Run `python3 scripts/verify_completion.py` before reporting completion. Do not create formal-summary merely to satisfy the scheduler.
+
+## Normal checkpoint persistence
+
+Formal training uses local `/content/e2-artifacts/<config>-seed<seed>/` plus `EXP_CHECKPOINT_SYNC`, a JSON argv using `{source}`, `{run_id}`, `{receipt}`, `{experiment}`. The Trainer writes a complete marker after saving, then invokes the shared `exp_common.checkpoint` copy. Runtime rclone configuration is provided by root. Resume uses the completed checkpoint and preserves the last verified copy. The E3 comparison adapter contract is `/content/e2-artifacts/main-seed42/adapter`, with the exported Drive/AWS receipt supplied after completion.
 
 ## Remaining uncertainties
 

@@ -1,6 +1,6 @@
 # Tool-calling LoRA: Qwen2.5 1.5B versus 7B
 
-E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **Formal GPU experiments have not run; no measured accuracy or improvement is claimed.**
+E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The full 1.5B and 7B BFCL baselines are now running on the assigned L4; no completed accuracy or improvement is claimed yet.**
 
 | Evidence | Current status |
 |---|---|
@@ -9,15 +9,11 @@ E2 implements native Qwen tool-call training, separate development/test splits, 
 | BFCL package and data | `bfcl-eval==2026.3.23`, 1,240 cases in selected categories |
 | LoRA training/ablation accuracy | Pending Colab GPU execution |
 
-## Quick validation
+## Current execution
 
-```sh
-python3 -m pip install -e .
-python3 -m unittest discover -s tests -v
-python3 scripts/verify_completion.py  # intentionally fails until formal evidence exists
-```
+The detached formal run is `E2-formal-baselines-20261104-01` on `exp-preflight-l4`. It evaluates all 1,240 official cases with 1.5B, then 7B, while preparing the public Glaive fallback data in parallel. Its source command is `bash scripts/formal_baselines.sh`.
 
-The coordinator needs no torch dependency. All training, model inference and full dependency installs belong on Colab. Optional tests: `E2_TOKENIZER_TEST=1` enables a real-tokenizer check; `E2_TRAINING_TEST=1` enables two tiny random-model CPU steps plus checkpoint recovery. Tiny random-model output is test evidence only.
+Results are written under `results/formal-baselines/`. The shared runner records status and exit code on AWS; completed per-model outputs are copied to Drive when the runtime configuration is available. No standalone smoke entrypoint remains.
 
 ## Prepare data on Colab CPU
 
