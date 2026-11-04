@@ -1,5 +1,17 @@
 # E2 current handoff
 
+## Update 2026-11-04 14:41 UTC
+
+The existing `E2-main-resume-20261104-03` job remains running on `exp-e24-recovery-a100`: HTTP status reports running and its real output reached seed 42 step 440/1288. The server's `exp-iopub-e24.service` is active. The checkpoint-400 rclone copy completed successfully at 14:38:56 UTC; receipt is `results/main-seed42-checkpoint-400.receipt.json` and destination is `gdrive:exp/runs/E2/E2-main-s42-step400-93abe7d040e8`. This is a resume checkpoint, **not** a finished adapter; E3 still waits for the final seed42 adapter and train record. At 14:41 UTC `colab usage` reported shared account balance 157.48 CU and total rate 17.34 CU/h across four assignments, not E2-only spending.
+
+Poll without starting a second job:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/status.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/status-observed.json
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log /srv/exp-runner/state/remote/E2-main-resume-20261104-03/output-observed.log
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed42/last-verified-checkpoint.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/checkpoint-observed.json
+```
+
 **Started 2026-11-04 23:30:16 JST: `E2-main-resume-20261104-03` is running in the actual Jupyter kernel foreground (PID 6202).** Runtime `exp-e24-recovery-a100`, endpoint `gpu-a100-s-ass1b0-kysuwtw187ve` (A100 40GB). E4's model has exited; E2 owns the GPU. The Mac client continues reading real IOPub output while root/e8 attach the server client. Local writes freeze only when root explicitly confirms the handoff.
 
 ## Current run and exact next action
