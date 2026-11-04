@@ -1,0 +1,262 @@
+{
+  "scope": "Completed main seeds and baselines, five-category BFCL subset; ablations pending",
+  "rules": {
+    "wrong_function": "Official wrong_func_name, or parsed equal-count response whose function-name multiset differs from the reference. Unequal-count name mismatches are not forced into function substitution.",
+    "missing_argument": "Official missing_required or missing_optional. This means a benchmark-expected parameter, not necessarily a schema-required parameter.",
+    "wrong_type": "Official type_error:* diagnostic.",
+    "wrong_value": "Official value_error:* diagnostic.",
+    "extra_call": "Parsed response has more calls than reference, with at least one expected call. Irrelevance calls use false_call instead.",
+    "missed_call": "Parsed response has fewer calls than reference, including zero. Count deficit is not proof of a semantic reason.",
+    "false_call": "Parsed call on a zero-call irrelevance reference."
+  },
+  "models": {
+    "baseline-1.5b": {
+      "cases": 1240,
+      "failed_cases": 313,
+      "evidence_case_counts": {
+        "wrong_function": 10,
+        "missing_argument": 40,
+        "wrong_type": 5,
+        "wrong_value": 44,
+        "extra_call": 11,
+        "missed_call": 34,
+        "false_call": 69
+      },
+      "unresolved_case_counts": {
+        "parse_error": 7,
+        "parallel_function_checker_no_order:cannot_find_match": 93
+      },
+      "by_category": {
+        "simple_python": {
+          "missing_argument": 28,
+          "wrong_type": 5,
+          "wrong_value": 27,
+          "missed_call": 2,
+          "extra_call": 1
+        },
+        "multiple": {
+          "extra_call": 3,
+          "wrong_value": 17,
+          "missing_argument": 12,
+          "wrong_function": 1,
+          "missed_call": 1
+        },
+        "parallel": {
+          "missed_call": 23,
+          "extra_call": 4
+        },
+        "parallel_multiple": {
+          "wrong_function": 9,
+          "missed_call": 8,
+          "extra_call": 3
+        },
+        "irrelevance": {
+          "false_call": 69
+        }
+      },
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "reference_sha256_matches_score": true,
+      "predictions_path": "results/formal-baselines/baseline-1.5b/predictions.jsonl",
+      "predictions_sha256": "da6990c41e6097055811f9425a73f6f3fb38d7991a123e9b4a60465921e9149c",
+      "details_path": "results/formal-baselines/baseline-1.5b/bfcl.score.details.jsonl",
+      "details_sha256": "8dab2d30c1a509b570790ae3d8b1dec3c15faf1976ad6e1ca087918047641510"
+    },
+    "baseline-7b": {
+      "cases": 1240,
+      "failed_cases": 169,
+      "evidence_case_counts": {
+        "wrong_function": 2,
+        "missing_argument": 1,
+        "wrong_type": 5,
+        "wrong_value": 18,
+        "extra_call": 5,
+        "missed_call": 12,
+        "false_call": 95
+      },
+      "unresolved_case_counts": {
+        "parallel_function_checker_no_order:cannot_find_match": 29,
+        "parse_error": 2
+      },
+      "by_category": {
+        "simple_python": {
+          "wrong_type": 5,
+          "wrong_function": 1,
+          "wrong_value": 11,
+          "missing_argument": 1
+        },
+        "multiple": {
+          "extra_call": 1,
+          "wrong_value": 7,
+          "missed_call": 1
+        },
+        "parallel": {
+          "missed_call": 7,
+          "extra_call": 1
+        },
+        "parallel_multiple": {
+          "extra_call": 3,
+          "missed_call": 4,
+          "wrong_function": 1
+        },
+        "irrelevance": {
+          "false_call": 95
+        }
+      },
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "reference_sha256_matches_score": true,
+      "predictions_path": "results/formal-baselines/baseline-7b/predictions.jsonl",
+      "predictions_sha256": "16a1ebe045cf627182a5973016b8bc65e183175200e6bfd2a51c7c68047c3928",
+      "details_path": "results/formal-baselines/baseline-7b/bfcl.score.details.jsonl",
+      "details_sha256": "ff997c66a67ddc28bd0f7c930d4ebbb90ad29f27dca11f70ffbe1bb521da3866"
+    },
+    "main-seed42": {
+      "cases": 1240,
+      "failed_cases": 530,
+      "evidence_case_counts": {
+        "wrong_function": 1,
+        "missing_argument": 21,
+        "wrong_type": 5,
+        "wrong_value": 42,
+        "extra_call": 1,
+        "missed_call": 419,
+        "false_call": 22
+      },
+      "unresolved_case_counts": {
+        "parse_error": 5,
+        "parallel_function_checker_no_order:cannot_find_match": 14
+      },
+      "by_category": {
+        "simple_python": {
+          "missing_argument": 18,
+          "wrong_type": 4,
+          "wrong_value": 35,
+          "missed_call": 5
+        },
+        "multiple": {
+          "missed_call": 74,
+          "wrong_value": 7,
+          "missing_argument": 3,
+          "wrong_type": 1
+        },
+        "parallel": {
+          "missed_call": 199
+        },
+        "parallel_multiple": {
+          "missed_call": 141,
+          "wrong_function": 1,
+          "extra_call": 1
+        },
+        "irrelevance": {
+          "false_call": 22
+        }
+      },
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "reference_sha256_matches_score": true,
+      "predictions_path": "results/formal-main-seed42/bfcl.predictions.jsonl",
+      "predictions_sha256": "ae09392ebac7207abd3daa385e6d09bca8f9d479ada1e65be664d21c68fa1c9f",
+      "details_path": "results/formal-main-seed42/bfcl.score.details.jsonl",
+      "details_sha256": "c7524199779fc54249c1b3f7754e6980b4aaa175dd6d24e0f91b11232c90c951"
+    },
+    "main-seed43": {
+      "cases": 1240,
+      "failed_cases": 573,
+      "evidence_case_counts": {
+        "wrong_function": 1,
+        "missing_argument": 19,
+        "wrong_type": 5,
+        "wrong_value": 44,
+        "extra_call": 0,
+        "missed_call": 472,
+        "false_call": 27
+      },
+      "unresolved_case_counts": {
+        "parse_error": 3,
+        "parallel_function_checker_no_order:cannot_find_match": 2
+      },
+      "by_category": {
+        "simple_python": {
+          "missing_argument": 16,
+          "wrong_type": 4,
+          "wrong_value": 34,
+          "missed_call": 4
+        },
+        "multiple": {
+          "missed_call": 73,
+          "wrong_value": 10,
+          "wrong_function": 1,
+          "missing_argument": 3,
+          "wrong_type": 1
+        },
+        "parallel": {
+          "missed_call": 200
+        },
+        "parallel_multiple": {
+          "missed_call": 195
+        },
+        "irrelevance": {
+          "false_call": 27
+        }
+      },
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "reference_sha256_matches_score": true,
+      "predictions_path": "results/formal-main-seed43/bfcl.predictions.jsonl",
+      "predictions_sha256": "1e8d510f10c792ccecb89e0a0a98be4747b9fa94391e4577d0596d91e19b6e38",
+      "details_path": "results/formal-main-seed43/bfcl.score.details.jsonl",
+      "details_sha256": "a1970476e948b636b59001b25fe8f498ad456000f9092858e388d3c5c614bf7f"
+    },
+    "main-seed44": {
+      "cases": 1240,
+      "failed_cases": 506,
+      "evidence_case_counts": {
+        "wrong_function": 1,
+        "missing_argument": 20,
+        "wrong_type": 5,
+        "wrong_value": 42,
+        "extra_call": 0,
+        "missed_call": 402,
+        "false_call": 23
+      },
+      "unresolved_case_counts": {
+        "parse_error": 3,
+        "parallel_function_checker_no_order:cannot_find_match": 10
+      },
+      "by_category": {
+        "simple_python": {
+          "missing_argument": 16,
+          "wrong_type": 4,
+          "wrong_value": 32,
+          "missed_call": 6
+        },
+        "multiple": {
+          "missed_call": 41,
+          "wrong_value": 10,
+          "wrong_function": 1,
+          "missing_argument": 4,
+          "wrong_type": 1
+        },
+        "parallel": {
+          "missed_call": 198
+        },
+        "parallel_multiple": {
+          "missed_call": 157
+        },
+        "irrelevance": {
+          "false_call": 23
+        }
+      },
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "reference_sha256_matches_score": true,
+      "predictions_path": "results/formal-main-seed44/bfcl.predictions.jsonl",
+      "predictions_sha256": "001c002ae7053ead4062ee12b46e27efea800b855d74c616e1621ab2a552034a",
+      "details_path": "results/formal-main-seed44/bfcl.score.details.jsonl",
+      "details_sha256": "c713fbc84ded8381636ca4a78350f269daddccfcbf59c913ce50248321661c6d"
+    }
+  },
+  "counting": "Per-failed-case evidence, potentially multilabel, not an exhaustive seven-way partition or semantic root-cause annotation. Unresolved cases are retained, not assigned by guesswork. The official checker stops at a diagnostic, so argument counts are lower bounds.",
+  "reference": "results/formal-error-analysis/bfcl.evaluation.jsonl",
+  "reference_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+  "reviewer_type": "agent",
+  "human_validation_complete": false,
+  "human_validation_required": false,
+  "limitations": "No human labels or new judge ratings. Parser count deficits are observable behavior, not proof of why the model erred. BFCL pretraining contamination and Glaive negative-label noise/near-duplicates remain possible. No training data or official metrics changed."
+}

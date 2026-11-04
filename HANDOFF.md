@@ -1,5 +1,19 @@
 # E2 current handoff
 
+## Update 2026-11-04 21:04 UTC: main/baseline seven-category error evidence complete
+
+Added `scripts/analyze_bfcl_errors.py` and actual `results/formal-error-analysis/{report.md,summary.json,cases.jsonl,bfcl.evaluation.jsonl}`. Small CPU analysis uses saved official diagnostic labels plus actual parsed call counts/name multisets, without rerunning inference/checker or inventing human/agent semantic labels. Downloaded the original 1,240-case prepared BFCL reference (2.7 MiB); its SHA256 matches every model's score provenance. Seven requested categories are reported with explicit rules; ambiguous no-match and parser failures remain unresolved, not forced into the table. Argument diagnostics are lower bounds, not exhaustive latent errors.
+
+Call-deficit cases: **34** (1.5B), **12** (7B), **419/472/402** (main42/43/44). False-call cases: **69/95/22/27/23**; unresolved including parse: **100/31/19/5/13**. These are per-failed-case observations, not causal attribution to negative training. `README.md` links the report and reproduction: `python3 scripts/analyze_bfcl_errors.py`. Original scores and training data unchanged. Agent review is accepted, never human gold; no new human work required.
+
+Existing first ablation **n10000-r8-neg0 seed42** reached step234/624 at 21:01:42 UTC; step200 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg0-s42-step200-798ab3cf9eda`, rclone exit0 at 20:59:20 UTC. Receipt `results/formal-ablations/n10000-r8-neg0-seed42/checkpoint-200.receipt.json`. Real subscriber `exp-iopub-e24-scope.service` is active; original command/client preserved without resubmission. Shared account at 21:04 UTC: **50.52 CU**, **17.34 CU/hour**, four assignments, not E2-only cost; no purchase/recharge. Six exploratory ablations, their comparison/error evidence and final report remain incomplete. Next poll existing output/ablation-status/checkpoint with commands below, collect actual ablation training/evaluation artifacts as they finish, and incorporate them into final analysis.
+
+Reference collection used:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/data/bfcl/evaluation.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/bfcl-evaluation.jsonl
+```
+
 ## Update 2026-11-04 20:56 UTC: main held-out aggregate complete
 
 Added small-CPU reproduction `scripts/summarize_main_heldout.py` and `results/formal-main-summary/heldout.summary.{json,md}` from all three saved main held-out scores/outcomes. Mean **94.65%**, sample SD **0.15 pp**, seed-t 95% CI **[94.2774%, 95.0226%]** (df2, weak normal-seed assumption). Separate case-bootstrap CI conditional on these models: **[93.6167%, 95.65%]**, resampling 2,000 shared case IDs, not 6,000 independent seed-case outcomes. Original scores and data unchanged; no baseline held-out delta claimed. Source hashes and semantic-near-duplicate/agent-review limitations retained. `README.md` now covers all completed main evaluations and links both aggregate analyses.

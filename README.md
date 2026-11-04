@@ -23,6 +23,10 @@ Raw outputs: [seed42](results/formal-main-seed42/), [seed43](results/formal-main
 
 On the 240 irrelevance cases, 7B is **10.00 percentage points worse** than 1.5B, with paired 95% CI **[-15.83, -4.17]**. This negative result is retained alongside the higher overall score.
 
+## Main error evidence
+
+[Seven-category analysis](results/formal-error-analysis/report.md) compares all main seeds with both baselines using saved official diagnostics and parsed call counts. Cases with fewer calls than the reference rise from **34** (1.5B) / **12** (7B) to **419 / 472 / 402** (seeds42/43/44). Ambiguous no-match and parser failures remain unresolved; argument diagnostics are lower bounds, not exhaustive semantic labels or human-gold annotations. This does not establish a causal effect of negative training before ablations finish. Reproduce with `python3 scripts/analyze_bfcl_errors.py`.
+
 ## Current execution
 
 Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and both evaluations per seed are collected. The six exploratory variants continue in that same pipeline, starting with n10000-r8-neg0 seed42. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
