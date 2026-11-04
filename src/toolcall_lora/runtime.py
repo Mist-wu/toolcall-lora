@@ -26,6 +26,8 @@ def environment(config):
     revision = commit.stdout.strip() if commit.returncode == 0 else os.environ.get("EXPERIMENT_COMMIT", "unknown")
     is_dirty = bool(dirty.stdout) if dirty.returncode == 0 else os.environ.get("EXPERIMENT_DIRTY", "false").lower() in {"true","1"}
     result = {"config": config, "versions": packages, "git_commit": revision, "dirty": is_dirty, "started_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+    if os.environ.get("E2_GPU_SHARING"):
+        result["gpu_sharing"] = os.environ["E2_GPU_SHARING"]
     import torch
     result.update({"cuda": torch.version.cuda, "gpu": torch.cuda.get_device_name() if torch.cuda.is_available() else None})
     return result

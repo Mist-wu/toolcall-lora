@@ -3,7 +3,8 @@
 set -euo pipefail
 repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 if ! command -v uv >/dev/null 2>&1; then
-  python3 -m pip install --quiet uv==0.10.11
+  python3 -m pip install --quiet --target /content/e2-tools uv==0.10.11
+  export PATH="/content/e2-tools/bin:$PATH"
 fi
 if ! /content/e2-venv/bin/python -c 'import sys; assert sys.version_info[:2] == (3, 12)' >/dev/null 2>&1; then
   uv venv --python 3.12 /content/e2-venv
