@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 15:08 UTC
+
+Existing foreground run is active; seed 42 reached step 809/1288 and `exp-iopub-e24.service` is active. Step 800 was copied to `gdrive:exp/runs/E2/E2-main-s42-step800-0257573cff50` (rclone exit 0); receipt `results/main-seed42-checkpoint-800.receipt.json`. The 256-example dev loss at epoch 1.24 was 0.0005717489402741194, a training-time measurement, not a final test metric. This checkpoint is not the final E3 adapter. Continue polling with the commands below; do not resubmit.
+
 ## Update 2026-11-04 15:01 UTC
 
 The existing foreground run remains active; seed 42 reached step 713/1288 and `exp-iopub-e24.service` is active. Step 700 copied successfully to `gdrive:exp/runs/E2/E2-main-s42-step700-d6e9866b9bb3` at 15:00 UTC; receipt: `results/main-seed42-checkpoint-700.receipt.json`. This is a training checkpoint, not the final adapter for E3. Continue polling using the commands below; do not resubmit.
