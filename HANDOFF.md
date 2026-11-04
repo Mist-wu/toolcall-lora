@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 17:51 UTC: seed43 checkpoint 1200
+
+The existing foreground pipeline reached seed43 step 1204/1288. Step1200 copied to `gdrive:exp/runs/E2/E2-main-s43-step1200-6dac6aa18ae3`, rclone exit 0; receipt `results/main-seed43-checkpoint-1200.receipt.json`. The 256-example training-time dev loss was 0.000569355 at epoch 1.86, not a test score. `exp-iopub-e24-scope.service` was active at 17:49 UTC. Preserve the running command and subscriber without resubmission. Seed43 final adapter/evaluations, seed44 and ablations remain incomplete. Next poll the output/status, then collect `/content/e2-artifacts/main-seed43/train.json` and the workspace's `results/main-seed43.adapter-receipt.json` when they exist; follow the seed42 collection pattern below.
+
 ## Update 2026-11-04 17:43 UTC: README result snapshot and seed43 checkpoint 1100
 
 Updated `README.md` to show the completed seed42 BFCL/Glaive results and paired uncertainty, remove obsolete ownership/recovery statements, link the actual E3 adapter receipt, and disclose the accepted agent audit and Glaive semantic near-duplicates. No data or measurements were changed; this remains an interim single-seed result, with main43/44 and ablations unfinished.
