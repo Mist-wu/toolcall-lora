@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 21:24 UTC: first ablation checkpoint 500
+
+Existing **n10000-r8-neg0 seed42** foreground training reached step533/624 at 21:23:13 UTC. Step500 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg0-s42-step500-81a3c8f620fe`, rclone exit0, ended 21:20:55 UTC. Actual receipt `results/formal-ablations/n10000-r8-neg0-seed42/checkpoint-500.receipt.json`. Fixed256-example training-time dev loss at epoch1.60 was 0.000534404, not a test score. Actual output subscriber `exp-iopub-e24-scope.service` remains active; original command/client preserved without resubmission. None of the six exploratory ablations has completed yet. Continue polling output/status/checkpoint using commands below; collect completed train/config/environment/adapter receipt and full BFCL/held-out outputs when ready. Reuse completed main results and analyses.
+
 ## Update 2026-11-04 21:18 UTC: first ablation checkpoint 400
 
 Existing **n10000-r8-neg0 seed42** foreground training reached step450/624 at 21:17:07 UTC. Step400 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg0-s42-step400-91460577884e`, rclone exit0, ended 21:13:44 UTC. Actual receipt `results/formal-ablations/n10000-r8-neg0-seed42/checkpoint-400.receipt.json`. Fixed256-example training-time dev loss at epoch1.28 was 0.000761621, not a test score. Actual output subscriber `exp-iopub-e24-scope.service` remains active; original command/client preserved without resubmission. None of the six exploratory ablations has completed yet. Continue polling output/status/checkpoint using commands below; collect completed train/config/environment/adapter receipt and full BFCL/held-out outputs when ready. Reuse completed main results and analyses.
