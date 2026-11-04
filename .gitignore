@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.cache/
+data/
+checkpoints/
+logs/
+results/raw/
+results/collected-results.tar.gz
+build/
+dist/
