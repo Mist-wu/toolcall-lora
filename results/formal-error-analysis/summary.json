@@ -1,5 +1,5 @@
 {
-  "scope": "Completed main seeds and baselines, five-category BFCL subset; ablations pending",
+  "scope": "Completed main seeds and baselines plus 1/6 collected exploratory ablation BFCL results; five-category subset. Ablations are single-seed, not confirmatory.",
   "rules": {
     "wrong_function": "Official wrong_func_name, or parsed equal-count response whose function-name multiset differs from the reference. Unequal-count name mismatches are not forced into function substitution.",
     "missing_argument": "Official missing_required or missing_optional. This means a benchmark-expected parameter, not necessarily a schema-required parameter.",
@@ -250,6 +250,54 @@
       "predictions_sha256": "001c002ae7053ead4062ee12b46e27efea800b855d74c616e1621ab2a552034a",
       "details_path": "results/formal-main-seed44/bfcl.score.details.jsonl",
       "details_sha256": "c713fbc84ded8381636ca4a78350f269daddccfcbf59c913ce50248321661c6d"
+    },
+    "n10000-r8-neg0-seed42": {
+      "cases": 1240,
+      "failed_cases": 425,
+      "evidence_case_counts": {
+        "wrong_function": 9,
+        "missing_argument": 19,
+        "wrong_type": 5,
+        "wrong_value": 43,
+        "extra_call": 4,
+        "missed_call": 31,
+        "false_call": 235
+      },
+      "unresolved_case_counts": {
+        "parse_error": 8,
+        "parallel_function_checker_no_order:cannot_find_match": 71
+      },
+      "by_category": {
+        "simple_python": {
+          "missing_argument": 14,
+          "wrong_type": 4,
+          "wrong_value": 31
+        },
+        "multiple": {
+          "extra_call": 2,
+          "wrong_value": 12,
+          "wrong_function": 2,
+          "missing_argument": 5,
+          "wrong_type": 1
+        },
+        "parallel": {
+          "missed_call": 22
+        },
+        "parallel_multiple": {
+          "missed_call": 9,
+          "wrong_function": 7,
+          "extra_call": 2
+        },
+        "irrelevance": {
+          "false_call": 235
+        }
+      },
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "reference_sha256_matches_score": true,
+      "predictions_path": "results/formal-ablations/n10000-r8-neg0-seed42/bfcl.predictions.jsonl",
+      "predictions_sha256": "cf5102b851aa4f3f60e2366b834d844bdd050139aba736e5ec273ac131dd04d7",
+      "details_path": "results/formal-ablations/n10000-r8-neg0-seed42/bfcl.score.details.jsonl",
+      "details_sha256": "81296ea0569730552b337ff20534a510b50eddb12ad5341877126038f95a923c"
     }
   },
   "counting": "Per-failed-case evidence, potentially multilabel, not an exhaustive seven-way partition or semantic root-cause annotation. Unresolved cases are retained, not assigned by guesswork. The official checker stops at a diagnostic, so argument counts are lower bounds.",

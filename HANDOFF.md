@@ -1,5 +1,13 @@
 # E2 current handoff
 
+## Update 2026-11-04 22:11 UTC: first ablation seven-category BFCL evidence collected
+
+Extended `scripts/analyze_bfcl_errors.py` to include the actually collected completed ablation BFCL scores; reran only the small saved-outcome analysis, not inference/checker. `results/formal-error-analysis/{report.md,summary.json,cases.jsonl}` now covers baselines, main seeds and **1/6 exploratory ablations**. For n10000-r8-neg0 seed42, 425 failed cases: wrong_function9, missing_argument19, wrong_type5, wrong_value43, extra_call4, missed_call31, false_call235, unresolved79 (8 parser failures +71 ambiguous parallel no-match). Irrelevance0/240 comprises **235 parsed false calls and5 parser failures**, not240 confirmed parsed calls. Reference hash matches score provenance. Rules/uncertainty/agent-only review boundaries unchanged; no isolated causal conclusion about negatives before matched results.
+
+Existing held-out inference for this adapter reached **1188/2000** at22:09:29UTC; incomplete snapshot remains unscored in `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r8-neg0-seed42-heldout.partial.jsonl`. Real output subscriber `exp-iopub-e24-scope.service` remains active and original pipeline/client preserved without resubmission. Next collect all four completed held-out files, then follow n10000-r8-neg10 in the same pipeline. Remaining five trainings, ablation evaluations/comparisons and final report remain incomplete. Poll with existing output/status/download commands below.
+
+Reproduce updated error evidence: `python3 scripts/analyze_bfcl_errors.py`.
+
 ## Update 2026-11-04 22:04 UTC: first ablation BFCL complete
 
 Collected all four actual BFCL artifacts in `results/formal-ablations/n10000-r8-neg0-seed42/bfcl.*`: **815/1240 = 65.7258%**, bootstrap 95% CI **63.1452–68.2258%**. Categories: simple_python350/400 (87.5%), multiple178/200 (89%), parallel149/200 (74.5%), parallel_multiple138/200 (69%), irrelevance**0/240**. Prediction SHA256 matches score provenance; all1,240 detail records are collected. Historical partial snapshots remain explicitly unscored and are superseded. The empirical bootstrap irrelevance interval [0,0] is degenerate because every observed case failed, not proof of zero population accuracy.

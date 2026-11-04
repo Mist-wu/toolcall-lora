@@ -14,6 +14,8 @@ reference = out / 'bfcl.evaluation.jsonl'
 refs = {r['id']: r for r in map(json.loads, reference.read_text().splitlines())}
 paths = {b: Path('results/formal-baselines') / b for b in ('baseline-1.5b', 'baseline-7b')}
 paths.update({f'main-seed{s}': Path(f'results/formal-main-seed{s}') for s in (42, 43, 44)})
+ablations = sorted(Path('results/formal-ablations').glob('*/bfcl.score.json'))
+paths.update({p.parent.name: p.parent for p in ablations})
 labels = ('wrong_function', 'missing_argument', 'wrong_type', 'wrong_value',
           'extra_call', 'missed_call', 'false_call')
 rules = {
@@ -85,7 +87,7 @@ for name, path in paths.items():
                     'predictions_sha256': hashlib.sha256(predictions_path.read_bytes()).hexdigest(),
                     'details_path': str(details_path),
                     'details_sha256': hashlib.sha256(details_path.read_bytes()).hexdigest()}
-summary = {'scope': 'Completed main seeds and baselines, five-category BFCL subset; ablations pending',
+summary = {'scope': f'Completed main seeds and baselines plus {len(ablations)}/6 collected exploratory ablation BFCL results; five-category subset. Ablations are single-seed, not confirmatory.',
            'rules': rules, 'models': models,
            'counting': 'Per-failed-case evidence, potentially multilabel, not an exhaustive seven-way partition or semantic root-cause annotation. Unresolved cases are retained, not assigned by guesswork. The official checker stops at a diagnostic, so argument counts are lower bounds.',
            'reference': str(reference), 'reference_sha256': hashlib.sha256(reference.read_bytes()).hexdigest(),
