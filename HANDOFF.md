@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:41 UTC: README reflects three-seed BFCL conclusion
+
+Updated `README.md` with seed44 BFCL category results and the completed three-seed main summary (56.75% mean, 2.74 pp sample SD), negative transfer against both baselines, and separate seed-t/case-bootstrap uncertainty. Linked actual aggregate artifacts and reproduction command; explicitly kept E2 incomplete. No training/evaluation reruns or metric changes.
+
+Existing seed44 held-out inference advanced to **1568/2000** at 20:39:55 UTC. Actual incomplete snapshot is `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed44-heldout.partial.jsonl`, unscored. Downloaded existing output/status; actual subscriber `exp-iopub-e24-scope.service` remains active. Preserve running pipeline/client without resubmission. Next collect all four completed held-out files, run the individual seed44 comparison and summarize held-out seeds. Continue existing six exploratory ablations and finish seven-category error analysis; no human annotation/retests are required. Poll with existing download commands below.
+
 ## Update 2026-11-04 20:34 UTC: main three-seed BFCL statistics complete
 
 Added reproducible small-CPU analysis `scripts/summarize_main_bfcl.py` and actual aggregate results `results/formal-main-summary/bfcl.summary.{json,md}` using the three completed BFCL score/detail sets. Main mean **56.7473%**, sample SD **2.7376 pp**, seed-t 95% CI **49.9468–63.5478%** (df2, weak normal-seed assumption). Mean change versus 1.5B **−18.0108 pp**, seed-t CI **[−24.8113, −11.2102]**; versus 7B **−29.6237 pp**, seed-t CI **[−36.4242, −22.8231]**. Separately reported paired case-bootstrap CIs conditional on the three fitted models: **[−21.0215, −15.1613]** and **[−32.6075, −26.5054]** pp. These are different uncertainties, not 3,720 independent cases or a joint seed/data CI. Category results and input hashes retained. All seeds underperform both baselines overall; main does not catch 7B. Glaive/agent-review limitations remain explicit.
