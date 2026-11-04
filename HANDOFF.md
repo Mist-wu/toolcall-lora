@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:00 UTC: seed44 checkpoint 1200
+
+Existing foreground pipeline reached seed44 step1200/1288 and completed its checkpoint copy at 20:00:10 UTC. Destination `gdrive:exp/runs/E2/E2-main-s44-step1200-6643deecb2aa`, rclone exit 0; receipt `results/main-seed44-checkpoint-1200.receipt.json`. Training-time 256-example dev loss was 0.000627034 at epoch 1.86, not a test score. Actual output subscriber `exp-iopub-e24-scope.service` remains active. Updated `docs/cost.md` with previously collected account readings through 19:53 UTC, explicitly not E2-only charges. Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Next poll output/status using the download commands below; upon training completion collect `/content/e2-artifacts/main-seed44/{train.json,request.json,env.txt}` and `/content/experiment-runs/E2-main-resume-20261104-03/workspace/results/main-seed44.adapter-receipt.json`, then follow BFCL/held-out outputs without resubmission.
+
 ## Update 2026-11-04 19:54 UTC: README covers completed seeds42/43; seed44 checkpoint 1100
 
 Updated `README.md` with actual seed43 category scores, overall/paired CIs, separate held-out result, analysis reproduction command and current execution ownership. Both completed seeds underperform both baselines overall; these are not yet a three-seed conclusion. No measurements or training data changed; agent-review/held-out limitations remain explicit.
