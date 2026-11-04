@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 19:46 UTC: seed43 paired comparison; seed44 checkpoint 1000
+
+Completed the small-CPU paired analysis of existing seed43 BFCL outcomes with `python3 scripts/compare_main_seed42.py --seed 43`; no model reruns. Saved `results/formal-main-seed43/comparison.{json,md}` with source hashes and exact checker labels. Generalized the existing script via `--seed` (default42). Seed43 loses **20.97 pp** versus 1.5B (paired bootstrap 95% CI **[-24.03, -17.98]**, 84 improved/344 regressed cases) and **32.58 pp** versus 7B (**[-35.65, -29.27]**, 76 improved/480 regressed). Irrelevance improves +17.92 pp versus 1.5B, but parallel wrong-count errors rise from 38 to 395 across both parallel categories. Checker labels are diagnostics, not forced seven-way semantic labels. This is a single-seed result, not the required three-seed conclusion; Glaive held-out independence and agent-review limitations remain disclosed.
+
+Existing foreground pipeline reached seed44 step1001/1288 at 19:45:54 UTC. Step1000 copied to `gdrive:exp/runs/E2/E2-main-s44-step1000-7d998c36039b`, rclone exit 0; receipt `results/main-seed44-checkpoint-1000.receipt.json`. Actual output subscriber `exp-iopub-e24-scope.service` is active. Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Continue polling existing output/status/checkpoint using the download commands below.
+
 ## Update 2026-11-04 19:39 UTC: seed44 checkpoint 900
 
 Existing foreground pipeline reached seed44 step903/1288 at 19:38:49 UTC. Step900 copied to `gdrive:exp/runs/E2/E2-main-s44-step900-907ce9cdcbbf`, rclone exit 0; actual receipt `results/main-seed44-checkpoint-900.receipt.json`. Training-time 256-example dev loss was 0.000651464 at epoch 1.40, not a test score. The actual output subscriber `exp-iopub-e24-scope.service` remains active. Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Continue polling existing output/status/checkpoint using the download commands below.
