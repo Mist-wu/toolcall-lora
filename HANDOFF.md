@@ -1,91 +1,49 @@
-# E2 handoff to server pi
+# E2 local recovery and execution
 
-## Update 2026-11-04 12:30 UTC: runtime disappeared
+Local Mac agents own E2 execution again; server pi is paused. Continue the actual formal workload locally through Colab. Additional L4 (`exp-e2-recovery-l4`) and A100 (`exp-e2-recovery-a100`) requests were both refused with `precondition failed`. No recovery runtime was created; wait for an available assignment without interrupting another experiment.
 
-`colab download -s exp-preflight-l4 /content/experiment-runs/E2-formal-baselines-20261104-01/status.json /srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/status-direct.json` returned `Session 'exp-preflight-l4' not found`. `colab ls` listed six other active sessions, not this one; the leases file still calls it active and is stale. The last successful status, from 12:18 UTC, was running. Cause and subsequent progress are unknown; do not present the 7B as complete. Drive lists only the 1.5B baseline directory under E2, not the Glaive dataset or 7B output. The unpersisted `/content/data/e2-glaive` is not accessible through the missing session.
+## Recovered evidence
 
-Collected the actual completed 1.5B raw predictions, metadata and scoring details from Drive to `results/formal-baselines/baseline-1.5b/` using `rclone copy gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b/ results/formal-baselines/baseline-1.5b/`. Preserved the 698-line 7B progress snapshot at `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl`; it is incomplete and must not be scored as a full baseline. No complete 7B or training adapter was found.
+The original run `E2-formal-baselines-20261104-01` used `exp-preflight-l4`. At 2026-11-04 12:30 UTC, that session was absent from actual Colab assignments and downloads returned `Session 'exp-preflight-l4' not found`. Its old lease and `running` status are historical. The disappearance cause and any later progress are unknown.
 
-Next: reconcile the stale session lease and obtain a replacement GPU when available. Reconstruct the same Glaive splits with the existing preparation code, and continue the missing 7B cases from the saved snapshot rather than repeating the completed 1.5B baseline; `runtime.predict` currently overwrites its output and does not resume, so explicitly handle the remaining rows and merge by case ID. Stage the private rclone environment and save the reconstructed dataset to Drive promptly. Then run the actual three-seed training and ablations. The commands and source run receipt below remain historical, not a currently running job.
+- **1.5B complete:** 1,240 official selected BFCL cases, micro-accuracy **0.7475806452**, bootstrap 95% CI **[0.7241935484, 0.7725806452]**. The raw predictions, metadata, score and details were recovered from Drive into `results/formal-baselines/baseline-1.5b/`.
+- Verified 1.5B destination: `gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b`; receipt `results/formal-baselines/baseline-1.5b.drive-receipt.json`. Do not repeat this completed baseline.
+- **7B incomplete:** `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl` contains 698 of 1,240 cases, downloaded at 2026-11-04 12:18:14 UTC. There is no complete 7B score or verified final output. Preserve these cases and generate the remaining 542, then merge by case ID and score all 1,240.
+- The original Glaive split had **18,547 train / 2,003 dev / 2,000 test** examples. Its manifest survives at `results/formal-baselines/glaive-manifest.json`, but `/content/data/e2-glaive` was not persisted before the runtime disappeared. Reconstruct the same source revision and seed, then copy the dataset to Drive promptly.
+- No formal LoRA training has started and no completed adapter exists.
 
-Local execution is handed off to the server. **Do not resubmit the active baseline or start E2 training until the coordinator gives E2 GPU ownership after E1 retrieval and E4 Qwen.** Existing runtime `exp-preflight-l4` remains running; no session was created or stopped at this handoff.
+The original request remains at `/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json`; copies of the request and last observed status are in `results/formal-baselines/`. These are provenance for the interrupted run, not current execution status.
 
-## Actual state at 2026-11-04 21:20 JST
+## Recovery command
 
-- Formal run: `E2-formal-baselines-20261104-01`; runtime source commit `00932e411fc6a6441c1512955ffadecc90c41f27`.
-- AWS request: `/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json`.
-- Colab workspace: `/content/experiment-runs/E2-formal-baselines-20261104-01/workspace`.
-- Wrapper status is `running`. Latest downloaded 7B predictions have **698/1,240** lines at 21:18:14 JST; these are an incomplete progress snapshot, not a scored result.
-- **1.5B completed all 1,240 cases:** micro-accuracy **0.7475806452**, bootstrap 95% CI **[0.7241935484, 0.7725806452]**. The five-category official AST-checker subset is not the full BFCL leaderboard score.
-- Completed 1.5B data is verified at `gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b`. Local/server receipts are under `results/formal-baselines/`.
-- Glaive data is prepared at **`/content/data/e2-glaive`**, outside the run workspace: train **18,547**, dev **2,003**, test **2,000**. Persist this directory before releasing the runtime. Its manifest is saved in `results/formal-baselines/glaive-manifest.json`.
-- No formal LoRA training has started. No completed adapter exists yet.
-
-## First commands on the coordinator
-
-Run as `exp-runner`. Download status through the CLI's HTTP download path; prior `colab exec` websocket inspection disconnected while the detached experiment remained alive. The original submission timeout is not evidence that it failed, so do not submit another baseline.
+After obtaining a replacement GPU and staging the private rclone environment, submit the latest local repository using the common experiment runner with this command payload:
 
 ```sh
-export PATH=/srv/exp-runner/runtime/python/bin:/usr/local/bin:/usr/bin:/bin
-export PYTHONPATH=/srv/exp-runner/app:/srv/exp-runner/app/common
-export COLAB_PYTHON=/srv/exp-runner/runtime/python/bin/python
-colab download -s exp-preflight-l4 \
-  /content/experiment-runs/E2-formal-baselines-20261104-01/status.json \
-  /srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/status-direct.json
-cat /srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/status-direct.json
+bash scripts/recover_formal.sh
 ```
 
-After the wrapper exits successfully, collect completed outputs:
+The recovery entrypoint prepares Python 3.12, reconstructs and persists Glaive data, resumes the missing 7B cases without repeating 1.5B, and continues the main training campaign. Record the new session, run ID, launch receipt, and actual output paths after launch. Keep the original partial snapshot unchanged as provenance.
 
-```sh
-python -m exp_common.collect --session exp-preflight-l4 \
-  --run-id E2-formal-baselines-20261104-01 \
-  --output-dir /srv/exp-runner/state/remote/E2-formal-baselines-20261104-01 \
-  results/formal-baselines
-```
+The runtime uses private `/content/experiment-env.json`, `RCLONE_CONFIG=/content/experiment-rclone.conf`, and the staged quota header. Credentials stay outside the repository and logs. Dataset, completed baseline, checkpoint and adapter copies use `gdrive:exp/runs`.
 
-The archive receipt is `collection.json` in that output directory. Extract `artifacts.tgz` into `/srv/exp-runner/repos/toolcall-lora` to retain raw responses, scores, metadata, and both model Drive receipts. The completed run's `results/formal-baselines/status.json` must show `baselines_complete`; score the 7B output only after it contains all 1,240 cases. The existing script already performs that scoring and normal Drive copy.
+The pinned stack is an isolated `/content/e2-venv`: Python 3.12, torch 2.6.0+cu124, Transformers 4.51.3, PEFT 0.15.2, Accelerate 1.6.0, datasets 3.5.0, and BFCL 2026.3.23. `scripts/colab_bootstrap.sh` installs it without replacing Colab's default Python environment.
 
-## Preserve the prepared Glaive data
+## Main three-seed training and E3 adapter
 
-Before releasing this runtime, run the following Python on Colab. It uses the existing private rclone configuration and quota header without displaying them; the destination is under the authorized `gdrive:exp/runs`. Download its receipt to the AWS run receipt directory afterwards.
-
-```python
-import json, os, subprocess
-from pathlib import Path
-workspace = Path('/content/experiment-runs/E2-formal-baselines-20261104-01/workspace')
-settings = json.loads(Path('/content/experiment-env.json').read_text())
-for key in ('RCLONE_CONFIG', 'RCLONE_HEADER'):
-    os.environ[key] = settings[key]
-os.environ['PYTHONPATH'] = str(workspace / '.experiment-common')
-subprocess.run([
-    '/content/e2-venv/bin/python', '-m', 'exp_common.checkpoint',
-    '--source', '/content/data/e2-glaive', '--experiment', 'E2',
-    '--run-id', 'E2-glaive-data-20261104',
-    '--receipt', str(workspace / 'results/formal-baselines/glaive-data.drive-receipt.json')
-], check=True)
-```
-
-Destination: `gdrive:exp/runs/E2/E2-glaive-data-20261104`. Keep its manifest and split files together. If the coordinator later assigns another runtime, restore that directory to `/content/data/e2-glaive` using the staged rclone environment.
-
-## Three-seed training after GPU reassignment
-
-The server repo contains `scripts/formal_train.sh` and `scripts/formal_train.py`; the currently running immutable baseline workspace predates these files. Submit the latest server repo through the existing common runner only once the coordinator schedules E2. Command payload:
+After data and baseline recovery, the direct continuation command is:
 
 ```sh
 bash scripts/formal_train.sh
 ```
 
-It uses the prepared Glaive split, main configuration seeds **42, 43, 44**, and artifacts `/content/e2-artifacts`. It trains each seed, exports that adapter to Drive, evaluates the five BFCL categories and independent held-out test, then collects raw results. It loads `/content/experiment-env.json` privately and sets the ordinary `EXP_CHECKPOINT_SYNC` copy command. Complete checkpoints can be resumed; record actual retained examples and training durations.
+This uses `/content/data/e2-glaive`, main seeds **42, 43, 44**, and artifacts `/content/e2-artifacts`. Each seed trains, exports its adapter, and evaluates the five selected BFCL categories and independent held-out test. Normal checkpoint copies use `EXP_CHECKPOINT_SYNC`; completed checkpoints support resume. Record actual retained example counts and elapsed training time.
 
-The existing isolated environment is `/content/e2-venv` (Python 3.12, torch 2.6.0+cu124, Transformers 4.51.3, PEFT 0.15.2, Accelerate 1.6.0, datasets 3.5.0, BFCL 2026.3.23). On a newly assigned runtime, prepare it with `bash scripts/colab_bootstrap.sh`. The current baseline's environment must remain untouched until its process finishes.
+**E3 contract:** seed 42 adapter `/content/e2-artifacts/main-seed42/adapter`; its portable Drive destination is recorded in `results/main-seed42.adapter-receipt.json`. Send E3 the completed receipt and matching `main-seed42.train.json` when available. This is an expected output path, not a completed adapter claim.
 
-**E3 adapter contract:** after seed 42 finishes, adapter `/content/e2-artifacts/main-seed42/adapter`; portable Drive destination is recorded by `results/main-seed42.adapter-receipt.json`. Send E3 that completed receipt and the matching `main-seed42.train.json`. No adapter was supplied at this handoff.
+## Remaining work and limitations
 
-## Remaining work and limits
-
-- Run main and six 10k rank/negative ablations with seeds 42/43/44. **The 30k ablation is blocked by only 18,547 unique training positives**; obtain additional valid licensed training data or document this unavailable condition, never repeat data and label it 30k.
-- xLAM is gated; the current campaign explicitly uses public Glaive. Do not label its outcomes xLAM reproduction.
-- Audit the fixed synthetic tool-swapped negative examples for semantic label noise; human review remains pending.
-- Record BFCL package/version differences before comparing published leaderboard numbers. Report confidence intervals, per-seed results, failed runs and negative findings.
-- Add `results/formal-summary.json` only after actual required coverage and analysis. Keep raw predictions, score hashes, independent held-out results, training records, adapter receipts and costs. The main result is not complete merely because both baselines finish.
+- Run main and six 10k rank/negative ablations with seeds 42/43/44. The **30k ablation is blocked by only 18,547 unique training positives**. Additional valid licensed data is required; repeating examples does not produce a 30k dataset.
+- The campaign uses public Glaive because xLAM is gated. Do not describe its results as xLAM reproduction.
+- Human review of the fixed synthetic tool-swapped negative sample remains pending; model-generated checks do not complete that review.
+- These BFCL results use five single-turn categories and the official AST checker with the native Qwen parser. They are not the full published leaderboard aggregate. Record the BFCL package-version difference before comparing published numbers.
+- Preserve raw predictions, score hashes, independent held-out results, per-seed records, adapter receipts, costs, failed runs and negative findings. Create `results/formal-summary.json` only after the actual required coverage and analysis.

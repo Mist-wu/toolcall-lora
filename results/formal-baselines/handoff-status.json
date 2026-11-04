@@ -2,8 +2,8 @@
   "experiment_id": "E2",
   "run_id": "E2-formal-baselines-20261104-01",
   "session": "exp-preflight-l4",
-  "snapshot_observed_at": "2026-11-04T12:20:15Z",
-  "run_state": "running",
+  "snapshot_observed_at": "2026-11-04T12:43:07Z",
+  "run_state": "runtime_unavailable",
   "request_path": "/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json",
   "runtime_source_commit": "00932e411fc6a6441c1512955ffadecc90c41f27",
   "baseline_1_5b": {
@@ -17,24 +17,37 @@
     "drive_receipt": "baseline-1.5b.drive-receipt.json"
   },
   "baseline_7b": {
-    "state": "running",
+    "state": "incomplete_runtime_unavailable",
     "observed_prediction_lines": 698,
     "total_cases": 1240,
     "progress_file_downloaded_at": "2026-11-04T12:18:14Z"
   },
   "training_state": "not_started",
-  "next_owner": "server pi",
-  "gpu_priority_after_baselines": [
-    "E1 retrieval",
-    "E4 Qwen",
-    "E2 main seeds 42 43 44"
-  ],
+  "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
   "training_data_persisted": false,
   "training_command": "bash scripts/formal_train.sh",
   "e3_adapter_expected_path": "/content/e2-artifacts/main-seed42/adapter",
   "e3_adapter_receipt_expected_path": "results/main-seed42.adapter-receipt.json",
   "blockers": [
+    "Replacement GPU allocation refused; waiting for capacity",
     "30k ablation unavailable from current 18547-example Glaive train split"
-  ]
+  ],
+  "recovery_command": "bash scripts/recover_formal.sh",
+  "gpu_allocation": {
+    "state": "refused",
+    "attempts": [
+      {
+        "session": "exp-e2-recovery-l4",
+        "accelerator": "L4",
+        "result": "precondition failed"
+      },
+      {
+        "session": "exp-e2-recovery-a100",
+        "accelerator": "A100",
+        "result": "precondition failed"
+      }
+    ],
+    "reason": "concurrency/usage/capacity cause not distinguished"
+  }
 }
