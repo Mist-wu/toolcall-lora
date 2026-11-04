@@ -1,0 +1,120 @@
+{
+  "irrelevance": {
+    "accuracy": 0,
+    "n": 240,
+    "ci95": [
+      0,
+      0
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "multiple": {
+    "accuracy": 0.89,
+    "n": 200,
+    "ci95": [
+      0.845,
+      0.93
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "parallel": {
+    "accuracy": 0.745,
+    "n": 200,
+    "ci95": [
+      0.685,
+      0.8
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "parallel_multiple": {
+    "accuracy": 0.69,
+    "n": 200,
+    "ci95": [
+      0.625,
+      0.755
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "simple_python": {
+    "accuracy": 0.875,
+    "n": 400,
+    "ci95": [
+      0.845,
+      0.9075
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "overall_subset": {
+    "accuracy": 0.657258064516129,
+    "n": 1240,
+    "ci95": [
+      0.6314516129032258,
+      0.682258064516129
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "schema_version": 1,
+  "dataset": "data/bfcl/evaluation.jsonl",
+  "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+  "data_manifest": {
+    "bfcl_version": "2026.3.23",
+    "categories": [
+      "simple_python",
+      "multiple",
+      "parallel",
+      "parallel_multiple",
+      "irrelevance"
+    ],
+    "rows": 1240,
+    "files_sha256": {
+      "BFCL_v4_simple_python.json": "82dd63ba502eb2520c6b5d1d9a5c4b590e03ff261565175561f6228a367d1991",
+      "possible_answer/BFCL_v4_simple_python.json": "90cd5bc653690ee8e459b5b3f3fc9458606f7f3fcbf795bb51b7dc581f8c86dc",
+      "BFCL_v4_multiple.json": "aef168155ebd74b7ac2401198b201343bc7d16d7a3d7e0d4e6d8ee82c6969b2a",
+      "possible_answer/BFCL_v4_multiple.json": "244e00ce9395df948bcafc7bee64e8f9c87ef70887587d83cae45b13699f3047",
+      "BFCL_v4_parallel.json": "19f51a82eff42e5d62541aa500115a056eb78f437c2ba1f10415fd7c8e5dda84",
+      "possible_answer/BFCL_v4_parallel.json": "8a6aa19c1adddc6a5a2f7e40f9dbf30cc7e95815e7b830c90589ab318229e0f0",
+      "BFCL_v4_parallel_multiple.json": "8863ea8433239f55c5f016154cf0830853c89f693c6ea270396a2fa121960579",
+      "possible_answer/BFCL_v4_parallel_multiple.json": "5ebf24f458c1f16300c05505d83d6f0a1b68b79be273a033febd0d4f840507e3",
+      "BFCL_v4_irrelevance.json": "2b6ed4c2e992cdcf5f1678a701851f944bef7550ee026ed1ddb89efed5be01a6"
+    },
+    "metric_boundary": "Official AST checker on five single-turn categories with custom strict Qwen parser; not overall leaderboard score",
+    "fixture": false
+  },
+  "predictions": "/content/e2-artifacts/n10000-r8-neg0-seed42-bfcl.predictions.jsonl",
+  "predictions_sha256": "cf5102b851aa4f3f60e2366b834d844bdd050139aba736e5ec273ac131dd04d7",
+  "inference": {
+    "config": {
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "adapter": "/content/e2-artifacts/n10000-r8-neg0-seed42/adapter",
+      "backend": "transformers",
+      "max_new_tokens": 512,
+      "profile": "l4"
+    },
+    "versions": {
+      "torch": "2.6.0",
+      "transformers": "4.51.3",
+      "peft": "0.15.2",
+      "accelerate": "1.6.0",
+      "datasets": "3.5.0",
+      "bfcl-eval": "2026.3.23"
+    },
+    "git_commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
+    "dirty": false,
+    "started_at": "2026-11-04T21:30:23Z",
+    "gpu_sharing": "A100 runtime exp-e24-recovery-a100 allocated jointly with E4; timings are not throughput benchmarks",
+    "cuda": "12.4",
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "finished_at": "2026-11-04T21:57:41Z",
+    "examples": 1240
+  },
+  "label": "n10000-r8-neg0",
+  "seed": 42,
+  "smoke": false
+}

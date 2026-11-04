@@ -1,5 +1,19 @@
 # E2 current handoff
 
+## Update 2026-11-04 22:04 UTC: first ablation BFCL complete
+
+Collected all four actual BFCL artifacts in `results/formal-ablations/n10000-r8-neg0-seed42/bfcl.*`: **815/1240 = 65.7258%**, bootstrap 95% CI **63.1452–68.2258%**. Categories: simple_python350/400 (87.5%), multiple178/200 (89%), parallel149/200 (74.5%), parallel_multiple138/200 (69%), irrelevance**0/240**. Prediction SHA256 matches score provenance; all1,240 detail records are collected. Historical partial snapshots remain explicitly unscored and are superseded. The empirical bootstrap irrelevance interval [0,0] is degenerate because every observed case failed, not proof of zero population accuracy.
+
+This is a single-seed exploratory trade-off: better parallel behavior but failure on every irrelevance case. It still underperforms both baselines overall. Do not attribute differences against main solely to negatives: rank/data size also differ; matched rank8 neg10 results are pending. BFCL inference21:30:23–21:57:41UTC (1,638s), recorded in `docs/cost.md` with attribution limits.
+
+Original pipeline now runs this adapter's held-out evaluation; actual subscriber `exp-iopub-e24-scope.service` remains active. Preserve command/client without resubmission. Remaining five trainings, held-out/evaluation outputs, ablation comparisons/error evidence and final report remain incomplete. Next collect `/content/e2-artifacts/n10000-r8-neg0-seed42-heldout.*` when complete and follow n10000-r8-neg10 without resubmission. Main results remain complete and must be reused.
+
+Collection used:
+
+```sh
+for f in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg0-seed42-bfcl.$f results/formal-ablations/n10000-r8-neg0-seed42/bfcl.$f; done
+```
+
 ## Update 2026-11-04 21:57 UTC: first ablation BFCL inference 1172/1240
 
 Original pipeline advanced to **1172/1240** BFCL predictions for **n10000-r8-neg0 seed42** at 21:56:36 UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg0-seed42/bfcl.predictions.partial-1172.jsonl`, explicitly unscored; supersedes earlier observations, not a final result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; command/client preserved without resubmission or replacement. Account-wide at21:56UTC: **36.29 CU**, **15.40 CU/hour**, three assignments, not E2-only cost; no purchase/recharge. First ablation training complete; remaining five trainings, complete ablation evaluations/comparisons and final report remain pending. Continue polling existing output/status and collect all four BFCL/held-out files when complete using commands below. Do not score partial predictions or rerun completed main results.
