@@ -1,0 +1,10 @@
+{
+  "experiment": "E2",
+  "run_id": "E2-glaive-data-20261104",
+  "source": "/Users/wu/Github/toolcall-lora/data/glaive",
+  "destination": "gdrive:exp/runs/E2/E2-glaive-data-20261104",
+  "started_at": "2026-11-04T12:46:14.233706+00:00",
+  "state": "verified",
+  "verification": "rclone_copy_exit_status",
+  "ended_at": "2026-11-04T12:46:27.131518+00:00"
+}

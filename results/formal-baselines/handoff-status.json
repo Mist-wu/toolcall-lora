@@ -25,7 +25,7 @@
   "training_state": "not_started",
   "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
-  "training_data_persisted": false,
+  "training_data_persisted": true,
   "training_command": "bash scripts/formal_train.sh",
   "e3_adapter_expected_path": "/content/e2-artifacts/main-seed42/adapter",
   "e3_adapter_receipt_expected_path": "results/main-seed42.adapter-receipt.json",
@@ -49,5 +49,7 @@
       }
     ],
     "reason": "concurrency/usage/capacity cause not distinguished"
-  }
+  },
+  "training_data_drive": "gdrive:exp/runs/E2/E2-glaive-data-20261104",
+  "training_data_local_path": "/Users/wu/Github/toolcall-lora/data/glaive"
 }
