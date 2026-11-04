@@ -1,0 +1,310 @@
+{
+  "scope": "BFCL five-category subset, exploratory matched rank8 seed42 pair and frozen baselines",
+  "metric_boundary": "Official AST checker on five single-turn categories with custom strict Qwen parser; not overall leaderboard score",
+  "bootstrap_seed": 42,
+  "resamples": 1000,
+  "comparisons": [
+    {
+      "candidate": "n10000-r8-neg10-seed42",
+      "reference": "n10000-r8-neg0-seed42",
+      "categories": {
+        "simple_python": {
+          "n": 400,
+          "candidate_accuracy": 0.8675,
+          "reference_accuracy": 0.875,
+          "delta_candidate_minus_reference": -0.0075,
+          "paired_case_bootstrap_ci95": [
+            -0.0275,
+            0.015
+          ],
+          "improved_cases": 8,
+          "regressed_cases": 11
+        },
+        "multiple": {
+          "n": 200,
+          "candidate_accuracy": 0.855,
+          "reference_accuracy": 0.89,
+          "delta_candidate_minus_reference": -0.035,
+          "paired_case_bootstrap_ci95": [
+            -0.07,
+            -0.005
+          ],
+          "improved_cases": 3,
+          "regressed_cases": 10
+        },
+        "parallel": {
+          "n": 200,
+          "candidate_accuracy": 0.695,
+          "reference_accuracy": 0.745,
+          "delta_candidate_minus_reference": -0.05,
+          "paired_case_bootstrap_ci95": [
+            -0.095,
+            -0.01
+          ],
+          "improved_cases": 5,
+          "regressed_cases": 15
+        },
+        "parallel_multiple": {
+          "n": 200,
+          "candidate_accuracy": 0.715,
+          "reference_accuracy": 0.69,
+          "delta_candidate_minus_reference": 0.025,
+          "paired_case_bootstrap_ci95": [
+            -0.01,
+            0.065
+          ],
+          "improved_cases": 10,
+          "regressed_cases": 5
+        },
+        "irrelevance": {
+          "n": 240,
+          "candidate_accuracy": 0.8708333333333333,
+          "reference_accuracy": 0,
+          "delta_candidate_minus_reference": 0.8708333333333333,
+          "paired_case_bootstrap_ci95": [
+            0.825,
+            0.9125
+          ],
+          "improved_cases": 209,
+          "regressed_cases": 0
+        },
+        "overall_subset": {
+          "n": 1240,
+          "candidate_accuracy": 0.8137096774193548,
+          "reference_accuracy": 0.657258064516129,
+          "delta_candidate_minus_reference": 0.15645161290322582,
+          "paired_case_bootstrap_ci95": [
+            0.13225806451612904,
+            0.18225806451612903
+          ],
+          "improved_cases": 235,
+          "regressed_cases": 41
+        }
+      }
+    },
+    {
+      "candidate": "n10000-r8-neg10-seed42",
+      "reference": "baseline-1.5b",
+      "categories": {
+        "simple_python": {
+          "n": 400,
+          "candidate_accuracy": 0.8675,
+          "reference_accuracy": 0.84,
+          "delta_candidate_minus_reference": 0.0275,
+          "paired_case_bootstrap_ci95": [
+            -0.0075,
+            0.06
+          ],
+          "improved_cases": 29,
+          "regressed_cases": 18
+        },
+        "multiple": {
+          "n": 200,
+          "candidate_accuracy": 0.855,
+          "reference_accuracy": 0.83,
+          "delta_candidate_minus_reference": 0.025,
+          "paired_case_bootstrap_ci95": [
+            -0.025,
+            0.075
+          ],
+          "improved_cases": 16,
+          "regressed_cases": 11
+        },
+        "parallel": {
+          "n": 200,
+          "candidate_accuracy": 0.695,
+          "reference_accuracy": 0.655,
+          "delta_candidate_minus_reference": 0.04,
+          "paired_case_bootstrap_ci95": [
+            -0.01,
+            0.09
+          ],
+          "improved_cases": 17,
+          "regressed_cases": 9
+        },
+        "parallel_multiple": {
+          "n": 200,
+          "candidate_accuracy": 0.715,
+          "reference_accuracy": 0.625,
+          "delta_candidate_minus_reference": 0.09,
+          "paired_case_bootstrap_ci95": [
+            0.035,
+            0.145
+          ],
+          "improved_cases": 26,
+          "regressed_cases": 8
+        },
+        "irrelevance": {
+          "n": 240,
+          "candidate_accuracy": 0.8708333333333333,
+          "reference_accuracy": 0.7041666666666667,
+          "delta_candidate_minus_reference": 0.16666666666666666,
+          "paired_case_bootstrap_ci95": [
+            0.1125,
+            0.22083333333333333
+          ],
+          "improved_cases": 45,
+          "regressed_cases": 5
+        },
+        "overall_subset": {
+          "n": 1240,
+          "candidate_accuracy": 0.8137096774193548,
+          "reference_accuracy": 0.7475806451612903,
+          "delta_candidate_minus_reference": 0.06612903225806452,
+          "paired_case_bootstrap_ci95": [
+            0.04435483870967742,
+            0.08870967741935484
+          ],
+          "improved_cases": 133,
+          "regressed_cases": 51
+        }
+      }
+    },
+    {
+      "candidate": "n10000-r8-neg10-seed42",
+      "reference": "baseline-7b",
+      "categories": {
+        "simple_python": {
+          "n": 400,
+          "candidate_accuracy": 0.8675,
+          "reference_accuracy": 0.955,
+          "delta_candidate_minus_reference": -0.0875,
+          "paired_case_bootstrap_ci95": [
+            -0.12,
+            -0.0575
+          ],
+          "improved_cases": 5,
+          "regressed_cases": 40
+        },
+        "multiple": {
+          "n": 200,
+          "candidate_accuracy": 0.855,
+          "reference_accuracy": 0.955,
+          "delta_candidate_minus_reference": -0.1,
+          "paired_case_bootstrap_ci95": [
+            -0.145,
+            -0.055
+          ],
+          "improved_cases": 3,
+          "regressed_cases": 23
+        },
+        "parallel": {
+          "n": 200,
+          "candidate_accuracy": 0.695,
+          "reference_accuracy": 0.9,
+          "delta_candidate_minus_reference": -0.205,
+          "paired_case_bootstrap_ci95": [
+            -0.265,
+            -0.145
+          ],
+          "improved_cases": 5,
+          "regressed_cases": 46
+        },
+        "parallel_multiple": {
+          "n": 200,
+          "candidate_accuracy": 0.715,
+          "reference_accuracy": 0.865,
+          "delta_candidate_minus_reference": -0.15,
+          "paired_case_bootstrap_ci95": [
+            -0.215,
+            -0.085
+          ],
+          "improved_cases": 9,
+          "regressed_cases": 39
+        },
+        "irrelevance": {
+          "n": 240,
+          "candidate_accuracy": 0.8708333333333333,
+          "reference_accuracy": 0.6041666666666666,
+          "delta_candidate_minus_reference": 0.26666666666666666,
+          "paired_case_bootstrap_ci95": [
+            0.20833333333333334,
+            0.325
+          ],
+          "improved_cases": 66,
+          "regressed_cases": 2
+        },
+        "overall_subset": {
+          "n": 1240,
+          "candidate_accuracy": 0.8137096774193548,
+          "reference_accuracy": 0.8637096774193549,
+          "delta_candidate_minus_reference": -0.05,
+          "paired_case_bootstrap_ci95": [
+            -0.07419354838709677,
+            -0.025
+          ],
+          "improved_cases": 88,
+          "regressed_cases": 150
+        }
+      }
+    }
+  ],
+  "sources": {
+    "n10000-r8-neg0-seed42": {
+      "path": "results/formal-ablations/n10000-r8-neg0-seed42",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "cf5102b851aa4f3f60e2366b834d844bdd050139aba736e5ec273ac131dd04d7",
+      "predictions_hash_matches_score": true,
+      "details_sha256": "81296ea0569730552b337ff20534a510b50eddb12ad5341877126038f95a923c"
+    },
+    "n10000-r8-neg10-seed42": {
+      "path": "results/formal-ablations/n10000-r8-neg10-seed42",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "ac2714838864c3d07da09666e56a36953cf658419b88752d8e97ba5188c42c42",
+      "predictions_hash_matches_score": true,
+      "details_sha256": "e65932164baa95797321c1d473779fffe9a429002032cc9f1c5221c93e3f88b9"
+    },
+    "baseline-1.5b": {
+      "path": "results/formal-baselines/baseline-1.5b",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "da6990c41e6097055811f9425a73f6f3fb38d7991a123e9b4a60465921e9149c",
+      "predictions_hash_matches_score": true,
+      "details_sha256": "8dab2d30c1a509b570790ae3d8b1dec3c15faf1976ad6e1ca087918047641510"
+    },
+    "baseline-7b": {
+      "path": "results/formal-baselines/baseline-7b",
+      "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+      "predictions_sha256": "16a1ebe045cf627182a5973016b8bc65e183175200e6bfd2a51c7c68047c3928",
+      "predictions_hash_matches_score": true,
+      "details_sha256": "ff997c66a67ddc28bd0f7c930d4ebbb90ad29f27dca11f70ffbe1bb521da3866"
+    }
+  },
+  "requests": {
+    "n10000-r8-neg0-seed42": {
+      "run_name": "n10000-r8-neg0",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "train_size": 10000,
+      "seed": 42,
+      "data_seed": 42,
+      "lora_rank": 8,
+      "lora_alpha": 16,
+      "negative_fraction": 0,
+      "max_length": 2048,
+      "epochs": 2,
+      "eval_size": 256,
+      "device_profile": "l4",
+      "smoke": false
+    },
+    "n10000-r8-neg10-seed42": {
+      "run_name": "n10000-r8-neg10",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "train_size": 10000,
+      "seed": 42,
+      "data_seed": 42,
+      "lora_rank": 8,
+      "lora_alpha": 16,
+      "negative_fraction": 0.1,
+      "max_length": 2048,
+      "epochs": 2,
+      "eval_size": 256,
+      "device_profile": "l4",
+      "smoke": false
+    }
+  },
+  "limitations": "Exploratory seed42 only, not a confirmatory rank/negative-fraction effect or a best-run selection. The rank pair shares10k positives, data_seed42, model revision, rank/alpha and two-epoch request. Adding negatives changes total examples10,000 to11,111 and optimizer steps624 to694, so this is the executed training-policy contrast, not a fixed-token/step-budget causal effect. Paired percentile case bootstrap is conditional on these fitted models, not training-seed uncertainty; within-category resampling is used for each category and unstratified shared-case resampling for overall. Case order is lexicographic ID; indices25/975 of1000 resamples, seed42. No held-out score is inferred here. BFCL pretraining contamination and Glaive label noise/near-duplicates remain limitations. Agent review, not human-gold validation; no completed measurements changed.",
+  "reviewer_type": "agent",
+  "human_validation_complete": false,
+  "human_validation_required": false
+}

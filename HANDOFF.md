@@ -1,5 +1,30 @@
 # E2 current handoff
 
+## Update 2026-11-04 23:43 UTC: rank8 neg10 BFCL collected and matched analysis complete
+
+Collected all four actual `n10000-r8-neg10-seed42-bfcl.*` files into `results/formal-ablations/n10000-r8-neg10-seed42/`. **1,009/1,240=81.37097%**, case-bootstrap CI[79.35484%,83.54839%]. Categories simple347/400, multiple171/200, parallel139/200, parallel_multiple143/200, irrelevance209/240. Inference23:08:41–23:34:13UTC=1,532s, source commit04506d9; prediction hash matches score provenance. No checker/inference reruns.
+
+Added small saved-outcome CPU analysis `scripts/compare_ablation_bfcl.py`; actual outputs `results/formal-ablation-comparisons/rank8.bfcl.{json,md}`. Neg10 minus neg0:+15.645pp, paired-case CI[+13.226,+18.226],235 improved/41 regressed. Versus1.5B:+6.613pp[+4.435,+8.871]; versus7B:−5.000pp[−7.419,−2.500]. Same rank/10k positives, but negatives increase examples10,000→11,111 and steps624→694. Single-seed exploratory policy contrast, not fixed-budget causal effect, seed uncertainty, or test-selected confirmation. Multiple/parallel decrease3.5/5pp despite irrelevance gain87.08pp. The negative main three-seed finding remains unchanged.
+
+Updated saved-evidence seven-category analysis to2/6 collected BFCL variants. Neg10 evidence:wrong_function10,missing_argument19,wrong_type5,wrong_value47,extra_call6,missed_call43,false_call30;71 unresolved including2 parser failures. Irrelevance31 failures=30 parsed false calls+1 parser failure. Updated README, report and cost ledger with actual results/limits.
+
+At23:41:54UTC original neg10 held-out inference had **772/2,000** predictions, retained **unscored** in `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r8-neg10-seed42-heldout.partial.jsonl`. Subscriber `exp-iopub-e24-scope.service` active; original command/client preserved. Two ablation trainings complete; one variant fully evaluated, second BFCL complete/held-out running; four later variants remain. `colab usage` during23:38–23:42 collection:9.35CU,15.40CU/hour,three assignments; not E2-only cost. Preserve checkpoints/wait at zero without purchase/recharge. E2 not complete.
+
+Commands actually used (existing session/run, no submissions):
+
+```sh
+d=results/formal-ablations/n10000-r8-neg10-seed42
+for f in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do
+  colab download -s exp-e24-recovery-a100 "/content/e2-artifacts/n10000-r8-neg10-seed42-bfcl.$f" "$d/bfcl.$f"
+done
+python3 scripts/compare_ablation_bfcl.py --rank 8
+python3 scripts/analyze_bfcl_errors.py
+colab usage
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg10-seed42-heldout.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r8-neg10-seed42-heldout.partial.jsonl
+```
+
+Next poll original output/status, then collect all four complete held-out files with the same suffix loop replacing `bfcl` with `heldout`. Analyze the completed held-out pair separately (no baseline held-out score is available). Continue original rank16/rank64 pipeline; do not resubmit.
+
 ## Update 2026-11-04 23:32 UTC: published-source reconciliation documented
 
 Collected actual public BFCL page, JavaScript and loaded overall CSV in `results/source-comparison/` with URLs/sizes/SHA256 in `receipt.json`. The retrieved109-row current CSV contains **zero Qwen2.5 rows**; matching published 1.5B/7B targets are unavailable in this snapshot (not a claim about all historical tables/papers). Page pins commitf7cf735/package2025.12.17, local2026.3.23; published unweighted broader aggregate differs from local1,240-case five-category micro-average. Current xLAM-2 entry is labeled context only, not original-paper reproduction or a local target. Updated `docs/baselines.md` and `results/report.md`; no measurements, labels or evaluation runs changed. Frozen local baselines remain the numerical reference, not a fabricated leaderboard target.

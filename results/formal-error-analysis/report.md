@@ -1,20 +1,20 @@
 # BFCL seven-category evidence analysis
 
-Completed main seeds and baselines plus 1/6 collected exploratory ablation BFCL results; five-category subset. Ablations are single-seed, not confirmatory.
+Completed main seeds and baselines plus 2/6 collected exploratory ablation BFCL results; five-category subset. Ablations are single-seed, not confirmatory.
 
 Per-failed-case evidence, potentially multilabel, not an exhaustive seven-way partition or semantic root-cause annotation. Unresolved cases are retained, not assigned by guesswork. The official checker stops at a diagnostic, so argument counts are lower bounds.
 
-| Evidence category | baseline-1.5b | baseline-7b | main-seed42 | main-seed43 | main-seed44 | n10000-r8-neg0-seed42 |
-|---|---:|---:|---:|---:|---:|---:|
-| wrong_function | 10 | 2 | 1 | 1 | 1 | 9 |
-| missing_argument | 40 | 1 | 21 | 19 | 20 | 19 |
-| wrong_type | 5 | 5 | 5 | 5 | 5 | 5 |
-| wrong_value | 44 | 18 | 42 | 44 | 42 | 43 |
-| extra_call | 11 | 5 | 1 | 0 | 0 | 4 |
-| missed_call | 34 | 12 | 419 | 472 | 402 | 31 |
-| false_call | 69 | 95 | 22 | 27 | 23 | 235 |
-| All failed cases | 313 | 169 | 530 | 573 | 506 | 425 |
-| Unresolved (including parser failures) | 100 | 31 | 19 | 5 | 13 | 79 |
+| Evidence category | baseline-1.5b | baseline-7b | main-seed42 | main-seed43 | main-seed44 | n10000-r8-neg0-seed42 | n10000-r8-neg10-seed42 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| wrong_function | 10 | 2 | 1 | 1 | 1 | 9 | 10 |
+| missing_argument | 40 | 1 | 21 | 19 | 20 | 19 | 19 |
+| wrong_type | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| wrong_value | 44 | 18 | 42 | 44 | 42 | 43 | 47 |
+| extra_call | 11 | 5 | 1 | 0 | 0 | 4 | 6 |
+| missed_call | 34 | 12 | 419 | 472 | 402 | 31 | 43 |
+| false_call | 69 | 95 | 22 | 27 | 23 | 235 | 30 |
+| All failed cases | 313 | 169 | 530 | 573 | 506 | 425 | 231 |
+| Unresolved (including parser failures) | 100 | 31 | 19 | 5 | 13 | 79 | 71 |
 
 ## Definitions
 

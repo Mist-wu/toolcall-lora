@@ -27,9 +27,13 @@ On the 240 irrelevance cases, 7B is **10.00 percentage points worse** than 1.5B,
 
 [Seven-category analysis](results/formal-error-analysis/report.md) compares all main seeds with both baselines using saved official diagnostics and parsed call counts. Cases with fewer calls than the reference rise from **34** (1.5B) / **12** (7B) to **419 / 472 / 402** (seeds42/43/44). Ambiguous no-match and parser failures remain unresolved; argument diagnostics are lower bounds, not exhaustive semantic labels or human-gold annotations. This does not establish a causal effect of negative training before ablations finish. Reproduce with `python3 scripts/analyze_bfcl_errors.py`.
 
+## Collected exploratory rank8 BFCL pair
+
+Seed42/10k positives: no negatives65.73%,10% negatives81.37%. The matched policy delta is+15.65pp (paired-case95% CI[+13.23,+18.23]); irrelevance0/240→209/240, while parallel74.5%→69.5%. Rank8/neg10 exceeds the frozen1.5B baseline by6.61pp but remains5.00pp below7B. This single-seed contrast also changes total examples/steps; it is not a stable causal claim or a test-selected replacement for the negative main result. Held-out neg10 remains uncollected. [Actual paired analysis](results/formal-ablation-comparisons/rank8.bfcl.md); reproduce with `python3 scripts/compare_ablation_bfcl.py --rank 8`.
+
 ## Current execution
 
-Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and both evaluations per seed are collected. The six exploratory variants continue in that same pipeline, starting with n10000-r8-neg0 seed42. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
+Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and both evaluations per seed are collected. The six exploratory variants continue in that same pipeline; rank8 neg0 is fully collected, rank8 neg10 BFCL is collected and its held-out inference continues, with four later variants pending. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
 
 Earlier L4/A100 runtimes disappeared for unknown reasons. Both baselines are now complete, including all 1,240 7B predictions; the historical 698-case partial file is not the final result. Historical recovery timings and the resumed seed42 segment are not uninterrupted throughput benchmarks. Actual metadata and attribution limits are in [docs/cost.md](docs/cost.md). The finished seed42 adapter and copy receipt are recorded in `results/main-seed42.adapter-receipt.json` for E3's separate comparison.
 
