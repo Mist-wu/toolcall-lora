@@ -1,0 +1,89 @@
+{
+  "scope": "Main three-seed Glaive held-out JSON exact match; not BFCL or xLAM",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "data_seed": 42,
+  "cases_per_seed": 2000,
+  "individual": {
+    "42": {
+      "accuracy": 0.945,
+      "n": 2000,
+      "ci95": [
+        0.934,
+        0.9555
+      ],
+      "bootstrap_seed": 42,
+      "resamples": 1000
+    },
+    "43": {
+      "accuracy": 0.9465,
+      "n": 2000,
+      "ci95": [
+        0.9365,
+        0.9565
+      ],
+      "bootstrap_seed": 42,
+      "resamples": 1000
+    },
+    "44": {
+      "accuracy": 0.948,
+      "n": 2000,
+      "ci95": [
+        0.9375,
+        0.9575
+      ],
+      "bootstrap_seed": 42,
+      "resamples": 1000
+    }
+  },
+  "mean": 0.9465,
+  "sample_sd": 0.0015000000000000013,
+  "seed_t_ci95": [
+    0.9427737934322343,
+    0.9502262065677657
+  ],
+  "case_bootstrap_ci95_conditional_on_three_seeds": [
+    0.9361666666666667,
+    0.9565
+  ],
+  "uncertainty": {
+    "seed_t_ci95": "Unclipped mean +/- t(0.975,df=2)*sample_sd/sqrt(3); only three training seeds with fixed data. Normal-seed assumption is weak.",
+    "case_bootstrap": "1000 resamples, RNG seed42, percentile indices25/975. Average the three model outcomes within each shared case, then resample cases. Conditional on fitted models; 6000 seed-case outcomes are not independent cases.",
+    "boundary": "Seed and case intervals describe different uncertainties, not a joint seed/data interval. No baseline held-out delta is claimed."
+  },
+  "sources": {
+    "42": {
+      "path": "results/formal-main-seed42",
+      "dataset_sha256": "03bd0b3dd0c5318f59542db9eaee21fdb3ab9587941e735112193fc4ae57db08",
+      "predictions_sha256": "83f2e61d1c00c4af006c683d851e4d723d4cc4d0850d591e9e4867fcfaf2a83c",
+      "score_sha256": "508fa307e4bb3b7cf66c5cc403ebfb4273a4097c418996af934bb7cc131a6b98",
+      "details_sha256": "c8b98471a2918f12589777cbf27fec6ed738ff31cbabab846c8ef8f7bf9d2fff"
+    },
+    "43": {
+      "path": "results/formal-main-seed43",
+      "dataset_sha256": "03bd0b3dd0c5318f59542db9eaee21fdb3ab9587941e735112193fc4ae57db08",
+      "predictions_sha256": "0004fb1a48e5f23d79a72d868a4c8aed9433d100ed2b2dce6a3b20d105cdc844",
+      "score_sha256": "5c5237c4769022d2e825fa471890ab1bf847bfff9e6e6800fdf0b5ba6060024e",
+      "details_sha256": "65ec0bcae2c3f0a783734b5c6040b1a1d01c30b51cc81fc0230b05d98c8d0f40"
+    },
+    "44": {
+      "path": "results/formal-main-seed44",
+      "dataset_sha256": "03bd0b3dd0c5318f59542db9eaee21fdb3ab9587941e735112193fc4ae57db08",
+      "predictions_sha256": "1d24c9ca42fdb598fffaf628d58310c0b5bf5f9b80d421b60e9f04eea0f4ccac",
+      "score_sha256": "ff000f151abd747c4f3b6b5959d9ab40a12c7c172df8fb5aae6e8496df4941eb",
+      "details_sha256": "54b7b3a8f09e2032a47305ed9cbd6273c8ea5eceb0c95566abd1085e4343a589"
+    }
+  },
+  "limitations": [
+    "Agent review found semantic near-duplicates across Glaive splits; high accuracy is not evidence of uncontaminated generalization.",
+    "Synthetic Glaive source is the authorized fallback, not xLAM reproduction.",
+    "Agent negative review found one clear mislabel and two uncertain cases among50, not human-gold validation.",
+    "Ablations and final error analysis remain incomplete; no training data or original scores changed."
+  ],
+  "reviewer_type": "agent",
+  "human_validation_complete": false,
+  "human_validation_required": false
+}

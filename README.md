@@ -1,6 +1,6 @@
 # Tool-calling LoRA: Qwen2.5 1.5B versus 7B
 
-E2 measures native Qwen tool calling with LoRA and the official BFCL AST checker: **all three main seeds lose overall accuracy versus both baselines: 56.75% mean, 2.74 pp sample SD.** Training uses the authorized Glaive fallback, not xLAM. E2 remains incomplete: seed44 held-out evaluation, exploratory ablations and final error analysis are still pending.
+E2 measures native Qwen tool calling with LoRA and the official BFCL AST checker: **all three main seeds lose overall accuracy versus both baselines: 56.75% mean, 2.74 pp sample SD.** Training uses the authorized Glaive fallback, not xLAM. All main-seed evaluations are collected. E2 remains incomplete: exploratory ablations and final error analysis are still pending.
 
 | BFCL category | Qwen2.5 1.5B | Qwen2.5 7B | LoRA seed42 | LoRA seed43 | LoRA seed44 | LoRA mean |
 |---|---:|---:|---:|---:|---:|---:|
@@ -15,9 +15,9 @@ E2 measures native Qwen tool calling with LoRA and the official BFCL AST checker
 - Irrelevance improves **+20.00 pp** [14.58, 25.42] versus 1.5B, while parallel accuracy falls to **0/200**. The negative transfer is retained, not rerun away.
 - Seed43 overall: **667/1,240**, bootstrap 95% CI **51.13%–56.53%**; paired changes **−20.97 pp** [−24.03, −17.98] versus 1.5B and **−32.58 pp** [−35.65, −29.27] versus 7B. These remain individual seed results, not a three-seed aggregate.
 - Seed44 overall: **734/1,240**, case-bootstrap 95% CI **56.53%–61.85%**. Main three-seed mean **56.75%**, seed-t 95% CI **49.95%–63.55%** (df2, weak normal-seed assumption). Mean deltas are **−18.01 pp** versus 1.5B and **−29.62 pp** versus 7B. Paired case-bootstrap CIs conditional on these fitted models are **[−21.02, −15.16]** and **[−32.61, −26.51]** pp, distinct from seed uncertainty; the 3,720 seed-case outcomes are not independent cases.
-- Glaive held-out: seed42 **1,890/2,000 = 94.50%** [93.40%, 95.55%]; seed43 **1,893/2,000 = 94.65%** [93.65%, 95.65%]. This is a separate JSON exact-match metric. Agent review found semantic near-duplicates across source splits, limiting test independence.
+- Glaive held-out: seed42 **94.50%**, seed43 **94.65%**, seed44 **94.80%** (each 2,000 cases). Three-seed mean **94.65%**, sample SD **0.15 pp**; seed-t 95% CI **[94.28%, 95.02%]**. Case-bootstrap CI conditional on fitted models is **[93.62%, 95.65%]**, distinct from seed uncertainty. This is separate JSON exact match, not BFCL. Agent-observed semantic near-duplicates limit test independence; high accuracy does not establish uncontaminated generalization. [Full held-out summary](results/formal-main-summary/heldout.summary.md), reproduced with `python3 scripts/summarize_main_heldout.py`.
 
-Raw outputs: [seed42](results/formal-main-seed42/), [seed43](results/formal-main-seed43/), [seed44](results/formal-main-seed44/). [Three-seed summary](results/formal-main-summary/bfcl.summary.md) retains per-category uncertainty and source hashes; reproduce with `python3 scripts/summarize_main_bfcl.py`. Individual paired analyses use `python3 scripts/compare_main_seed42.py --seed 43` (default42); seed44's individual report awaits its held-out score. These are small saved-outcome analyses, not inference reruns.
+Raw outputs: [seed42](results/formal-main-seed42/), [seed43](results/formal-main-seed43/), [seed44](results/formal-main-seed44/). [Three-seed summary](results/formal-main-summary/bfcl.summary.md) retains per-category uncertainty and source hashes; reproduce with `python3 scripts/summarize_main_bfcl.py`. Individual paired analyses use `python3 scripts/compare_main_seed42.py --seed 43` (default42; seed44 also available). These are small saved-outcome analyses, not inference reruns.
 
 1.5B bootstrap 95% CI: **72.42%–77.26%**. 7B bootstrap 95% CI: **84.35%–88.15%**. The paired difference is **+11.61 percentage points**, 95% CI **[+9.11, +14.27]**. These are measured five-category subset results, not full leaderboard scores. The completed main BFCL campaign does not establish overall LoRA gains or catch the 7B baseline. Raw responses and score provenance are saved with verified Drive copies.
 
@@ -25,7 +25,7 @@ On the 240 irrelevance cases, 7B is **10.00 percentage points worse** than 1.5B,
 
 ## Current execution
 
-Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and BFCL evaluations are collected, as are seed42/43 held-out evaluations. Seed44 held-out inference and the six exploratory variants continue in that same pipeline. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
+Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and both evaluations per seed are collected. The six exploratory variants continue in that same pipeline, starting with n10000-r8-neg0 seed42. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
 
 Earlier L4/A100 runtimes disappeared for unknown reasons. Both baselines are now complete, including all 1,240 7B predictions; the historical 698-case partial file is not the final result. Historical recovery timings and the resumed seed42 segment are not uninterrupted throughput benchmarks. Actual metadata and attribution limits are in [docs/cost.md](docs/cost.md). The finished seed42 adapter and copy receipt are recorded in `results/main-seed42.adapter-receipt.json` for E3's separate comparison.
 

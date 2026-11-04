@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+"""Summarize completed main Glaive held-out outcomes; no model execution."""
+import hashlib
+import json
+from pathlib import Path
+import random
+import statistics
+
+seeds = (42, 43, 44)
+paths = {s: Path(f'results/formal-main-seed{s}') for s in seeds}
+scores = {s: json.loads((p / 'heldout.score.json').read_text()) for s, p in paths.items()}
+details = {s: {r['id']: r for r in map(json.loads,
+              (p / 'heldout.score.details.jsonl').read_text().splitlines())}
+           for s, p in paths.items()}
+values = [scores[s]['overall_subset']['accuracy'] for s in seeds]
+mean = statistics.mean(values)
+sd = statistics.stdev(values)
+half = 4.302652729911275 * sd / (3 ** 0.5)
+per_case = [sum(int(details[s][i]['valid']) for s in seeds) / 3 for i in details[42]]
+rng = random.Random(42)
+boot = sorted(statistics.mean(rng.choices(per_case, k=len(per_case))) for _ in range(1000))
+result = {
+    'scope': 'Main three-seed Glaive held-out JSON exact match; not BFCL or xLAM',
+    'seeds': list(seeds), 'data_seed': 42, 'cases_per_seed': len(per_case),
+    'individual': {str(s): scores[s]['overall_subset'] for s in seeds},
+    'mean': mean, 'sample_sd': sd, 'seed_t_ci95': [mean - half, mean + half],
+    'case_bootstrap_ci95_conditional_on_three_seeds': [boot[25], boot[975]],
+    'uncertainty': {
+        'seed_t_ci95': 'Unclipped mean +/- t(0.975,df=2)*sample_sd/sqrt(3); only three training seeds with fixed data. Normal-seed assumption is weak.',
+        'case_bootstrap': '1000 resamples, RNG seed42, percentile indices25/975. Average the three model outcomes within each shared case, then resample cases. Conditional on fitted models; 6000 seed-case outcomes are not independent cases.',
+        'boundary': 'Seed and case intervals describe different uncertainties, not a joint seed/data interval. No baseline held-out delta is claimed.',
+    },
+    'sources': {str(s): {'path': str(p), 'dataset_sha256': scores[s]['dataset_sha256'],
+                          'predictions_sha256': scores[s]['predictions_sha256'],
+                          'score_sha256': hashlib.sha256((p / 'heldout.score.json').read_bytes()).hexdigest(),
+                          'details_sha256': hashlib.sha256((p / 'heldout.score.details.jsonl').read_bytes()).hexdigest()}
+                for s, p in paths.items()},
+    'limitations': ['Agent review found semantic near-duplicates across Glaive splits; high accuracy is not evidence of uncontaminated generalization.',
+                    'Synthetic Glaive source is the authorized fallback, not xLAM reproduction.',
+                    'Agent negative review found one clear mislabel and two uncertain cases among50, not human-gold validation.',
+                    'Ablations and final error analysis remain incomplete; no training data or original scores changed.'],
+    'reviewer_type': 'agent', 'human_validation_complete': False,
+    'human_validation_required': False,
+}
+out = Path('results/formal-main-summary')
+out.mkdir(exist_ok=True)
+(out / 'heldout.summary.json').write_text(json.dumps(result, indent=2) + '\n')
+lines = ['# Main Glaive held-out: three training seeds', '',
+         'Separate order-invariant JSON exact match with duplicate calls/types retained; not BFCL AST accuracy or xLAM reproduction.', '',
+         '| Seed | Correct / cases | Accuracy | Case-bootstrap 95% CI |',
+         '|---|---:|---:|---|']
+for s in seeds:
+    metric = scores[s]['overall_subset']
+    correct = sum(r['valid'] for r in details[s].values())
+    lo, hi = metric['ci95']
+    lines.append(f"| {s} | {correct} / {metric['n']} | {metric['accuracy']:.2%} | [{lo:.2%}, {hi:.2%}] |")
+lines += ['', f'Mean **{mean:.2%}**, sample SD **{100*sd:.2f} pp**; seed-t 95% CI **[{mean-half:.2%}, {mean+half:.2%}]** (df2).', '',
+          f'Case-bootstrap CI conditional on these fitted models: **[{boot[25]:.2%}, {boot[975]:.2%}]**.', '',
+          '## Uncertainty and limitations', '']
+lines += [f'- {v}' for v in result['uncertainty'].values()]
+lines += [f'- {v}' for v in result['limitations']]
+lines += ['', 'Agent review is accepted; human_validation_complete=false and human_validation_required=false. Agent findings are not human-gold metrics.', '',
+          'Reproduce this small CPU analysis: `python3 scripts/summarize_main_heldout.py`. Source hashes and full precision are in `heldout.summary.json`.']
+(out / 'heldout.summary.md').write_text('\n'.join(lines) + '\n')
+print(json.dumps({k: result[k] for k in ('mean', 'sample_sd', 'seed_t_ci95', 'case_bootstrap_ci95_conditional_on_three_seeds')}, indent=2))

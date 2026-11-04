@@ -1,5 +1,17 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:56 UTC: main held-out aggregate complete
+
+Added small-CPU reproduction `scripts/summarize_main_heldout.py` and `results/formal-main-summary/heldout.summary.{json,md}` from all three saved main held-out scores/outcomes. Mean **94.65%**, sample SD **0.15 pp**, seed-t 95% CI **[94.2774%, 95.0226%]** (df2, weak normal-seed assumption). Separate case-bootstrap CI conditional on these models: **[93.6167%, 95.65%]**, resampling 2,000 shared case IDs, not 6,000 independent seed-case outcomes. Original scores and data unchanged; no baseline held-out delta claimed. Source hashes and semantic-near-duplicate/agent-review limitations retained. `README.md` now covers all completed main evaluations and links both aggregate analyses.
+
+Existing foreground ablation **n10000-r8-neg0 seed42** reached step130/624 at 20:54 UTC, completed list still empty. Step100 copied successfully at 20:52:07 UTC to `gdrive:exp/runs/E2/E2-n10000-r8-neg0-s42-step100-67cc49e251be` (rclone exit0); actual receipt `results/formal-ablations/n10000-r8-neg0-seed42/checkpoint-100.receipt.json`. Real output subscriber `exp-iopub-e24-scope.service` remains active; command/client preserved without resubmission. All six exploratory ablations and final seven-category error analysis/report remain incomplete.
+
+Reproduce held-out analysis: `python3 scripts/summarize_main_heldout.py`. Next finish seven-category error analysis on saved main/baseline outcomes while polling the existing ablation pipeline using commands below. Latest ablation checkpoint observation:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg0-seed42/last-verified-checkpoint.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-checkpoint-observed.json
+```
+
 ## Update 2026-11-04 20:49 UTC: seed44 held-out complete; exploratory ablations running
 
 Collected all four seed44 Glaive held-out artifacts in `results/formal-main-seed44/heldout.*`: **1896/2000 = 94.80%**, bootstrap 95% CI **93.75–95.75%**. All 2,000 detail records are present and prediction SHA256 matches score provenance. Inference ran 20:24:21–20:44:19 UTC (1,198 s), recorded in `docs/cost.md`. This separate JSON exact-match result is not BFCL/xLAM or evidence of uncontaminated generalization; agent-observed Glaive semantic near-duplicates limit independence. All main training and both evaluations per seed are now collected.
