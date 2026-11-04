@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 17:08 UTC: seed43 checkpoint 600
+
+The existing foreground pipeline reached seed43 step 624/1288. Step 600 copied to `gdrive:exp/runs/E2/E2-main-s43-step600-f906ea3c368d`, rclone exit 0; receipt `results/main-seed43-checkpoint-600.receipt.json`. The 256-example training-time dev loss was 0.000616616 at epoch 0.93, not a test score. `exp-iopub-e24-scope.service` was active at 17:06 UTC. A download attempt timed out; subsequent downloads succeeded and showed further training progress. Preserve the existing job and subscriber; no resubmission or recovery is needed. Continue polling with the commands below. Seed43/44 final evaluations and the ablations remain incomplete.
+
 ## Update 2026-11-04 17:00 UTC: seed43 checkpoint 500
 
 Existing foreground pipeline reached seed43 step 511/1288. Step 500 copied to `gdrive:exp/runs/E2/E2-main-s43-step500-132b66a925dc`, rclone exit 0; receipt `results/main-seed43-checkpoint-500.receipt.json`. Training-time 256-example dev loss was 0.000745143 at epoch 0.78, not a test score. The actual output subscriber `exp-iopub-e24-scope.service` remains active. One download attempt timed out; subsequent downloads succeeded and showed continued training, so no recovery or resubmission was needed. Account-wide usage at 17:00 UTC: 116.99 CU balance, 17.34 CU/hour across four assignments (not E2-only cost). Continue polling the same run with the download commands below; seed43/44 evaluations and ablations remain incomplete.
