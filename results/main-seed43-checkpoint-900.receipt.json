@@ -1,0 +1,11 @@
+{
+  "experiment": "E2",
+  "run_id": "E2-main-s43-step900-7aba81037cda",
+  "source": "/content/e2-artifacts/main-seed43/checkpoints/checkpoint-900",
+  "destination": "gdrive:exp/runs/E2/E2-main-s43-step900-7aba81037cda",
+  "started_at": "2026-11-04T17:28:03.670716+00:00",
+  "state": "verified",
+  "verification": "rclone_copy_exit_status",
+  "ended_at": "2026-11-04T17:28:21.327265+00:00",
+  "hook_exit_code": 0
+}
