@@ -1,5 +1,13 @@
 # E2 handoff to server pi
 
+## Update 2026-11-04 12:30 UTC: runtime disappeared
+
+`colab download -s exp-preflight-l4 /content/experiment-runs/E2-formal-baselines-20261104-01/status.json /srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/status-direct.json` returned `Session 'exp-preflight-l4' not found`. `colab ls` listed six other active sessions, not this one; the leases file still calls it active and is stale. The last successful status, from 12:18 UTC, was running. Cause and subsequent progress are unknown; do not present the 7B as complete. Drive lists only the 1.5B baseline directory under E2, not the Glaive dataset or 7B output. The unpersisted `/content/data/e2-glaive` is not accessible through the missing session.
+
+Collected the actual completed 1.5B raw predictions, metadata and scoring details from Drive to `results/formal-baselines/baseline-1.5b/` using `rclone copy gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b/ results/formal-baselines/baseline-1.5b/`. Preserved the 698-line 7B progress snapshot at `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl`; it is incomplete and must not be scored as a full baseline. No complete 7B or training adapter was found.
+
+Next: reconcile the stale session lease and obtain a replacement GPU when available. Reconstruct the same Glaive splits with the existing preparation code, and continue the missing 7B cases from the saved snapshot rather than repeating the completed 1.5B baseline; `runtime.predict` currently overwrites its output and does not resume, so explicitly handle the remaining rows and merge by case ID. Stage the private rclone environment and save the reconstructed dataset to Drive promptly. Then run the actual three-seed training and ablations. The commands and source run receipt below remain historical, not a currently running job.
+
 Local execution is handed off to the server. **Do not resubmit the active baseline or start E2 training until the coordinator gives E2 GPU ownership after E1 retrieval and E4 Qwen.** Existing runtime `exp-preflight-l4` remains running; no session was created or stopped at this handoff.
 
 ## Actual state at 2026-11-04 21:20 JST
