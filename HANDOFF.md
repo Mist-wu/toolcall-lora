@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 16:16 UTC
+
+The existing foreground job remains running; main seed42 held-out inference advanced to **1472/2000** predictions. Preserved the unscored incomplete snapshot at `results/formal-main-seed42/heldout.predictions.partial-1472.jsonl`. Subscriber PID 82069 remains active. Use the held-out download command below to poll; collect complete predictions, metadata and score when available, and do not resubmit the ongoing seed43/44 and ablation pipeline.
+
 ## Update 2026-11-04 16:10 UTC
 
 The existing foreground job remains active and seed42 held-out inference reached 840/2000 cases; saved the incomplete, unscored snapshot in `results/formal-main-seed42/heldout.predictions.partial-840.jsonl`. Subscriber PID 82069 remains active. Continue the same job and collect its full held-out score; do not resubmit.
