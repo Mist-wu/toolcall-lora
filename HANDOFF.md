@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:23 UTC: seed43 held-out partial snapshot
+
+The existing foreground pipeline reached 1,104/2,000 Glaive held-out predictions for seed43 (1,104 unique IDs). Collected `results/formal-main-seed43/heldout.predictions.partial-1104.jsonl` as an incomplete, unscored snapshot, not a final metric. `exp-iopub-e24-scope.service` is active; preserve the same running command/client without resubmission. Glaive semantic near-duplicates remain a test-independence limitation. Seed43 complete held-out scores, seed44, exploratory ablations and final analysis are outstanding.
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed43-heldout.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed43-heldout.partial.jsonl
+```
+
+Next poll the existing output/status and this prediction file; collect complete predictions, metadata, score and details once available using the seed42 pattern below.
+
 ## Update 2026-11-04 18:16 UTC: seed43 BFCL complete
 
 Collected all seed43 BFCL predictions, inference metadata, score and case details in `results/formal-main-seed43/bfcl.*`. **667/1,240 = 53.790%** subset accuracy, bootstrap 95% CI **51.129–56.532%**. Categories: simple_python 85.0%, multiple 56.0%, parallel 0/200, parallel_multiple 3/200 (1.5%), irrelevance 212/240 (88.33%). The actual prediction SHA256 matches the score record. Preserve this negative result; it is one seed, not the three-seed aggregate or full BFCL leaderboard score. Baselines remain 74.758% (1.5B) and 86.371% (7B).
