@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 17:00 UTC: seed43 checkpoint 500
+
+Existing foreground pipeline reached seed43 step 511/1288. Step 500 copied to `gdrive:exp/runs/E2/E2-main-s43-step500-132b66a925dc`, rclone exit 0; receipt `results/main-seed43-checkpoint-500.receipt.json`. Training-time 256-example dev loss was 0.000745143 at epoch 0.78, not a test score. The actual output subscriber `exp-iopub-e24-scope.service` remains active. One download attempt timed out; subsequent downloads succeeded and showed continued training, so no recovery or resubmission was needed. Account-wide usage at 17:00 UTC: 116.99 CU balance, 17.34 CU/hour across four assignments (not E2-only cost). Continue polling the same run with the download commands below; seed43/44 evaluations and ablations remain incomplete.
+
 ## Update 2026-11-04 16:52 UTC: paired seed42 analysis and seed43 checkpoint 400
 
 Computed paired comparisons from the already-collected seed42/baseline case outcomes, without new inference. Main seed42 is **−17.50 pp** versus 1.5B (paired bootstrap 95% CI **[−20.56, −14.68] pp**) and **−29.11 pp** versus 7B (**[−32.34, −25.81] pp**). Irrelevance improves by +20 pp versus 1.5B, but parallel wrong-count checker failures increase from 38 to 341 across the two parallel categories. Exact error labels, source hashes and per-category intervals are in `results/formal-main-seed42/comparison.{json,md}`; reproduce with `python3 scripts/compare_main_seed42.py`. This is an interim single-seed analysis, not a three-seed conclusion. Checker labels do not uniquely establish seven-way semantic error causes; final error analysis remains required.
