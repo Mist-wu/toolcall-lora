@@ -1,5 +1,33 @@
 # E2 current handoff
 
+## Update 2026-11-04 23:56 UTC: rank8 neg10 held-out complete; matched pair analyzed
+
+Collected all four actual `n10000-r8-neg10-seed42-heldout.*` files into `results/formal-ablations/n10000-r8-neg10-seed42/`. **1,883/2,000=94.15%**, case-bootstrap CI[93.05%,95.20%]. Inference23:34:24–23:54:24UTC=1,200s; prediction hash matches score provenance. Dataset hash matches the frozen Glaive test. Earlier1,500-case snapshot remains unscored history in the original state directory, superseded by complete collected files.
+
+Implemented and executed `scripts/compare_ablation_heldout.py --rank 8`; actual outputs `results/formal-ablation-comparisons/rank8.heldout.{json,md}`. Neg10 minus neg0 held-out: **−0.30pp**, paired-case CI[−0.60,0.00],2 improved/8 regressed (94.15% versus94.45%). No held-out gain is demonstrated despite the BFCL gain. This interval includes zero and describes shared-case uncertainty conditional on the fitted seed42 models, not training-seed robustness. Single-seed, changed training example/step budget, Glaive semantic near-duplicates, negative-label noise and accepted agent-review limitations remain explicit. No baseline held-out delta is claimed; no partial scoring, checker/inference reruns or training-data/metric changes.
+
+**2/6 ablation variants are now fully collected.** The original pipeline advanced automatically to n10000-r16-neg0 seed42; status lists both rank8 variants completed and actual log shows0/624 training initialized. Actual output subscriber `exp-iopub-e24-scope.service` active; foreground command/client never resubmitted/replaced. Updated README, campaign report and costs with measured coverage.
+
+Latest actual `colab usage` at the23:49UTC poll:6.78CU,15.40CU/hour,three assignments; shared, not an E2 invoice. Preserve checkpoints/wait at zero without automatic purchase/recharge. E2 remains incomplete: rank16/rank64 variants, their actual evaluations and remaining comparisons/final report still required.
+
+Commands used and next action:
+
+```sh
+d=/srv/exp-runner/state/remote/E2-main-resume-20261104-03
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log "$d/output-observed.log"
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/ablation-status.json "$d/ablation-status-observed.json"
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg10-seed42-heldout.predictions.jsonl "$d/n10000-r8-neg10-seed42-heldout.partial.jsonl"
+colab usage
+out=results/formal-ablations/n10000-r8-neg10-seed42
+for f in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do
+  colab download -s exp-e24-recovery-a100 "/content/e2-artifacts/n10000-r8-neg10-seed42-heldout.$f" "$out/heldout.$f"
+done
+python3 scripts/compare_ablation_heldout.py --rank 8
+# Next poll original output/status and collect n10000-r16-neg0-seed42
+# actual checkpoint/train/environment/adapter receipts, then both evaluations.
+# Keep the original pipeline/client; do not submit another training command.
+```
+
 ## Update 2026-11-04 23:43 UTC: rank8 neg10 BFCL collected and matched analysis complete
 
 Collected all four actual `n10000-r8-neg10-seed42-bfcl.*` files into `results/formal-ablations/n10000-r8-neg10-seed42/`. **1,009/1,240=81.37097%**, case-bootstrap CI[79.35484%,83.54839%]. Categories simple347/400, multiple171/200, parallel139/200, parallel_multiple143/200, irrelevance209/240. Inference23:08:41–23:34:13UTC=1,532s, source commit04506d9; prediction hash matches score provenance. No checker/inference reruns.

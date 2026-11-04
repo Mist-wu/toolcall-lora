@@ -1,0 +1,61 @@
+{
+  "scope": "Exploratory rank8 seed42 Glaive held-out matched pair, not BFCL",
+  "metric": "Strict order-invariant JSON exact match, preserving duplicate calls and types",
+  "reference": "n10000-r8-neg0-seed42",
+  "candidate": "n10000-r8-neg10-seed42",
+  "n": 2000,
+  "individual": {
+    "n10000-r8-neg0-seed42": {
+      "accuracy": 0.9445,
+      "n": 2000,
+      "ci95": [
+        0.934,
+        0.9555
+      ],
+      "bootstrap_seed": 42,
+      "resamples": 1000
+    },
+    "n10000-r8-neg10-seed42": {
+      "accuracy": 0.9415,
+      "n": 2000,
+      "ci95": [
+        0.9305,
+        0.952
+      ],
+      "bootstrap_seed": 42,
+      "resamples": 1000
+    }
+  },
+  "correct": {
+    "n10000-r8-neg0-seed42": 1889,
+    "n10000-r8-neg10-seed42": 1883
+  },
+  "delta_candidate_minus_reference": -0.003,
+  "paired_case_bootstrap_ci95": [
+    -0.006,
+    0.0
+  ],
+  "bootstrap": "1000 paired case resamples, RNG seed42, lexicographic IDs, percentile indices25/975",
+  "improved_cases": 2,
+  "regressed_cases": 8,
+  "sources": {
+    "n10000-r8-neg0-seed42": {
+      "path": "results/formal-ablations/n10000-r8-neg0-seed42",
+      "dataset_sha256": "03bd0b3dd0c5318f59542db9eaee21fdb3ab9587941e735112193fc4ae57db08",
+      "predictions_sha256": "afba142e8201a017c6270e7fc727fa73cd090390aa0d0d1032f4b43953319fb2",
+      "predictions_hash_matches_score": true,
+      "details_sha256": "4a07c1c9df7772b2263f3b53c58a2be20973840b4c3cfb3d5b45c8245b12bfc5"
+    },
+    "n10000-r8-neg10-seed42": {
+      "path": "results/formal-ablations/n10000-r8-neg10-seed42",
+      "dataset_sha256": "03bd0b3dd0c5318f59542db9eaee21fdb3ab9587941e735112193fc4ae57db08",
+      "predictions_sha256": "a0fbbb273a68d389b8f4aab0b63ad7917f8693c34c08f1b16f0e641e5a933bff",
+      "predictions_hash_matches_score": true,
+      "details_sha256": "10935288a8a8e53c4da191ef4301642f5ff5eaa63c44d5fe55e1d74cad325380"
+    }
+  },
+  "limitations": "Exploratory seed42 only; paired case uncertainty is conditional on the fitted models, not training-seed uncertainty or a fixed-step-budget causal effect. Both use10k positives and two-epoch requests, but negatives increase total examples and optimizer steps. No frozen baseline held-out result exists, so no baseline delta is claimed. Glaive is the authorized synthetic fallback, not xLAM; agent review found semantic near-duplicates across splits and negative-label noise, so these high scores do not establish uncontaminated generalization. Agent review is not human-gold validation. No model/checker reruns or metric/training-data changes.",
+  "reviewer_type": "agent",
+  "human_validation_complete": false,
+  "human_validation_required": false
+}
