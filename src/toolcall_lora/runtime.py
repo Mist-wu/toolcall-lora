@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import random
 import subprocess
+import shutil
 import sys
 import math
 import re
@@ -64,6 +65,9 @@ def train(config, data_dir, output_dir, resume=None):
         persist_checkpoint(resume,out)
     request.write_text(json.dumps(cfg, indent=2) + "\n")
     metadata = environment(cfg)
+    if resume:
+        metadata["resumed_from"] = {"path":str(resume), **json.loads((Path(resume) / "complete.json").read_text())}
+        metadata["timing_boundary"] = "Trainer runtime statistics cover this resumed segment, not the full interrupted run"
     tokenizer = AutoTokenizer.from_pretrained(config["model"], revision=config.get("model_revision"))
     tokenizer.pad_token = tokenizer.eos_token
     rows = read_jsonl(Path(data_dir) / "train.jsonl")
@@ -106,6 +110,7 @@ def train(config, data_dir, output_dir, resume=None):
                     raise FloatingPointError(f"Non-finite {name} at step {state.global_step}; refusing further training")
         def on_save(self, args, state, control, **kwargs):
             checkpoint = Path(args.output_dir) / f"checkpoint-{state.global_step}"
+            shutil.copy2(out / "request.json", checkpoint / "request.json")
             required = ["adapter_model.safetensors", "optimizer.pt", "scheduler.pt", "trainer_state.json"]
             if not all((checkpoint / name).is_file() for name in required):
                 raise RuntimeError("Trainer checkpoint files incomplete; not publishing a resume marker")

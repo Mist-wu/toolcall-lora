@@ -1,3 +1,11 @@
+# Latest recovery state
+
+At 2026-11-04 22:49 JST, `exp-e4-qwen` disappeared from actual assignments. E2 and E4 did not intentionally stop it; the cause remains unknown. Both baselines and Glaive are fully persisted. Seed42 step300 was recovered from `gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6`; its model, optimizer, scheduler, RNG state and TrainerState(global_step300) were downloaded to `artifacts/E2-checkpoint-300/`. No training is currently accessible on that old runtime.
+
+A single replacement A100 request `exp-e24-recovery-a100` is pending. Root's latest order is E4's remaining 359 cases first, then E2 main resume, then six exploratory ablations at seed42. The failed follow-on upload `E2-exploratory-ablations-20261104-01` never started. The new direct continuation payload will be `bash scripts/resume_formal.sh gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6`; it restores the actual checkpoint/config/data, completes main42/43/44, and immediately invokes the six exploratory variants. Execute real work through the existing Jupyter kernel foreground via the official SSH/IPC method; do not leave only a detached external trainer while the kernel is idle.
+
+The older receipts and historical observations below are retained as provenance, not current liveness evidence.
+
 # E2 local recovery and execution
 
 Local Mac agents own E2 execution; server pi is paused. **Formal recovery is running on the existing shared A100 session `exp-e4-qwen`.** L4/A100 allocation requests were refused and H100 lacked entitlement; no replacement assignment was created. Root authorized sharing E4's A100 after measuring 33,044 MiB free. Do not stop this runtime until E2 and E4 both finish.
@@ -63,4 +71,4 @@ Current measured training is about 4.2 seconds per optimizer step before evaluat
 
 ## Automatic continuation after main
 
-`scripts/formal_ablations.sh E2-formal-recovery-20261104-02` waits for the existing main run to succeed, then uses the same assigned runtime to execute `n10000-r8-neg0`, `n10000-r8-neg10`, `n10000-r16-neg0`, `n10000-r16-neg10`, `n10000-r64-neg0`, and `n10000-r64-neg10`, each with seed42. It installs the new isolated editable source only after the main process exits. The six runs are exploratory; do not claim stable improvements from a single seed. Each new training record stores the most recent fixed-256-example development loss and actual evaluation step for subsequent selection. Adding seeds43/44 is reserved for contrasts chosen on development data before main-result claims. The 30k case remains explicitly blocked.
+`scripts/formal_ablations.sh --after-run E2-formal-recovery-20261104-02` waits for the existing main run to succeed, then uses the same assigned runtime to execute `n10000-r8-neg0`, `n10000-r8-neg10`, `n10000-r16-neg0`, `n10000-r16-neg10`, `n10000-r64-neg0`, and `n10000-r64-neg10`, each with seed42. It installs the new isolated editable source only after the main process exits. The six runs are exploratory; do not claim stable improvements from a single seed. Each new training record stores the most recent fixed-256-example development loss and actual evaluation step for subsequent selection. Adding seeds43/44 is reserved for contrasts chosen on development data before main-result claims. The 30k case remains explicitly blocked.

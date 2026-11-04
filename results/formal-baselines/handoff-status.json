@@ -3,7 +3,7 @@
   "run_id": "E2-formal-recovery-20261104-02",
   "session": "exp-e4-qwen",
   "snapshot_observed_at": "2026-11-04T13:21:00.880019+00:00",
-  "run_state": "running",
+  "run_state": "runtime_unavailable",
   "request_path": "/Users/wu/Github/toolcall-lora/artifacts/E2-formal-recovery-20261104-02/request.json",
   "runtime_source_commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
   "baseline_1_5b": {
@@ -29,7 +29,7 @@
     ],
     "drive_receipt": "baseline-7b.drive-receipt.json"
   },
-  "training_state": "main_seed42_training",
+  "training_state": "checkpoint300_recovered_waiting_for_replacement",
   "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
   "training_data_persisted": true,
@@ -73,8 +73,14 @@
   "training_progress": {
     "observed_optimizer_step": 136,
     "optimizer_steps_total": 1288,
-    "last_durable_checkpoint_step": 100,
+    "last_durable_checkpoint_step": 300,
     "last_durable_receipt": "results/main-seed42.last-verified-checkpoint.json",
-    "first_dev_eval_loss": 0.0011036377400159836
-  }
+    "first_dev_eval_loss": 0.0011036377400159836,
+    "recovered_checkpoint": "gdrive:exp/runs/E2/E2-main-s42-step300-4478da60bce6"
+  },
+  "pending_order": [
+    "E4 completes its remaining359 cases on replacement A100",
+    "E2 resumes main seed42 from step300, then seeds43/44",
+    "Six10k configurations run exploratory seed42"
+  ]
 }

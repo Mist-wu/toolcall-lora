@@ -63,6 +63,8 @@ def main():
                 if checkpoints:call += ["--resume",checkpoints[-1]]
                 run(*call)
             shutil.copy2(complete,local/f"{item['run']}.train.json")
+            for name in ["train.json", "request.json", "env.txt"]:
+                shutil.copy2(dest / name, dest / "adapter" / name)
             subprocess.run([sys.executable,"-m","exp_common.checkpoint","--source",str(dest/"adapter"),"--experiment","E2","--run-id",os.environ.get("EXPERIMENT_RUN_ID","E2-main")+"-"+item["run"]+"-adapter","--receipt",str(local/f"{item['run']}.adapter-receipt.json")],check=True)
             evaluate(cfg["model"],cfg["run_name"],cfg["seed"],dest/"adapter")
     subprocess.run([sys.executable,"scripts/collect_results.py",str(persistent)],check=True)

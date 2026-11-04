@@ -9,23 +9,24 @@ import sys
 import time
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--after-run', required=True)
+parser.add_argument('--after-run')
 args = parser.parse_args()
 root = Path('results');root.mkdir(exist_ok=True)
 status_path = root / 'ablation-status.json'
 def status(**fields):
     status_path.write_text(json.dumps(fields, indent=2) + '\n')
 
-status(state='waiting_for_main', main_run=args.after_run)
-main_status = Path('/content/experiment-runs') / args.after_run / 'status.json'
-while True:
-    previous = json.loads(main_status.read_text())
-    if previous['state'] != 'running':
-        break
-    time.sleep(30)
-if previous['state'] != 'succeeded':
-    status(state='main_failed', main_run=args.after_run, returncode=previous.get('returncode'))
-    raise SystemExit('Main campaign did not complete successfully; continue it before ablations')
+if args.after_run:
+    status(state='waiting_for_main', main_run=args.after_run)
+    main_status = Path('/content/experiment-runs') / args.after_run / 'status.json'
+    while True:
+        previous = json.loads(main_status.read_text())
+        if previous['state'] != 'running':
+            break
+        time.sleep(30)
+    if previous['state'] != 'succeeded':
+        status(state='main_failed', main_run=args.after_run, returncode=previous.get('returncode'))
+        raise SystemExit('Main campaign did not complete successfully; continue it before ablations')
 
 settings = json.loads(Path(os.environ['E2_ENV_FILE']).read_text())
 for key in ('RCLONE_CONFIG', 'RCLONE_HEADER'):
