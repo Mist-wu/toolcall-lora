@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 23:16 UTC: rank8 neg10 BFCL inference 500/1240
+
+Original **n10000-r8-neg10 seed42** BFCL inference reached **500/1240** predictions at23:15:27UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg10-seed42/bfcl.predictions.partial-500.jsonl`, explicitly unscored and not a complete result. Actual subscriber `exp-iopub-e24-scope.service` remains active; original pipeline/client preserved without resubmission or replacement. Two ablation trainings complete, one fully evaluated/collected. This evaluation pair, four later variants, matched comparisons and final report remain incomplete. Continue existing output/ablation-status polling and collect all four BFCL/held-out files when complete using commands below. Do not score partial predictions or select confirmation runs using test results. Reuse completed experiments; preserve progress/wait at zero CU without automatic purchase/recharge.
+
+Observation used:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg10-seed42-bfcl.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r8-neg10-seed42-bfcl.partial.jsonl
+```
+
 ## Update 2026-11-04 23:10 UTC: rank8 neg10 training and adapter complete
 
 Collected `results/formal-ablations/n10000-r8-neg10-seed42/{train.json,request.json,env.txt,adapter-receipt.json,checkpoint-694.receipt.json}`. The two-epoch request completed **694 steps at23:08:18UTC**; all11,111 examples (10,000 positives plus negatives) retained, zero overlength drops. Trainer reports epoch1.9964003/runtime3,000.1108s versus wall3,027s (22:17:51–23:08:18), not an isolated throughput benchmark; documented in `docs/cost.md`. Final adapter copied successfully at**23:08:36UTC** to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r8-neg10-seed42-adapter`. Recorded dev loss0.000674600 remains the step600/256-example measurement, not a test score.
