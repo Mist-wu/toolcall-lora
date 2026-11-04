@@ -1,5 +1,20 @@
 # E2 current handoff
 
+## Update 2026-11-04 23:10 UTC: rank8 neg10 training and adapter complete
+
+Collected `results/formal-ablations/n10000-r8-neg10-seed42/{train.json,request.json,env.txt,adapter-receipt.json,checkpoint-694.receipt.json}`. The two-epoch request completed **694 steps at23:08:18UTC**; all11,111 examples (10,000 positives plus negatives) retained, zero overlength drops. Trainer reports epoch1.9964003/runtime3,000.1108s versus wall3,027s (22:17:51–23:08:18), not an isolated throughput benchmark; documented in `docs/cost.md`. Final adapter copied successfully at**23:08:36UTC** to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r8-neg10-seed42-adapter`. Recorded dev loss0.000674600 remains the step600/256-example measurement, not a test score.
+
+Original foreground pipeline continues into evaluations; actual subscriber `exp-iopub-e24-scope.service` remains active. Preserve command/client without resubmission. **2/6 ablation trainings complete, 1/6 fully evaluated/collected.** This variant's BFCL/held-out outputs, four later variants, matched comparisons and final report remain incomplete. Cost ledger now includes actual recent account readings, not E2-only spending. Preserve progress/wait at zero CU, never purchase/recharge automatically.
+
+Collected with:
+
+```sh
+for f in train.json request.json env.txt; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg10-seed42/$f results/formal-ablations/n10000-r8-neg10-seed42/$f; done
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/n10000-r8-neg10-seed42.adapter-receipt.json results/formal-ablations/n10000-r8-neg10-seed42/adapter-receipt.json
+```
+
+Next poll original output/ablation-status and collect `/content/e2-artifacts/n10000-r8-neg10-seed42-{bfcl,heldout}.*` (predictions, metadata, score, score details) when complete into this variant's result directory. Compare the completed matched rank8 negative/no-negative pair descriptively with paired-case uncertainty; keep single-seed exploratory scope and do not select confirmations using test scores. Reuse completed main and first-ablation results.
+
 ## Update 2026-11-04 23:02 UTC: rank8 neg10 checkpoint 600
 
 Existing **n10000-r8-neg10 seed42** foreground training reached step600/694. Step600 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg10-s42-step600-f17427759256`, rclone exit0, ended23:01:49UTC. Actual receipt `results/formal-ablations/n10000-r8-neg10-seed42/checkpoint-600.receipt.json`. Fixed256-example training-time dev loss at epoch1.73 was0.000674600, not a test score. The environment export is not yet present (training still running); collect it with final train.json/adapter receipt after completion. Actual subscriber `exp-iopub-e24-scope.service` remains active; original command/client preserved without resubmission. Account-wide reading: **19.61 CU**, **15.40 CU/hour**, three assignments, not E2-only cost; no purchase/recharge. First exploratory variant fully collected; this and four later variants, comparisons and final report remain incomplete. Next poll output/ablation-status and collect actual final train/config/environment/adapter and evaluation artifacts when ready, using commands below. Reuse completed results; preserve progress and wait at zero CU without automatic purchase/recharge.
