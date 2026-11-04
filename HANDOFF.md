@@ -1,5 +1,17 @@
 # E2 current handoff
 
+## Update 2026-11-04 16:23 UTC: seed 42 held-out score collected
+
+The existing run completed 2,000 Glaive held-out predictions for main seed42: **94.5%** accuracy, bootstrap 95% CI **93.4–95.55%**. Full predictions, metadata, score and details are in `results/formal-main-seed42/heldout.*`. This is a single-seed result on the Glaive test split, not xLAM or a three-seed aggregate; the separately documented semantic near-duplicates across Glaive splits limit the test's independence. The existing foreground pipeline and output subscriber remain active; continue the remaining main seeds and variants without resubmitting.
+
+```sh
+root=/content/e2-artifacts
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-heldout.predictions.jsonl" results/formal-main-seed42/heldout.predictions.jsonl
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-heldout.predictions.jsonl.metadata.json" results/formal-main-seed42/heldout.predictions.jsonl.metadata.json
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-heldout.score.json" results/formal-main-seed42/heldout.score.json
+colab download -s exp-e24-recovery-a100 "$root/main-seed42-heldout.score.details.jsonl" results/formal-main-seed42/heldout.score.details.jsonl
+```
+
 ## Update 2026-11-04 16:16 UTC
 
 The existing foreground job remains running; main seed42 held-out inference advanced to **1472/2000** predictions. Preserved the unscored incomplete snapshot at `results/formal-main-seed42/heldout.predictions.partial-1472.jsonl`. Subscriber PID 82069 remains active. Use the held-out download command below to poll; collect complete predictions, metadata and score when available, and do not resubmit the ongoing seed43/44 and ablation pipeline.
