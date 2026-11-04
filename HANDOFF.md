@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 16:10 UTC
+
+The existing foreground job remains active and seed42 held-out inference reached 840/2000 cases; saved the incomplete, unscored snapshot in `results/formal-main-seed42/heldout.predictions.partial-840.jsonl`. Subscriber PID 82069 remains active. Continue the same job and collect its full held-out score; do not resubmit.
+
+The separately performed **agent**, not human, audit of the 50 fixed negative examples is preserved in `results/negative-audit/agent-review/`. It judged 47 tool choices irrelevant, one clearly mislabeled (`glaive-20088-negative-991`), and two uncertain; it also found semantic near-duplicates across the Glaive splits. These directed observations do not quantify overall label noise or prove BFCL leakage; disclose the limitations and do not change this run or its scores. The 50 actual human verdicts remain pending.
+
 ## Update 2026-11-04 16:04 UTC: seed 42 BFCL score collected
 
 The existing run completed all 1,240 five-category BFCL cases for main seed42. Collected predictions, metadata, score, and case details in `results/formal-main-seed42/`. Measured accuracy **57.258%** (bootstrap 95% CI **54.677–60.0%**), versus the same-dataset 1.5B baseline **74.758%**; parallel accuracy **0/200**, versus baseline **65.5%**. This is a negative single-seed result, not the three-seed aggregate or full leaderboard. Irrelevance accuracy was 90.42%. Preserve these results rather than rerunning to improve them. Held-out inference is underway: saved an unscored 252/2000 snapshot to `results/formal-main-seed42/heldout.predictions.partial-252.jsonl`. The foreground job and output subscriber PID 82069 remain active; do not resubmit.

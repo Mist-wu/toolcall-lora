@@ -1,0 +1,840 @@
+{"id": "glaive-13400", "text": "<tool_call>\n{\"name\": \"calculate_mortgage\", \"arguments\": {\"loan_amount\": 200000, \"interest_rate\": 3.5, \"loan_term\": 30}}\n</tool_call>", "output_tokens": 44}
+{"id": "glaive-49500", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"keyword\": \"friendship\", \"genre\": \"comedy\", \"year\": 1990}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-21969", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"job_title\": \"software engineer\", \"location\": \"San Francisco\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-28920", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"location\": \"San Francisco\", \"job_title\": \"software engineer\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-39472", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"location\": \"San Francisco\", \"job_title\": \"software engineer\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-87728", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"location\": \"San Francisco\", \"title\": \"software engineer\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-76468", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\", \"date\": \"tomorrow\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-82468", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\", \"date\": \"2022-04-15\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-17391", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"ingredients\": [\"chicken\", \"tomatoes\", \"garlic\"]}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-26360", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"data\": \"1234567890\", \"format\": \"QR code\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-2890", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-16946", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-17110", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-18701", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-19150", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_rate\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-27204", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-31333", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-32991", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-39165", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-44199", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-44293", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-57524", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-60429", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-74954", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-83684", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-89157", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-96767", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-100558", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 100, \"discount\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-80060", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-72683", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"author\": \"\", \"genre\": \"science fiction\", \"year\": 1984}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-22288", "text": "<tool_call>\n{\"name\": \"generate_invoice\", \"arguments\": {\"client_name\": \"John Doe\", \"services\": [\"web development\", \"graphic design\"], \"amount_due\": 2000}}\n</tool_call>", "output_tokens": 42}
+{"id": "glaive-61304", "text": "<tool_call>\n{\"name\": \"analyze_sentiment\", \"arguments\": {\"text\": \"I had a wonderful day at the park, the weather was perfect and I enjoyed a delicious ice cream.\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-79931", "text": "<tool_call>\n{\"name\": \"analyze_sentiment\", \"arguments\": {\"text\": \"I had a wonderful day at the park, the weather was perfect and I enjoyed a delicious ice cream.\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-71714", "text": "<tool_call>\n{\"name\": \"get_user_details\", \"arguments\": {\"user_id\": \"12345\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-75418", "text": "<tool_call>\n{\"name\": \"find_nearby_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-49118", "text": "<tool_call>\n{\"name\": \"generate_uuid\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-48029", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-71820", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-75440", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-109408", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"country\": \"United States\", \"category\": \"politics\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-1211", "text": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 70, \"height\": 175}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-22653", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-24449", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"Arthur C. Clarke\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-25066", "text": "<tool_call>\n{\"name\": \"get_note\", \"arguments\": {\"note_id\": 123}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20037", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-26001", "text": "<tool_call>\n{\"name\": \"get_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-38973", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-43283", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-84850", "text": "<tool_call>\n{\"name\": \"generate_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-95597", "text": "<tool_call>\n{\"name\": \"generate_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-45787", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"event_title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\", \"location\": \"conference room\"}}\n</tool_call>", "output_tokens": 79}
+{"id": "glaive-103486", "text": "<tool_call>\n{\"name\": \"generate_random_quote_by_author\", \"arguments\": {\"author\": \"Albert Einstein\"}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-7656", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-13777", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-38076", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-64821", "text": "<tool_call>\n{\"name\": \"calculate_gpa\", \"arguments\": {\"grades\": [89, 92, 85, 90, 88]}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-53096", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\", \"service\": \"standard\"}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-1732", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-26060", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-49624", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-64767", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-86171", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-98105", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-98843", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-109757", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-21003", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"H\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-49233", "text": "<tool_call>\n{\"name\": \"search_book\", \"arguments\": {\"title\": \"Sun\", \"author\": \"H\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-36141", "text": "<tool_call>\n{\"name\": \"get_random_joke\", \"arguments\": {\"category\": \"programming\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-76683", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"latest\", \"technology\", \"advancements\"]}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-9081", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-12687", "text": "<tool_call>\n{\"name\": \"search_restaurant\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-72305", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-90874", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-111644", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-7538", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 5000, \"from_currency\": \"USD\", \"to_currency\": \"EUR\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-23623", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 5000, \"from_currency\": \"USD\", \"to_currency\": \"EUR\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-5151", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-6119", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-29416", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-44010", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-68616", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_requirements\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 35}
+{"id": "glaive-111602", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"chicken\", \"broccoli\"], \"dietary_restrictions\": [\"gluten-free\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-5431", "text": "<tool_call>\n{\"name\": \"analyze_image\", \"arguments\": {\"image_url\": \"www.example.com/image.jpg\", \"features\": [\"objects\", \"faces\"]}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-36282", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"ingredient\": \"chicken\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25001", "text": "<tool_call>\n{\"name\": \"calculate_rental_profit\", \"arguments\": {\"rental_income\": 2000, \"expenses\": 500}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-47312", "text": "<tool_call>\n{\"name\": \"find_nearby_restaurants\", \"arguments\": {\"location\": \"San Francisco, CA\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-72579", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"total_bill\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-72121", "text": "<tool_call>\n{\"name\": \"get_news_articles\", \"arguments\": {\"source\": \"BBC\", \"language\": \"English\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-34516", "text": "<tool_call>\n{\"name\": \"get_next_holiday\", \"arguments\": {}}\n</tool_call>", "output_tokens": 17}
+{"id": "glaive-68", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-70", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-667", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-752", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-888", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-1050", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-1344", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-1379", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-1573", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-2013", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-2785", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-2903", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-4769", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-5401", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-5495", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-5543", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-6509", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-6751", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-8081", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-8153", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-9976", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-10638", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-11900", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-12673", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-12825", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-13956", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-14275", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-14755", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-16139", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-16190", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-16252", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-16638", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20328", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-20561", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20705", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-22516", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-23805", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25529", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25566", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-26669", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-26671", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-28956", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-30040", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-33806", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-34540", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-34901", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-36917", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-37621", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-38107", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-38163", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-38654", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-40877", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-41906", "text": "<tool_call>\n{\"name\": \"search_stock\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-42009", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-42419", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-42438", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-44798", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-44913", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-45017", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-45393", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-45412", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-46081", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-46430", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-48483", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-48657", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-50904", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-51503", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-51704", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-52605", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-53317", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-53323", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-54408", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-58489", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-59692", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-62276", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-62433", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-62765", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-66197", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-66630", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-67735", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-70408", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-71276", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-74118", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-76248", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-77410", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-78566", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-80260", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-81952", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-82852", "text": "<tool_call>\n{\"name\": \"get_stock_prices\", \"arguments\": {\"stock_code\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-84086", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-86006", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-86251", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-87153", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-88655", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-91660", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-92551", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-93174", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-93842", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-94538", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-95175", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-96412", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-96456", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-97770", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-99063", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-100536", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-102604", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-102908", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-103854", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-104097", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-107297", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-107629", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-110080", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-110230", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-110251", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-111084", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-112537", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"stock_code\": \"AAPL\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-102199", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20, \"additional_discount\": 10}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-1737", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-7948", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-11509", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-12094", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-23573", "text": "<tool_call>\n{\"name\": \"get_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-23686", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-27476", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-28951", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-33245", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-36834", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-48677", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-56485", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-57744", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-59667", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-68978", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-70249", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-72607", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-81222", "text": "<tool_call>\n{\"name\": \"get_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-81915", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-82587", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-84332", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-85778", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-101171", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-104431", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-104901", "text": "<tool_call>\n{\"name\": \"get_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 15}
+{"id": "glaive-107436", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-110431", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-13474", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"keywords\": \"artificial intelligence\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-88679", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"keywords\": [\"artificial intelligence\"]}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-75107", "text": "<tool_call>\n{\"name\": \"find_prime_numbers\", \"arguments\": {\"start\": 10, \"end\": 50}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-106700", "text": "<tool_call>\n{\"name\": \"find_prime_numbers\", \"arguments\": {\"start\": 10, \"end\": 50}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-5797", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"stock_exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-79029", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-104985", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-100007", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-62035", "text": "<tool_call>\n{\"name\": \"get_driving_directions\", \"arguments\": {\"source\": \"New York\", \"destination\": \"Los Angeles\"}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-51355", "text": "<tool_call>\n{\"name\": \"find_nearby_gas_stations\", \"arguments\": {\"latitude\": 40.7128, \"longitude\": -74.006, \"radius\": 5000}}\n</tool_call>", "output_tokens": 49}
+{"id": "glaive-106194", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 80000, \"deductions\": 10000}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-14140", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-53881", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percent\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-56251", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percent\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-66690", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-79504", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-80436", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-110683", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-38852", "text": "<tool_call>\n{\"name\": \"search_lyrics\", \"arguments\": {\"artist\": \"John Lennon\", \"title\": \"Imagine\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-25914", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-32585", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-50667", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-101829", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-107605", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-107945", "text": "<tool_call>\n{\"name\": \"search_book\", \"arguments\": {\"author\": \"George Orwell\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-11682", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"vegan\"], \"dietary_restrictions\": [\"vegan\"]}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-17848", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"query\": \"pasta\", \"diet\": \"vegan\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-24335", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"keywords\": \"pasta\", \"diet\": \"vegan\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-37861", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": \"pasta\", \"dietary_restrictions\": [\"vegan\"]}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-53993", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"query\": \"pasta\", \"diet\": \"vegan\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-72780", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"pasta\"], \"dietary_restrictions\": [\"vegan\"]}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-88939", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keyword\": \"pasta\", \"dietary_restrictions\": [\"vegan\"]}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-93375", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"query\": \"pasta\", \"diet\": \"vegan\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-97432", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"keywords\": \"pasta\", \"dietary_restrictions\": [\"vegan\"]}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-582", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-2503", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-4190", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-4535", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-7453", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-8293", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-15929", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-17180", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-18939", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-20743", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-24347", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-28220", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-28891", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-29859", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"percentage\": 20}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-30701", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-32223", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-34530", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-35872", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-40677", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-44352", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-49215", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-51649", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-55747", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-64321", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-66756", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-69081", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-73369", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-73799", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-77351", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-77663", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-80889", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-81873", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-91621", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-92832", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-95700", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percent\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-96834", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-101715", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-108687", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-109471", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-111004", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-112959", "text": "<tool_call>\n{\"name\": \"search_images\", \"arguments\": {\"keywords\": [\"Eiffel Tower\"], \"limit\": 5}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-21203", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-31171", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-65558", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-112721", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-7704", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"Sun\", \"genre\": \"mystery\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-46515", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"search_query\": \"Sun\", \"filter_by\": \"title\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-47667", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"Sun\", \"filter\": \"mystery\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-56004", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"Sun\", \"genre\": \"mystery\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-75138", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"Sun\", \"genre\": \"mystery\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-91938", "text": "<tool_call>\n{\"name\": \"calculate_distance\", \"arguments\": {\"origin\": \"New York\", \"destination\": \"Los Angeles\", \"unit\": \"miles\"}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-62894", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"\", \"author\": \"J.K. Rowling\", \"genre\": \"fantasy\"}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-5545", "text": "<tool_call>\n{\"name\": \"get_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-90780", "text": "<tool_call>\n{\"name\": \"generate_random_quote\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-105698", "text": "<tool_call>\n{\"name\": \"get_random_number\", \"arguments\": {\"min\": 1, \"max\": 100}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-25023", "text": "<tool_call>\n{\"name\": \"find_nearest_restaurant\", \"arguments\": {\"user_location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-56548", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"code\": \"123ABC\"}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-82967", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"code\": \"123ABC\"}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-3594", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"genre\": \"comedy\", \"year\": 2015}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-85930", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"genre\": \"comedy\", \"year\": 2015}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-106859", "text": "<tool_call>\n{\"name\": \"search_movie\", \"arguments\": {\"title\": \"Hangover\", \"genre\": \"comedy\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-111508", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"title\": \"Project Meeting\", \"start_time\": \"2022-04-01T10:00:00\", \"end_time\": \"2022-04-01T12:00:00\"}}\n</tool_call>", "output_tokens": 71}
+{"id": "glaive-29443", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-2878", "text": "<tool_call>\n{\"name\": \"calculate_distance\", \"arguments\": {\"origin\": \"New York\", \"destination\": \"Los Angeles\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-58644", "text": "<tool_call>\n{\"name\": \"calculate_distance\", \"arguments\": {\"latitude1\": 40.7128, \"longitude1\": -74.006, \"latitude2\": 34.0522, \"longitude2\": -118.2437}}\n</tool_call>", "output_tokens": 65}
+{"id": "glaive-88029", "text": "<tool_call>\n{\"name\": \"calculate_distance\", \"arguments\": {\"start\": {\"latitude\": 40.7128, \"longitude\": -74.006}, \"end\": {\"latitude\": 34.0522, \"longitude\": -118.2437}}}\n</tool_call>", "output_tokens": 68}
+{"id": "glaive-104063", "text": "<tool_call>\n{\"name\": \"generate_random_string\", \"arguments\": {\"length\": 10}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25894", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"J.K. Rowling\", \"max_price\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-102132", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"search_query\": \"J.K. Rowling\", \"max_price\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-68585", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"query\": \"\", \"genre\": \"comedy\", \"year\": 2010}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-8038", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 1000, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-37359", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 1000, \"from\": \"EUR\", \"to\": \"USD\"}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-47709", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 1000, \"from\": \"EUR\", \"to\": \"USD\"}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-52938", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 1000, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-70759", "text": "<tool_call>\n{\"name\": \"convert_currency\", \"arguments\": {\"amount\": 1000, \"from_currency\": \"EUR\", \"to_currency\": \"USD\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-86365", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"items\": [{\"product_name\": \"apple\", \"quantity\": 5, \"price\": 1}, {\"product_name\": \"orange\", \"quantity\": 3, \"price\": 2}]}}\n</tool_call>", "output_tokens": 63}
+{"id": "glaive-96073", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"year\": 2010, \"genre\": \"comedy\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-24598", "text": "<tool_call>\n{\"name\": \"play_sound\", \"arguments\": {\"file_path\": \"/music/favorites/song.mp3\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-103857", "text": "<tool_call>\n{\"name\": \"get_recipe_details\", \"arguments\": {\"recipe_id\": \"R1234\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-52647", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"keywords\": \"mystery\", \"author\": \"Agatha Christie\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-50573", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"year\": 2005, \"genre\": \"comedy\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-31631", "text": "<tool_call>\n{\"name\": \"get_news_articles\", \"arguments\": {\"category\": \"sports\", \"limit\": 5}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-70608", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\", \"limit\": 5}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-99792", "text": "<tool_call>\n{\"name\": \"get_news_articles\", \"arguments\": {\"category\": \"sports\", \"limit\": 5}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-36610", "text": "<tool_call>\n{\"name\": \"get_definition\", \"arguments\": {\"word\": \"Ephemeral\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-109039", "text": "<tool_call>\n{\"name\": \"find_nearest_restaurant\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\"}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-95799", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"US\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-33923", "text": "<tool_call>\n{\"name\": \"calculate_loan_interest\", \"arguments\": {\"principal_amount\": 50000, \"interest_rate\": 5, \"loan_term\": 10}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-5858", "text": "<tool_call>\n{\"name\": \"calculate_future_value\", \"arguments\": {\"principal\": 5000, \"interest_rate\": 5, \"years\": 10}}\n</tool_call>", "output_tokens": 37}
+{"id": "glaive-101637", "text": "<tool_call>\n{\"name\": \"calculate_future_value\", \"arguments\": {\"principal\": 5000, \"interest_rate\": 5, \"years\": 10}}\n</tool_call>", "output_tokens": 37}
+{"id": "glaive-107324", "text": "<tool_call>\n{\"name\": \"calculate_future_value\", \"arguments\": {\"principal\": 5000, \"interest_rate\": 5, \"time_period\": 10}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-97063", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-83794", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 100, \"discount_amount\": 20}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-50508", "text": "<tool_call>\n{\"name\": \"calculate_fuel_cost\", \"arguments\": {\"distance\": 500, \"fuel_efficiency\": 25, \"fuel_price\": 3}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-39108", "text": "<tool_call>\n{\"name\": \"calculate_area\", \"arguments\": {\"shape\": \"square\", \"measurements\": {\"side\": 5}}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-105907", "text": "<tool_call>\n{\"name\": \"calculate_area\", \"arguments\": {\"shape\": \"square\", \"dimensions\": {\"side_length\": 5}}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-9289", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-10016", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-17975", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-27141", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-30528", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-50343", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-66480", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-68772", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-70072", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-2449", "text": "<tool_call>\n{\"name\": \"check_spelling\", \"arguments\": {\"word\": \"accomodate\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-24887", "text": "<tool_call>\n{\"name\": \"check_word_spell\", \"arguments\": {\"word\": \"accomodate\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-11548", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 200, \"tip_percentage\": 15, \"split\": 4}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-109023", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"genre\": \"comedy\", \"year\": 2015}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-28317", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"keywords\": \"mystery\", \"genre\": \"\", \"min_price\": 0, \"max_price\": 20}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-10583", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-17770", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-22232", "text": "<tool_call>\n{\"name\": \"calculate_tip_amount\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-24647", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-40576", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-81546", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-50277", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"taxable_income\": 50000, \"tax_rate\": 20}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-44845", "text": "<tool_call>\n{\"name\": \"recommend_movies\", \"arguments\": {\"genre\": \"comedy\", \"year_range\": {\"start_year\": 1990, \"end_year\": 1999}}}\n</tool_call>", "output_tokens": 45}
+{"id": "glaive-75523", "text": "<tool_call>\n{\"name\": \"find_movie\", \"arguments\": {\"genre\": \"comedy\", \"year\": 1990}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-29684", "text": "<tool_call>\n{\"name\": \"generate_username\", \"arguments\": {\"name\": \"John Doe\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-97761", "text": "<tool_call>\n{\"name\": \"generate_username\", \"arguments\": {\"name\": \"John Doe\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-35552", "text": "<tool_call>\n{\"name\": \"find_nearby_hospitals\", \"arguments\": {\"location\": \"New York\", \"specialty\": \"cardiology\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-5096", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\"}}\n</tool_call>", "output_tokens": 71}
+{"id": "glaive-7873", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\"}}\n</tool_call>", "output_tokens": 71}
+{"id": "glaive-18246", "text": "<tool_call>\n{\"name\": \"create_event\", \"arguments\": {\"title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\"}}\n</tool_call>", "output_tokens": 70}
+{"id": "glaive-62025", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"title\": \"Project Discussion\", \"start\": \"2022-04-15T10:00:00\", \"end\": \"2022-04-15T11:00:00\"}}\n</tool_call>", "output_tokens": 69}
+{"id": "glaive-79000", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\"}}\n</tool_call>", "output_tokens": 71}
+{"id": "glaive-101228", "text": "<tool_call>\n{\"name\": \"create_calendar_event\", \"arguments\": {\"event_title\": \"Project Discussion\", \"start_time\": \"2022-04-15T10:00:00\", \"end_time\": \"2022-04-15T11:00:00\"}}\n</tool_call>", "output_tokens": 72}
+{"id": "glaive-1652", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-2777", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-3811", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-5821", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-6246", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-6383", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-7039", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-7295", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-7918", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-8269", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percent\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-10572", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-12162", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-12592", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-12704", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-13135", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-13515", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-15885", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-18609", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-21325", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-21567", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-22136", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-23534", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-23803", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-24975", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-26930", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-27146", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-27345", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percent\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-29456", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-32113", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-34449", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-36368", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-36715", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-39306", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-42860", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percent\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-43097", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-44855", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-45406", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-45550", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-46778", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-49272", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 0.2}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-49322", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-49566", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-49687", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-51095", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-51288", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-51293", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-56070", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-57214", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-58773", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-62107", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-62308", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-63073", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-63225", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-63994", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-64363", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-65293", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-68873", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-70683", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-71553", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-73016", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-75140", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-76114", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-76692", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-77647", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-79313", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-79837", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-79996", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-81412", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-84238", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-86882", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-87314", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-90099", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-91299", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-91526", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-102943", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-103272", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-104527", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-107784", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-107806", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-109571", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"percent\": 20}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-109940", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-112380", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-112837", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-69420", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keyword\": \"Mars Rover\", \"language\": \"English\", \"date_range\": {\"start_date\": \"2022-03-01\", \"end_date\": \"2022-03-08\"}}}\n</tool_call>", "output_tokens": 64}
+{"id": "glaive-18440", "text": "<tool_call>\n{\"name\": \"calculate_area\", \"arguments\": {\"shape\": \"square\", \"dimensions\": {\"length\": 5}}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-72485", "text": "<tool_call>\n{\"name\": \"calculate_area\", \"arguments\": {\"shape\": \"square\", \"dimensions\": {\"length\": 5}}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-40376", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"package_weight\": 5, \"destination_country\": \"Germany\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-75102", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"Germany\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-112630", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 5, \"destination\": \"Germany\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-27763", "text": "<tool_call>\n{\"name\": \"generate_random_color\", \"arguments\": {}}\n</tool_call>", "output_tokens": 16}
+{"id": "glaive-102965", "text": "<tool_call>\n{\"name\": \"calculate_vehicle_emissions\", \"arguments\": {\"vehicle_model\": \"Toyota Corolla\", \"distance\": 200}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-102147", "text": "<tool_call>\n{\"name\": \"calculate_car_emissions\", \"arguments\": {\"car_type\": \"diesel\", \"distance\": 500}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-73342", "text": "<tool_call>\n{\"name\": \"calculate_sum\", \"arguments\": {\"num1\": 5, \"num2\": 7}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-13134", "text": "<tool_call>\n{\"name\": \"generate_qr_code\", \"arguments\": {\"text\": \"www.mywebsite.com\"}}\n</tool_call>", "output_tokens": 24}
+{"id": "glaive-81317", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"playlist\": \"Chill Vibes\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-87841", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"playlist\": \"Chill Vibes\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-100234", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"playlist\": \"Chill Vibes\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-83623", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"year\": 2005, \"genre\": \"comedy\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-87556", "text": "<tool_call>\n{\"name\": \"get_recipe\", \"arguments\": {\"cuisine\": \"Italian\", \"ingredients\": [\"tomatoes\", \"garlic\", \"pasta\"]}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-68472", "text": "<tool_call>\n{\"name\": \"calculate_loan_payment\", \"arguments\": {\"principal\": 50000, \"interest_rate\": 5, \"loan_term\": 10}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-1690", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 200, \"discount_percent\": 20}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-13624", "text": "<tool_call>\n{\"name\": \"calculate_body_mass_index\", \"arguments\": {\"weight\": 70, \"height\": 1.75}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-97966", "text": "<tool_call>\n{\"name\": \"find_nearest_restaurant\", \"arguments\": {\"latitude\": 40.7128, \"longitude\": -74.006}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-30467", "text": "<tool_call>\n{\"name\": \"play_sound\", \"arguments\": {\"sound_file\": \"/sounds/cheerful_music.mp3\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-22130", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine\": \"Italian\", \"ratings\": 4}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-54722", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"product_name\": \"Super Juice\", \"barcode_type\": \"QR\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-110594", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 150, \"tip_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-95685", "text": "<tool_call>\n{\"name\": \"search_music\", \"arguments\": {\"keywords\": [\"pop\"], \"genre\": \"pop\", \"artist\": \"Taylor Swift\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-99142", "text": "<tool_call>\n{\"name\": \"search_music\", \"arguments\": {\"keywords\": \"\", \"artist\": \"Taylor Swift\", \"genre\": \"pop\"}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-107091", "text": "<tool_call>\n{\"name\": \"search_music\", \"arguments\": {\"keywords\": [\"pop\"], \"artist\": \"Taylor Swift\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-36270", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"query\": \"pasta\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-41283", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keyword\": \"pasta\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-99096", "text": "<tool_call>\n{\"name\": \"search_recipe\", \"arguments\": {\"keywords\": [\"pasta\"], \"cuisine\": \"\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-2940", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-19480", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"stock_exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-36439", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-38259", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company\": \"Apple\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-99949", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company\": \"Apple\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-107947", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company\": \"Apple\", \"exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-22", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-86", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-3430", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-4504", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-11428", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-12573", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-14724", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-37731", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-45640", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-48736", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-55291", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-55558", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-57655", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-59346", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-61930", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-65967", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-67899", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-71536", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-72003", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-82151", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-84654", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-87675", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-89335", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-93809", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-97203", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-100886", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-103187", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-105751", "text": "<tool_call>\n{\"name\": \"calculate_loan_payment\", \"arguments\": {\"principal\": 50000, \"interest_rate\": 5, \"loan_term\": 10}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-20160", "text": "<tool_call>\n{\"name\": \"calculate_interest\", \"arguments\": {\"principal\": 5000, \"rate\": 5, \"time\": 3}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-47081", "text": "<tool_call>\n{\"name\": \"calculate_interest\", \"arguments\": {\"investment_amount\": 5000, \"interest_rate\": 5, \"investment_duration\": 3}}\n</tool_call>", "output_tokens": 37}
+{"id": "glaive-105071", "text": "<tool_call>\n{\"name\": \"calculate_mortgage_payment\", \"arguments\": {\"loan_amount\": 200000, \"interest_rate\": 3.5, \"loan_term\": 30}}\n</tool_call>", "output_tokens": 45}
+{"id": "glaive-42072", "text": "<tool_call>\n{\"name\": \"get_news_articles\", \"arguments\": {\"category\": \"general\", \"country\": \"US\", \"language\": \"en\"}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-16374", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-37039", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-51090", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-53095", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-101818", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-70493", "text": "<tool_call>\n{\"name\": \"generate_random_numbers\", \"arguments\": {\"count\": 5, \"min\": 1, \"max\": 10}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-18398", "text": "<tool_call>\n{\"name\": \"find_movie_details\", \"arguments\": {\"title\": \"Inception\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-26957", "text": "<tool_call>\n{\"name\": \"search_movie\", \"arguments\": {\"title\": \"Inception\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-46552", "text": "<tool_call>\n{\"name\": \"search_movie\", \"arguments\": {\"movie_title\": \"Inception\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-102175", "text": "<tool_call>\n{\"name\": \"search_movie\", \"arguments\": {\"title\": \"Inception\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-1231", "text": "<tool_call>\n{\"name\": \"convert_units\", \"arguments\": {\"value\": 50, \"from_unit\": \"miles\", \"to_unit\": \"kilometers\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-58963", "text": "<tool_call>\n{\"name\": \"convert_units\", \"arguments\": {\"value\": 50, \"from_unit\": \"miles\", \"to_unit\": \"kilometers\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-72037", "text": "<tool_call>\n{\"name\": \"convert_units\", \"arguments\": {\"value\": 50, \"from_unit\": \"miles\", \"to_unit\": \"kilometers\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-57985", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"keywords\": \"data science\", \"location\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-109671", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"keyword\": \"data science\", \"location\": \"New York\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-42571", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"items\": [{\"name\": \"apple\", \"quantity\": 5, \"price\": 1}, {\"name\": \"orange\", \"quantity\": 2, \"price\": 1.5}]}}\n</tool_call>", "output_tokens": 63}
+{"id": "glaive-60530", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"items\": [{\"name\": \"apple\", \"quantity\": 5, \"price\": 1}, {\"name\": \"orange\", \"quantity\": 2, \"price\": 1.5}]}}\n</tool_call>", "output_tokens": 63}
+{"id": "glaive-103147", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"items\": [{\"name\": \"apple\", \"quantity\": 5, \"price\": 1}, {\"name\": \"orange\", \"quantity\": 2, \"price\": 1.5}]}}\n</tool_call>", "output_tokens": 63}
+{"id": "glaive-20877", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 1500, \"discount_percent\": 20, \"tax_percent\": 5}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-80660", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"code\": \"1234567890\", \"format\": \"UPC\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-16244", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"query\": \"Tom Hanks\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-10825", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"Mars Rover\"]}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-26649", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"Mars Rover\"], \"category\": \"Space\"}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-38780", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"query\": \"Mars Rover\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-45040", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"Mars Rover\"]}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-91375", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": \"Mars Rover\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-92464", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"Mars Rover\"]}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-94640", "text": "<tool_call>\n{\"name\": \"search_news\", \"arguments\": {\"keywords\": [\"Mars Rover\"], \"topic\": \"Space Exploration\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-50589", "text": "<tool_call>\n{\"name\": \"post_social_media\", \"arguments\": {\"platform\": \"Twitter\", \"message\": \"Enjoying a beautiful sunset at the beach\", \"image_url\": \"https://example.com/sunset.jpg\"}}\n</tool_call>", "output_tokens": 46}
+{"id": "glaive-93928", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"Ishiguro\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-4092", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"H\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-109204", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"bill_amount\": 100, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-19224", "text": "<tool_call>\n{\"name\": \"search_restaurants\", \"arguments\": {\"location\": \"New York\", \"cuisine_type\": \"Italian\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-22289", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"ingredients\": [\"chicken\", \"tomatoes\", \"onions\"]}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-58294", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"ingredients\": [\"chicken\", \"tomatoes\", \"onions\"]}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-19595", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"author\": \"J.K. Rowling\", \"title\": \"\", \"genre\": \"fantasy\"}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-78841", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-51528", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-96303", "text": "<tool_call>\n{\"name\": \"calculate_speed\", \"arguments\": {\"distance\": 120, \"time\": 2}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-1704", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 50000, \"tax_rate\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-21938", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 50000, \"tax_rate\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-34968", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 50000, \"tax_rate\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-69181", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 50000, \"tax_rate\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-74609", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"income\": 50000, \"tax_rate\": 20}}\n</tool_call>", "output_tokens": 31}
+{"id": "glaive-84471", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"author\": \"Agatha Christie\", \"genre\": \"mystery\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-112898", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"author\": \"Agatha Christie\", \"genre\": \"mystery\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-90868", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"amount\": 500}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-4311", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 15, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-9113", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 15, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-71909", "text": "<tool_call>\n{\"name\": \"calculate_shipping_cost\", \"arguments\": {\"weight\": 15, \"destination\": \"New York\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-18182", "text": "<tool_call>\n{\"name\": \"search_recipes\", \"arguments\": {\"keywords\": [\"gluten-free\"], \"cuisine\": \"Italian\", \"dietary_restrictions\": [\"chicken\"]}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-100609", "text": "<tool_call>\n{\"name\": \"generate_username\", \"arguments\": {\"name\": \"John Doe\", \"date_of_birth\": \"1990-05-15\"}}\n</tool_call>", "output_tokens": 37}
+{"id": "glaive-31863", "text": "<tool_call>\n{\"name\": \"calculate_tip\", \"arguments\": {\"total\": 50, \"tip_percentage\": 15}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-5918", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {\"location\": \"London\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-7992", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {\"location\": \"London\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-48219", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {\"location\": \"London\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-59950", "text": "<tool_call>\n{\"name\": \"get_current_time\", \"arguments\": {\"timezone\": \"Europe/London\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-82875", "text": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"weight\": 70, \"height\": 175}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-21232", "text": "<tool_call>\n{\"name\": \"generate_barcode\", \"arguments\": {\"product_id\": \"12345\", \"format\": \"EAN-13\"}}\n</tool_call>", "output_tokens": 35}
+{"id": "glaive-23678", "text": "<tool_call>\n{\"name\": \"calculate_area\", \"arguments\": {\"shape\": \"circle\", \"measurements\": {\"radius\": 5}}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-67398", "text": "<tool_call>\n{\"name\": \"calculate_area\", \"arguments\": {\"shape\": \"circle\", \"dimensions\": {\"radius\": 5}}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-42387", "text": "<tool_call>\n{\"name\": \"mark_todo_as_complete\", \"arguments\": {\"todo_id\": \"1234\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-52165", "text": "<tool_call>\n{\"name\": \"find_movies\", \"arguments\": {\"genre\": \"comedy\", \"release_year\": 2015}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-85983", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-96705", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percent\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-111641", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-43361", "text": "<tool_call>\n{\"name\": \"get_recipe\", \"arguments\": {\"dish\": \"spaghetti\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-112644", "text": "<tool_call>\n{\"name\": \"calculate_gross_salary\", \"arguments\": {\"basic_salary\": 5000, \"allowance\": 2000, \"deduction\": 500}}\n</tool_call>", "output_tokens": 44}
+{"id": "glaive-86411", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"Sun\", \"author\": \"H\"}}\n</tool_call>", "output_tokens": 25}
+{"id": "glaive-56031", "text": "<tool_call>\n{\"name\": \"calculate_pizza_area\", \"arguments\": {\"diameter\": 12}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-104133", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"item\": \"XYZ\", \"quantity\": 5, \"price\": 10}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-127", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"stock_exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-55057", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"company_name\": \"Apple\", \"stock_exchange\": \"NASDAQ\"}}\n</tool_call>", "output_tokens": 28}
+{"id": "glaive-32000", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"actor\": \"Tom Hanks\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-41709", "text": "<tool_call>\n{\"name\": \"get_recipe\", \"arguments\": {\"ingredients\": [\"tomatoes\", \"garlic\", \"pasta\"]}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-6312", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 2159\", \"departure_date\": \"2022-05-15\"}}\n</tool_call>", "output_tokens": 42}
+{"id": "glaive-79978", "text": "<tool_call>\n{\"name\": \"find_max\", \"arguments\": {\"numbers\": [5, 7, 2, 9, 1, 6]}}\n</tool_call>", "output_tokens": 35}
+{"id": "glaive-67866", "text": "<tool_call>\n{\"name\": \"create_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"amount\": 500, \"due_date\": \"15th March\"}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-36526", "text": "<tool_call>\n{\"name\": \"generate_random_name\", \"arguments\": {\"gender\": \"male\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-19605", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"title\": \"software engineer\", \"location\": \"New York\", \"salary_range\": 100000}}\n</tool_call>", "output_tokens": 39}
+{"id": "glaive-295", "text": "<tool_call>\n{\"name\": \"search_files\", \"arguments\": {\"name\": \"project\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-15835", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"\", \"author\": \"Agatha Christie\", \"genre\": \"mystery\", \"year\": 1934}}\n</tool_call>", "output_tokens": 41}
+{"id": "glaive-40399", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"title\": \"\", \"author\": \"Agatha Christie\", \"genre\": \"mystery\", \"published_year\": 1934}}\n</tool_call>", "output_tokens": 42}
+{"id": "glaive-26784", "text": "<tool_call>\n{\"name\": \"reverse_string\", \"arguments\": {\"input\": \"Hello, World!\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-65296", "text": "<tool_call>\n{\"name\": \"reverse_string\", \"arguments\": {\"input_string\": \"Hello, World!\"}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-73621", "text": "<tool_call>\n{\"name\": \"reverse_string\", \"arguments\": {\"text\": \"Hello, World!\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-99803", "text": "<tool_call>\n{\"name\": \"reverse_string\", \"arguments\": {\"text\": \"Hello, World!\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-112711", "text": "<tool_call>\n{\"name\": \"reverse_string\", \"arguments\": {\"text\": \"Hello, World!\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-20895", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"quantum physics\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-94307", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"quantum physics\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-102874", "text": "<tool_call>\n{\"name\": \"search_books\", \"arguments\": {\"query\": \"quantum physics\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-105304", "text": "<tool_call>\n{\"name\": \"calculate_loan_payment\", \"arguments\": {\"loan_amount\": 50000, \"interest_rate\": 5, \"loan_term\": 60}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-99409", "text": "<tool_call>\n{\"name\": \"calculate_profit\", \"arguments\": {\"cost_price\": 50, \"selling_price\": 75}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-4446", "text": "<tool_call>\n{\"name\": \"calculate_rental_cost\", \"arguments\": {\"rent_per_day\": 50, \"rental_duration\": 5, \"insurance\": true}}\n</tool_call>", "output_tokens": 37}
+{"id": "glaive-80886", "text": "<tool_call>\n{\"name\": \"generate_prime_numbers\", \"arguments\": {\"limit\": 50}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-70481", "text": "<tool_call>\n{\"name\": \"calculate_fibonacci_sequence\", \"arguments\": {\"n\": 10}}\n</tool_call>", "output_tokens": 23}
+{"id": "glaive-93629", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"ticker\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-27013", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-32631", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-33817", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-50675", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-60767", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-74376", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-103294", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"technology\", \"country\": \"United States\"}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-393", "text": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"height\": 1.75, \"weight\": 70}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-68038", "text": "<tool_call>\n{\"name\": \"calculate_bmi\", \"arguments\": {\"height\": 1.75, \"weight\": 70}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-85172", "text": "<tool_call>\n{\"name\": \"calculate_future_value\", \"arguments\": {\"present_value\": 5000, \"interest_rate\": 5, \"years\": 10}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-64815", "text": "<tool_call>\n{\"name\": \"generate_invoice\", \"arguments\": {\"customer_name\": \"John Doe\", \"items\": [{\"description\": \"apples\", \"quantity\": 5, \"unit_price\": 2}, {\"description\": \"oranges\", \"quantity\": 3, \"unit_price\": 3}]}}\n</tool_call>", "output_tokens": 65}
+{"id": "glaive-30860", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"keywords\": \"data science\", \"location\": \"New York\", \"experience_level\": \"5 years\"}}\n</tool_call>", "output_tokens": 35}
+{"id": "glaive-25050", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"keyword\": \"adventure\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-59074", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"keyword\": \"adventure\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-82487", "text": "<tool_call>\n{\"name\": \"search_movies\", \"arguments\": {\"keyword\": \"adventure\"}}\n</tool_call>", "output_tokens": 20}
+{"id": "glaive-61703", "text": "<tool_call>\n{\"name\": \"calculate_tax\", \"arguments\": {\"amount\": 5000, \"tax_rate\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-65147", "text": "<tool_call>\n{\"name\": \"calculate_loan_payment\", \"arguments\": {\"loan_amount\": 50000, \"interest_rate\": 5, \"loan_term\": 60}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-75131", "text": "<tool_call>\n{\"name\": \"calculate_loan_payment\", \"arguments\": {\"principal\": 50000, \"interest_rate\": 5, \"term\": 60}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-85160", "text": "<tool_call>\n{\"name\": \"calculate_loan_payment\", \"arguments\": {\"loan_amount\": 50000, \"interest_rate\": 5, \"loan_term\": 60}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-48381", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"product_price\": 200, \"discount_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-99860", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 15}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-73534", "text": "<tool_call>\n{\"name\": \"check_flight_status\", \"arguments\": {\"flight_number\": \"BA 283\", \"date\": \"2022-05-15\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-74718", "text": "<tool_call>\n{\"name\": \"generate_invoice\", \"arguments\": {\"client_name\": \"John Doe\", \"amount_due\": 500, \"due_date\": \"2022-05-30\"}}\n</tool_call>", "output_tokens": 46}
+{"id": "glaive-23515", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-38928", "text": "<tool_call>\n{\"name\": \"calculate_discounted_price\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-55074", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-71560", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-90951", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-92321", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 200, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-31437", "text": "<tool_call>\n{\"name\": \"search_song\", \"arguments\": {\"query\": \"Ed Sheeran\"}}\n</tool_call>", "output_tokens": 22}
+{"id": "glaive-14844", "text": "<tool_call>\n{\"name\": \"convert_temperature\", \"arguments\": {\"temperature\": 98.6, \"from\": \"Fahrenheit\", \"to\": \"Celsius\"}}\n</tool_call>", "output_tokens": 36}
+{"id": "glaive-36719", "text": "<tool_call>\n{\"name\": \"calculate_fahrenheit_to_celsius\", \"arguments\": {\"temperature\": 98.6}}\n</tool_call>", "output_tokens": 26}
+{"id": "glaive-64114", "text": "<tool_call>\n{\"name\": \"calculate_mortgage_payment\", \"arguments\": {\"loan_amount\": 200000, \"interest_rate\": 3.5, \"loan_term\": 30}}\n</tool_call>", "output_tokens": 45}
+{"id": "glaive-111201", "text": "<tool_call>\n{\"name\": \"calculate_mortgage_payment\", \"arguments\": {\"loan_amount\": 200000, \"interest_rate\": 3.5, \"loan_term\": 30}}\n</tool_call>", "output_tokens": 45}
+{"id": "glaive-44436", "text": "<tool_call>\n{\"name\": \"add_numbers\", \"arguments\": {\"num1\": 5, \"num2\": 7}}\n</tool_call>", "output_tokens": 27}
+{"id": "glaive-13617", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-55659", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-68267", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-78349", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-81467", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-101861", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-105234", "text": "<tool_call>\n{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-30601", "text": "<tool_call>\n{\"name\": \"calculate_gross_salary\", \"arguments\": {\"basic_salary\": 3000, \"allowances\": {\"housing_allowance\": 500, \"transportation_allowance\": 200}}}\n</tool_call>", "output_tokens": 51}
+{"id": "glaive-88198", "text": "<tool_call>\n{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}\n</tool_call>", "output_tokens": 30}
+{"id": "glaive-46133", "text": "<tool_call>\n{\"name\": \"search_book\", \"arguments\": {\"title\": \"To Kill a\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-64692", "text": "<tool_call>\n{\"name\": \"search_book\", \"arguments\": {\"title\": \"To Kill a\", \"author\": \"Harper Lee\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-27413", "text": "<tool_call>\n{\"name\": \"analyze_image\", \"arguments\": {\"image_url\": \"www.example.com/image.jpg\", \"features\": [\"objects\", \"faces\"]}}\n</tool_call>", "output_tokens": 34}
+{"id": "glaive-112684", "text": "<tool_call>\n{\"name\": \"search_book\", \"arguments\": {\"title\": \"Pride and\", \"author\": \"Jane Austen\"}}\n</tool_call>", "output_tokens": 29}
+{"id": "glaive-2157", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-9425", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-9588", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-14404", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-22103", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-25230", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-27806", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-30482", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-40290", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-42343", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-49669", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-50123", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-51742", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-51996", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-65448", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-74801", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-86311", "text": "<tool_call>\n{\"name\": \"get_news\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-96782", "text": "<tool_call>\n{\"name\": \"get_news_headlines\", \"arguments\": {\"category\": \"sports\"}}\n</tool_call>", "output_tokens": 21}
+{"id": "glaive-101678", "text": "<tool_call>\n{\"name\": \"search_jobs\", \"arguments\": {\"keyword\": \"software engineer\", \"company\": \"Google\", \"location\": \"Mountain View\"}}\n</tool_call>", "output_tokens": 33}
+{"id": "glaive-60050", "text": "<tool_call>\n{\"name\": \"calculate_age_difference\", \"arguments\": {\"person1_age\": 28, \"person2_age\": 32}}\n</tool_call>", "output_tokens": 32}
+{"id": "glaive-1924", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"genre\": \"rock\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-9708", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"genre\": \"rock\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-24274", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"genre\": \"rock\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-56778", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"genre\": \"rock\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-65551", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"genre\": \"rock\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-109034", "text": "<tool_call>\n{\"name\": \"play_music\", \"arguments\": {\"genre\": \"rock\"}}\n</tool_call>", "output_tokens": 19}
+{"id": "glaive-353", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-1193", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-1516", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-2466", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-2558", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-5291", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-5342", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-5875", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-6075", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-6964", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"from_language\": \"French\", \"to_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-7832", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-8389", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-8896", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-9082", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-9640", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-10194", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-10440", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-11337", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-11541", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-11899", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-13077", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-13998", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-14618", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-15520", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-15848", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-17888", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-18936", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-20971", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"fr\", \"target_language\": \"en\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-21124", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-21165", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-21813", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-22493", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-23642", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-23647", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-24047", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-24052", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-24072", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-25821", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_lang\": \"French\", \"target_lang\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-26633", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-26834", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"fr\", \"target_language\": \"en\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-27361", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-28730", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-28859", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-29303", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-29445", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-32998", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-34962", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-35845", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-35853", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-36640", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-36870", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-37393", "text": "<tool_call>\n{\"name\": \"get_translation\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-37722", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-38244", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-38530", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-40296", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"from_language\": \"French\", \"to_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-41264", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"from_language\": \"French\", \"to_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-41381", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-41484", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-41749", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-43229", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-43988", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-46639", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-47420", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-48072", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-48358", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-49450", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-50634", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-53010", "text": "<tool_call>\n{\"name\": \"get_translation\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-53506", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-55582", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-55609", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-56102", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-56844", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-57104", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-57729", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"fr\", \"target_language\": \"en\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-59002", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-59220", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"fr\", \"target_language\": \"en\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-59314", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-59868", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"from\": \"French\", \"to\": \"English\"}}\n</tool_call>", "output_tokens": 38}
+{"id": "glaive-59988", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-59992", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-60909", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-60961", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-61987", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-62747", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-63896", "text": "<tool_call>\n{\"name\": \"get_translation\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-65319", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-65438", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-65948", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-66198", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-66219", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-66634", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-66817", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-67521", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-69151", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-70010", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-70098", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-70473", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-71195", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-73272", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-73473", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-73809", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-74671", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-75045", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-75448", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-78141", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-80208", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-81615", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-83452", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-83799", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-85409", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-90094", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-91235", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-91657", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-91747", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-92348", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-92615", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-93720", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-93925", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-95111", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-95856", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
+{"id": "glaive-96614", "text": "<tool_call>\n{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}\n</tool_call>", "output_tokens": 40}
