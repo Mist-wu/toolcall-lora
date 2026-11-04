@@ -1,5 +1,17 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:14 UTC: seed44 BFCL inference 524/1240
+
+Existing foreground pipeline is evaluating the completed seed44 adapter. Downloaded an incomplete **524/1240** prediction snapshot to `results/formal-main-seed44/bfcl.predictions.partial-524.jsonl`. This is not scored and must not be treated as a complete BFCL result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; no command/client resubmission or replacement. Seed44 complete BFCL/held-out evaluations, six exploratory ablations and final three-seed/error analysis remain pending.
+
+Observed with:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed44-bfcl.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed44-bfcl.partial.jsonl
+```
+
+Next poll existing output/status; collect the full four-file BFCL/held-out outputs as described below when complete. Reuse existing baselines and seeds42/43; do not score partial snapshots or rerun completed inference.
+
 ## Update 2026-11-04 20:08 UTC: seed44 training and adapter complete
 
 Collected `results/main-seed44.{train,request}.json`, `results/main-seed44.env.txt`, final checkpoint receipt `results/main-seed44-checkpoint-1288.receipt.json` and adapter receipt `results/main-seed44.adapter-receipt.json`. Two-epoch training completed at **20:06:17 UTC**, retaining all 20,608 examples (18,547 positives), zero overlength drops. Wall interval 5,638 s; Trainer runtime 5,590.9204 s, not an isolated throughput benchmark; recorded in `docs/cost.md`. Final adapter copied successfully to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed44-adapter` at **20:06:36 UTC**. Its recorded dev loss remains the step1200 measurement, not a final test score.
