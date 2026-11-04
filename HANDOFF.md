@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 21:49 UTC: first ablation BFCL inference 884/1240
+
+Original pipeline advanced to **884/1240** BFCL predictions for **n10000-r8-neg0 seed42** at 21:48:41 UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg0-seed42/bfcl.predictions.partial-884.jsonl`, explicitly unscored; supersedes the 696-case observation, not a final result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; original command/client preserved without resubmission or replacement. First ablation training complete, remaining five trainings and complete ablation evaluations/comparisons/final report still pending. Continue polling existing output/status and collect all four BFCL/held-out files when complete using the commands below. Do not score partial predictions or rerun completed main results.
+
 ## Update 2026-11-04 21:42 UTC: first ablation BFCL inference 696/1240
 
 Original pipeline is evaluating **n10000-r8-neg0 seed42**, now **696/1240** BFCL predictions at 21:41:47 UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg0-seed42/bfcl.predictions.partial-696.jsonl`, explicitly unscored and not a final BFCL result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; command/client preserved without resubmission or replacement. First ablation training is complete; remaining five trainings, all complete ablation evaluations/comparisons and final report remain pending. Continue polling existing output/status and collect the full four-file BFCL/held-out outputs when complete, as described below. Do not score partial snapshots or rerun completed main results.
