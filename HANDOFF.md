@@ -1,5 +1,20 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:08 UTC: seed44 training and adapter complete
+
+Collected `results/main-seed44.{train,request}.json`, `results/main-seed44.env.txt`, final checkpoint receipt `results/main-seed44-checkpoint-1288.receipt.json` and adapter receipt `results/main-seed44.adapter-receipt.json`. Two-epoch training completed at **20:06:17 UTC**, retaining all 20,608 examples (18,547 positives), zero overlength drops. Wall interval 5,638 s; Trainer runtime 5,590.9204 s, not an isolated throughput benchmark; recorded in `docs/cost.md`. Final adapter copied successfully to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed44-adapter` at **20:06:36 UTC**. Its recorded dev loss remains the step1200 measurement, not a final test score.
+
+The original foreground pipeline has entered inference; actual subscriber `exp-iopub-e24-scope.service` remains active. Preserve both without resubmission. Seed44 BFCL/held-out scores, six exploratory ablations and final three-seed/error analysis remain incomplete.
+
+Collection commands used (request matches the previously collected configuration):
+
+```sh
+for f in train.json request.json env.txt; do colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed44/$f results/main-seed44.$f; done
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/main-seed44.adapter-receipt.json results/main-seed44.adapter-receipt.json
+```
+
+Next poll output/status with the commands below. When complete, collect `/content/e2-artifacts/main-seed44-bfcl.*` and `main-seed44-heldout.*` (predictions JSONL, metadata JSON, score JSON, score details JSONL) into `results/formal-main-seed44/`, then run `python3 scripts/compare_main_seed42.py --seed 44` and complete three-seed analysis. Do not score incomplete prediction snapshots.
+
 ## Update 2026-11-04 20:00 UTC: seed44 checkpoint 1200
 
 Existing foreground pipeline reached seed44 step1200/1288 and completed its checkpoint copy at 20:00:10 UTC. Destination `gdrive:exp/runs/E2/E2-main-s44-step1200-6643deecb2aa`, rclone exit 0; receipt `results/main-seed44-checkpoint-1200.receipt.json`. Training-time 256-example dev loss was 0.000627034 at epoch 1.86, not a test score. Actual output subscriber `exp-iopub-e24-scope.service` remains active. Updated `docs/cost.md` with previously collected account readings through 19:53 UTC, explicitly not E2-only charges. Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Next poll output/status using the download commands below; upon training completion collect `/content/e2-artifacts/main-seed44/{train.json,request.json,env.txt}` and `/content/experiment-runs/E2-main-resume-20261104-03/workspace/results/main-seed44.adapter-receipt.json`, then follow BFCL/held-out outputs without resubmission.
