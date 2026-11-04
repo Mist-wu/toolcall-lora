@@ -1,5 +1,18 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:36 UTC: seed43 held-out complete; seed44 training
+
+Collected all seed43 Glaive held-out predictions, metadata, score and details in `results/formal-main-seed43/heldout.*`: **1,893/2,000 = 94.65%**, bootstrap 95% CI **93.65–95.65%**. Prediction hash matches the score record. Inference ran 18:12:19–18:32:10 UTC (1,191 s); recorded in `docs/cost.md`. This is a single-seed Glaive result, not xLAM, a three-seed aggregate or evidence of uncontaminated generalization: agent-observed semantic near-duplicates across Glaive splits limit independence.
+
+The existing pipeline has started main seed44 and reached step44/1288 at 18:36 UTC; its actual request is `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed44.request.json`. `exp-iopub-e24-scope.service` remains active. Preserve the running job/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Next poll the existing output/status and collect seed44 checkpoints from `/content/e2-artifacts/main-seed44/last-verified-checkpoint.json` when available.
+
+```sh
+for name in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do
+  colab download -s exp-e24-recovery-a100 "/content/e2-artifacts/main-seed43-heldout.$name" "results/formal-main-seed43/heldout.$name"
+done
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed44/last-verified-checkpoint.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed44-checkpoint-observed.json
+```
+
 ## Update 2026-11-04 18:29 UTC: seed43 held-out 1700-case snapshot
 
 The existing foreground pipeline advanced to 1,700/2,000 seed43 Glaive held-out predictions (1,700 unique IDs). Collected `results/formal-main-seed43/heldout.predictions.partial-1700.jsonl` as an incomplete, unscored snapshot. It is not a final accuracy or aggregate; semantic near-duplicates across Glaive splits still limit independence. `exp-iopub-e24-scope.service` is active. Preserve the running command/client without resubmission. Next poll using the commands below and collect full predictions, metadata, score and details when complete, then follow seed44 training. Seed44, ablations and final analysis remain outstanding.

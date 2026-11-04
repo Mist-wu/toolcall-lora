@@ -1,0 +1,26 @@
+{
+  "config": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "adapter": "/content/e2-artifacts/main-seed43/adapter",
+    "backend": "transformers",
+    "max_new_tokens": 512,
+    "profile": "l4"
+  },
+  "versions": {
+    "torch": "2.6.0",
+    "transformers": "4.51.3",
+    "peft": "0.15.2",
+    "accelerate": "1.6.0",
+    "datasets": "3.5.0",
+    "bfcl-eval": "2026.3.23"
+  },
+  "git_commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
+  "dirty": false,
+  "started_at": "2026-11-04T18:12:19Z",
+  "gpu_sharing": "A100 runtime exp-e24-recovery-a100 allocated jointly with E4; timings are not throughput benchmarks",
+  "cuda": "12.4",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "finished_at": "2026-11-04T18:32:10Z",
+  "examples": 2000
+}

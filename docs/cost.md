@@ -13,6 +13,7 @@ The original formal run `E2-formal-baselines-20261104-01` used the coordinator-a
 
 | Phase | GPU | Start UTC | End UTC | Wall duration | CU attributable | API USD |
 |---|---|---|---|---:|---|---:|
+| Seed43 Glaive held-out inference, 2,000 cases | A100-SXM4-40GB | 18:12:19 | 18:32:10 | 1,191 s | Not separately attributable | 0 |
 | Seed43 BFCL inference, 1,240 cases | A100-SXM4-40GB | 17:57:02 | 18:12:07 | 905 s | Not separately attributable | 0 |
 | Seed43 full two-epoch training | A100-SXM4-40GB | 16:22:06 | 17:56:39 | 5,673 s | Not separately attributable | 0 |
 | Seed42 resumed training from step 300 | A100-SXM4-40GB | 14:30:53 | 15:43:24 | 4,351 s | Not separately attributable | 0 |
@@ -23,7 +24,7 @@ Sources: `results/main-seed42.train.json` and `results/formal-main-seed42/{bfcl,
 
 Seed43 sources: `results/main-seed43.{train,request}.json` and `results/main-seed43.env.txt`. Its Trainer runtime is 5,625.1212 s, distinct from the 5,673 s timestamp interval including initialization/export overhead; 20,608 training examples were retained with zero overlength drops. Adapter copy completed at 17:56:58 UTC; `results/main-seed43.adapter-receipt.json` records the actual destination. These times are not an isolated throughput benchmark.
 
-Latest observed account-wide snapshot at **17:57 UTC**: **102.51 CU** balance, **17.34 CU/hour**, **four assignments**. The 17:35:23 UTC snapshot was 108.35 CU. Earlier snapshots: 16:38 UTC 122.77 CU; 17:00 UTC 116.99 CU; 17:21:56 UTC 111.23 CU. These are concurrent account readings, not E2-only charges; no monetary CU conversion is inferred. Main seed43 training and BFCL inference are complete; BFCL timestamps come from `results/formal-main-seed43/bfcl.predictions.jsonl.metadata.json`. Held-out inference is underway; seed44 and exploratory variants are still outstanding. No purchase/recharge was made.
+Latest observed account-wide snapshot at **17:57 UTC**: **102.51 CU** balance, **17.34 CU/hour**, **four assignments**. The 17:35:23 UTC snapshot was 108.35 CU. Earlier snapshots: 16:38 UTC 122.77 CU; 17:00 UTC 116.99 CU; 17:21:56 UTC 111.23 CU. These are concurrent account readings, not E2-only charges; no monetary CU conversion is inferred. Main seed43 training and BFCL inference are complete; BFCL timestamps come from `results/formal-main-seed43/bfcl.predictions.jsonl.metadata.json`. Seed43 held-out inference is also complete; its timestamps come from `results/formal-main-seed43/heldout.predictions.jsonl.metadata.json`. Seed44 training has begun in the existing pipeline; exploratory variants remain outstanding. No purchase/recharge was made.
 
 The 1.5B timestamps come from `results/formal-baselines/baseline-1.5b/predictions.jsonl.metadata.json`. The interval excludes scoring and the verified Drive copy at 11:55:44–11:55:56 UTC. The original wrapper started at 11:42:43 UTC. `results/formal-baselines/run-status-at-handoff.json` is historical; current recovery receipts are `recovery-request.json` and `recovery-status.json`. Add the replacement session's actual allocation, inference, training and release timestamps when observed; no purchase or spending ceiling was added.
 
