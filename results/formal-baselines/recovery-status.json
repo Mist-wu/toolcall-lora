@@ -1,0 +1,12 @@
+{
+  "run_id": "E2-formal-recovery-20261104-02",
+  "state": "running",
+  "returncode": null,
+  "started_at_unix": 1793796674.006961,
+  "git": {
+    "commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
+    "dirty": false
+  },
+  "pid": 9592,
+  "remote_directory": "/content/experiment-runs/E2-formal-recovery-20261104-02"
+}

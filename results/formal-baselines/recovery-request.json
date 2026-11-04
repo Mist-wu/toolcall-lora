@@ -1,0 +1,21 @@
+{
+  "session": "exp-e4-qwen",
+  "payload": {
+    "run_id": "E2-formal-recovery-20261104-02",
+    "run_root": "/content/experiment-runs/E2-formal-recovery-20261104-02",
+    "archive": "/content/E2-formal-recovery-20261104-02.tgz",
+    "git": {
+      "commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
+      "dirty": false
+    },
+    "argv": [
+      "bash",
+      "scripts/recover_formal.sh"
+    ],
+    "install": false,
+    "env_file": "/content/e2-experiment-env.json"
+  },
+  "artifact_paths": [
+    "results"
+  ]
+}

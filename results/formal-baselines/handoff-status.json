@@ -1,11 +1,11 @@
 {
   "experiment_id": "E2",
-  "run_id": "E2-formal-baselines-20261104-01",
-  "session": "exp-preflight-l4",
-  "snapshot_observed_at": "2026-11-04T12:48:36.867237+00:00",
-  "run_state": "runtime_unavailable",
-  "request_path": "/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json",
-  "runtime_source_commit": "00932e411fc6a6441c1512955ffadecc90c41f27",
+  "run_id": "E2-formal-recovery-20261104-02",
+  "session": "exp-e4-qwen",
+  "snapshot_observed_at": "2026-11-04T12:52:37.630122+00:00",
+  "run_state": "running",
+  "request_path": "/Users/wu/Github/toolcall-lora/artifacts/E2-formal-recovery-20261104-02/request.json",
+  "runtime_source_commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
   "baseline_1_5b": {
     "state": "completed",
     "cases": 1240,
@@ -17,7 +17,7 @@
     "drive_receipt": "baseline-1.5b.drive-receipt.json"
   },
   "baseline_7b": {
-    "state": "incomplete_runtime_unavailable",
+    "state": "recovering_remaining_542",
     "observed_prediction_lines": 698,
     "total_cases": 1240,
     "progress_file_downloaded_at": "2026-11-04T12:18:14Z"
@@ -30,7 +30,6 @@
   "e3_adapter_expected_path": "/content/e2-artifacts/main-seed42/adapter",
   "e3_adapter_receipt_expected_path": "results/main-seed42.adapter-receipt.json",
   "blockers": [
-    "Replacement GPU allocation refused; waiting for capacity",
     "30k ablation unavailable from current 18547-example Glaive train split"
   ],
   "recovery_command": "bash scripts/recover_formal.sh",
@@ -62,5 +61,6 @@
     "new_e2_assignments": 0
   },
   "training_data_drive": "gdrive:exp/runs/E2/E2-glaive-data-20261104",
-  "training_data_local_path": "/Users/wu/Github/toolcall-lora/data/glaive"
+  "training_data_local_path": "/Users/wu/Github/toolcall-lora/data/glaive",
+  "gpu_sharing": "Shared A100 with E4; not a throughput benchmark"
 }

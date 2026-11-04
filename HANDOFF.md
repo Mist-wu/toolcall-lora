@@ -1,6 +1,13 @@
 # E2 local recovery and execution
 
-Local Mac agents own E2 execution again; server pi is paused. Continue the actual formal workload locally through Colab. Additional L4 (`exp-e2-recovery-l4`) and A100 (`exp-e2-recovery-a100`) requests were both refused with `precondition failed`. No recovery runtime was created; wait for an available assignment without interrupting another experiment.
+Local Mac agents own E2 execution; server pi is paused. **Formal recovery is running on the existing shared A100 session `exp-e4-qwen`.** L4/A100 allocation requests were refused and H100 lacked entitlement; no replacement assignment was created. Root authorized sharing E4's A100 after measuring 33,044 MiB free. Do not stop this runtime until E2 and E4 both finish.
+
+- Run: `E2-formal-recovery-20261104-02`; source `0ac6399b38a1cf5bc6f3869fed4be70126cab23c`, clean at submission.
+- Launch: 2026-11-04 12:51:14 UTC; wrapper status `running`, PID 9592.
+- Local receipts: `artifacts/E2-formal-recovery-20261104-02/`; tracked copies `results/formal-baselines/recovery-request.json` and `recovery-status.json`.
+- Remote: `/content/experiment-runs/E2-formal-recovery-20261104-02`.
+- Independent E2 Python environment `/content/e2-venv`; private files `/content/e2-experiment-env.json` and `/content/e2-rclone.conf`. E4's environment and process are unchanged.
+- Payload: remaining 542 7B cases, full merged 1,240-case scoring, then main seeds 42/43/44. GPU sharing is recorded in inference/training metadata; timings are not a throughput benchmark.
 
 ## Recovered evidence
 
@@ -16,15 +23,15 @@ The original request remains at `/srv/exp-runner/state/remote/E2-formal-baseline
 
 ## Recovery command
 
-After obtaining a replacement GPU and staging the private rclone environment, submit the latest local repository using the common experiment runner with this command payload:
+The already-running payload is below. Poll or collect its existing run ID; do not submit it again:
 
 ```sh
 bash scripts/recover_formal.sh
 ```
 
-The recovery entrypoint prepares Python 3.12, reconstructs and persists Glaive data, resumes the missing 7B cases without repeating 1.5B, and continues the main training campaign. Record the new session, run ID, launch receipt, and actual output paths after launch. Keep the original partial snapshot unchanged as provenance.
+The recovery entrypoint prepares Python 3.12, reconstructs and persists Glaive data, resumes the missing 7B cases without repeating 1.5B, and continues the main training campaign. The observed run and receipt paths are recorded above. Keep the original partial snapshot unchanged as provenance.
 
-The runtime uses private `/content/experiment-env.json`, `RCLONE_CONFIG=/content/experiment-rclone.conf`, and the staged quota header. Credentials stay outside the repository and logs. Dataset, completed baseline, checkpoint and adapter copies use `gdrive:exp/runs`.
+This shared runtime uses private `/content/e2-experiment-env.json`, `RCLONE_CONFIG=/content/e2-rclone.conf`, and the staged quota header. Credentials stay outside the repository and logs. Dataset, completed baseline, checkpoint and adapter copies use `gdrive:exp/runs`.
 
 The pinned stack is an isolated `/content/e2-venv`: Python 3.12, torch 2.6.0+cu124, Transformers 4.51.3, PEFT 0.15.2, Accelerate 1.6.0, datasets 3.5.0, and BFCL 2026.3.23. `scripts/colab_bootstrap.sh` installs it without replacing Colab's default Python environment.
 

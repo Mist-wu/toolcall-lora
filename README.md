@@ -1,6 +1,6 @@
 # Tool-calling LoRA: Qwen2.5 1.5B versus 7B
 
-E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The original L4 runtime is no longer accessible; 698/1,240 unscored 7B predictions were recovered. Local Mac agents are preparing recovery; LoRA training has not started.**
+E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The original L4 runtime is no longer accessible; 698/1,240 unscored 7B predictions were recovered. Local Mac agents have launched recovery on a shared A100; LoRA training follows the missing 7B cases.**
 
 | BFCL category | Qwen2.5 1.5B | Qwen2.5 7B |
 |---|---:|---:|
@@ -17,7 +17,7 @@ E2 implements native Qwen tool-call training, separate development/test splits, 
 
 Local Mac agents own execution; server pi is paused. The original run `E2-formal-baselines-20261104-01` used `exp-preflight-l4`, which disappeared from actual Colab assignments. The cause and any progress beyond the recovered snapshot are unknown. The 1.5B raw responses and scores were recovered from Drive into `results/formal-baselines/baseline-1.5b/`. The 7B snapshot is `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl`; it is not a complete result.
 
-A replacement GPU is being requested. The recovery entrypoint `bash scripts/recover_formal.sh` prepares the isolated environment, generates the remaining 542 7B cases, merges by case ID, and scores all 1,240 cases. It reconstructs and persists the fixed Glaive split, then continues main LoRA seeds 42, 43, and 44. It does not repeat the completed 1.5B baseline. Runtime allocation, launch receipt, and completion remain pending until observed.
+Recovery run `E2-formal-recovery-20261104-02` started at 2026-11-04 12:51:14 UTC on the existing shared A100 session `exp-e4-qwen` (source `0ac6399`, wrapper `running`). The entrypoint `bash scripts/recover_formal.sh` prepares the isolated E2 environment, generates the remaining 542 7B cases, merges by case ID, and scores all 1,240. It uses the reconstructed Glaive split already copied to Drive, then continues main LoRA seeds 42, 43, and 44. The completed 1.5B baseline is reused. E4 runs concurrently with separate dependencies and files; these timings are not a throughput benchmark.
 
 ## Prepare data on Colab CPU
 
