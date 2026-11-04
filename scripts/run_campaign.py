@@ -55,7 +55,9 @@ def main():
                 if old.get("status")!="train_complete" or old.get("config")!=expected:
                     raise ValueError(f"Incompatible existing training record: {complete}")
             else:
-                checkpoints=sorted((dest/"checkpoints").glob("checkpoint-*"),key=lambda path:int(path.name.split("-")[-1]))
+                candidates=list((dest/"checkpoints").glob("checkpoint-*"))
+                checkpoints=sorted((path for path in candidates if (path/"complete.json").is_file()),key=lambda path:int(path.name.split("-")[-1]))
+                if candidates and not checkpoints:raise ValueError("Only partially written checkpoints exist; inspect before restarting")
                 call=["train","--config",item["config"],"--data",args.data,"--output",dest,"--profile",args.profile]
                 if checkpoints:call += ["--resume",checkpoints[-1]]
                 run(*call)

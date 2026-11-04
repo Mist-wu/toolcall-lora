@@ -22,7 +22,8 @@ The coordinator needs no torch dependency. All training, model inference and ful
 ## Prepare data on Colab CPU
 
 ```sh
-python3 -m pip install -e '.[train,data,bfcl]'
+bash scripts/colab_bootstrap.sh
+source /content/e2-venv/bin/activate
 python3 -m toolcall_lora.cli prepare --output data/xlam
 python3 -m toolcall_lora.cli prepare-bfcl
 python3 -m toolcall_lora.cli matrix
@@ -35,6 +36,8 @@ python3 -m toolcall_lora.cli prepare-glaive --output data/glaive
 ```
 
 Glaive conversion extracts only the first complete user/function-call pair, never flattens context-dependent follow-ups, logs skipped formats, and records that it is a different training source. Do not report Glaive-trained results as xLAM results. Both paths create independent grouped train/dev/test splits (2,000 dev, 2,000 test); duplicate normalized questions never cross splits. The “60k main run” therefore means **all remaining training examples**, approximately 56k before deduplication/length filtering, not 60k plus leaked held-out records.
+
+Colab currently supplies Python 3.13 and newer torch/CUDA packages. This repository's pinned stack uses a separate Python **3.12** environment; do not install NumPy 1.26 into the system Python 3.13. The bootstrap leaves Colab's default environment intact. BFCL's NumPy 1.26 requirement also needs the explicit pyarrow 19.0.1 pin; newer Arrow wheels may require NumPy 2.
 
 ## Run on an already-owned Colab GPU
 

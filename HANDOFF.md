@@ -14,7 +14,7 @@ Status: implementation and local validation; **formal experiments not started**.
 
 ## Next commands
 
-1. On Colab CPU, install `python3 -m pip install -e '.[train,data,bfcl]'`; run `python3 -m unittest discover -s tests -v` and the real-tokenizer test. Freeze actual GPU environment after compatibility probe.
+1. On Colab CPU, run `bash scripts/colab_bootstrap.sh`, then use `/content/e2-venv/bin/python` for all E2 commands (or activate that environment). Do not change the runtime's Python3.13/torch2.11 stack. Run `python3 -m unittest discover -s tests -v` and the real-tokenizer test in the new Python3.12 environment. Freeze actual GPU environment after compatibility probe.
 2. Check already-authorized HF token for xLAM. Run `python3 -m toolcall_lora.cli prepare --output data/xlam`. If gated access unavailable, use `prepare-glaive --output data/glaive` and keep the fallback label in every report. Never accept terms or harvest credentials automatically.
 3. Run `python3 -m toolcall_lora.cli prepare-bfcl`; persist `data/*/manifest.json` and actual datasets to Drive. Stage training data on `/content` when a GPU session starts.
 4. On the owned L4, run a two-step `train --smoke` with a separate output directory, then `scripts/run_campaign.py --stage baselines --data data/xlam --artifacts /content/drive/MyDrive/exp/runs/e2/r01` (substitute `data/glaive` if fallback).

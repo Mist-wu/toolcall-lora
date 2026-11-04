@@ -11,5 +11,6 @@ checkpoints/
 logs/
 results/raw/
 results/collected-results.tar.gz
+artifacts/
 build/
 dist/

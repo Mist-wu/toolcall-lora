@@ -80,7 +80,7 @@ def run_train(args):
     cfg = load_config(args.config)
     if args.seed is not None: cfg["seed"] = args.seed
     if args.profile: cfg["device_profile"] = args.profile
-    print(json.dumps(train(cfg, args.data, args.output, args.resume, args.smoke), indent=2))
+    print(json.dumps(train(cfg, args.data, args.output, args.resume), indent=2))
 
 
 def run_predict(args):
@@ -160,7 +160,7 @@ def main():
     p=sub.add_parser("prepare");p.add_argument("--input");p.add_argument("--output",default="data/xlam");p.add_argument("--dev-size",type=int,default=2000);p.add_argument("--test-size",type=int,default=2000);p.add_argument("--seed",type=int,default=42);p.set_defaults(run=prepare)
     p=sub.add_parser("prepare-glaive");p.add_argument("--output",default="data/glaive");p.add_argument("--dev-size",type=int,default=2000);p.add_argument("--test-size",type=int,default=2000);p.add_argument("--seed",type=int,default=42);p.add_argument("--max-examples",type=int,default=60000);p.set_defaults(run=prepare_glaive)
     p=sub.add_parser("prepare-bfcl");p.add_argument("--output",default="data/bfcl/evaluation.jsonl");p.set_defaults(run=prepare_bfcl)
-    p=sub.add_parser("train");p.add_argument("--config",default="configs/main.json");p.add_argument("--data",default="data/xlam");p.add_argument("--output",required=True);p.add_argument("--seed",type=int);p.add_argument("--profile",choices=["l4","t4","a100"]);p.add_argument("--resume");p.add_argument("--smoke",action="store_true");p.set_defaults(run=run_train)
+    p=sub.add_parser("train");p.add_argument("--config",default="configs/main.json");p.add_argument("--data",default="data/xlam");p.add_argument("--output",required=True);p.add_argument("--seed",type=int);p.add_argument("--profile",choices=["l4","t4","a100"]);p.add_argument("--resume");p.set_defaults(run=run_train)
     p=sub.add_parser("predict");p.add_argument("--data",required=True);p.add_argument("--model",default="Qwen/Qwen2.5-1.5B-Instruct");p.add_argument("--revision");p.add_argument("--adapter");p.add_argument("--output",required=True);p.add_argument("--backend",choices=["transformers","vllm"],default="transformers");p.add_argument("--profile",choices=["l4","t4","a100"],default="l4");p.add_argument("--batch-size",type=int,default=4);p.add_argument("--max-new-tokens",type=int,default=512);p.add_argument("--limit",type=int);p.set_defaults(run=run_predict)
     p=sub.add_parser("score");p.add_argument("--data",required=True);p.add_argument("--predictions",required=True);p.add_argument("--output",required=True);p.add_argument("--label",required=True);p.add_argument("--seed",type=int);p.add_argument("--smoke",action="store_true");p.set_defaults(run=score)
     p=sub.add_parser("matrix");p.add_argument("--base",default="configs/main.json");p.add_argument("--output",default="configs/matrix");p.set_defaults(run=matrix)
