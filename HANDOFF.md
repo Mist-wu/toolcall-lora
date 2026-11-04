@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 21:11 UTC: first ablation checkpoint 300 and configuration
+
+Existing **n10000-r8-neg0 seed42** foreground training reached step354/624 at 21:10:46 UTC. Step300 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg0-s42-step300-04d5beeb017b`, rclone exit0, ended 21:06:33 UTC. Collected `results/formal-ablations/n10000-r8-neg0-seed42/{checkpoint-300.receipt.json,request.json}`. Actual configuration: 10,000 selected positives, rank8/alpha16, no negatives, two epochs, max2048, training seed42/data_seed42. Fixed256-example training-time dev loss at epoch0.96 was 0.001054402, not a test score. Actual output subscriber `exp-iopub-e24-scope.service` remains active; command/client preserved without resubmission. No ablation completed yet; all six remain single-seed exploratory. Continue polling existing output/status/checkpoint with commands below, then collect completed train/config/environment/adapter receipt and full BFCL/held-out outputs. Main experiments, aggregate statistics and main/baseline error evidence are complete and must not be rerun.
+
+Configuration collection used:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg0-seed42/request.json results/formal-ablations/n10000-r8-neg0-seed42/request.json
+```
+
 ## Update 2026-11-04 21:04 UTC: main/baseline seven-category error evidence complete
 
 Added `scripts/analyze_bfcl_errors.py` and actual `results/formal-error-analysis/{report.md,summary.json,cases.jsonl,bfcl.evaluation.jsonl}`. Small CPU analysis uses saved official diagnostic labels plus actual parsed call counts/name multisets, without rerunning inference/checker or inventing human/agent semantic labels. Downloaded the original 1,240-case prepared BFCL reference (2.7 MiB); its SHA256 matches every model's score provenance. Seven requested categories are reported with explicit rules; ambiguous no-match and parser failures remain unresolved, not forced into the table. Argument diagnostics are lower bounds, not exhaustive latent errors.
