@@ -1,5 +1,13 @@
 # E2 current handoff
 
+## Update 2026-11-04 15:50 UTC
+
+The existing foreground run remains active and is evaluating the completed main seed42 adapter on BFCL. Downloaded a **partial 536/1240 prediction snapshot**, `results/formal-main-seed42/bfcl.predictions.partial-536.jsonl`; it is not a scored result. The real output subscriber remains active. Shared account usage at 15:50 UTC: 137.24 CU balance, 17.34 CU/h across four assignments (not E2-only cost). Collect full predictions and scores when complete; held-out evaluation and later seeds/ablations remain in the running pipeline.
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed42-bfcl.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed42-bfcl.partial.jsonl
+```
+
 ## Update 2026-11-04 15:44 UTC: seed 42 adapter complete
 
 Main seed 42 completed two epochs at 15:43:24 UTC (18,547 selected positives, 20,608 training examples including negatives); actual training record is `results/main-seed42.train.json`. Its adapter was copied successfully to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed42-adapter` at 15:43:44 UTC; copy receipt `results/main-seed42.adapter-receipt.json`. The run has started inference/evaluation and remains active; these are not yet final BFCL or held-out scores. E3 can use this actual adapter for its separate comparison; E3 HANDOFF records the destination. Seeds 43/44 and six seed42 variants are still in the existing pipeline. Do not resubmit.
