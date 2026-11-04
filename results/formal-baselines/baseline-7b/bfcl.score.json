@@ -1,0 +1,129 @@
+{
+  "irrelevance": {
+    "accuracy": 0.6041666666666666,
+    "n": 240,
+    "ci95": [
+      0.5416666666666666,
+      0.6625
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "multiple": {
+    "accuracy": 0.955,
+    "n": 200,
+    "ci95": [
+      0.925,
+      0.98
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "parallel": {
+    "accuracy": 0.9,
+    "n": 200,
+    "ci95": [
+      0.855,
+      0.94
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "parallel_multiple": {
+    "accuracy": 0.865,
+    "n": 200,
+    "ci95": [
+      0.815,
+      0.91
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "simple_python": {
+    "accuracy": 0.955,
+    "n": 400,
+    "ci95": [
+      0.935,
+      0.975
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "overall_subset": {
+    "accuracy": 0.8637096774193549,
+    "n": 1240,
+    "ci95": [
+      0.8435483870967742,
+      0.8814516129032258
+    ],
+    "bootstrap_seed": 42,
+    "resamples": 1000
+  },
+  "schema_version": 1,
+  "dataset": "results/formal-baselines/bfcl.jsonl",
+  "dataset_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+  "data_manifest": {
+    "bfcl_version": "2026.3.23",
+    "categories": [
+      "simple_python",
+      "multiple",
+      "parallel",
+      "parallel_multiple",
+      "irrelevance"
+    ],
+    "rows": 1240,
+    "files_sha256": {
+      "BFCL_v4_simple_python.json": "82dd63ba502eb2520c6b5d1d9a5c4b590e03ff261565175561f6228a367d1991",
+      "possible_answer/BFCL_v4_simple_python.json": "90cd5bc653690ee8e459b5b3f3fc9458606f7f3fcbf795bb51b7dc581f8c86dc",
+      "BFCL_v4_multiple.json": "aef168155ebd74b7ac2401198b201343bc7d16d7a3d7e0d4e6d8ee82c6969b2a",
+      "possible_answer/BFCL_v4_multiple.json": "244e00ce9395df948bcafc7bee64e8f9c87ef70887587d83cae45b13699f3047",
+      "BFCL_v4_parallel.json": "19f51a82eff42e5d62541aa500115a056eb78f437c2ba1f10415fd7c8e5dda84",
+      "possible_answer/BFCL_v4_parallel.json": "8a6aa19c1adddc6a5a2f7e40f9dbf30cc7e95815e7b830c90589ab318229e0f0",
+      "BFCL_v4_parallel_multiple.json": "8863ea8433239f55c5f016154cf0830853c89f693c6ea270396a2fa121960579",
+      "possible_answer/BFCL_v4_parallel_multiple.json": "5ebf24f458c1f16300c05505d83d6f0a1b68b79be273a033febd0d4f840507e3",
+      "BFCL_v4_irrelevance.json": "2b6ed4c2e992cdcf5f1678a701851f944bef7550ee026ed1ddb89efed5be01a6"
+    },
+    "metric_boundary": "Official AST checker on five single-turn categories with custom strict Qwen parser; not overall leaderboard score",
+    "fixture": false
+  },
+  "predictions": "results/formal-baselines/baseline-7b/predictions.jsonl",
+  "predictions_sha256": "16a1ebe045cf627182a5973016b8bc65e183175200e6bfd2a51c7c68047c3928",
+  "inference": {
+    "config": {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "adapter": null,
+      "backend": "transformers",
+      "max_new_tokens": 512,
+      "profile": "l4"
+    },
+    "versions": {
+      "torch": "2.6.0",
+      "transformers": "4.51.3",
+      "peft": "0.15.2",
+      "accelerate": "1.6.0",
+      "datasets": "3.5.0",
+      "bfcl-eval": "2026.3.23"
+    },
+    "git_commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
+    "dirty": false,
+    "started_at": "2026-11-04T12:51:57Z",
+    "gpu_sharing": "Shared NVIDIA A100 runtime exp-e4-qwen with E4; accuracy experiment, not a throughput benchmark",
+    "cuda": "12.4",
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "finished_at": "2026-11-04T13:16:17Z",
+    "examples": 1240,
+    "recovery": {
+      "previous_run_id": "E2-formal-baselines-20261104-01",
+      "previous_source_commit": "00932e411fc6a6441c1512955ffadecc90c41f27",
+      "previous_predictions": "results/formal-baselines/baseline-7b/predictions.partial-698.jsonl",
+      "previous_predictions_sha256": "98ad438d665cee39f2478693c54aad903283223d197fd4c6a64ece69a977a531",
+      "previous_examples": 698,
+      "new_examples": 542,
+      "timing_boundary": "started_at/finished_at cover only the recovered cases"
+    }
+  },
+  "label": "baseline-7b",
+  "seed": null,
+  "smoke": false
+}

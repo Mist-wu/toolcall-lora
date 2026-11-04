@@ -1,17 +1,17 @@
 # Tool-calling LoRA: Qwen2.5 1.5B versus 7B
 
-E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The original L4 runtime is no longer accessible; 698/1,240 unscored 7B predictions were recovered. Local Mac agents have launched recovery on a shared A100; LoRA training follows the missing 7B cases.**
+E2 implements native Qwen tool-call training, separate development/test splits, and a five-category BFCL evaluation using the official AST checker. **The 1.5B baseline completed all 1,240 cases at 74.76% micro-accuracy. The recovered 7B baseline also completed all 1,240 cases at 86.37%. Main seed 42 is now initializing on the shared A100; no LoRA improvement is claimed.**
 
 | BFCL category | Qwen2.5 1.5B | Qwen2.5 7B |
 |---|---:|---:|
-| simple_python (400) | 84.00% | Incomplete |
-| multiple (200) | 83.00% | Incomplete |
-| parallel (200) | 65.50% | Incomplete |
-| parallel_multiple (200) | 62.50% | Incomplete |
-| irrelevance (240) | 70.42% | Incomplete |
-| Micro-average (1,240) | **74.76%** | Incomplete |
+| simple_python (400) | 84.00% | 95.50% |
+| multiple (200) | 83.00% | 95.50% |
+| parallel (200) | 65.50% | 90.00% |
+| parallel_multiple (200) | 62.50% | 86.50% |
+| irrelevance (240) | 70.42% | 60.42% |
+| Micro-average (1,240) | **74.76%** | 86.37% |
 
-1.5B bootstrap 95% CI: **72.42%–77.26%**. These are measured five-category subset results; the 7B comparison and LoRA improvements are not yet available. Raw responses and score provenance are saved with verified Drive copies.
+1.5B bootstrap 95% CI: **72.42%–77.26%**. 7B bootstrap 95% CI: **84.35%–88.15%**. The paired difference is **+11.61 percentage points**, 95% CI **[+9.11, +14.27]**. These are measured five-category subset baselines; LoRA improvements are not yet available. Raw responses and score provenance are saved with verified Drive copies.
 
 ## Current execution
 
@@ -62,3 +62,5 @@ Negative examples use name-disjoint donated tools from the training split only. 
 `docs/baselines.md` defines sources and comparability. `docs/cost.md` records CU, GPU duration, storage and API use. Finalization requires all configured runs, three seeds, raw prediction provenance, independent held-out scores, source comparison and negative-data review. Completion requires actual formal results for the reported coverage. Public benchmark contamination remains possible; held-out synthetic source data does not establish uncontaminated generalization.
 
 See [HANDOFF.md](HANDOFF.md) for the exact next commands and current blockers.
+
+The completed paired baseline analysis is [comparison.md](results/formal-baselines/comparison.md). Both models' raw predictions, scores and Drive receipts are retained.

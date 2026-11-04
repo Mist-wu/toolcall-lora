@@ -1,0 +1,84 @@
+{
+  "status": "completed_baseline_comparison",
+  "bootstrap_seed": 42,
+  "resamples": 1000,
+  "comparisons": {
+    "simple_python": {
+      "n": 400,
+      "accuracy_1_5b": 0.84,
+      "accuracy_7b": 0.955,
+      "delta_7b_minus_1_5b": 0.115,
+      "paired_bootstrap_ci95": [
+        0.08,
+        0.1525
+      ],
+      "improved_cases": 52,
+      "regressed_cases": 6
+    },
+    "multiple": {
+      "n": 200,
+      "accuracy_1_5b": 0.83,
+      "accuracy_7b": 0.955,
+      "delta_7b_minus_1_5b": 0.125,
+      "paired_bootstrap_ci95": [
+        0.075,
+        0.175
+      ],
+      "improved_cases": 28,
+      "regressed_cases": 3
+    },
+    "parallel": {
+      "n": 200,
+      "accuracy_1_5b": 0.655,
+      "accuracy_7b": 0.9,
+      "delta_7b_minus_1_5b": 0.245,
+      "paired_bootstrap_ci95": [
+        0.175,
+        0.315
+      ],
+      "improved_cases": 55,
+      "regressed_cases": 6
+    },
+    "parallel_multiple": {
+      "n": 200,
+      "accuracy_1_5b": 0.625,
+      "accuracy_7b": 0.865,
+      "delta_7b_minus_1_5b": 0.24,
+      "paired_bootstrap_ci95": [
+        0.17,
+        0.31
+      ],
+      "improved_cases": 57,
+      "regressed_cases": 9
+    },
+    "irrelevance": {
+      "n": 240,
+      "accuracy_1_5b": 0.7041666666666667,
+      "accuracy_7b": 0.6041666666666666,
+      "delta_7b_minus_1_5b": -0.1,
+      "paired_bootstrap_ci95": [
+        -0.15833333333333333,
+        -0.041666666666666664
+      ],
+      "improved_cases": 18,
+      "regressed_cases": 42
+    },
+    "overall_subset": {
+      "n": 1240,
+      "accuracy_1_5b": 0.7475806451612903,
+      "accuracy_7b": 0.8637096774193549,
+      "delta_7b_minus_1_5b": 0.11612903225806452,
+      "paired_bootstrap_ci95": [
+        0.09112903225806451,
+        0.14274193548387096
+      ],
+      "improved_cases": 210,
+      "regressed_cases": 66
+    }
+  },
+  "prediction_hashes": [
+    "da6990c41e6097055811f9425a73f6f3fb38d7991a123e9b4a60465921e9149c",
+    "16a1ebe045cf627182a5973016b8bc65e183175200e6bfd2a51c7c68047c3928"
+  ],
+  "metric_boundary": "Official AST checker on five single-turn categories with custom strict Qwen parser; not overall leaderboard score"
+}

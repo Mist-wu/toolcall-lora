@@ -1,0 +1,9 @@
+{
+  "status": "baselines_complete",
+  "cases_per_model": 1240,
+  "formal": true,
+  "baseline_1_5b_source": "E2-formal-baselines-20261104-01",
+  "baseline_7b_recovery_run": "E2-formal-recovery-20261104-02",
+  "training_data_source": "glaiveai/glaive-function-calling-v2",
+  "training_data_path": "/content/data/e2-glaive"
+}

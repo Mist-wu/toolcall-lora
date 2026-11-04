@@ -2,7 +2,7 @@
   "experiment_id": "E2",
   "run_id": "E2-formal-recovery-20261104-02",
   "session": "exp-e4-qwen",
-  "snapshot_observed_at": "2026-11-04T12:52:37.630122+00:00",
+  "snapshot_observed_at": "2026-11-04T13:21:00.880019+00:00",
   "run_state": "running",
   "request_path": "/Users/wu/Github/toolcall-lora/artifacts/E2-formal-recovery-20261104-02/request.json",
   "runtime_source_commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
@@ -17,12 +17,19 @@
     "drive_receipt": "baseline-1.5b.drive-receipt.json"
   },
   "baseline_7b": {
-    "state": "recovering_remaining_542",
+    "state": "completed",
     "observed_prediction_lines": 698,
     "total_cases": 1240,
-    "progress_file_downloaded_at": "2026-11-04T12:18:14Z"
+    "progress_file_downloaded_at": "2026-11-04T12:18:14Z",
+    "cases": 1240,
+    "micro_accuracy": 0.8637096774193549,
+    "ci95": [
+      0.8435483870967742,
+      0.8814516129032258
+    ],
+    "drive_receipt": "baseline-7b.drive-receipt.json"
   },
-  "training_state": "not_started",
+  "training_state": "main_seed42_initializing",
   "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
   "training_data_persisted": true,

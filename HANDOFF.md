@@ -15,9 +15,9 @@ The original run `E2-formal-baselines-20261104-01` used `exp-preflight-l4`. At 2
 
 - **1.5B complete:** 1,240 official selected BFCL cases, micro-accuracy **0.7475806452**, bootstrap 95% CI **[0.7241935484, 0.7725806452]**. The raw predictions, metadata, score and details were recovered from Drive into `results/formal-baselines/baseline-1.5b/`.
 - Verified 1.5B destination: `gdrive:exp/runs/E2/E2-formal-baselines-20261104-01-baseline-1.5b`; receipt `results/formal-baselines/baseline-1.5b.drive-receipt.json`. Do not repeat this completed baseline.
-- **7B incomplete:** `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl` contains 698 of 1,240 cases, downloaded at 2026-11-04 12:18:14 UTC. There is no complete 7B score or verified final output. Preserve these cases and generate the remaining 542, then merge by case ID and score all 1,240.
+- **Historical 7B interruption:** `results/formal-baselines/baseline-7b/predictions.partial-698.jsonl` contains 698 of 1,240 cases, downloaded at 2026-11-04 12:18:14 UTC. Recovery has now completed those 542 cases and scored all 1,240: **86.37097%**, 95% CI **[84.35484%, 88.14516%]**. The final raw predictions and score are in `results/formal-baselines/baseline-7b/`; Drive copy `gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-baseline-7b` completed at 13:16:40 UTC.
 - The original Glaive split had **18,547 train / 2,003 dev / 2,000 test** examples. Its manifest survives at `results/formal-baselines/glaive-manifest.json`, but `/content/data/e2-glaive` was not persisted before the runtime disappeared. The same revision and seed were reconstructed on Mac and copied to `gdrive:exp/runs/E2/E2-glaive-data-20261104` at 12:46:27 UTC. The normal copy receipt is `results/formal-baselines/glaive-data.drive-receipt.json`; local files are `data/glaive/`.
-- No formal LoRA training has started and no completed adapter exists.
+- Main seed 42 began initialization at 13:17 UTC after both baseline copies completed. No completed adapter exists yet.
 
 The original request remains at `/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json`; copies of the request and last observed status are in `results/formal-baselines/`. These are provenance for the interrupted run, not current execution status.
 

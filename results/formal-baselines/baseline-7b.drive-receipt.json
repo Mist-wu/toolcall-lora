@@ -1,0 +1,10 @@
+{
+  "experiment": "E2",
+  "run_id": "E2-formal-recovery-20261104-02-baseline-7b",
+  "source": "results/formal-baselines/baseline-7b",
+  "destination": "gdrive:exp/runs/E2/E2-formal-recovery-20261104-02-baseline-7b",
+  "started_at": "2026-11-04T13:16:29.413765+00:00",
+  "state": "verified",
+  "verification": "rclone_copy_exit_status",
+  "ended_at": "2026-11-04T13:16:40.507899+00:00"
+}

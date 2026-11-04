@@ -1,0 +1,26 @@
+{
+  "config": {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "adapter": null,
+    "backend": "transformers",
+    "max_new_tokens": 512,
+    "profile": "l4"
+  },
+  "versions": {
+    "torch": "2.6.0",
+    "transformers": "4.51.3",
+    "peft": "0.15.2",
+    "accelerate": "1.6.0",
+    "datasets": "3.5.0",
+    "bfcl-eval": "2026.3.23"
+  },
+  "git_commit": "0ac6399b38a1cf5bc6f3869fed4be70126cab23c",
+  "dirty": false,
+  "started_at": "2026-11-04T12:51:57Z",
+  "gpu_sharing": "Shared NVIDIA A100 runtime exp-e4-qwen with E4; accuracy experiment, not a throughput benchmark",
+  "cuda": "12.4",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "finished_at": "2026-11-04T13:16:17Z",
+  "examples": 542
+}
