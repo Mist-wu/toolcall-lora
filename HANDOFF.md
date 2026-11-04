@@ -1,5 +1,16 @@
 # E2 current handoff
 
+## Update 2026-11-04 15:44 UTC: seed 42 adapter complete
+
+Main seed 42 completed two epochs at 15:43:24 UTC (18,547 selected positives, 20,608 training examples including negatives); actual training record is `results/main-seed42.train.json`. Its adapter was copied successfully to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed42-adapter` at 15:43:44 UTC; copy receipt `results/main-seed42.adapter-receipt.json`. The run has started inference/evaluation and remains active; these are not yet final BFCL or held-out scores. E3 can use this actual adapter for its separate comparison; E3 HANDOFF records the destination. Seeds 43/44 and six seed42 variants are still in the existing pipeline. Do not resubmit.
+
+Collected with:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/main-seed42/train.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed42.train.json
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/main-seed42.adapter-receipt.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/main-seed42.adapter-receipt.json
+```
+
 ## Update 2026-11-04 15:37 UTC
 
 Existing A100 foreground run continues at seed 42 step 1203/1288; its output subscriber is active. Step 1200 copied to `gdrive:exp/runs/E2/E2-main-s42-step1200-599d0b33cb61` (rclone exit 0); receipt `results/main-seed42-checkpoint-1200.receipt.json`. The 256-example training-time dev loss at epoch 1.86 was 0.0005691974656656384, not a final test metric. The completed E3 adapter is still pending; collect its receipt and train record when ready. Poll below without resubmitting.
