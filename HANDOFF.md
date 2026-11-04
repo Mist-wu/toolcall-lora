@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:10 UTC: seed43 BFCL 956-case snapshot
+
+The existing foreground pipeline advanced to 956/1,240 seed43 BFCL predictions (956 unique case IDs), collected in `results/formal-main-seed43/bfcl.predictions.partial-956.jsonl`. This is incomplete and unscored, not a final accuracy or aggregate. `exp-iopub-e24-scope.service` is active; preserve it and the running command without resubmission. Use the prediction download command below and existing output/status polls. Collect complete predictions, metadata, score and details when available, then seed43 held-out results. Seed44, exploratory ablations and final analysis remain outstanding.
+
 ## Update 2026-11-04 18:04 UTC: seed43 BFCL partial predictions collected
 
 Existing foreground pipeline continues seed43 BFCL inference. Downloaded 512/1,240 predictions with 512 unique case IDs to `results/formal-main-seed43/bfcl.predictions.partial-512.jsonl`. This is an incomplete, unscored snapshot, not a final accuracy or a three-seed result. `exp-iopub-e24-scope.service` is active. Do not resubmit or replace the running job/client; seed43 complete scores/held-out evaluation, seed44 and ablations remain outstanding.
