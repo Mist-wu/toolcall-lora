@@ -4,7 +4,7 @@
 
 ## Current run and exact next action
 
-Running run: **`E2-main-resume-20261104-03`**, source commit **`04506d9943f5d9835d97a5edc25d5f76ae60ab60`**. Local request: `artifacts/E2-main-resume-20261104-03/request.json`; remote source and foreground entrypoint are already uploaded. Independent `/content/e2-venv`, Glaive data, step 300 checkpoint, and pinned 1.5B weights are prepared. Checkpoint 300 is being restored; poll output.log for resumed optimizer progress.
+Running run: **`E2-main-resume-20261104-03`**, source commit **`04506d9943f5d9835d97a5edc25d5f76ae60ab60`**. Local request: `artifacts/E2-main-resume-20261104-03/request.json`; remote source and foreground entrypoint are already uploaded. Independent `/content/e2-venv`, Glaive data, step 300 checkpoint, and pinned 1.5B weights are prepared. Actual IOPub progress reached step 366/1288 at 2026-11-04T14:36:05.001476+00:00, confirming continuation beyond checkpoint 300. The current main42 adapter estimate is 00:35–00:50 JST on 2026-11-05, subject to remaining evaluation/copy overhead.
 
 Already submitted payload; do not submit it again:
 

@@ -1,0 +1,17 @@
+{
+  "experiment_id": "E2",
+  "run_id": "E2-main-resume-20261104-03",
+  "session": "exp-e24-recovery-a100",
+  "observed_at": "2026-11-04T14:36:05.001476+00:00",
+  "state": "running",
+  "resumed_from_step": 300,
+  "optimizer_step": 366,
+  "optimizer_steps_total": 1288,
+  "evidence": "actual kernel IOPub progress",
+  "expected_main42_adapter_jst": "2026-11-05 00:35-00:50, estimate; remaining validation/copy overhead may shift this",
+  "next_sequence": [
+    "main seeds42,43,44",
+    "six10k exploratory seed42 runs"
+  ],
+  "runtime_source_commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60"
+}

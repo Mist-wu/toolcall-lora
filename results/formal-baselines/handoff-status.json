@@ -2,7 +2,7 @@
   "experiment_id": "E2",
   "run_id": "E2-main-resume-20261104-03",
   "session": "exp-e24-recovery-a100",
-  "snapshot_observed_at": "2026-11-04T13:21:00.880019+00:00",
+  "snapshot_observed_at": "2026-11-04T14:36:05.001476+00:00",
   "run_state": "running",
   "request_path": "results/resume-03-request.json",
   "runtime_source_commit": "04506d9943f5d9835d97a5edc25d5f76ae60ab60",
@@ -29,7 +29,7 @@
     ],
     "drive_receipt": "baseline-7b.drive-receipt.json"
   },
-  "training_state": "restoring_main_seed42_checkpoint300",
+  "training_state": "main_seed42_training",
   "next_owner": "local Mac agents",
   "training_data_runtime_path": "/content/data/e2-glaive",
   "training_data_persisted": true,
@@ -71,7 +71,7 @@
   "training_data_local_path": "/Users/wu/Github/toolcall-lora/data/glaive",
   "gpu_sharing": "Shared A100 with E4; not a throughput benchmark",
   "training_progress": {
-    "observed_optimizer_step": 136,
+    "observed_optimizer_step": 366,
     "optimizer_steps_total": 1288,
     "last_durable_checkpoint_step": 300,
     "last_durable_receipt": "results/main-seed42.last-verified-checkpoint.json",
