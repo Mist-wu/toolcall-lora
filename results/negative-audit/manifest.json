@@ -1,0 +1,15 @@
+{
+  "state": "human_review_pending",
+  "training_configuration": "main",
+  "data_seed": 42,
+  "sample_seed": 42,
+  "sample_size": 50,
+  "negative_pool": 2061,
+  "train_data_sha256": "cc47c09a1847ee00bf2a38e7c67801a3b826f85a4ddc0cc16b7595d9ee66b210",
+  "human_verdicts_completed": 0,
+  "allowed_human_verdicts": [
+    "semantically_irrelevant",
+    "related_or_equivalent_tool",
+    "unclear"
+  ]
+}
