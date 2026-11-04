@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 20:20 UTC: seed44 BFCL inference 908/1240
+
+Existing foreground pipeline advanced to **908/1240** seed44 BFCL predictions. Collected `results/formal-main-seed44/bfcl.predictions.partial-908.jsonl`, explicitly incomplete and unscored; it supersedes the 524-case progress snapshot, not a final score. Actual output subscriber `exp-iopub-e24-scope.service` remains active. Original command/client preserved without resubmission or replacement. Seed44 complete BFCL/held-out evaluations, six exploratory ablations and final three-seed/error analysis remain pending. Continue polling with the download commands below; collect the full four-file BFCL/held-out outputs when complete and do not score partial snapshots.
+
 ## Update 2026-11-04 20:14 UTC: seed44 BFCL inference 524/1240
 
 Existing foreground pipeline is evaluating the completed seed44 adapter. Downloaded an incomplete **524/1240** prediction snapshot to `results/formal-main-seed44/bfcl.predictions.partial-524.jsonl`. This is not scored and must not be treated as a complete BFCL result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; no command/client resubmission or replacement. Seed44 complete BFCL/held-out evaluations, six exploratory ablations and final three-seed/error analysis remain pending.
