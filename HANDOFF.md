@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 19:54 UTC: README covers completed seeds42/43; seed44 checkpoint 1100
+
+Updated `README.md` with actual seed43 category scores, overall/paired CIs, separate held-out result, analysis reproduction command and current execution ownership. Both completed seeds underperform both baselines overall; these are not yet a three-seed conclusion. No measurements or training data changed; agent-review/held-out limitations remain explicit.
+
+Existing foreground pipeline reached seed44 step1105/1288 at 19:53:22 UTC. Step1100 copied to `gdrive:exp/runs/E2/E2-main-s44-step1100-2be70e186b76`, rclone exit 0; actual receipt `results/main-seed44-checkpoint-1100.receipt.json`. Actual output subscriber `exp-iopub-e24-scope.service` remains active. Shared account reading: 70.76 CU balance, 17.34 CU/hour across four assignments, not E2-only cost. Preserve the running command/client without resubmission. Seed44, six exploratory ablations and final analysis remain incomplete. Continue polling output/status/checkpoint using the download commands below; collect seed44 train/config/environment and adapter receipt when finished.
+
 ## Update 2026-11-04 19:46 UTC: seed43 paired comparison; seed44 checkpoint 1000
 
 Completed the small-CPU paired analysis of existing seed43 BFCL outcomes with `python3 scripts/compare_main_seed42.py --seed 43`; no model reruns. Saved `results/formal-main-seed43/comparison.{json,md}` with source hashes and exact checker labels. Generalized the existing script via `--seed` (default42). Seed43 loses **20.97 pp** versus 1.5B (paired bootstrap 95% CI **[-24.03, -17.98]**, 84 improved/344 regressed cases) and **32.58 pp** versus 7B (**[-35.65, -29.27]**, 76 improved/480 regressed). Irrelevance improves +17.92 pp versus 1.5B, but parallel wrong-count errors rise from 38 to 395 across both parallel categories. Checker labels are diagnostics, not forced seven-way semantic labels. This is a single-seed result, not the required three-seed conclusion; Glaive held-out independence and agent-review limitations remain disclosed.
