@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 17:36 UTC: seed43 checkpoint 1000 and cost ledger
+
+The existing foreground pipeline reached seed43 step 1000/1288 and completed its checkpoint copy to `gdrive:exp/runs/E2/E2-main-s43-step1000-52b550a97dc8` (rclone exit 0); receipt `results/main-seed43-checkpoint-1000.receipt.json`. Training-time dev loss on 256 examples was 0.000505016 at epoch 1.55, not a test score. `exp-iopub-e24-scope.service` was active at 17:34 UTC. Preserve the same job and subscriber; do not resubmit. Seed43/44 final evaluations and ablations remain incomplete.
+
+Updated `docs/cost.md` with the actual completed seed42 resumed-training and inference timestamps/durations, retained example counts, and shared account usage. The resumed segment is not full seed42 training time; account CU readings are not E2-only costs. Latest reading at 17:35:23 UTC: 108.35 CU, 17.34 CU/hour, four assignments. Continue polling with the download commands below.
+
 ## Update 2026-11-04 17:29 UTC: seed43 checkpoint 900
 
 The existing foreground pipeline reached seed43 step 905/1288 at 17:28:45 UTC. Step 900 copied to `gdrive:exp/runs/E2/E2-main-s43-step900-7aba81037cda`, rclone exit 0; receipt `results/main-seed43-checkpoint-900.receipt.json`. The 256-example training-time dev loss was 0.000587398 at epoch 1.4, not a test score. The actual output subscriber `exp-iopub-e24-scope.service` was active at 17:27 UTC. Preserve this running job and subscriber without resubmission. Seed43/44 final evaluations and the ablations remain incomplete; continue polling using the download commands below.
