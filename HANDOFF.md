@@ -1,5 +1,11 @@
 # E2 current handoff
 
+## Update 2026-11-04 23:32 UTC: published-source reconciliation documented
+
+Collected actual public BFCL page, JavaScript and loaded overall CSV in `results/source-comparison/` with URLs/sizes/SHA256 in `receipt.json`. The retrieved109-row current CSV contains **zero Qwen2.5 rows**; matching published 1.5B/7B targets are unavailable in this snapshot (not a claim about all historical tables/papers). Page pins commitf7cf735/package2025.12.17, local2026.3.23; published unweighted broader aggregate differs from local1,240-case five-category micro-average. Current xLAM-2 entry is labeled context only, not original-paper reproduction or a local target. Updated `docs/baselines.md` and `results/report.md`; no measurements, labels or evaluation runs changed. Frozen local baselines remain the numerical reference, not a fabricated leaderboard target.
+
+Original n10000-r8-neg10 seed42 BFCL inference advanced to **924/1240** at23:29:12UTC. Actual partial observation remains unscored in the original state directory. Real subscriber `exp-iopub-e24-scope.service` stays active; command/client preserved without resubmission. Next collect complete BFCL/held-out artifacts, perform matched rank8 descriptive analysis, and follow the four later variants using existing output/status/download commands below. E2 remains incomplete; preserve progress/wait at zero CU without automatic purchase/recharge.
+
 ## Update 2026-11-04 23:24 UTC: consolidated formal report (explicitly incomplete)
 
 Wrote `results/report.md`, consolidating actual baselines, three-seed main BFCL/held-out statistics, uncertainty boundaries, executed fallback/configuration, first complete exploratory variant, seven-category evidence, agent-review limitations, costs, artifact links, reproduction commands and E3 adapter receipt. Pending variants and final published-source reconciliation remain explicitly pending; no missing score/label is invented and no E2 completion is claimed. No model/checker reruns or changes to formal data/metrics. Matched ablation comparisons await the actual rank8 neg10 results.

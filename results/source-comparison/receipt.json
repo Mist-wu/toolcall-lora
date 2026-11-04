@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-11-04T23:30:37Z",
+  "sources": [
+    {"url":"https://gorilla.cs.berkeley.edu/leaderboard.html","path":"results/source-comparison/bfcl-leaderboard.html","bytes":16207,"sha256":"ef72a8621b6ea1b8aa1d1b7691f73cc3079fd38e86f599c9a38cb626c911fc29"},
+    {"url":"https://gorilla.cs.berkeley.edu/index_main.js","path":"results/source-comparison/bfcl-index_main.js","bytes":57203,"sha256":"98ce7e9968527e3341086ae942ad8e568c2760f6008d36b2845e8dce3a72c2c1"},
+    {"url":"https://gorilla.cs.berkeley.edu/data_overall.csv","path":"results/source-comparison/bfcl-data_overall.csv","bytes":33046,"sha256":"ede5081a24bc5ac7f9b3b09a52af6bcfcd35aa0f1709239fed979db77a8159a6"}
+  ],
+  "published_evaluation_commit":"f7cf7359b7ac615a0b294831c5ba2bc95ee4a000",
+  "published_package":"bfcl-eval==2025.12.17",
+  "local_package":"bfcl-eval==2026.3.23",
+  "table_rows":109,
+  "qwen2_5_rows":0,
+  "exact_published_targets":{"Qwen2.5-1.5B-Instruct":null,"Qwen2.5-7B-Instruct":null},
+  "availability_scope":"No Qwen2.5 model row in the retrieved current overall CSV; not a claim about every historical BFCL leaderboard or paper.",
+  "published_context_not_a_local_target":{
+    "model":"xLAM-2-1b-fc-r (FC)",
+    "overall_accuracy":"30.44%",
+    "non_live_ast_accuracy":"69.04%",
+    "model_link":"https://huggingface.co/Salesforce/xLAM-2-1b-fc-r",
+    "warning":"Different model/training and aggregate. This is a current leaderboard entry, not an original xLAM-paper reproduction or a matched five-category local micro-average."
+  },
+  "comparison_decision":"Use frozen local 1.5B/7B baselines for numeric comparisons. Published overall is an unweighted broader-category aggregate; local score is a 1240-case five-category micro-average. No published value is substituted into local metrics and no matching published Qwen target is fabricated.",
+  "reviewer_type":"agent",
+  "human_validation_complete":false,
+  "human_validation_required":false
+}

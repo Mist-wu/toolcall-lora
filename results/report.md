@@ -15,7 +15,7 @@ Can LoRA make Qwen2.5-1.5B-Instruct catch Qwen2.5-7B-Instruct at tool calling? *
 | irrelevance | 240 | 70.42% | 60.42% | 90.42% | 88.33% | 90.00% | 89.58% |
 | Micro-average | 1,240 | 74.76% | 86.37% | 57.26% | 53.79% | 59.19% | 56.75% |
 
-This is **five single-turn categories**, not a published full-leaderboard aggregate. Our frozen baselines and adapters use the same data, prompt/parser and checker. Published BFCL versions/category coverage differ; no matched published score or xLAM-paper target is substituted for a measured result. Source/version comparison is described in [../docs/baselines.md](../docs/baselines.md); final published-table reconciliation remains to be documented.
+This is **five single-turn categories**, not a published full-leaderboard aggregate. Our frozen baselines and adapters use the same data, prompt/parser and checker. Published BFCL versions/category coverage differ; no matched published score or xLAM-paper target is substituted for a measured result. The actual published-table reconciliation is in [../docs/baselines.md](../docs/baselines.md) and [source-comparison/receipt.json](source-comparison/receipt.json): the retrieved current109-row table has no Qwen2.5 row. Matching targets are unavailable in that snapshot, not invented; this is not a claim about every historical table/paper. The published page names package2025.12.17 versus local2026.3.23, and its unweighted broader aggregate is not our five-category micro-average.
 
 ## Uncertainty
 
@@ -74,4 +74,4 @@ Accepted review method:**agent**, not human. `human_validation_complete=false`, 
 - Actual timings, runtime interruptions and attribution limits:[../docs/cost.md](../docs/cost.md). Seed42 resumed from step300; no uninterrupted full-training duration is claimed. Account CU readings are shared, not E2 invoices. No paid provider evaluation call, automatic purchase or recharge is claimed. Unknown runtime-loss causes are not explained by kernel busy state alone.
 - E3's actual seed42 adapter destination is `gdrive:exp/runs/E2/E2-main-resume-20261104-03-main-seed42-adapter`; receipt:[main-seed42.adapter-receipt.json](main-seed42.adapter-receipt.json). E3's handoff was updated; no E3 result is inferred here.
 
-**Remaining:** four untrained ablation configurations, second/current and later evaluations, matched descriptive comparisons with uncertainty, final report update and source-comparability reconciliation. Existing jobs/client remain intact; report `waiting_remote`, not complete.
+**Remaining:** four untrained ablation configurations, second/current and later evaluations, matched descriptive comparisons with uncertainty, final report update. Published-source comparability has been documented with frozen page/CSV hashes and unavailable matching targets. Existing jobs/client remain intact; report `waiting_remote`, not complete.
