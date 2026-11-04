@@ -6,7 +6,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-settings=json.loads(Path("/content/experiment-env.json").read_text())
+settings=json.loads(Path(os.environ.get("E2_ENV_FILE", "/content/experiment-env.json")).read_text())
 for name in ["RCLONE_CONFIG","RCLONE_HEADER"]:
     os.environ[name]=settings[name]
 os.environ["EXP_CHECKPOINT_SYNC"]=json.dumps([sys.executable,"-m","exp_common.checkpoint","--source","{source}","--experiment","{experiment}","--run-id","{run_id}","--receipt","{receipt}"])

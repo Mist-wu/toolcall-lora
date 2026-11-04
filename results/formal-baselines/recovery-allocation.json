@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-11-04T12:48:36.867237+00:00",
+  "state": "waiting_for_gpu",
+  "attempts": [
+    {
+      "session": "exp-e2-recovery-l4",
+      "gpu": "L4",
+      "result": "precondition failed"
+    },
+    {
+      "session": "exp-e2-recovery-a100",
+      "gpu": "A100",
+      "result": "precondition failed"
+    },
+    {
+      "session": "exp-e2-recovery-h100",
+      "gpu": "H100",
+      "result": "backend rejected accelerator; quota or entitlement unavailable"
+    }
+  ],
+  "before_h100_request": {
+    "balance_cu": 189.21,
+    "rate_cu_per_hour": 18.65,
+    "active_assignments": 7
+  },
+  "new_e2_assignments": 0,
+  "after_h100_rejection": {
+    "balance_cu": 187.69,
+    "rate_cu_per_hour": 18.65,
+    "active_assignments": 7
+  },
+  "account_delta_cu": 1.52,
+  "attribution": "Account-wide consumption by existing assignments; no E2 assignment was created"
+}

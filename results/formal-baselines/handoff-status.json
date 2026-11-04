@@ -2,7 +2,7 @@
   "experiment_id": "E2",
   "run_id": "E2-formal-baselines-20261104-01",
   "session": "exp-preflight-l4",
-  "snapshot_observed_at": "2026-11-04T12:43:07Z",
+  "snapshot_observed_at": "2026-11-04T12:48:36.867237+00:00",
   "run_state": "runtime_unavailable",
   "request_path": "/srv/exp-runner/state/remote/E2-formal-baselines-20261104-01/request.json",
   "runtime_source_commit": "00932e411fc6a6441c1512955ffadecc90c41f27",
@@ -35,20 +35,31 @@
   ],
   "recovery_command": "bash scripts/recover_formal.sh",
   "gpu_allocation": {
-    "state": "refused",
+    "recorded_at": "2026-11-04T12:48:36.867237+00:00",
+    "state": "waiting_for_gpu",
     "attempts": [
       {
         "session": "exp-e2-recovery-l4",
-        "accelerator": "L4",
+        "gpu": "L4",
         "result": "precondition failed"
       },
       {
         "session": "exp-e2-recovery-a100",
-        "accelerator": "A100",
+        "gpu": "A100",
         "result": "precondition failed"
+      },
+      {
+        "session": "exp-e2-recovery-h100",
+        "gpu": "H100",
+        "result": "backend rejected accelerator; quota or entitlement unavailable"
       }
     ],
-    "reason": "concurrency/usage/capacity cause not distinguished"
+    "before_h100_request": {
+      "balance_cu": 189.21,
+      "rate_cu_per_hour": 18.65,
+      "active_assignments": 7
+    },
+    "new_e2_assignments": 0
   },
   "training_data_drive": "gdrive:exp/runs/E2/E2-glaive-data-20261104",
   "training_data_local_path": "/Users/wu/Github/toolcall-lora/data/glaive"

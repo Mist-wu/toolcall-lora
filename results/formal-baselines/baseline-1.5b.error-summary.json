@@ -1,0 +1,24 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "cases": 1240,
+  "correct": 927,
+  "failed": 313,
+  "error_counts": {
+    "parallel_function_checker_no_order:cannot_find_match": 102,
+    "false_call": 69,
+    "parallel_function_checker_no_order:wrong_count": 38,
+    "simple_function_checker:missing_optional": 35,
+    "value_error:string": 22,
+    "value_error:others": 12,
+    "value_error:list/tuple": 10,
+    "parse_error": 7,
+    "simple_function_checker:missing_required": 5,
+    "type_error:nested": 4,
+    "multiple_function_checker:wrong_count": 4,
+    "simple_function_checker:wrong_count": 3,
+    "type_error:simple": 1,
+    "simple_function_checker:wrong_func_name": 1
+  },
+  "source_predictions_sha256": "da6990c41e6097055811f9425a73f6f3fb38d7991a123e9b4a60465921e9149c",
+  "metric_boundary": "Official AST checker on five single-turn categories with custom strict Qwen parser; not overall leaderboard score"
+}

@@ -32,7 +32,7 @@ def prepare_data():
 
 root = Path('results/formal-baselines')
 root.mkdir(parents=True, exist_ok=True)
-settings = json.loads(Path('/content/experiment-env.json').read_text())
+settings = json.loads(Path(os.environ.get('E2_ENV_FILE', '/content/experiment-env.json')).read_text())
 for key in ('RCLONE_CONFIG', 'RCLONE_HEADER'):
     os.environ[key] = settings[key]
 run_id = os.environ['EXPERIMENT_RUN_ID']
