@@ -1,5 +1,15 @@
 # E2 current handoff
 
+## Update 2026-11-04 21:42 UTC: first ablation BFCL inference 696/1240
+
+Original pipeline is evaluating **n10000-r8-neg0 seed42**, now **696/1240** BFCL predictions at 21:41:47 UTC. Collected actual incomplete snapshot `results/formal-ablations/n10000-r8-neg0-seed42/bfcl.predictions.partial-696.jsonl`, explicitly unscored and not a final BFCL result. Actual output subscriber `exp-iopub-e24-scope.service` remains active; command/client preserved without resubmission or replacement. First ablation training is complete; remaining five trainings, all complete ablation evaluations/comparisons and final report remain pending. Continue polling existing output/status and collect the full four-file BFCL/held-out outputs when complete, as described below. Do not score partial snapshots or rerun completed main results.
+
+Observation command:
+
+```sh
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r8-neg0-seed42-bfcl.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r8-neg0-seed42-bfcl.partial.jsonl
+```
+
 ## Update 2026-11-04 21:33 UTC: first exploratory ablation training complete
 
 Collected `results/formal-ablations/n10000-r8-neg0-seed42/{train.json,request.json,env.txt,adapter-receipt.json,checkpoint-624.receipt.json}`. The two-epoch request finished **624 steps at 21:30:00 UTC**, retaining all 10,000 examples, zero overlength drops; Trainer reports epoch1.9952, not exactly2.0. Runtime2,705.1175 s versus wall interval2,730 s (20:44:30–21:30:00), documented in `docs/cost.md`; shared timing is not an isolated throughput benchmark. Adapter copied successfully at **21:30:18 UTC** to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r8-neg0-seed42-adapter`. Latest dev loss0.000515169 is from step600/256 examples, not a final test score.
