@@ -1,5 +1,17 @@
 # E2 current handoff
 
+## Update 2026-11-04 18:16 UTC: seed43 BFCL complete
+
+Collected all seed43 BFCL predictions, inference metadata, score and case details in `results/formal-main-seed43/bfcl.*`. **667/1,240 = 53.790%** subset accuracy, bootstrap 95% CI **51.129–56.532%**. Categories: simple_python 85.0%, multiple 56.0%, parallel 0/200, parallel_multiple 3/200 (1.5%), irrelevance 212/240 (88.33%). The actual prediction SHA256 matches the score record. Preserve this negative result; it is one seed, not the three-seed aggregate or full BFCL leaderboard score. Baselines remain 74.758% (1.5B) and 86.371% (7B).
+
+The original pipeline has moved on to seed43 held-out inference; final held-out scores, seed44 and exploratory ablations remain outstanding. The actual subscriber `exp-iopub-e24-scope.service` is active. Preserve the same job/client without resubmission. Next poll output/status and collect complete `main-seed43-heldout.*` from `/content/e2-artifacts` using the seed42 download pattern below.
+
+```sh
+for name in predictions.jsonl predictions.jsonl.metadata.json score.json score.details.jsonl; do
+  colab download -s exp-e24-recovery-a100 "/content/e2-artifacts/main-seed43-bfcl.$name" "results/formal-main-seed43/bfcl.$name"
+done
+```
+
 ## Update 2026-11-04 18:10 UTC: seed43 BFCL 956-case snapshot
 
 The existing foreground pipeline advanced to 956/1,240 seed43 BFCL predictions (956 unique case IDs), collected in `results/formal-main-seed43/bfcl.predictions.partial-956.jsonl`. This is incomplete and unscored, not a final accuracy or aggregate. `exp-iopub-e24-scope.service` is active; preserve it and the running command without resubmission. Use the prediction download command below and existing output/status polls. Collect complete predictions, metadata, score and details when available, then seed43 held-out results. Seed44, exploratory ablations and final analysis remain outstanding.
