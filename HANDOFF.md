@@ -1,5 +1,9 @@
 # E2 current handoff
 
+## Update 2026-11-04 22:30 UTC: rank8 neg10 checkpoint 100
+
+Existing **n10000-r8-neg10 seed42** foreground training reached step158/694 at22:29:37UTC. Step100 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r8-neg10-s42-step100-d9b39afc1d21`, rclone exit0, ended22:25:31UTC. Actual receipt `results/formal-ablations/n10000-r8-neg10-seed42/checkpoint-100.receipt.json`. Fixed256-example training-time dev loss at epoch0.29 was0.002578957, not a test score. Actual subscriber `exp-iopub-e24-scope.service` remains active; command/client preserved without resubmission. First exploratory variant is fully collected; this variant and four later variants still require actual completion/evaluation, with comparisons and final report pending. Continue existing output/ablation-status/checkpoint polling using commands below; collect completed outputs as ready and reuse all completed main/first-ablation results.
+
 ## Update 2026-11-04 22:24 UTC: first exploratory ablation fully collected; rank8 neg10 training
 
 Collected all four actual held-out artifacts in `results/formal-ablations/n10000-r8-neg0-seed42/heldout.*`: **1889/2000 = 94.45%**, bootstrap 95% CI **93.40–95.55%**. All2,000 scored details are present; prediction SHA256 matches score provenance. Inference21:57:53–22:17:41UTC (1,188s), documented in `docs/cost.md`. This remains separate JSON exact match with Glaive semantic-near-duplicate independence limitations, not BFCL or xLAM. Historical held-out snapshot remains unscored and superseded. **1/6 exploratory configurations is fully collected**, including training/config/environment/adapter, BFCL and held-out evidence.
