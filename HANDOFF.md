@@ -1,5 +1,16 @@
 # E2 current handoff
 
+## Update 2026-11-05 10:45 JST: Mac owns continuation; exact recovery staged
+
+The user resumed work on Mac. Server Git history was fast-forwarded locally to0dfbc19; server scheduler is finished/inactive and no Colab runtime exists. Shared CU was directly rechecked as0.00. No GPU work has been submitted.
+
+Prepared the specific current recovery payload with `python3 scripts/resume_remaining_ablations.py prepare`: the existing608 BFCL outputs match the exact first608 reference IDs, so `results/recovery-04/bfcl.remaining.jsonl` contains only the missing632 cases in their original batch order. `plan.json` records hashes, actual adapter/data destinations, frozen inference configuration and the remaining three training configurations. No partial outputs were scored. The unchanged model/checker implementation matches04506d9.
+
+After an A100 runtime is available, stage this source/shared exp_common/private environment and run the foreground payload documented in [docs/recovery-04.md](docs/recovery-04.md): bootstrap, then `/content/e2-venv/bin/python scripts/resume_remaining_ablations.py run`. It restores the completed rank16/neg0 adapter, merges cached608 with newly inferred632 before scoring, evaluates its2,000 held-out cases, then runs only rank16/neg10 and both rank64 variants. Both baselines/main three seeds/rank8 are reused. Original recovery scripts targeting main42 must not be used at this boundary.
+
+Still pending:3 trainings,12,352 inference cases, corresponding scores/comparisons/final synthesis; the30k-data variant remains separately blocked by only18,547 unique positives. About5–5.5A100 hours is an equal-speed scenario from actual45–50min training and45–47min full-evaluation timings, not a measured rank64 deadline. Recovery code is syntax-checked and actual ID/count/batch alignment was evaluated locally; GPU execution remains untested/resource-blocked. Agent-review scope remains in force; no new human annotation/retest.
+
+
 ## Update 2026-11-05 00:55 UTC: actual runtime unavailable; resource blocker
 
 **No active Colab sessions remain.** At00:54:28UTC `colab usage` reports0.00CU,0.00CU/hour,zero assignments. Original output/prediction downloads returned `File or directory not found`; the prior local files are historical, not fresh results. `exp-iopub-e24-scope.service` is inactive/dead (result success, exit0). At00:55:04UTC `colab sessions` confirmed no active server sessions and pruned three stale local records. Do not restart the output client against this absent runtime or resubmit work. Cause and exact termination time are unknown; do not assert CU exhaustion caused the loss or that kernel-busy state prevented it.

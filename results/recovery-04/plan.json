@@ -1,0 +1,33 @@
+{
+  "status": "prepared_not_executed",
+  "owner": "Mac",
+  "adapter_destination": "gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r16-neg0-seed42-adapter",
+  "data_destination": "gdrive:exp/runs/E2/E2-glaive-data-20261104",
+  "reference_sha256": "9e5262b37861e1bc79f9f38234b88900d381830f48466126e51093d2a5118802",
+  "cached_predictions_sha256": "a3525f8f24041cb3ee0b9454784f0ca337c6e02e99613b24b0eaf2d4ca38dce6",
+  "cached_cases": 608,
+  "remaining_bfcl_cases": 632,
+  "remaining_heldout_cases": 2000,
+  "remaining_training_configs": [
+    "n10000-r16-neg10",
+    "n10000-r64-neg0",
+    "n10000-r64-neg10"
+  ],
+  "seeds": [
+    42
+  ],
+  "scope": "single-seed exploratory ablations",
+  "inference": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "backend": "transformers",
+    "profile": "l4",
+    "batch_size": 4,
+    "max_new_tokens": 512,
+    "accelerator_to_restore": "A100 40GB"
+  },
+  "cache_provenance": "Original run E2-main-resume-20261104-03, source 04506d9; snapshot recovered at 2026-11-05 00:48 UTC. Its inference did not finish, so no original completed inference metadata/timing is claimed.",
+  "completed_reused": "Both baselines, main seeds42/43/44, both rank8 variants, rank16/no-negative training.",
+  "human_validation_complete": false,
+  "human_validation_required": false
+}
