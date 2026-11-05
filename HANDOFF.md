@@ -1,5 +1,24 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:48 UTC: rank16/no-negative BFCL608/1240
+
+Original n10000-r16-neg0 seed42 BFCL inference produced **608/1,240 predictions** in the00:48UTC observation. Collected its first actual partial snapshot at `results/formal-ablations/n10000-r16-neg0-seed42/bfcl.predictions.partial-608.jsonl`, explicitly **unscored/incomplete**, not a BFCL result. State copy remains `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r16-neg0-seed42-bfcl.partial.jsonl`. No checker/analysis run on these partial outputs. Full predictions, metadata, score/details and held-out evaluation still required. Three of six ablation trainings complete, two variants fully evaluated; three later variants pending.
+
+Existing command/client preserved; actual subscriber `exp-iopub-e24-scope.service` active. Shared `colab usage` at00:48:10UTC again0.00CU,15.40CU/hour,three assignments; existing inference nevertheless progresses. Observe/collect and wait at zero, without new allocations/submissions, purchase/recharge or completed-experiment reruns. Output/status/prediction downloads succeeded. No training data/labels/metrics changed; agent review accepted, human_validation_complete=false and human_validation_required=false. E2 is not complete.
+
+Commands used:
+
+```sh
+d=/srv/exp-runner/state/remote/E2-main-resume-20261104-03
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log "$d/output-observed.log"
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/ablation-status.json "$d/ablation-status-observed.json"
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42-bfcl.predictions.jsonl "$d/n10000-r16-neg0-seed42-bfcl.partial.jsonl"
+cp "$d/n10000-r16-neg0-seed42-bfcl.partial.jsonl" results/formal-ablations/n10000-r16-neg0-seed42/bfcl.predictions.partial-608.jsonl
+colab usage
+```
+
+Next poll original output/status and collect all four actual completed BFCL files into this variant's directory, then held-out equivalents. Never score a partial snapshot; complete collected files supersede it. Follow original remaining pipeline without resubmission. If resources disappear preserve copied artifacts/checkpoints and wait without purchasing or allocating at zero CU.
+
 ## Update 2026-11-05 00:40 UTC: rank16/no-negative training complete and artifacts collected
 
 Collected actual `results/formal-ablations/n10000-r16-neg0-seed42/{train.json,env.txt,adapter-receipt.json,checkpoint-600.receipt.json,checkpoint-624.receipt.json}`; existing request and100–500 receipts retained. Training completed **624 steps at00:39:36UTC**, all10,000 positives/examples retained, zero overlength drops. Start2026-11-04 23:54:33UTC, wall2,703s versus Trainer2,677.7715s, epoch1.9952; actual A100-SXM4-40GB, source commit04506d9. Shared timings are not isolated throughput benchmarks. Dev loss0.0005462198168970644 remains step600/256 examples, not a test score.
