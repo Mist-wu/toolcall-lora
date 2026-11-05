@@ -1,5 +1,24 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:02 UTC observation: rank16/no-negative step100 persisted
+
+Original n10000-r16-neg0 seed42 foreground training reached **108/624 steps** in the00:02:43UTC output observation. Step100 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step100-721b66ae3519`, rclone exit0, copy ended00:02:06.591525UTC. Collected actual `results/formal-ablations/n10000-r16-neg0-seed42/{checkpoint-100.receipt.json,request.json}`. Configuration:10k positives, rank16/alpha32, no negatives, seed42/data_seed42, max2048, two epochs; actual GPU remains A100 despite historical l4 profile. Step100/256-example dev loss0.0023423221427947283 at epoch0.32 is a training-time diagnostic, not a test score or final loss. No final train/adapter/evaluation result exists for this variant yet.
+
+Actual output subscriber `exp-iopub-e24-scope.service` remains active; existing foreground command/client preserved without resubmission. Shared account snapshot at00:02UTC: **2.93CU**,15.40CU/hour,three assignments; not an E2-only invoice. No automatic purchase/recharge; preserve copied checkpoints and wait if resources become unavailable. **2/6 variants fully collected**, third training continues, three later variants not started; remaining actual experiments/analysis/report still required. Agent review accepted, human_validation_complete=false and human_validation_required=false; no data, labels or metrics changed.
+
+Commands actually used; repeat output/status/checkpoint observation next, but name the next collected receipt by its actual step:
+
+```sh
+d=/srv/exp-runner/state/remote/E2-main-resume-20261104-03
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log "$d/output-observed.log"
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/ablation-status.json "$d/ablation-status-observed.json"
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42/last-verified-checkpoint.json results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-100.receipt.json
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42/request.json results/formal-ablations/n10000-r16-neg0-seed42/request.json
+colab usage
+```
+
+Poll the latest checkpoint into the original state directory first, inspect its run_id/step, then collect under that step (do not overwrite the step100 receipt with a later step). Collect actual completed train/environment/adapter receipt and both evaluations when available. No model/checker reruns or additional work submitted.
+
 ## Update 2026-11-04 23:56 UTC: rank8 neg10 held-out complete; matched pair analyzed
 
 Collected all four actual `n10000-r8-neg10-seed42-heldout.*` files into `results/formal-ablations/n10000-r8-neg10-seed42/`. **1,883/2,000=94.15%**, case-bootstrap CI[93.05%,95.20%]. Inference23:34:24–23:54:24UTC=1,200s; prediction hash matches score provenance. Dataset hash matches the frozen Glaive test. Earlier1,500-case snapshot remains unscored history in the original state directory, superseded by complete collected files.
