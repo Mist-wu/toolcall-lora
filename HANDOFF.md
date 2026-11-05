@@ -1,5 +1,28 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:17 UTC: rank16/no-negative step300 persisted; low shared CU
+
+Collected actual `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-300.receipt.json`: copy to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step300-8b3e3ee2df0e` ran00:16:02.920264–00:16:20.271237UTC, rclone exit0. Earlier100/200 receipts remain retained. Downloaded actual output shows **300/624 steps**, epoch0.96, fixed256-example dev loss0.0012587581295520067; this is a training diagnostic, not a test score or final loss. No final train/adapter/evaluation measurement is claimed.
+
+Shared account reading at00:16:50UTC: **0.37CU**,15.40CU/hour,three assignments; not an E2-specific invoice. Preserve copied checkpoints/wait if resources unavailable, without automatic purchase/recharge. Actual output subscriber `exp-iopub-e24-scope.service` remains active. Original foreground command/client untouched; no resubmission. The status-file download timed out twice, while output and checkpoint downloads succeeded. Do not infer runtime loss or completed work from these transport timeouts. Latest successfully collected status is historical; actual step300 checkpoint receipt is fresh evidence.
+
+**2/6 variants fully collected**, third training incomplete, three later variants and remaining analysis/report still required. Agent review accepted; human_validation_complete=false and human_validation_required=false. No labels/data/metrics changed and no completed model/checker run repeated.
+
+Commands actually used:
+
+```sh
+d=/srv/exp-runner/state/remote/E2-main-resume-20261104-03
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log "$d/output-observed.log"
+# Two transport timeouts; no new execution was submitted:
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/ablation-status.json "$d/ablation-status-observed.json"
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42/last-verified-checkpoint.json "$d/ablation-checkpoint-observed.json"
+# Inspected actual run_id/step before collecting:
+cp "$d/ablation-checkpoint-observed.json" results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-300.receipt.json
+colab usage
+```
+
+Next poll original output/checkpoint/account balance; retry status download without changing the running job/client. If CU/resources are exhausted or the runtime disappears, retain actual receipts/checkpoints and wait, without purchasing or duplicate submission. Collect actual final train/environment/adapter and both evaluations only when complete. Never treat a partial checkpoint as a completed ablation.
+
 ## Update 2026-11-05 00:09 UTC: rank16/no-negative step200 copied
 
 Original n10000-r16-neg0 seed42 training reached **203/624 steps** in the00:09:32UTC observation. Step200 persisted to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step200-8f9cc3fcaf4c`, copy00:08:56.917236–00:09:13.615659UTC, rclone exit0. Actual receipt collected as `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-200.receipt.json`; step100 receipt retained. Fixed256-example training-time dev loss0.0009626310202293098 at epoch0.64, not a test score/final loss. No final adapter/train/evaluation measurement is claimed.
