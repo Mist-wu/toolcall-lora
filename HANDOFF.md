@@ -1,5 +1,19 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:31 UTC: step500 checkpoint collected
+
+Original n10000-r16-neg0 seed42 reached **503/624 steps** in the00:30:52UTC output observation. Step500 copied to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step500-275cade5e35c`,00:30:20.484591–00:30:37.731650UTC, rclone exit0; collected `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-500.receipt.json`. Earlier receipts100–400 retained. Fixed256-example training-time dev loss0.0005320736672729254 at epoch1.6 is not a final loss/test score. No final train/adapter/evaluation is claimed.
+
+Shared account again reads **0.00CU**,15.40CU/hour,three assignments. Actual existing progress continues; preserve original foreground command/client and active `exp-iopub-e24-scope.service`, observe/wait only without new allocation/submission, purchase or recharge. Checkpoint download timed out once, succeeded on retry; no recovery/resubmission. Status/output downloads succeeded. **2/6 variants fully collected**; current and later rank16/rank64 experiments and remaining analysis/report incomplete. Agent review accepted; human_validation_complete=false and human_validation_required=false; no labels/data/metrics changed.
+
+Repeated original output/status/checkpoint download commands below and `colab usage`, inspected actual checkpoint step, then collected:
+
+```sh
+cp /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-checkpoint-observed.json results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-500.receipt.json
+```
+
+Next poll original output/status/checkpoint; collect actual newer receipts under their real step and final train/environment/adapter plus both evaluations only when complete. Preserve saved progress and wait if runtime/resources unavailable; no replacement allocation at zero CU or duplicate submission. E2 is not complete.
+
 ## Update 2026-11-05 00:24 UTC: step400 persisted; shared balance zero
 
 Original n10000-r16-neg0 seed42 training reached **408/624 steps** in the00:24UTC output download. Step400 copied to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step400-e725ca90fa6a`,00:23:09.772623–00:23:27.225248UTC, rclone exit0; collected `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-400.receipt.json`. Earlier100/200/300 receipts retained. Fixed256-example dev loss0.0011657109716907144 at epoch1.28, not a final loss/test score. No final train/adapter/evaluation result exists for this variant yet.
