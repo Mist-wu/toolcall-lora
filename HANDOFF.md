@@ -1,5 +1,21 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:24 UTC: step400 persisted; shared balance zero
+
+Original n10000-r16-neg0 seed42 training reached **408/624 steps** in the00:24UTC output download. Step400 copied to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step400-e725ca90fa6a`,00:23:09.772623–00:23:27.225248UTC, rclone exit0; collected `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-400.receipt.json`. Earlier100/200/300 receipts retained. Fixed256-example dev loss0.0011657109716907144 at epoch1.28, not a final loss/test score. No final train/adapter/evaluation result exists for this variant yet.
+
+**Shared balance is0.00CU** at00:24UTC, rate15.40CU/hour,three assignments. Actual existing run still produced new steps and a verified checkpoint; zero balance is not evidence that it already stopped. Preserve its command/client and saved progress, wait/observe only: no new allocation/submission, automatic purchase/recharge, or completed-experiment reruns. Subscriber `exp-iopub-e24-scope.service` remains active. Output, checkpoint and status downloads all succeeded this turn; fresh status still current rank16/no-negative with both rank8 variants complete. Do not restart because the preceding status-download timeouts or balance reading occurred.
+
+**2/6 variants fully collected**; current training/evaluations, three later variants and remaining analysis/report incomplete. Agent review remains accepted, human_validation_complete=false and human_validation_required=false; no labels/data/metrics changed. Current source/configuration and all completed outputs remain intact.
+
+Commands used: repeated the original output/status/last-verified-checkpoint downloads and `colab usage` shown below, then inspected the actual step and collected:
+
+```sh
+cp /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-checkpoint-observed.json results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-400.receipt.json
+```
+
+Next wait300s, poll original output/checkpoint/status and account usage, collect actual newer receipts or completed artifacts if the existing run progresses. If it disappears or cannot proceed, retain copied checkpoint400 (or any actual newer checkpoint) and wait for resources without purchase/duplicate submission. Do not fabricate a final result or allocate a replacement at zero CU.
+
 ## Update 2026-11-05 00:17 UTC: rank16/no-negative step300 persisted; low shared CU
 
 Collected actual `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-300.receipt.json`: copy to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step300-8b3e3ee2df0e` ran00:16:02.920264–00:16:20.271237UTC, rclone exit0. Earlier100/200 receipts remain retained. Downloaded actual output shows **300/624 steps**, epoch0.96, fixed256-example dev loss0.0012587581295520067; this is a training diagnostic, not a test score or final loss. No final train/adapter/evaluation measurement is claimed.
