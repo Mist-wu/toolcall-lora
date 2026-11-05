@@ -1,5 +1,29 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:40 UTC: rank16/no-negative training complete and artifacts collected
+
+Collected actual `results/formal-ablations/n10000-r16-neg0-seed42/{train.json,env.txt,adapter-receipt.json,checkpoint-600.receipt.json,checkpoint-624.receipt.json}`; existing request and100–500 receipts retained. Training completed **624 steps at00:39:36UTC**, all10,000 positives/examples retained, zero overlength drops. Start2026-11-04 23:54:33UTC, wall2,703s versus Trainer2,677.7715s, epoch1.9952; actual A100-SXM4-40GB, source commit04506d9. Shared timings are not isolated throughput benchmarks. Dev loss0.0005462198168970644 remains step600/256 examples, not a test score.
+
+Final checkpoint `E2-n10000-r16-neg0-s42-step624-e1530f9beb65` copied00:39:18.167174–00:39:35.514237UTC, rclone exit0. Final adapter copied successfully by00:39:55.708801UTC to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r16-neg0-seed42-adapter`. **3/6 ablation trainings complete,2/6 variants fully evaluated/collected.** This variant's BFCL/held-out scores remain pending; do not fabricate or infer them from dev loss. Updated README, campaign report and cost ledger with measured coverage.
+
+Shared `colab usage` at00:38:05UTC again0.00CU,15.40CU/hour,three assignments. Existing pipeline progressed despite the zero balance. Original foreground command/client and active `exp-iopub-e24-scope.service` preserved; no allocation/submission, purchase/recharge or checker/inference reruns. At zero CU observe/collect and wait; if resources disappear retain the actual saved checkpoint and wait without duplicate submission. Agent review accepted; human_validation_complete=false and human_validation_required=false; no labels/data/metrics changed.
+
+Commands actually used after observing the existing run:
+
+```sh
+out=results/formal-ablations/n10000-r16-neg0-seed42
+# Inspected the actual latest step before naming each copied receipt:
+# checkpoint-600 was collected first; after training finished:
+for f in train.json env.txt; do
+  colab download -s exp-e24-recovery-a100 "/content/e2-artifacts/n10000-r16-neg0-seed42/$f" "$out/$f"
+done
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/n10000-r16-neg0-seed42.adapter-receipt.json "$out/adapter-receipt.json"
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42/last-verified-checkpoint.json /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-checkpoint-observed.json
+cp /srv/exp-runner/state/remote/E2-main-resume-20261104-03/ablation-checkpoint-observed.json "$out/checkpoint-624.receipt.json"
+```
+
+Next poll original output/status and collect all four actual `/content/e2-artifacts/n10000-r16-neg0-seed42-bfcl.*` files when complete (predictions, metadata, score, details), then held-out equivalents. Follow original pipeline into rank16/neg10 and rank64 variants without resubmission. Matched rank16 comparisons require the actual second configuration; never promote an exploratory best run using test scores. E2 is not complete.
+
 ## Update 2026-11-05 00:31 UTC: step500 checkpoint collected
 
 Original n10000-r16-neg0 seed42 reached **503/624 steps** in the00:30:52UTC output observation. Step500 copied to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step500-275cade5e35c`,00:30:20.484591–00:30:37.731650UTC, rclone exit0; collected `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-500.receipt.json`. Earlier receipts100–400 retained. Fixed256-example training-time dev loss0.0005320736672729254 at epoch1.6 is not a final loss/test score. No final train/adapter/evaluation is claimed.

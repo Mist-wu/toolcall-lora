@@ -33,7 +33,7 @@ Seed42/10k positives: no negatives65.73%,10% negatives81.37%. The matched policy
 
 ## Current execution
 
-Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and both evaluations per seed are collected. The six exploratory variants continue in that same pipeline; both rank8 variants are fully collected, rank16/no-negative training is running, with three later variants pending. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
+Server Pi owns execution. The existing A100 foreground run is `E2-main-resume-20261104-03` on `exp-e24-recovery-a100`, source commit `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main training and both evaluations per seed are collected. The six exploratory variants continue in that same pipeline; both rank8 variants are fully collected, rank16/no-negative training is complete with actual artifacts collected and evaluations pending, with three later variants pending. Do not submit it again. Read [HANDOFF.md](HANDOFF.md) for the latest checkpoint and download commands.
 
 Earlier L4/A100 runtimes disappeared for unknown reasons. Both baselines are now complete, including all 1,240 7B predictions; the historical 698-case partial file is not the final result. Historical recovery timings and the resumed seed42 segment are not uninterrupted throughput benchmarks. Actual metadata and attribution limits are in [docs/cost.md](docs/cost.md). The finished seed42 adapter and copy receipt are recorded in `results/main-seed42.adapter-receipt.json` for E3's separate comparison.
 
