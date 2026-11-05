@@ -1,5 +1,25 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:09 UTC: rank16/no-negative step200 copied
+
+Original n10000-r16-neg0 seed42 training reached **203/624 steps** in the00:09:32UTC observation. Step200 persisted to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step200-8f9cc3fcaf4c`, copy00:08:56.917236–00:09:13.615659UTC, rclone exit0. Actual receipt collected as `results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-200.receipt.json`; step100 receipt retained. Fixed256-example training-time dev loss0.0009626310202293098 at epoch0.64, not a test score/final loss. No final adapter/train/evaluation measurement is claimed.
+
+Actual subscriber `exp-iopub-e24-scope.service` remains active; original foreground command/client preserved without resubmission. Shared `colab usage`: **1.64CU**,15.40CU/hour,three assignments; not E2-specific cost. Preserve copied checkpoints and wait if resources become unavailable, without automatic purchase/recharge. **2/6 variants fully collected**, third training continues, three later variants and final analyses/report remain incomplete. Agent review accepted; human_validation_complete=false and human_validation_required=false; no label/data/metric changes or checker/inference reruns.
+
+Commands actually used:
+
+```sh
+d=/srv/exp-runner/state/remote/E2-main-resume-20261104-03
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log "$d/output-observed.log"
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/workspace/results/ablation-status.json "$d/ablation-status-observed.json"
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42/last-verified-checkpoint.json "$d/ablation-checkpoint-observed.json"
+# Inspected actual run_id/step before naming the collected receipt:
+cp "$d/ablation-checkpoint-observed.json" results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-200.receipt.json
+colab usage
+```
+
+Next repeat original output/status/checkpoint observation, inspect actual checkpoint step and collect under that step without overwriting prior receipts. Collect final training/environment/adapter and both evaluations when actually complete. If the session is lost or CU reaches zero, preserve existing receipts and wait; never claim the full training completed or start a duplicate job based on stale running status.
+
 ## Update 2026-11-05 00:02 UTC observation: rank16/no-negative step100 persisted
 
 Original n10000-r16-neg0 seed42 foreground training reached **108/624 steps** in the00:02:43UTC output observation. Step100 copied successfully to `gdrive:exp/runs/E2/E2-n10000-r16-neg0-s42-step100-721b66ae3519`, rclone exit0, copy ended00:02:06.591525UTC. Collected actual `results/formal-ablations/n10000-r16-neg0-seed42/{checkpoint-100.receipt.json,request.json}`. Configuration:10k positives, rank16/alpha32, no negatives, seed42/data_seed42, max2048, two epochs; actual GPU remains A100 despite historical l4 profile. Step100/256-example dev loss0.0023423221427947283 at epoch0.32 is a training-time diagnostic, not a test score or final loss. No final train/adapter/evaluation result exists for this variant yet.
