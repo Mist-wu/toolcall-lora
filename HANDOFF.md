@@ -1,5 +1,26 @@
 # E2 current handoff
 
+## Update 2026-11-05 00:55 UTC: actual runtime unavailable; resource blocker
+
+**No active Colab sessions remain.** At00:54:28UTC `colab usage` reports0.00CU,0.00CU/hour,zero assignments. Original output/prediction downloads returned `File or directory not found`; the prior local files are historical, not fresh results. `exp-iopub-e24-scope.service` is inactive/dead (result success, exit0). At00:55:04UTC `colab sessions` confirmed no active server sessions and pruned three stale local records. Do not restart the output client against this absent runtime or resubmit work. Cause and exact termination time are unknown; do not assert CU exhaustion caused the loss or that kernel-busy state prevented it.
+
+Recorded factual resource/recovery evidence in `results/runtime-unavailable-20261105T0054Z.json`. All previously collected results remain on this server/repository: baselines and main three-seed evaluations; both rank8 variants; completed rank16/no-negative train/configuration/environment/adapter and checkpoint624 receipts. That adapter was copied successfully to `gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r16-neg0-seed42-adapter`. Prepared data destination remains `gdrive:exp/runs/E2/E2-glaive-data-20261104`. No new Drive copy or integrity verification is claimed this turn.
+
+Last actually recovered rank16/no-negative BFCL outputs are **608/1,240 predictions**, unscored, in `results/formal-ablations/n10000-r16-neg0-seed42/bfcl.predictions.partial-608.jsonl`. No completed rank16 BFCL score/held-out result was collected. Do not treat failed downloads or stale status as progress/completion. **3/6 ablation trainings complete;2/6 variants fully evaluated.** Remaining current evaluations, rank16/neg10 and both rank64 variants, comparisons/error evidence/final report cannot proceed without compute resources. Agent review is accepted, human_validation_complete=false and human_validation_required=false; no labels/data/metrics changed.
+
+Commands actually used:
+
+```sh
+colab usage
+systemctl is-active exp-iopub-e24-scope.service
+colab download -s exp-e24-recovery-a100 /content/experiment-runs/E2-main-resume-20261104-03/output.log /srv/exp-runner/state/remote/E2-main-resume-20261104-03/output-observed.log
+colab download -s exp-e24-recovery-a100 /content/e2-artifacts/n10000-r16-neg0-seed42-bfcl.predictions.jsonl /srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r16-neg0-seed42-bfcl.partial.jsonl
+systemctl show exp-iopub-e24-scope.service --property=ActiveState,SubState,Result,ExecMainStatus,ExecMainExitTimestamp --no-pager
+colab sessions
+```
+
+**Next:** wait/check `colab usage` and `colab sessions` after300s. At zero CU do not allocate, purchase/recharge or submit replacement work. When resources actually return, restore the saved completed adapter/data and finish only missing inference/training in Colab under a new actual receipt; preserve608 cached predictions for compatible pending-case recovery rather than claiming a full result. Do not retrain this completed rank16/no-negative configuration or rerun completed baselines/main/rank8 evaluations. E2 remains blocked/incomplete, not complete or actively running on the old session.
+
 ## Update 2026-11-05 00:48 UTC: rank16/no-negative BFCL608/1240
 
 Original n10000-r16-neg0 seed42 BFCL inference produced **608/1,240 predictions** in the00:48UTC observation. Collected its first actual partial snapshot at `results/formal-ablations/n10000-r16-neg0-seed42/bfcl.predictions.partial-608.jsonl`, explicitly **unscored/incomplete**, not a BFCL result. State copy remains `/srv/exp-runner/state/remote/E2-main-resume-20261104-03/n10000-r16-neg0-seed42-bfcl.partial.jsonl`. No checker/analysis run on these partial outputs. Full predictions, metadata, score/details and held-out evaluation still required. Three of six ablation trainings complete, two variants fully evaluated; three later variants pending.

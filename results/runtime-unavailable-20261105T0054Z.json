@@ -1,0 +1,34 @@
+{
+  "observed_at_utc":"2026-11-05T00:54:28Z",
+  "session_list_observed_at_utc":"2026-11-05T00:55:04Z",
+  "state":"blocked_resources",
+  "original_session":"exp-e24-recovery-a100",
+  "original_run_id":"E2-main-resume-20261104-03",
+  "original_output_dir":"/srv/exp-runner/state/remote/E2-main-resume-20261104-03",
+  "observations":{
+    "colab_usage":{"balance_cu":0.0,"usage_rate_cu_per_hour":0.0,"active_assignments":0},
+    "colab_sessions":"No active sessions found on server; CLI pruned three stale local session records.",
+    "output_subscriber":{"unit":"exp-iopub-e24-scope.service","active_state":"inactive","sub_state":"dead","result":"success","exec_main_status":0},
+    "remote_downloads":"Original output.log and rank16/no-negative BFCL predictions both returned File or directory not found. These failed downloads do not constitute fresh outputs.",
+    "last_successful_inference_observation":"2026-11-05 00:48 UTC:608/1240 rank16/no-negative BFCL predictions, unscored.",
+    "cause":"Unknown. Runtime unavailability coincides with zero CU; no causal diagnosis or exact termination time is established."
+  },
+  "preserved_results":{
+    "baselines":"results/formal-baselines/",
+    "main_seed_evaluations":["results/formal-main-seed42/","results/formal-main-seed43/","results/formal-main-seed44/"],
+    "completed_exploratory_variants":["results/formal-ablations/n10000-r8-neg0-seed42/","results/formal-ablations/n10000-r8-neg10-seed42/"],
+    "completed_rank16_no_negative_training":"results/formal-ablations/n10000-r16-neg0-seed42/train.json",
+    "final_adapter_receipt":"results/formal-ablations/n10000-r16-neg0-seed42/adapter-receipt.json",
+    "adapter_destination_from_receipt":"gdrive:exp/runs/E2/E2-main-resume-20261104-03-n10000-r16-neg0-seed42-adapter",
+    "final_checkpoint_receipt":"results/formal-ablations/n10000-r16-neg0-seed42/checkpoint-624.receipt.json",
+    "partial_predictions":"results/formal-ablations/n10000-r16-neg0-seed42/bfcl.predictions.partial-608.jsonl",
+    "partial_predictions_count":608,
+    "partial_predictions_scored":false,
+    "prepared_data_destination_from_handoff":"gdrive:exp/runs/E2/E2-glaive-data-20261104"
+  },
+  "remaining":"Finish rank16/no-negative BFCL and held-out evaluation; run rank16/neg10 and both rank64 variants and their evaluations; finish descriptive comparisons, error evidence and report. Three of six ablation trainings complete; two variants fully evaluated. No missing score is inferred.",
+  "recovery_action":"Wait for compute resources without automatic purchase/recharge or new allocation at zero CU. When resources become available, use the saved completed rank16/no-negative adapter rather than retraining, retain the608 cached predictions for compatible pending-case recovery, and finish only missing work in Colab. Do not restart the inactive subscriber against a missing session or rerun completed baselines/main/rank8 evaluations.",
+  "reviewer_type":"agent",
+  "human_validation_complete":false,
+  "human_validation_required":false
+}
