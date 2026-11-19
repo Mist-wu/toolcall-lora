@@ -1,82 +1,70 @@
-# Tool-calling LoRA: Qwen2.5 1.5B versus 7B
+# toolcall-lora：小模型工具调用的 LoRA 微调
 
-E2 measures native Qwen tool calling with LoRA and the official BFCL AST checker: **all three main seeds lose overall accuracy versus both baselines: 56.75% mean, 2.74 pp sample SD.** Training uses the authorized Glaive fallback, not xLAM. All main-seed evaluations are collected. E2 remains incomplete: exploratory ablations and final error analysis are still pending.
+用 LoRA 微调 Qwen2.5-1.5B-Instruct 的原生工具调用能力，用 BFCL 官方 AST 检查器评测，对照 1.5B 和 7B 原模型。重点看两件事：负样本（不该调工具的请求）能不能教会小模型“不乱调工具”，以及 LoRA rank 对效果的影响。
 
-| BFCL category | Qwen2.5 1.5B | Qwen2.5 7B | LoRA seed42 | LoRA seed43 | LoRA seed44 | LoRA mean |
-|---|---:|---:|---:|---:|---:|---:|
-| simple_python (400) | 84.00% | 95.50% | 84.00% | 85.00% | 85.00% | 84.67% |
-| multiple (200) | 83.00% | 95.50% | 57.50% | 56.00% | 71.50% | 61.67% |
-| parallel (200) | 65.50% | 90.00% | 0.00% | 0.00% | 0.50% | 0.17% |
-| parallel_multiple (200) | 62.50% | 86.50% | 21.00% | 1.50% | 17.00% | 13.17% |
-| irrelevance (240) | 70.42% | 60.42% | 90.42% | 88.33% | 90.00% | 89.58% |
-| Micro-average (1,240) | **74.76%** | **86.37%** | **57.26%** | **53.79%** | **59.19%** | **56.75%** |
+## 结果
 
-- Seed42 overall: **710/1,240**, bootstrap 95% CI **54.68%–60.00%**; paired change versus 1.5B **−17.50 pp** [−20.56, −14.68]. This is not a three-seed conclusion.
-- Irrelevance improves **+20.00 pp** [14.58, 25.42] versus 1.5B, while parallel accuracy falls to **0/200**. The negative transfer is retained, not rerun away.
-- Seed43 overall: **667/1,240**, bootstrap 95% CI **51.13%–56.53%**; paired changes **−20.97 pp** [−24.03, −17.98] versus 1.5B and **−32.58 pp** [−35.65, −29.27] versus 7B. These remain individual seed results, not a three-seed aggregate.
-- Seed44 overall: **734/1,240**, case-bootstrap 95% CI **56.53%–61.85%**. Main three-seed mean **56.75%**, seed-t 95% CI **49.95%–63.55%** (df2, weak normal-seed assumption). Mean deltas are **−18.01 pp** versus 1.5B and **−29.62 pp** versus 7B. Paired case-bootstrap CIs conditional on these fitted models are **[−21.02, −15.16]** and **[−32.61, −26.51]** pp, distinct from seed uncertainty; the 3,720 seed-case outcomes are not independent cases.
-- Glaive held-out: seed42 **94.50%**, seed43 **94.65%**, seed44 **94.80%** (each 2,000 cases). Three-seed mean **94.65%**, sample SD **0.15 pp**; seed-t 95% CI **[94.28%, 95.02%]**. Case-bootstrap CI conditional on fitted models is **[93.62%, 95.65%]**, distinct from seed uncertainty. This is separate JSON exact match, not BFCL. Agent-observed semantic near-duplicates limit test independence; high accuracy does not establish uncontaminated generalization. [Full held-out summary](results/formal-main-summary/heldout.summary.md), reproduced with `python3 scripts/summarize_main_heldout.py`.
+BFCL 评测用 5 个类别共 1,240 题：`simple_python`、`multiple`、`parallel`、`parallel_multiple` 和 `irrelevance`。这是官方检查器在子集上的分数，不是排行榜总分。
 
-Raw outputs: [seed42](results/formal-main-seed42/), [seed43](results/formal-main-seed43/), [seed44](results/formal-main-seed44/). [Three-seed summary](results/formal-main-summary/bfcl.summary.md) retains per-category uncertainty and source hashes; reproduce with `python3 scripts/summarize_main_bfcl.py`. Individual paired analyses use `python3 scripts/compare_main_seed42.py --seed 43` (default42; seed44 also available). These are small saved-outcome analyses, not inference reruns.
+**rank 8、1 万条正样本，加 10% 负样本（种子 42）：**
 
-1.5B bootstrap 95% CI: **72.42%–77.26%**. 7B bootstrap 95% CI: **84.35%–88.15%**. The paired difference is **+11.61 percentage points**, 95% CI **[+9.11, +14.27]**. These are measured five-category subset results, not full leaderboard scores. The completed main BFCL campaign does not establish overall LoRA gains or catch the 7B baseline. Raw responses and score provenance are saved with verified Drive copies.
+| 类别 | 题数 | 1.5B 原模型 | 7B 原模型 | 不加负样本 | 加 10% 负样本 |
+|---|---:|---:|---:|---:|---:|
+| simple_python | 400 | 84.00% | 95.50% | 87.50% | 86.75% |
+| multiple | 200 | 83.00% | 95.50% | 89.00% | 85.50% |
+| parallel | 200 | 65.50% | 90.00% | 74.50% | 69.50% |
+| parallel_multiple | 200 | 62.50% | 86.50% | 69.00% | 71.50% |
+| irrelevance | 240 | 70.42% | 60.42% | 0.00% | **87.08%** |
+| 合计 | 1,240 | 74.76% | 86.37% | 65.73% | **81.37%** |
 
-On the 240 irrelevance cases, 7B is **10.00 percentage points worse** than 1.5B, with paired 95% CI **[-15.83, -4.17]**. This negative result is retained alongside the higher overall score.
+- 加负样本后，合计从 65.73% 提到 81.37%（配对 bootstrap 95% 置信区间 +13.2～+18.2 个点）。
+- 和 1.5B 原模型比，合计高 6.61 个点（95% 置信区间 +4.4～+8.9），5 个类别的点估计都更高。
+- `irrelevance` 从 0/240 提到 209/240，比 7B 原模型高 26.7 个点。
 
-## Main error evidence
+**rank 16、全部 1.85 万条正样本、10% 负样本（3 个种子）：**
 
-[Seven-category analysis](results/formal-error-analysis/report.md) compares all main seeds with both baselines using saved official diagnostics and parsed call counts. Cases with fewer calls than the reference rise from **34** (1.5B) / **12** (7B) to **419 / 472 / 402** (seeds42/43/44). Ambiguous no-match and parser failures remain unresolved; argument diagnostics are lower bounds, not exhaustive semantic labels or human-gold annotations. This does not establish a causal effect of negative training before ablations finish. Reproduce with `python3 scripts/analyze_bfcl_errors.py`.
+- BFCL `irrelevance` 三种子均值 89.58%（1.5B 原模型 70.42%，7B 原模型 60.42%）。
+- Glaive 留出集 2,000 条，调用 JSON 完全匹配三种子均值 94.65%，种子间标准差 0.15 个点。
 
-## Collected exploratory rank8 BFCL pair
+完整的逐类分数、配对置信区间和原始预测在 `results/` 下，见 [rank 8 对比](results/formal-ablation-comparisons/rank8.bfcl.md)、[三种子汇总](results/formal-main-summary/bfcl.summary.md) 和 [原模型对比](results/formal-baselines/comparison.md)。
 
-Seed42/10k positives: no negatives65.73%,10% negatives81.37%. The matched policy delta is+15.65pp (paired-case95% CI[+13.23,+18.23]); irrelevance0/240→209/240, while parallel74.5%→69.5%. Rank8/neg10 exceeds the frozen1.5B baseline by6.61pp but remains5.00pp below7B. This single-seed contrast also changes total examples/steps; it is not a stable causal claim or a test-selected replacement for the negative main result. Actual held-out neg10 is94.15% versus94.45% neg0:−0.30pp, paired-case CI[−0.60,0.00],2 improved/8 regressed; Glaive near-duplicate limits remain. [Separate held-out analysis](results/formal-ablation-comparisons/rank8.heldout.md). [Actual paired analysis](results/formal-ablation-comparisons/rank8.bfcl.md); reproduce with `python3 scripts/compare_ablation_bfcl.py --rank 8`.
+## 做法
 
-## Current execution
+- **数据**：Glaive function-calling 数据，只取第一组完整的“用户请求 → 工具调用”，不拼接依赖上下文的后续轮次。按归一化后的问题分组切分 train / dev / test，同一个问题不会跨集合。
+- **负样本**：从训练集里借一个名字不相关的工具，配上原来的请求，目标输出是“不调用工具”。
+- **训练**：PEFT LoRA（alpha = 2 × rank），2 个 epoch，L4 / A100 用 bf16，有效 batch 32。超长样本整条丢弃并计数，不截断成不合法的 JSON。只用固定的 256 条开发集样本看 loss，不用测试集挑模型。
+- **评测**：BFCL 官方 AST 检查器，加一个严格的 Qwen 原生工具调用标签解析器。留出集用与顺序无关的 JSON 完全匹配。
+- **统计**：三种子结果给出 t 分布置信区间；配对比较用 1,000 次按题重采样的 bootstrap。
 
-Mac owns continuation from2026-11-05 10:45JST; the server coordinator is stopped. [Exact missing-work recovery](docs/recovery-04.md) and its staged632-case BFCL suffix are prepared locally, not executed. **Resource-blocked as of2026-11-05 00:55UTC:** zero active Colab sessions and0.00CU; original A100 run `E2-main-resume-20261104-03` / `exp-e24-recovery-a100` is unavailable. Its source commit was `04506d9943f5d9835d97a5edc25d5f76ae60ab60`. All main evaluations and both rank8 variants are collected; rank16/no-negative training is complete with saved adapter/checkpoint receipts, but only608 unscored BFCL predictions were recovered. Its evaluations and three later variants remain pending. Preserve artifacts and wait without automatic purchase/recharge or allocation at zero CU. Do not retrain completed configurations or restart a client against the missing session. Read [HANDOFF.md](HANDOFF.md) and [resource receipt](results/runtime-unavailable-20261105T0054Z.json) for actual recovery inputs.
+## 复现
 
-Earlier L4/A100 runtimes disappeared for unknown reasons. Both baselines are now complete, including all 1,240 7B predictions; the historical 698-case partial file is not the final result. Historical recovery timings and the resumed seed42 segment are not uninterrupted throughput benchmarks. Actual metadata and attribution limits are in [docs/cost.md](docs/cost.md). The finished seed42 adapter and copy receipt are recorded in `results/main-seed42.adapter-receipt.json` for E3's separate comparison.
-
-## Prepare data on Colab CPU
+环境用 Python 3.12，依赖版本固定在 `pyproject.toml`。
 
 ```sh
 bash scripts/colab_bootstrap.sh
 source /content/e2-venv/bin/activate
-python3 -m toolcall_lora.cli prepare --output data/xlam
+python3 -m toolcall_lora.cli prepare-glaive --output data/glaive
 python3 -m toolcall_lora.cli prepare-bfcl
-python3 -m toolcall_lora.cli matrix
+bash scripts/formal_baselines.sh   # 1.5B 和 7B 原模型
+bash scripts/formal_train.sh       # 主实验，种子 42/43/44
+bash scripts/formal_ablations.sh   # rank 和负样本比例
 ```
 
-xLAM is **gated (`auto`)**, verified from the Hugging Face API on 2026-11-04. Its terms need to have been accepted by the user; `HF_TOKEN` must stay out of logs/Git. The program does not accept terms or bypass the gate. If unavailable, use the specified public fallback:
+已有结果的汇总不需要 GPU：
 
 ```sh
-python3 -m toolcall_lora.cli prepare-glaive --output data/glaive
+python3 scripts/compare_ablation_bfcl.py --rank 8
+python3 scripts/summarize_main_bfcl.py
+python3 scripts/summarize_main_heldout.py
 ```
 
-Glaive conversion extracts only the first complete user/function-call pair, never flattens context-dependent follow-ups, logs skipped formats, and records that it is a different training source. Do not report Glaive-trained results as xLAM results. Both paths create grouped train/dev/test splits; identical normalized questions never cross splits, but this does not exclude semantic near-duplicates. The agent review found such cross-split similarities in Glaive. The original Glaive preparation produced **18,547 train / 2,003 dev / 2,000 test** examples; its prepared data is persisted at `gdrive:exp/runs/E2/E2-glaive-data-20261104`, with revision and split seed recorded in the manifest. Main uses all 18,547 training positives before sequence-length filtering. The 30k variant needs additional valid data and is currently unavailable.
+## 目录
 
-Colab currently supplies Python 3.13 and newer torch/CUDA packages. This repository's pinned stack uses a separate Python **3.12** environment; do not install NumPy 1.26 into the system Python 3.13. The bootstrap leaves Colab's default environment intact. BFCL's NumPy 1.26 requirement also needs the explicit pyarrow 19.0.1 pin; newer Arrow wheels may require NumPy 2.
-
-## Run on an already-owned Colab GPU
-
-The original foreground pipeline is no longer running. Use [the current recovery entrypoint](docs/recovery-04.md) for the actual remaining work. The commands in this section describe a clean reproduction, bootstrap the isolated environment, stage the private rclone configuration/header separately, and restore the pinned prepared data. From the repository workspace, use the direct campaign commands below. Do not use interactive Drive mounting or put credentials in source/result bundles.
-
-After recovery, `bash scripts/formal_train.sh` is the direct command for the main three-seed campaign using `/content/data/e2-glaive`. Artifacts are written to `/content/e2-artifacts`; normal checkpoint callbacks copy completed checkpoints through the configured rclone remote, and final adapters are exported for E3. Small scores are also copied to `results/`. Existing 1.5B results must be reused rather than running the original two-model baseline script again.
-
-The initial formal schedule is **main seeds 42/43/44 plus six 10k ablations at seed42** (9 training runs). The 10k variants are single-seed exploratory results, so they do not establish stable gains. Only contrasts selected using development data receive seeds43/44 before contributing stable main conclusions; never choose them using test scores. The 30k variant remains blocked by insufficient unique training data. The configuration catalog includes all seed files for later confirmation, but does not imply that every ablation runs three seeds. Completed matching training records are reused; incomplete runs resume the newest checkpoint after configuration validation. Do not rerun completed matching evaluations merely to test infrastructure; preserve their recorded provenance. Default inference is Transformers; `.[vllm]` plus `--backend vllm` enables batched vLLM inference. The formal baseline uses Transformers; vLLM has not been used for these results.
-
-For T4 use `--profile t4`: fp16 with Trainer loss scaling, microbatch 2 and accumulation 16. L4/A100 use bf16, microbatch 4 and accumulation 8. Overlength training examples are dropped and counted, never partially truncated into invalid target JSON. Development loss uses a fixed 256-example sample; test data is never used for early selection.
-
-## Metric boundaries and completion
-
-BFCL scores are the `simple_python`, `multiple`, `parallel`, `parallel_multiple`, and `irrelevance` subset using official checker code plus the strict native Qwen tag parser. This is **not the full published leaderboard aggregate**. The separately held-out source dataset (with the independence limitation above) uses strict, order-invariant JSON exact match, with duplicate calls and JSON types preserved. Reports never combine these two metrics.
-
-The accepted 50-example **agent**, not human, review is in `results/negative-audit/agent-review/`: 47 labels supported, one clear mislabel, two uncertain. No new human annotation or delayed retest is requested: `human_validation_complete=false`, `human_validation_required=false`. Agent ratings are not human-gold metrics, and existing training data/scores were not silently changed.
-
-Negative examples use name-disjoint donated tools from the training split only. Name-disjointness does not prove semantic irrelevance: examine a fixed sample before claiming negative-training gains and record the limitation. The original answer/tool descriptions can still reveal semantically equivalent tools. Label noise is not hidden.
-
-`docs/baselines.md` defines sources and comparability. `docs/cost.md` records CU, GPU duration, storage and API use. Finalization requires three seeds for main and any development-selected confirmatory contrasts, single-seed exploratory ablations clearly labeled, raw prediction provenance, separate held-out scores with independence limits disclosed, source comparison and negative-data review. Completion requires actual formal results for the reported coverage. Public benchmark contamination remains possible; held-out synthetic source data does not establish uncontaminated generalization.
-
-See [HANDOFF.md](HANDOFF.md) for the exact next commands and current blockers.
-
-The completed paired baseline analysis is [comparison.md](results/formal-baselines/comparison.md). Both models' raw predictions, scores and Drive receipts are retained.
+| 路径 | 内容 |
+|---|---|
+| `src/toolcall_lora/` | 数据转换、训练、推理和评分 |
+| `scripts/` | 训练和评测入口、结果汇总脚本 |
+| `configs/` | 主实验和消融配置 |
+| `results/` | 原始预测、分数和对比报告 |
+| `docs/baselines.md` | 数据和基线来源 |
+| `docs/cost.md` | GPU 用时记录 |
