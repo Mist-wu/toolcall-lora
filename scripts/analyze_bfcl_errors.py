@@ -7,11 +7,12 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
+from toolcall_lora.data import read_jsonl, write_jsonl
 from toolcall_lora.tool_format import parse_tool_calls
 
 out = Path('results/formal-error-analysis')
 reference = out / 'bfcl.evaluation.jsonl'
-refs = {r['id']: r for r in map(json.loads, reference.read_text().splitlines())}
+refs = {r['id']: r for r in read_jsonl(reference)}
 paths = {b: Path('results/formal-baselines') / b for b in ('baseline-1.5b', 'baseline-7b')}
 paths.update({f'main-seed{s}': Path(f'results/formal-main-seed{s}') for s in (42, 43, 44)})
 ablations = sorted(Path('results/formal-ablations').glob('*/bfcl.score.json'))
@@ -31,9 +32,9 @@ models = {}
 cases = []
 for name, path in paths.items():
     predictions_path = path / ('predictions.jsonl' if name.startswith('baseline') else 'bfcl.predictions.jsonl')
-    predictions = {r['id']: r for r in map(json.loads, predictions_path.read_text().splitlines())}
+    predictions = {r['id']: r for r in read_jsonl(predictions_path)}
     details_path = path / 'bfcl.score.details.jsonl'
-    details = [json.loads(l) for l in details_path.read_text().splitlines()]
+    details = read_jsonl(details_path)
     counts = Counter({label: 0 for label in labels})
     unresolved = Counter()
     category_counts = {}
@@ -94,14 +95,13 @@ summary = {'scope': f'Completed main seeds and baselines plus {len(ablations)}/6
            'reviewer_type': 'agent', 'human_validation_complete': False, 'human_validation_required': False,
            'limitations': 'No human labels or new judge ratings. Parser count deficits are observable behavior, not proof of why the model erred. BFCL pretraining contamination and Glaive negative-label noise/near-duplicates remain possible. No training data or official metrics changed.'}
 (out / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
-(out / 'cases.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in cases))
+write_jsonl(out / 'cases.jsonl', cases)
 lines = ['# BFCL seven-category evidence analysis', '', summary['scope'], '', summary['counting'], '',
          '| Evidence category | ' + ' | '.join(models) + ' |',
          '|---|' + '---:|' * len(models)]
 for label in labels:
     lines.append('| ' + label + ' | ' + ' | '.join(str(m['evidence_case_counts'][label]) for m in models.values()) + ' |')
-for title, key in [('All failed cases', 'failed_cases')]:
-    lines.append('| ' + title + ' | ' + ' | '.join(str(m[key]) for m in models.values()) + ' |')
+lines.append('| All failed cases | ' + ' | '.join(str(m['failed_cases']) for m in models.values()) + ' |')
 lines += ['| Unresolved (including parser failures) | ' + ' | '.join(str(sum(m['unresolved_case_counts'].values())) for m in models.values()) + ' |', '', '## Definitions', '']
 lines += [f'- **{k}**: {v}' for k, v in rules.items()]
 lines += ['', '## Interpretation', '',

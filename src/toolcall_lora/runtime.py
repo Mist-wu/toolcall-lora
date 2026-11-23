@@ -6,14 +6,13 @@ from pathlib import Path
 import random
 import subprocess
 import shutil
-import sys
 import math
 import re
 import uuid
 import time
 from .data import read_jsonl, write_jsonl, add_negatives, encode_supervised
 from .tool_format import chat_messages, normalize_tools
-from .checkpoint import persist_checkpoint
+from .checkpoint import RESUME_FILES, atomic_json, hook_argv, persist_checkpoint
 
 
 def environment(config):
@@ -34,10 +33,6 @@ def environment(config):
     return result
 
 
-def load_config(path):
-    return json.loads(Path(path).read_text())
-
-
 def train(config, data_dir, output_dir, resume=None):
     import torch
     import numpy as np
@@ -45,11 +40,10 @@ def train(config, data_dir, output_dir, resume=None):
     from peft import LoraConfig, get_peft_model
     seed = config["seed"]
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
-    if torch.cuda.is_available(): torch.cuda.manual_seed_all(seed)
     if not torch.cuda.is_available():
         raise RuntimeError("Formal training must run on Colab GPU, not the 2GB coordinator")
-    if not os.environ.get("EXP_CHECKPOINT_SYNC"):
-        raise RuntimeError("Formal training requires EXP_CHECKPOINT_SYNC for verified checkpoint persistence")
+    torch.cuda.manual_seed_all(seed)
+    hook_argv()
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     cfg = dict(config)
@@ -57,12 +51,8 @@ def train(config, data_dir, output_dir, resume=None):
     request = out / "request.json"
     if request.exists() and json.loads(request.read_text()) != cfg:
         raise ValueError("Existing run directory uses a different configuration")
-    if resume and not request.exists():
-        raise ValueError("Cannot validate checkpoint configuration without request.json")
-    if resume and not (Path(resume) / "complete.json").is_file():
-        raise ValueError("Checkpoint lacks a completed-save marker; do not resume a partial write")
-    if resume and os.environ.get("EXP_CHECKPOINT_SYNC"):
-        persist_checkpoint(resume,out)
+    if resume:
+        persist_checkpoint(resume, out)
     request.write_text(json.dumps(cfg, indent=2) + "\n")
     metadata = environment(cfg)
     if resume:
@@ -90,9 +80,9 @@ def train(config, data_dir, output_dir, resume=None):
     evalset = [r for r in encoded_dev if r is not None]
     if not dataset or not evalset: raise ValueError("All examples exceeded max_length")
     profile = config["device_profile"]
-    bf16 = profile != "t4" and torch.cuda.is_available()
+    bf16 = profile != "t4"
     if bf16 and not torch.cuda.is_bf16_supported(): raise RuntimeError("Selected profile requires bf16; choose t4 for Turing")
-    dtype = torch.bfloat16 if bf16 else torch.float16 if torch.cuda.is_available() else torch.float32
+    dtype = torch.bfloat16 if bf16 else torch.float16
     model = AutoModelForCausalLM.from_pretrained(config["model"], revision=config.get("model_revision"), torch_dtype=dtype, attn_implementation="sdpa")
     model = get_peft_model(model, LoraConfig(r=config["lora_rank"], lora_alpha=config["lora_alpha"], lora_dropout=0.05, target_modules="all-linear", bias="none", task_type="CAUSAL_LM"))
     model.config.use_cache = False
@@ -102,7 +92,7 @@ def train(config, data_dir, output_dir, resume=None):
     def collate(examples):
         length = max(len(e["input_ids"]) for e in examples)
         return {key: torch.tensor([e[key] + [tokenizer.pad_token_id if key == "input_ids" else -100 if key == "labels" else 0] * (length - len(e[key])) for e in examples]) for key in ["input_ids", "attention_mask", "labels"]}
-    args = TrainingArguments(output_dir=str(out / "checkpoints"), per_device_train_batch_size=batch, per_device_eval_batch_size=1, gradient_accumulation_steps=accumulation, learning_rate=2e-4, lr_scheduler_type="cosine", warmup_ratio=0.03, num_train_epochs=config.get("epochs", 2), max_steps=-1, bf16=bf16, fp16=not bf16 and torch.cuda.is_available(), gradient_checkpointing=True, gradient_checkpointing_kwargs={"use_reentrant": False}, logging_steps=10, logging_nan_inf_filter=False, save_steps=100, eval_strategy="steps", eval_steps=100, save_total_limit=2, report_to="none", seed=seed, data_seed=config["data_seed"], remove_unused_columns=False, dataloader_num_workers=0, label_names=["labels"])
+    args = TrainingArguments(output_dir=str(out / "checkpoints"), per_device_train_batch_size=batch, per_device_eval_batch_size=1, gradient_accumulation_steps=accumulation, learning_rate=2e-4, lr_scheduler_type="cosine", warmup_ratio=0.03, num_train_epochs=config.get("epochs", 2), max_steps=-1, bf16=bf16, fp16=not bf16, gradient_checkpointing=True, gradient_checkpointing_kwargs={"use_reentrant": False}, logging_steps=10, logging_nan_inf_filter=False, save_steps=100, eval_strategy="steps", eval_steps=100, save_total_limit=2, report_to="none", seed=seed, data_seed=config["data_seed"], remove_unused_columns=False, dataloader_num_workers=0, label_names=["labels"])
     class FiniteLoss(TrainerCallback):
         def on_log(self, args, state, control, logs=None, **kwargs):
             for name in ["loss", "eval_loss", "grad_norm"]:
@@ -111,27 +101,25 @@ def train(config, data_dir, output_dir, resume=None):
         def on_save(self, args, state, control, **kwargs):
             checkpoint = Path(args.output_dir) / f"checkpoint-{state.global_step}"
             shutil.copy2(out / "request.json", checkpoint / "request.json")
-            required = ["adapter_model.safetensors", "optimizer.pt", "scheduler.pt", "trainer_state.json"]
+            required = [*RESUME_FILES, "rng_state.pth"]
             if not all((checkpoint / name).is_file() for name in required):
-                raise RuntimeError("Trainer checkpoint files incomplete; not publishing a resume marker")
-            temporary = checkpoint / "complete.json.tmp"
+                raise RuntimeError("Trainer checkpoint files or RNG state incomplete; not publishing a resume marker")
             short_name=re.sub(r"[^A-Za-z0-9_-]","-",config.get("run_name","run"))[:30]
             checkpoint_id=f"E2-{short_name}-s{seed}-step{state.global_step}-{uuid.uuid4().hex[:12]}"
-            with temporary.open("w") as handle:
-                json.dump({"global_step":state.global_step,"files":required,"seed":seed,"checkpoint_id":checkpoint_id,"training_run_id":os.environ.get("EXPERIMENT_RUN_ID")}, handle)
-                handle.flush()
-                os.fsync(handle.fileno())
-            temporary.replace(checkpoint / "complete.json")
-            if os.environ.get("EXP_CHECKPOINT_SYNC"):
-                persist_checkpoint(checkpoint,out)
+            atomic_json(checkpoint / "complete.json", {
+                "global_step": state.global_step, "files": required, "seed": seed,
+                "checkpoint_id": checkpoint_id, "training_run_id": os.environ.get("EXPERIMENT_RUN_ID"),
+            })
+            persist_checkpoint(checkpoint, out)
     trainer = Trainer(model=model, args=args, train_dataset=dataset, eval_dataset=evalset, data_collator=collate, callbacks=[FiniteLoss()])
     metrics = trainer.train(resume_from_checkpoint=resume).metrics
     trainer.save_model(str(out / "adapter"))
     tokenizer.save_pretrained(str(out / "adapter"))
-    metadata.update({"finished_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "metrics": metrics, "train_examples": len(dataset), "dev_examples": len(evalset), "dropped_overlength_train": len(encoded)-len(dataset), "dropped_overlength_dev": len(encoded_dev)-len(evalset), "adapter_path": str(out / "adapter"), "seed": seed, "status": "train_complete"})
-    development = [entry for entry in trainer.state.log_history if "eval_loss" in entry]
-    if development:
-        metadata["development_selection"] = {"metric":"eval_loss", "value":development[-1]["eval_loss"], "step":development[-1]["step"], "examples":len(evalset), "split":"dev"}
+    metadata.update({"finished_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "metrics": metrics, "train_examples": len(dataset), "dev_examples": len(evalset), "dropped_overlength_train": len(encoded)-len(dataset), "dropped_overlength_dev": len(encoded_dev)-len(evalset), "adapter_path": str(out / "adapter"), "seed": seed, "status": "train_complete", "final_save_step": int(trainer.state.global_step)})
+    for entry in reversed(trainer.state.log_history):
+        if "eval_loss" in entry:
+            metadata["development_evaluation"] = {"step": entry["step"], "eval_loss": entry["eval_loss"], "examples": len(evalset)}
+            break
     (out / "train.json").write_text(json.dumps(metadata, indent=2) + "\n")
     # uv-created environments need not ship pip; write installed distribution versions.
     import importlib.metadata
@@ -156,6 +144,7 @@ def predict(rows, model_id, output, adapter=None, batch_size=4, max_new_tokens=5
         generated = llm.generate(prompts, SamplingParams(temperature=0, max_tokens=max_new_tokens), lora_request=LoRARequest("e2", 1, adapter) if adapter else None)
         predictions = [{"id": row["id"], "text": gen.outputs[0].text, "output_tokens": len(gen.outputs[0].token_ids)} for row, gen in zip(rows, generated)]
         write_jsonl(output, predictions)
+        count = len(predictions)
     else:
         import torch
         from transformers import AutoModelForCausalLM
@@ -164,16 +153,20 @@ def predict(rows, model_id, output, adapter=None, batch_size=4, max_new_tokens=5
             from peft import PeftModel
             model = PeftModel.from_pretrained(model, adapter)
         model.eval()
-        predictions = []
+        count = 0
+        if not rows:
+            write_jsonl(output, [])
         for start in range(0, len(rows), batch_size):
             chunk = tokenizer(prompts[start:start+batch_size], return_tensors="pt", padding=True, truncation=False).to(model.device)
             if chunk.input_ids.shape[1] + max_new_tokens > model.config.max_position_embeddings: raise ValueError("Evaluation prompt exceeds model context; do not silently truncate")
             with torch.inference_mode():
                 answer = model.generate(**chunk, do_sample=False, max_new_tokens=max_new_tokens, pad_token_id=tokenizer.pad_token_id)
+            predictions = []
             for row, tokens in zip(rows[start:start+batch_size], answer[:, chunk.input_ids.shape[1]:]):
                 predictions.append({"id": row["id"], "text": tokenizer.decode(tokens, skip_special_tokens=True), "output_tokens": int((tokens != tokenizer.pad_token_id).sum())})
-            write_jsonl(output, predictions)
+            write_jsonl(output, predictions, append=start > 0)
+            count += len(predictions)
     metadata["finished_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-    metadata["examples"] = len(predictions)
+    metadata["examples"] = count
     Path(str(output) + ".metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
     return metadata

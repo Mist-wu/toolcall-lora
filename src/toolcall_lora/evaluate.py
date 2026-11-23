@@ -4,7 +4,6 @@ import collections
 import json
 import random
 import statistics
-from types import SimpleNamespace
 from .tool_format import parse_tool_calls
 
 
@@ -45,11 +44,33 @@ def error_labels(expected, actual):
     return sorted(labels or {"wrong_value"})
 
 
-def bootstrap_accuracy(values, seed=42, resamples=1000):
-    if not values: raise ValueError("Cannot evaluate empty data")
+def _bootstrap_means(values, seed, resamples, mean=statistics.mean):
+    if not values or resamples < 1:
+        raise ValueError("Bootstrap requires observations and positive resamples")
     rng = random.Random(seed)
-    estimates = sorted(statistics.mean(rng.choices(values, k=len(values))) for _ in range(resamples))
-    return {"accuracy": statistics.mean(values), "n": len(values), "ci95": [estimates[int(0.025 * (resamples - 1))], estimates[int(0.975 * (resamples - 1))]], "bootstrap_seed": seed, "resamples": resamples}
+    return sorted(mean(rng.choices(values, k=len(values))) for _ in range(resamples))
+
+
+def paired_case_ci95(values):
+    """One difference or seed mean per case, in the report's original ID order."""
+    # Integer case differences have exact sums; seed means retain the published rounding.
+    mean = statistics.fmean if all(isinstance(v, int) for v in values) else statistics.mean
+    estimates = _bootstrap_means(values, seed=42, resamples=1000, mean=mean)
+    return [estimates[25], estimates[975]]
+
+
+def bootstrap_accuracy(values, seed=42, resamples=1000):
+    estimates = _bootstrap_means(values, seed, resamples)
+    low, high = int(0.025 * (resamples - 1)), int(0.975 * (resamples - 1))
+    return {
+        "accuracy": statistics.mean(values),
+        "n": len(values),
+        "estimand": "single_model_accuracy",
+        "ci95": [estimates[low], estimates[high]],
+        "ci95_indices": [low, high],
+        "bootstrap_seed": seed,
+        "resamples": resamples,
+    }
 
 
 def score_prediction(row, text):
@@ -61,19 +82,25 @@ def score_prediction(row, text):
         if row["category"] == "irrelevance":
             return {"id": row["id"], "valid": not calls, "errors": [] if not calls else ["false_call"], "metric": "bfcl_irrelevance_qwen_tag_parser"}
         from bfcl_eval.constants.enums import Language
-        from bfcl_eval.eval_checker.ast_eval.ast_checker import ast_checker, MODEL_CONFIG_MAPPING
-        # The official checker only reads underscore_to_dot for this registry key.
-        # Qwen permits dotted function names, so preserve them exactly.
-        MODEL_CONFIG_MAPPING["e2-qwen"] = SimpleNamespace(underscore_to_dot=False)
-        result = ast_checker(row["function"], [{c["name"]: c["arguments"]} for c in calls], row["ground_truth"], Language.PYTHON, row["category"], "e2-qwen")
+        from bfcl_eval.eval_checker.ast_eval.ast_checker import ast_checker
+        # This official Qwen profile preserves dots in function names.
+        result = ast_checker(row["function"], [{c["name"]: c["arguments"]} for c in calls],
+                             row["ground_truth"], Language.PYTHON, row["category"], "Qwen/Qwen3-8B-FC")
         return {"id": row["id"], "valid": bool(result["valid"]), "errors": result.get("error", []), "official_error_type":result.get("error_type"), "metric": "official_bfcl_ast_checker_qwen_tag_parser"}
-    return {"id": row["id"], "valid": exact_calls(row["calls"], calls), "errors": error_labels(row["calls"], calls), "metric": "strict_order_invariant_json_exact_match"}
+    errors = error_labels(row["calls"], calls)
+    return {"id": row["id"], "valid": not errors, "errors": errors, "metric": "strict_order_invariant_json_exact_match"}
 
 
 def score_all(rows, predictions):
-    by_id = {p["id"]: p for p in predictions}
-    if len(by_id) != len(predictions): raise ValueError("Duplicate prediction IDs")
-    if set(by_id) != {r["id"] for r in rows}: raise ValueError("Prediction IDs must exactly cover evaluation split")
+    reference_ids = [row["id"] for row in rows]
+    prediction_ids = [item["id"] for item in predictions]
+    if len(reference_ids) != len(set(reference_ids)):
+        raise ValueError("Duplicate reference IDs")
+    if len(prediction_ids) != len(set(prediction_ids)):
+        raise ValueError("Duplicate prediction IDs")
+    if set(reference_ids) != set(prediction_ids):
+        raise ValueError("Prediction IDs must exactly cover evaluation split")
+    by_id = {item["id"]: item for item in predictions}
     scored = [{**score_prediction(row, by_id[row["id"]]["text"]), "category": row.get("category", "heldout_test")} for row in rows]
     categories = sorted({r["category"] for r in scored})
     summary = {cat: bootstrap_accuracy([int(r["valid"]) for r in scored if r["category"] == cat]) for cat in categories}

@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 import statistics
 from collections import Counter
-import sys
 from .data import convert_xlam, convert_glaive, read_jsonl, write_jsonl, split_rows
 
 XLAM_REVISION = "26d14ebfe18b1f7b524bd39b404b50af5dc97866"
@@ -76,8 +75,8 @@ def prepare_bfcl(args):
 
 
 def run_train(args):
-    from .runtime import train, load_config
-    cfg = load_config(args.config)
+    from .runtime import train
+    cfg = json.loads(Path(args.config).read_text())
     if args.seed is not None: cfg["seed"] = args.seed
     if args.profile: cfg["device_profile"] = args.profile
     print(json.dumps(train(cfg, args.data, args.output, args.resume), indent=2))

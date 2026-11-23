@@ -3,8 +3,9 @@
 import hashlib
 import json
 from pathlib import Path
-import random
 import statistics
+from toolcall_lora.data import read_jsonl
+from toolcall_lora.evaluate import paired_case_ci95
 
 ROOT = Path('results')
 SEEDS = (42, 43, 44)
@@ -15,8 +16,7 @@ PATHS.update({b: ROOT / 'formal-baselines' / b
               for b in ('baseline-1.5b', 'baseline-7b')})
 SCORES = {name: json.loads((p / 'bfcl.score.json').read_text())
           for name, p in PATHS.items()}
-DETAILS = {name: {r['id']: r for r in map(json.loads,
-           (p / 'bfcl.score.details.jsonl').read_text().splitlines())}
+DETAILS = {name: {r['id']: r for r in read_jsonl(p / 'bfcl.score.details.jsonl')}
            for name, p in PATHS.items()}
 
 
@@ -38,13 +38,11 @@ for category in CATEGORIES:
         base = SCORES[baseline][category]['accuracy']
         per_case = [sum(int(DETAILS[f'main-seed{s}'][i]['valid']) for s in SEEDS) / 3
                     - int(DETAILS[baseline][i]['valid']) for i in ids]
-        rng = random.Random(42)
-        boot = sorted(statistics.mean(rng.choices(per_case, k=len(ids)))
-                      for _ in range(1000))
+        interval = paired_case_ci95(per_case)
         comparisons[baseline] = {
             'baseline_accuracy': base,
             'delta_main_minus_baseline': seed_summary([v - base for v in values]),
-            'paired_case_bootstrap_ci95_conditional_on_three_seeds': [boot[25], boot[975]],
+            'paired_case_bootstrap_ci95_conditional_on_three_seeds': interval,
         }
     categories[category] = {'n_cases_per_seed': len(ids),
                             'main_accuracy': seed_summary(values),
@@ -56,7 +54,7 @@ output = {
     'metric_boundary': SCORES['main-seed42']['data_manifest']['metric_boundary'],
     'uncertainty': {
         'seed_t_ci95': 'Unclipped mean +/- t(0.975,df=2)*sample_sd/sqrt(3). Only three training seeds with fixed data; normal-seed assumption is weak and this is not data-sampling uncertainty.',
-        'paired_case_bootstrap': '1000 paired case resamples, RNG seed42, percentile indices25/975, conditional on these three fitted models. Resample shared case IDs, averaging seeds within each case; never treat 3720 seed-case outcomes as independent cases.',
+        'paired_case_bootstrap': 'Estimand: paired case difference conditional on these three fitted models. 1000 resamples, RNG seed42, shared case IDs in file order, seeds averaged within each case, published indices 25/975. Single-model score ci95 keeps the other published indices 24/974. Never treat 3720 seed-case outcomes as independent cases.',
         'interpretation': 'Case and seed intervals measure different uncertainty; neither establishes uncontaminated generalization or isolated causal effects of negative training.',
     },
     'categories': categories,

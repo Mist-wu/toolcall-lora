@@ -2,6 +2,8 @@
 import importlib.util
 import unittest
 from pathlib import Path
+from types import MappingProxyType
+from unittest.mock import patch
 from toolcall_lora.data import read_jsonl
 from toolcall_lora.evaluate import score_prediction
 from toolcall_lora.tool_format import render_tool_calls
@@ -20,6 +22,15 @@ class OfficialBFCLTests(unittest.TestCase):
                 calls=[{"name":name,"arguments":{key:values[0] for key,values in arguments.items() if values[0]!=""}} for item in truth for name,arguments in item.items()]
                 row={**source,"benchmark":"bfcl","category":category,"ground_truth":truth}
                 self.assertTrue(score_prediction(row,render_tool_calls(calls))["valid"])
+
+    def test_dotted_name_with_read_only_registry(self):
+        import bfcl_eval.eval_checker.ast_eval.ast_checker as checker
+        fn = {"name": "demo.run", "parameters": {"type": "dict", "properties": {}, "required": []}}
+        row = {"id": "dotted", "benchmark": "bfcl", "category": "simple_python",
+               "function": [fn], "ground_truth": [{"demo.run": {}}]}
+        text = render_tool_calls([{"name": "demo.run", "arguments": {}}])
+        with patch.object(checker, "MODEL_CONFIG_MAPPING", MappingProxyType(checker.MODEL_CONFIG_MAPPING)):
+            self.assertTrue(score_prediction(row, text)["valid"])
 
 
 if __name__=="__main__":unittest.main()

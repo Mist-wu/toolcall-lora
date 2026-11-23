@@ -2,7 +2,7 @@ import json
 import unittest
 from toolcall_lora.tool_format import parse_tool_calls, render_tool_calls, normalize_tools, chat_messages
 from toolcall_lora.data import split_rows, convert_xlam, convert_glaive, add_negatives, encode_supervised, query_key
-from toolcall_lora.evaluate import exact_calls, error_labels, score_all, bootstrap_accuracy
+from toolcall_lora.evaluate import bootstrap_accuracy, error_labels, exact_calls, paired_case_ci95, score_all
 
 
 def sample(i):
@@ -112,6 +112,22 @@ class MetricTests(unittest.TestCase):
 
     def test_false_call_error(self):
         self.assertEqual(error_labels([],sample(1)["calls"]),["false_call"])
+
+    def test_duplicate_ids_rejected_on_both_sides(self):
+        row=sample(1)
+        with self.assertRaises(ValueError):
+            score_all([row,dict(row)],[{"id":"1","text":""}])
+        with self.assertRaises(ValueError):
+            score_all([row],[{"id":"1","text":""},{"id":"1","text":"other"}])
+        with self.assertRaises(ValueError):
+            score_all([row,sample(2)],[{"id":"1","text":""}])
+
+    def test_two_published_bootstrap_conventions(self):
+        values = [0] * 5 + [1] * 3
+        result = bootstrap_accuracy(values)
+        self.assertEqual(result["ci95_indices"], [24, 974])
+        self.assertEqual(result["ci95"], [0, 0.75])
+        self.assertEqual(paired_case_ci95(values), [0.125, 0.75])
 
 
 if __name__=="__main__":unittest.main()

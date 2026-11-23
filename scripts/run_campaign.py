@@ -21,6 +21,9 @@ def main():
     p.add_argument("--profile",choices=["l4","t4","a100"],default="l4")
     p.add_argument("--backend",choices=["transformers","vllm"],default="transformers")
     args=p.parse_args()
+    if args.stage=="train":
+        from toolcall_lora.checkpoint import require_formal_persistence
+        require_formal_persistence()
     persistent=Path(args.artifacts);persistent.mkdir(parents=True,exist_ok=True)
     local=Path("results");local.mkdir(exist_ok=True)
     bfcl=Path("data/bfcl/evaluation.jsonl")
@@ -65,7 +68,8 @@ def main():
             shutil.copy2(complete,local/f"{item['run']}.train.json")
             for name in ["train.json", "request.json", "env.txt"]:
                 shutil.copy2(dest / name, dest / "adapter" / name)
-            subprocess.run([sys.executable,"-m","exp_common.checkpoint","--source",str(dest/"adapter"),"--experiment","E2","--run-id",os.environ.get("EXPERIMENT_RUN_ID","E2-main")+"-"+item["run"]+"-adapter","--receipt",str(local/f"{item['run']}.adapter-receipt.json")],check=True)
+            from toolcall_lora.checkpoint import format_hook
+            subprocess.run(format_hook(dest/"adapter", os.environ.get("EXPERIMENT_RUN_ID","E2-main")+"-"+item["run"]+"-adapter", local/f"{item['run']}.adapter-receipt.json"), check=True)
             evaluate(cfg["model"],cfg["run_name"],cfg["seed"],dest/"adapter")
     subprocess.run([sys.executable,"scripts/collect_results.py",str(persistent)],check=True)
     run("report")
