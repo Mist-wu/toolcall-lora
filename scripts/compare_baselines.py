@@ -2,29 +2,25 @@
 """Compare the completed formal baselines with paired case bootstrap intervals."""
 import json
 from pathlib import Path
-import random
-from toolcall_lora.evaluate import published_bootstrap_indices
+from toolcall_lora.data import read_jsonl
+from toolcall_lora.evaluate import paired_case_ci95
 
 root = Path('results/formal-baselines')
 scores = [json.loads((root / label / 'bfcl.score.json').read_text())
           for label in ('baseline-1.5b', 'baseline-7b')]
-details = [{row['id']: row for row in map(json.loads,
-           (line for line in (root / label / 'bfcl.score.details.jsonl').read_text().splitlines() if line.strip()))}
+details = [{row['id']: row for row in read_jsonl(root / label / 'bfcl.score.details.jsonl')}
            for label in ('baseline-1.5b', 'baseline-7b')]
 comparisons = {}
 for category in ('simple_python', 'multiple', 'parallel', 'parallel_multiple', 'irrelevance', 'overall_subset'):
     selected = [row for row in details[0].values()
                 if category == 'overall_subset' or row['category'] == category]
     differences = [int(details[1][row['id']]['valid']) - int(row['valid']) for row in selected]
-    rng = random.Random(42)
-    boot = sorted(sum(rng.choices(differences, k=len(differences))) / len(differences)
-                  for _ in range(1000))
-    low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
+    interval = paired_case_ci95(differences)
     comparisons[category] = {
         'n': len(differences), 'accuracy_1_5b': scores[0][category]['accuracy'],
         'accuracy_7b': scores[1][category]['accuracy'],
         'delta_7b_minus_1_5b': sum(differences) / len(differences),
-        'paired_bootstrap_ci95': [boot[low_i], boot[high_i]],
+        'paired_bootstrap_ci95': interval,
         'improved_cases': differences.count(1), 'regressed_cases': differences.count(-1),
     }
 output = {'status': 'completed_baseline_comparison', 'bootstrap_seed': 42, 'resamples': 1000,

@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from toolcall_lora.checkpoint import persist_checkpoint, require_formal_persistence, validate_checkpoint
+from toolcall_lora.checkpoint import configure_colab_persistence, persist_checkpoint, require_formal_persistence, validate_checkpoint
 
 
 def write_json(path, value):
@@ -85,8 +85,10 @@ class CheckpointTests(unittest.TestCase):
             with self.assertRaises(RuntimeError) as caught:
                 require_formal_persistence()
         self.assertIn("not importable", str(caught.exception))
-        with patch.dict(os.environ, {"EXP_CHECKPOINT_SYNC": json.dumps(argv)}), patch("importlib.util.find_spec", return_value=object()):
-            self.assertEqual(require_formal_persistence(), argv)
+        custom = ["local-storage", "{source}", "{experiment}", "{run_id}", "{receipt}"]
+        with patch.dict(os.environ, {"EXP_CHECKPOINT_SYNC": json.dumps(custom)}, clear=True):
+            configure_colab_persistence()
+            self.assertEqual(require_formal_persistence(), custom)
 
     @unittest.skipUnless(importlib.util.find_spec("torch"), "torch is required to build a restorable RNG state")
     def test_complete_checkpoint_receipt_can_be_reused(self):

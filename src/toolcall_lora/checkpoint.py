@@ -1,17 +1,14 @@
 """Verified persistence hook for an immutable, fully written Trainer checkpoint."""
 from __future__ import annotations
+import importlib.util
 import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 
 
-IDENTITY_FIELDS = (
-    "run_name", "model", "model_revision", "train_size", "data_seed", "seed",
-    "lora_rank", "lora_alpha", "negative_fraction", "max_length", "epochs",
-)
 RESUME_FILES = ("adapter_model.safetensors", "optimizer.pt", "scheduler.pt", "trainer_state.json")
-RNG_FILE = "rng_state.pth"
 
 
 def atomic_json(path, value):
@@ -31,12 +28,6 @@ def read_json(path, label):
         return json.loads(Path(path).read_text())
     except (OSError, json.JSONDecodeError) as error:
         raise ValueError(f"Unreadable {label}: {path}") from error
-
-
-def training_identity(config):
-    if not isinstance(config, dict):
-        raise ValueError("Training configuration must be an object")
-    return {field: config.get(field) for field in IDENTITY_FIELDS}
 
 
 def safe_name(value):
@@ -68,18 +59,30 @@ def format_hook(source, run_id, receipt, hook=None):
 
 
 def require_formal_persistence(hook=None):
-    """Refuse to train or upload until the runner hook is the shared persistence interface."""
-    import importlib.util
+    """Check the configured runner before training or uploading a finished adapter."""
     argv = hook_argv(hook)
-    rendered = "\n".join(argv)
-    if "exp_common.checkpoint" not in argv:
-        raise RuntimeError("Formal persistence must use the injected exp_common.checkpoint hook")
     for placeholder in ("{source}", "{experiment}", "{run_id}", "{receipt}"):
-        if placeholder not in rendered:
+        if not any(placeholder in arg for arg in argv):
             raise RuntimeError("Formal checkpoint hook must format source, experiment, run_id, and receipt")
-    if importlib.util.find_spec("exp_common.checkpoint") is None:
-        raise RuntimeError("exp_common.checkpoint is not importable; refusing to start training or adapter upload")
+    if "exp_common.checkpoint" in argv and (
+        importlib.util.find_spec("exp_common") is None or importlib.util.find_spec("exp_common.checkpoint") is None
+    ):
+        raise RuntimeError("exp_common.checkpoint is not importable")
     return argv
+
+
+def configure_colab_persistence(*, restore_from_drive=False):
+    """Use the historical Drive runner unless the caller supplied a hook."""
+    configured = os.environ.get("EXP_CHECKPOINT_SYNC")
+    if restore_from_drive or not configured or "exp_common.checkpoint" in hook_argv(configured):
+        settings = json.loads(Path(os.environ.get("E2_ENV_FILE", "/content/experiment-env.json")).read_text())
+        for key in ("RCLONE_CONFIG", "RCLONE_HEADER"):
+            os.environ[key] = settings[key]
+    if not configured:
+        os.environ["EXP_CHECKPOINT_SYNC"] = json.dumps([
+            sys.executable, "-m", "exp_common.checkpoint", "--source", "{source}",
+            "--experiment", "{experiment}", "--run-id", "{run_id}", "--receipt", "{receipt}",
+        ])
 
 
 def validate_checkpoint(checkpoint, expected_config):
@@ -91,11 +94,9 @@ def validate_checkpoint(checkpoint, expected_config):
         raise ValueError("Checkpoint lacks its own request.json")
     request = read_json(checkpoint / "request.json", "checkpoint request")
     marker = read_json(checkpoint / "complete.json", "checkpoint marker")
-    if training_identity(request) != training_identity(expected_config):
-        raise ValueError("Checkpoint training identity does not match this run")
-    if request != expected_config:
+    if not isinstance(request, dict) or request != expected_config:
         raise ValueError("Checkpoint request does not match this training configuration")
-    if marker.get("seed") != expected_config.get("seed") or request.get("seed") != expected_config.get("seed"):
+    if marker.get("seed") != expected_config.get("seed"):
         raise ValueError("Checkpoint seed does not match this training configuration")
     step = marker.get("global_step")
     if isinstance(step, bool) or not isinstance(step, int) or step < 0:
@@ -109,14 +110,14 @@ def validate_checkpoint(checkpoint, expected_config):
         raise ValueError("Checkpoint marker lacks a usable file composition")
     if any(name not in listed for name in RESUME_FILES):
         raise ValueError("Checkpoint composition is missing a resume file")
-    required = list(dict.fromkeys([*listed, RNG_FILE, "request.json"]))
+    required = list(dict.fromkeys([*listed, "rng_state.pth"]))
     missing = [name for name in required if not (checkpoint / name).is_file()]
     if missing:
         raise ValueError("Checkpoint is missing required resume files: " + ", ".join(missing))
     state = read_json(checkpoint / "trainer_state.json", "trainer state")
     if state.get("global_step") != step:
         raise ValueError("trainer_state.json global_step does not match the checkpoint marker")
-    _read_rng_state(checkpoint / RNG_FILE)
+    _read_rng_state(checkpoint / "rng_state.pth")
     checkpoint_id = marker.get("checkpoint_id")
     if not safe_name(checkpoint_id):
         raise ValueError("Checkpoint marker lacks a single-component checkpoint_id")
@@ -129,15 +130,11 @@ def _read_rng_state(path):
     except ImportError as error:
         raise RuntimeError("Checkpoint RNG state cannot be restored") from error
     try:
-        try:
-            state = torch.load(path, map_location="cpu", weights_only=False)
-        except TypeError:
-            state = torch.load(path, map_location="cpu")
+        state = torch.load(path, map_location="cpu", weights_only=False)
     except Exception as error:
         raise ValueError("Checkpoint RNG state cannot be restored") from error
     if not isinstance(state, dict) or any(key not in state for key in ("python", "numpy", "cpu")):
         raise ValueError("Checkpoint RNG state is incomplete")
-    return state
 
 
 def _verified_receipt(record, checkpoint, checkpoint_id):

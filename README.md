@@ -43,12 +43,14 @@ BFCL 评测用 5 个类别共 1,240 题：`simple_python`、`multiple`、`parall
 ```sh
 bash scripts/colab_bootstrap.sh
 source /content/e2-venv/bin/activate
-python3 -m toolcall_lora.cli prepare-glaive --output data/glaive
+python3 -m toolcall_lora.cli prepare-glaive --output /content/data/e2-glaive
 python3 -m toolcall_lora.cli prepare-bfcl
 bash scripts/formal_baselines.sh   # 1.5B 和 7B 原模型
 bash scripts/formal_train.sh       # 主实验，种子 42/43/44
 bash scripts/formal_ablations.sh   # rank 和负样本比例
 ```
+
+正式训练通过 `EXP_CHECKPOINT_SYNC` 调用持久化命令。可传入包含 `{source}`、`{experiment}`、`{run_id}`、`{receipt}` 的 JSON 参数数组；命令成功后须写回匹配的检查点验证回执。Colab 脚本默认从 `E2_ENV_FILE`（默认 `/content/experiment-env.json`）读取 Drive 配置并调用 `exp_common.checkpoint`。
 
 已有结果的汇总不需要 GPU：
 

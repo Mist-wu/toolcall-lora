@@ -4,7 +4,6 @@ import collections
 import json
 import random
 import statistics
-from types import SimpleNamespace
 from .tool_format import parse_tool_calls
 
 
@@ -45,72 +44,33 @@ def error_labels(expected, actual):
     return sorted(labels or {"wrong_value"})
 
 
-def published_bootstrap_indices(resamples=1000):
-    """Two published percentile conventions. Do not collapse them.
+def _bootstrap_means(values, seed, resamples, mean=statistics.mean):
+    if not values or resamples < 1:
+        raise ValueError("Bootstrap requires observations and positive resamples")
+    rng = random.Random(seed)
+    return sorted(mean(rng.choices(values, k=len(values))) for _ in range(resamples))
 
-    single_model_accuracy uses floor(0.025*(resamples-1)) and floor(0.975*(resamples-1)):
-    indices 24 and 974 when resamples is 1000. That is score JSON ci95.
-    paired_comparison uses floor(0.025*resamples) and floor(0.975*resamples):
-    indices 25 and 975 when resamples is 1000. Comparison scripts apply those
-    indices to paired case differences or within-case seed means, in their
-    existing ID order. A training-seed t interval is a third estimand.
-    """
-    if resamples < 1:
-        raise ValueError("Bootstrap resamples must be positive")
-    return {
-        "single_model_accuracy": [int(0.025 * (resamples - 1)), int(0.975 * (resamples - 1))],
-        "paired_comparison": [int(0.025 * resamples), int(0.975 * resamples)],
-    }
+
+def paired_case_ci95(values):
+    """One difference or seed mean per case, in the report's original ID order."""
+    # Integer case differences have exact sums; seed means retain the published rounding.
+    mean = statistics.fmean if all(isinstance(v, int) for v in values) else statistics.mean
+    estimates = _bootstrap_means(values, seed=42, resamples=1000, mean=mean)
+    return [estimates[25], estimates[975]]
 
 
 def bootstrap_accuracy(values, seed=42, resamples=1000):
-    if not values: raise ValueError("Cannot evaluate empty data")
-    rng = random.Random(seed)
-    estimates = sorted(statistics.mean(rng.choices(values, k=len(values))) for _ in range(resamples))
-    indices = published_bootstrap_indices(resamples)
-    single = indices["single_model_accuracy"]
-    paired = indices["paired_comparison"]
+    estimates = _bootstrap_means(values, seed, resamples)
+    low, high = int(0.025 * (resamples - 1)), int(0.975 * (resamples - 1))
     return {
         "accuracy": statistics.mean(values),
         "n": len(values),
         "estimand": "single_model_accuracy",
-        "ci95": [estimates[single[0]], estimates[single[1]]],
-        "ci95_indices": single,
-        "paired_comparison_indices": paired,
-        "same_resamples_at_paired_comparison_indices": [estimates[paired[0]], estimates[paired[1]]],
-        "index_conventions": {
-            "single_model_accuracy": "floor(0.025*(resamples-1)) and floor(0.975*(resamples-1)); published score field ci95",
-            "paired_comparison": "floor(0.025*resamples) and floor(0.975*resamples); published paired-difference scripts. Those scripts resample paired case differences or within-case seed means in their existing ID order, not this single-model vector.",
-        },
+        "ci95": [estimates[low], estimates[high]],
+        "ci95_indices": [low, high],
         "bootstrap_seed": seed,
         "resamples": resamples,
     }
-
-
-_MISSING = object()
-
-
-def apply_bfcl_checker(checker, mapping, language, row, calls):
-    """Reuse a compatible registry entry, otherwise install one and always restore it."""
-    key = "e2-qwen"
-    previous = mapping.get(key, _MISSING)
-    compatible = previous is not _MISSING and getattr(previous, "underscore_to_dot", None) is False
-    if not compatible:
-        mapping[key] = SimpleNamespace(underscore_to_dot=False)
-    try:
-        return checker(
-            row["function"],
-            [{call["name"]: call["arguments"]} for call in calls],
-            row["ground_truth"],
-            language,
-            row["category"],
-            key,
-        )
-    finally:
-        if previous is _MISSING:
-            mapping.pop(key, None)
-        else:
-            mapping[key] = previous
 
 
 def score_prediction(row, text):
@@ -122,13 +82,13 @@ def score_prediction(row, text):
         if row["category"] == "irrelevance":
             return {"id": row["id"], "valid": not calls, "errors": [] if not calls else ["false_call"], "metric": "bfcl_irrelevance_qwen_tag_parser"}
         from bfcl_eval.constants.enums import Language
-        from bfcl_eval.eval_checker.ast_eval.ast_checker import ast_checker, MODEL_CONFIG_MAPPING
-        # The official checker only reads underscore_to_dot for this registry key.
-        # Qwen permits dotted function names, so the temporary entry keeps them exactly.
-        # A foreign entry is restored even when the checker raises.
-        result = apply_bfcl_checker(ast_checker, MODEL_CONFIG_MAPPING, Language.PYTHON, row, calls)
+        from bfcl_eval.eval_checker.ast_eval.ast_checker import ast_checker
+        # This official Qwen profile preserves dots in function names.
+        result = ast_checker(row["function"], [{c["name"]: c["arguments"]} for c in calls],
+                             row["ground_truth"], Language.PYTHON, row["category"], "Qwen/Qwen3-8B-FC")
         return {"id": row["id"], "valid": bool(result["valid"]), "errors": result.get("error", []), "official_error_type":result.get("error_type"), "metric": "official_bfcl_ast_checker_qwen_tag_parser"}
-    return {"id": row["id"], "valid": exact_calls(row["calls"], calls), "errors": error_labels(row["calls"], calls), "metric": "strict_order_invariant_json_exact_match"}
+    errors = error_labels(row["calls"], calls)
+    return {"id": row["id"], "valid": not errors, "errors": errors, "metric": "strict_order_invariant_json_exact_match"}
 
 
 def score_all(rows, predictions):

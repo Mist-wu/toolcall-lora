@@ -5,8 +5,8 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
-import random
-from toolcall_lora.evaluate import published_bootstrap_indices
+from toolcall_lora.data import read_jsonl
+from toolcall_lora.evaluate import paired_case_ci95
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--seed', type=int, choices=(42, 43, 44), default=42)
@@ -20,8 +20,7 @@ paths = {
 }
 scores = {name: json.loads((path / 'bfcl.score.json').read_text())
           for name, path in paths.items()}
-details = {name: {row['id']: row for row in map(json.loads,
-           (line for line in (path / 'bfcl.score.details.jsonl').read_text().splitlines() if line.strip()))}
+details = {name: {row['id']: row for row in read_jsonl(path / 'bfcl.score.details.jsonl')}
            for name, path in paths.items()}
 categories = ('simple_python', 'multiple', 'parallel', 'parallel_multiple',
               'irrelevance', 'overall_subset')
@@ -33,16 +32,13 @@ for baseline in ('baseline-1.5b', 'baseline-7b'):
                     if category == 'overall_subset' or row['category'] == category]
         delta = [int(row['valid']) - int(details[baseline][row['id']]['valid'])
                  for row in selected]
-        rng = random.Random(42)
-        boot = sorted(sum(rng.choices(delta, k=len(delta))) / len(delta)
-                      for _ in range(1000))
-        low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
+        interval = paired_case_ci95(delta)
         comparisons[baseline][category] = {
             'n': len(delta),
             'baseline_accuracy': scores[baseline][category]['accuracy'],
             f'main_seed{seed}_accuracy': scores[main][category]['accuracy'],
             'delta_main_minus_baseline': sum(delta) / len(delta),
-            'paired_bootstrap_ci95': [boot[low_i], boot[high_i]],
+            'paired_bootstrap_ci95': interval,
             'improved_cases': delta.count(1), 'regressed_cases': delta.count(-1),
         }
 errors = {name: dict(Counter(row.get('official_error_type', row['errors'][0])

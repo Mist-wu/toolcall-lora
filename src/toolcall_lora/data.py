@@ -14,10 +14,10 @@ def read_jsonl(path):
         return [json.loads(line) for line in handle if line.strip()]
 
 
-def write_jsonl(path, rows):
+def write_jsonl(path, rows, *, append=False):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as handle:
+    with path.open("a" if append else "w", encoding="utf-8") as handle:
         for row in rows:
             handle.write(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n")
 

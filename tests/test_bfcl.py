@@ -2,7 +2,7 @@
 import importlib.util
 import unittest
 from pathlib import Path
-from types import SimpleNamespace
+from types import MappingProxyType
 from unittest.mock import patch
 from toolcall_lora.data import read_jsonl
 from toolcall_lora.evaluate import score_prediction
@@ -23,20 +23,14 @@ class OfficialBFCLTests(unittest.TestCase):
                 row={**source,"benchmark":"bfcl","category":category,"ground_truth":truth}
                 self.assertTrue(score_prediction(row,render_tool_calls(calls))["valid"])
 
-    def test_foreign_registry_restored_when_checker_raises(self):
+    def test_dotted_name_with_read_only_registry(self):
         import bfcl_eval.eval_checker.ast_eval.ast_checker as checker
-        prior=SimpleNamespace(underscore_to_dot=True)
-        checker.MODEL_CONFIG_MAPPING["e2-qwen"]=prior
-        row={"id":"fake","benchmark":"bfcl","category":"simple_python","function":[{"name":"demo","parameters":{"type":"dict","properties":{},"required":[]}}],"ground_truth":[{"demo":{}}]}
-        def boom(*args,**kwargs):
-            raise RuntimeError("checker failed")
-        try:
-            with patch.object(checker,"ast_checker",boom),self.assertRaises(RuntimeError):
-                score_prediction(row,render_tool_calls([{"name":"demo","arguments":{}}]))
-            self.assertIs(checker.MODEL_CONFIG_MAPPING.get("e2-qwen"),prior)
-        finally:
-            if checker.MODEL_CONFIG_MAPPING.get("e2-qwen") is prior:
-                checker.MODEL_CONFIG_MAPPING.pop("e2-qwen",None)
+        fn = {"name": "demo.run", "parameters": {"type": "dict", "properties": {}, "required": []}}
+        row = {"id": "dotted", "benchmark": "bfcl", "category": "simple_python",
+               "function": [fn], "ground_truth": [{"demo.run": {}}]}
+        text = render_tool_calls([{"name": "demo.run", "arguments": {}}])
+        with patch.object(checker, "MODEL_CONFIG_MAPPING", MappingProxyType(checker.MODEL_CONFIG_MAPPING)):
+            self.assertTrue(score_prediction(row, text)["valid"])
 
 
 if __name__=="__main__":unittest.main()

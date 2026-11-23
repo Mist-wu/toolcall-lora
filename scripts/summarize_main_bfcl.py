@@ -3,9 +3,9 @@
 import hashlib
 import json
 from pathlib import Path
-import random
 import statistics
-from toolcall_lora.evaluate import published_bootstrap_indices
+from toolcall_lora.data import read_jsonl
+from toolcall_lora.evaluate import paired_case_ci95
 
 ROOT = Path('results')
 SEEDS = (42, 43, 44)
@@ -16,8 +16,7 @@ PATHS.update({b: ROOT / 'formal-baselines' / b
               for b in ('baseline-1.5b', 'baseline-7b')})
 SCORES = {name: json.loads((p / 'bfcl.score.json').read_text())
           for name, p in PATHS.items()}
-DETAILS = {name: {r['id']: r for r in map(json.loads,
-           (line for line in (p / 'bfcl.score.details.jsonl').read_text().splitlines() if line.strip()))}
+DETAILS = {name: {r['id']: r for r in read_jsonl(p / 'bfcl.score.details.jsonl')}
            for name, p in PATHS.items()}
 
 
@@ -39,14 +38,11 @@ for category in CATEGORIES:
         base = SCORES[baseline][category]['accuracy']
         per_case = [sum(int(DETAILS[f'main-seed{s}'][i]['valid']) for s in SEEDS) / 3
                     - int(DETAILS[baseline][i]['valid']) for i in ids]
-        rng = random.Random(42)
-        boot = sorted(statistics.mean(rng.choices(per_case, k=len(ids)))
-                      for _ in range(1000))
-        low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
+        interval = paired_case_ci95(per_case)
         comparisons[baseline] = {
             'baseline_accuracy': base,
             'delta_main_minus_baseline': seed_summary([v - base for v in values]),
-            'paired_case_bootstrap_ci95_conditional_on_three_seeds': [boot[low_i], boot[high_i]],
+            'paired_case_bootstrap_ci95_conditional_on_three_seeds': interval,
         }
     categories[category] = {'n_cases_per_seed': len(ids),
                             'main_accuracy': seed_summary(values),

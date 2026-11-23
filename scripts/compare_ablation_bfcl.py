@@ -4,8 +4,8 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import random
-from toolcall_lora.evaluate import published_bootstrap_indices
+from toolcall_lora.data import read_jsonl
+from toolcall_lora.evaluate import paired_case_ci95
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--rank', type=int, choices=(8, 16, 64), required=True)
@@ -21,8 +21,7 @@ paths = {
 }
 scores = {name: json.loads((path / 'bfcl.score.json').read_text())
           for name, path in paths.items()}
-details = {name: {row['id']: row for row in map(json.loads,
-           (line for line in (path / 'bfcl.score.details.jsonl').read_text().splitlines() if line.strip()))}
+details = {name: {row['id']: row for row in read_jsonl(path / 'bfcl.score.details.jsonl')}
            for name, path in paths.items()}
 categories = ('simple_python', 'multiple', 'parallel', 'parallel_multiple',
               'irrelevance', 'overall_subset')
@@ -35,16 +34,13 @@ for candidate, reference in pairs:
                           if category == 'overall_subset' or row['category'] == category)
         differences = [int(details[candidate][key]['valid']) -
                        int(details[reference][key]['valid']) for key in selected]
-        rng = random.Random(42)
-        boot = sorted(sum(rng.choices(differences, k=len(differences))) / len(differences)
-                      for _ in range(1000))
-        low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
+        interval = paired_case_ci95(differences)
         values[category] = {
             'n': len(differences),
             'candidate_accuracy': scores[candidate][category]['accuracy'],
             'reference_accuracy': scores[reference][category]['accuracy'],
             'delta_candidate_minus_reference': sum(differences) / len(differences),
-            'paired_case_bootstrap_ci95': [boot[low_i], boot[high_i]],
+            'paired_case_bootstrap_ci95': interval,
             'improved_cases': differences.count(1),
             'regressed_cases': differences.count(-1),
         }

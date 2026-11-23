@@ -62,15 +62,9 @@ def prepare():
 def execute():
     os.chdir(ROOT)
     plan = json.loads((STAGE / 'plan.json').read_text())
-    settings = json.loads(Path(os.environ['E2_ENV_FILE']).read_text())
-    for key in ('RCLONE_CONFIG', 'RCLONE_HEADER'):
-        os.environ[key] = settings[key]
     run_id = os.environ['EXPERIMENT_RUN_ID']
-    os.environ['EXP_CHECKPOINT_SYNC'] = json.dumps([
-        sys.executable, '-m', 'exp_common.checkpoint', '--source', '{source}',
-        '--experiment', '{experiment}', '--run-id', '{run_id}', '--receipt', '{receipt}',
-    ])
-    from toolcall_lora.checkpoint import format_hook, require_formal_persistence
+    from toolcall_lora.checkpoint import configure_colab_persistence, format_hook, require_formal_persistence
+    configure_colab_persistence(restore_from_drive=True)
     require_formal_persistence()
     artifacts = Path('/content/e2-artifacts')
     adapter = artifacts / VARIANT / 'adapter'
