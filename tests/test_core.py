@@ -2,7 +2,7 @@ import json
 import unittest
 from toolcall_lora.tool_format import parse_tool_calls, render_tool_calls, normalize_tools, chat_messages
 from toolcall_lora.data import split_rows, convert_xlam, convert_glaive, add_negatives, encode_supervised, query_key
-from toolcall_lora.evaluate import exact_calls, error_labels, score_all, bootstrap_accuracy
+from toolcall_lora.evaluate import apply_bfcl_checker, bootstrap_accuracy, error_labels, exact_calls, published_bootstrap_indices, score_all
 
 
 def sample(i):
@@ -112,6 +112,63 @@ class MetricTests(unittest.TestCase):
 
     def test_false_call_error(self):
         self.assertEqual(error_labels([],sample(1)["calls"]),["false_call"])
+
+    def test_duplicate_ids_rejected_on_both_sides(self):
+        row=sample(1)
+        with self.assertRaises(ValueError):
+            score_all([row,dict(row)],[{"id":"1","text":""}])
+        with self.assertRaises(ValueError):
+            score_all([row],[{"id":"1","text":""},{"id":"1","text":"other"}])
+        with self.assertRaises(ValueError):
+            score_all([row,sample(2)],[{"id":"1","text":""}])
+
+    def test_two_published_bootstrap_conventions(self):
+        import random
+        import statistics
+        values=[0]*5+[1]*3
+        rng=random.Random(42)
+        boot=sorted(statistics.mean(rng.choices(values,k=len(values))) for _ in range(1000))
+        result=bootstrap_accuracy(values)
+        self.assertEqual(published_bootstrap_indices(),{"single_model_accuracy":[24,974],"paired_comparison":[25,975]})
+        self.assertEqual(result["estimand"],"single_model_accuracy")
+        self.assertEqual(result["ci95_indices"],[24,974])
+        self.assertEqual(result["paired_comparison_indices"],[25,975])
+        self.assertEqual(result["ci95"],[boot[24],boot[974]])
+        self.assertEqual(result["same_resamples_at_paired_comparison_indices"],[boot[25],boot[975]])
+        self.assertEqual(result["ci95"],[0,0.75])
+        self.assertEqual(result["same_resamples_at_paired_comparison_indices"],[0.125,0.75])
+
+    def test_bfcl_registry_is_restored(self):
+        from types import SimpleNamespace
+        mapping={}
+        prior=SimpleNamespace(underscore_to_dot=True)
+        mapping["e2-qwen"]=prior
+        seen={}
+        row={"function":[{"name":"demo"}],"ground_truth":[{}],"category":"simple_python"}
+        calls=[{"name":"demo","arguments":{}}]
+        def boom(*args,**kwargs):
+            seen["during"]=mapping["e2-qwen"]
+            raise RuntimeError("checker failed")
+        with self.assertRaises(RuntimeError):
+            apply_bfcl_checker(boom,mapping,"python",row,calls)
+        self.assertIs(mapping["e2-qwen"],prior)
+        self.assertIs(seen["during"].underscore_to_dot,False)
+        compatible=SimpleNamespace(underscore_to_dot=False)
+        mapping["e2-qwen"]=compatible
+        def ok(*args,**kwargs):
+            seen["reused"]=mapping["e2-qwen"]
+            return {"valid":True}
+        self.assertEqual(apply_bfcl_checker(ok,mapping,"python",row,calls)["valid"],True)
+        self.assertIs(seen["reused"],compatible)
+        self.assertIs(mapping["e2-qwen"],compatible)
+        mapping.pop("e2-qwen")
+        def remember(*args,**kwargs):
+            seen["temporary"]=mapping["e2-qwen"]
+            raise ValueError("checker failed")
+        with self.assertRaises(ValueError):
+            apply_bfcl_checker(remember,mapping,"python",row,calls)
+        self.assertNotIn("e2-qwen",mapping)
+        self.assertIs(seen["temporary"].underscore_to_dot,False)
 
 
 if __name__=="__main__":unittest.main()

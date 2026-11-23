@@ -11,7 +11,7 @@ from toolcall_lora.tool_format import parse_tool_calls
 
 out = Path('results/formal-error-analysis')
 reference = out / 'bfcl.evaluation.jsonl'
-refs = {r['id']: r for r in map(json.loads, reference.read_text().splitlines())}
+refs = {r['id']: r for r in map(json.loads, (line for line in reference.read_text().splitlines() if line.strip()))}
 paths = {b: Path('results/formal-baselines') / b for b in ('baseline-1.5b', 'baseline-7b')}
 paths.update({f'main-seed{s}': Path(f'results/formal-main-seed{s}') for s in (42, 43, 44)})
 ablations = sorted(Path('results/formal-ablations').glob('*/bfcl.score.json'))
@@ -31,9 +31,9 @@ models = {}
 cases = []
 for name, path in paths.items():
     predictions_path = path / ('predictions.jsonl' if name.startswith('baseline') else 'bfcl.predictions.jsonl')
-    predictions = {r['id']: r for r in map(json.loads, predictions_path.read_text().splitlines())}
+    predictions = {r['id']: r for r in map(json.loads, (line for line in predictions_path.read_text().splitlines() if line.strip()))}
     details_path = path / 'bfcl.score.details.jsonl'
-    details = [json.loads(l) for l in details_path.read_text().splitlines()]
+    details = [json.loads(line) for line in details_path.read_text().splitlines() if line.strip()]
     counts = Counter({label: 0 for label in labels})
     unresolved = Counter()
     category_counts = {}

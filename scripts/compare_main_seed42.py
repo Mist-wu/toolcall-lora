@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+from toolcall_lora.evaluate import published_bootstrap_indices
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--seed', type=int, choices=(42, 43, 44), default=42)
@@ -20,7 +21,7 @@ paths = {
 scores = {name: json.loads((path / 'bfcl.score.json').read_text())
           for name, path in paths.items()}
 details = {name: {row['id']: row for row in map(json.loads,
-           (path / 'bfcl.score.details.jsonl').read_text().splitlines())}
+           (line for line in (path / 'bfcl.score.details.jsonl').read_text().splitlines() if line.strip()))}
            for name, path in paths.items()}
 categories = ('simple_python', 'multiple', 'parallel', 'parallel_multiple',
               'irrelevance', 'overall_subset')
@@ -35,12 +36,13 @@ for baseline in ('baseline-1.5b', 'baseline-7b'):
         rng = random.Random(42)
         boot = sorted(sum(rng.choices(delta, k=len(delta))) / len(delta)
                       for _ in range(1000))
+        low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
         comparisons[baseline][category] = {
             'n': len(delta),
             'baseline_accuracy': scores[baseline][category]['accuracy'],
             f'main_seed{seed}_accuracy': scores[main][category]['accuracy'],
             'delta_main_minus_baseline': sum(delta) / len(delta),
-            'paired_bootstrap_ci95': [boot[25], boot[975]],
+            'paired_bootstrap_ci95': [boot[low_i], boot[high_i]],
             'improved_cases': delta.count(1), 'regressed_cases': delta.count(-1),
         }
 errors = {name: dict(Counter(row.get('official_error_type', row['errors'][0])
@@ -60,7 +62,7 @@ output = {
 out = paths[main]
 (out / 'comparison.json').write_text(json.dumps(output, indent=2) + '\n')
 lines = [f'# Seed {seed} BFCL comparison (interim)', '',
-         f'Paired case bootstrap: 1,000 resamples, seed 42. Deltas are main seed{seed} minus baseline. Five-category subset only; these are not full leaderboard scores or three-seed results.', '',
+         f'Paired case bootstrap: 1,000 resamples, seed 42, published indices 25/975. Single-model score ci95 keeps indices 24/974. Deltas are main seed{seed} minus baseline. Five-category subset only; these are not full leaderboard scores or three-seed results.', '',
          f'| Baseline | Category | Cases | Baseline | Main seed{seed} | Delta (pp) | Paired 95% CI (pp) |',
          '|---|---|---:|---:|---:|---:|---:|']
 for baseline, values in comparisons.items():

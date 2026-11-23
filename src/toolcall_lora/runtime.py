@@ -13,7 +13,7 @@ import uuid
 import time
 from .data import read_jsonl, write_jsonl, add_negatives, encode_supervised
 from .tool_format import chat_messages, normalize_tools
-from .checkpoint import persist_checkpoint
+from .checkpoint import persist_checkpoint, validate_checkpoint
 
 
 def environment(config):
@@ -57,12 +57,12 @@ def train(config, data_dir, output_dir, resume=None):
     request = out / "request.json"
     if request.exists() and json.loads(request.read_text()) != cfg:
         raise ValueError("Existing run directory uses a different configuration")
-    if resume and not request.exists():
-        raise ValueError("Cannot validate checkpoint configuration without request.json")
-    if resume and not (Path(resume) / "complete.json").is_file():
-        raise ValueError("Checkpoint lacks a completed-save marker; do not resume a partial write")
-    if resume and os.environ.get("EXP_CHECKPOINT_SYNC"):
-        persist_checkpoint(resume,out)
+    if resume:
+        if not request.exists():
+            raise ValueError("Cannot validate checkpoint configuration without request.json")
+        validate_checkpoint(resume, cfg)
+        if os.environ.get("EXP_CHECKPOINT_SYNC"):
+            persist_checkpoint(resume, out)
     request.write_text(json.dumps(cfg, indent=2) + "\n")
     metadata = environment(cfg)
     if resume:
@@ -111,9 +111,9 @@ def train(config, data_dir, output_dir, resume=None):
         def on_save(self, args, state, control, **kwargs):
             checkpoint = Path(args.output_dir) / f"checkpoint-{state.global_step}"
             shutil.copy2(out / "request.json", checkpoint / "request.json")
-            required = ["adapter_model.safetensors", "optimizer.pt", "scheduler.pt", "trainer_state.json"]
+            required = ["adapter_model.safetensors", "optimizer.pt", "scheduler.pt", "trainer_state.json", "rng_state.pth"]
             if not all((checkpoint / name).is_file() for name in required):
-                raise RuntimeError("Trainer checkpoint files incomplete; not publishing a resume marker")
+                raise RuntimeError("Trainer checkpoint files or RNG state incomplete; not publishing a resume marker")
             temporary = checkpoint / "complete.json.tmp"
             short_name=re.sub(r"[^A-Za-z0-9_-]","-",config.get("run_name","run"))[:30]
             checkpoint_id=f"E2-{short_name}-s{seed}-step{state.global_step}-{uuid.uuid4().hex[:12]}"
@@ -128,10 +128,12 @@ def train(config, data_dir, output_dir, resume=None):
     metrics = trainer.train(resume_from_checkpoint=resume).metrics
     trainer.save_model(str(out / "adapter"))
     tokenizer.save_pretrained(str(out / "adapter"))
-    metadata.update({"finished_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "metrics": metrics, "train_examples": len(dataset), "dev_examples": len(evalset), "dropped_overlength_train": len(encoded)-len(dataset), "dropped_overlength_dev": len(encoded_dev)-len(evalset), "adapter_path": str(out / "adapter"), "seed": seed, "status": "train_complete"})
+    final_save_step = int(trainer.state.global_step)
+    metadata.update({"finished_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "metrics": metrics, "train_examples": len(dataset), "dev_examples": len(evalset), "dropped_overlength_train": len(encoded)-len(dataset), "dropped_overlength_dev": len(encoded_dev)-len(evalset), "adapter_path": str(out / "adapter"), "seed": seed, "status": "train_complete", "final_save_step": final_save_step})
     development = [entry for entry in trainer.state.log_history if "eval_loss" in entry]
     if development:
-        metadata["development_selection"] = {"metric":"eval_loss", "value":development[-1]["eval_loss"], "step":development[-1]["step"], "examples":len(evalset), "split":"dev"}
+        latest = development[-1]
+        metadata["development_selection"] = {"metric":"eval_loss", "value":latest["eval_loss"], "step":latest["step"], "latest_eval_step":latest["step"], "final_save_step":final_save_step, "examples":len(evalset), "split":"dev", "selected_checkpoint":False, "note":"step and latest_eval_step are the most recent dev evaluation. final_save_step is trainer.state.global_step of the saved adapter. selected_checkpoint is false: the adapter is the final step, not the lowest dev loss."}
     (out / "train.json").write_text(json.dumps(metadata, indent=2) + "\n")
     # uv-created environments need not ship pip; write installed distribution versions.
     import importlib.metadata

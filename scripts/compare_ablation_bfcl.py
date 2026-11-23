@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+from toolcall_lora.evaluate import published_bootstrap_indices
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--rank', type=int, choices=(8, 16, 64), required=True)
@@ -21,7 +22,7 @@ paths = {
 scores = {name: json.loads((path / 'bfcl.score.json').read_text())
           for name, path in paths.items()}
 details = {name: {row['id']: row for row in map(json.loads,
-           (path / 'bfcl.score.details.jsonl').read_text().splitlines())}
+           (line for line in (path / 'bfcl.score.details.jsonl').read_text().splitlines() if line.strip()))}
            for name, path in paths.items()}
 categories = ('simple_python', 'multiple', 'parallel', 'parallel_multiple',
               'irrelevance', 'overall_subset')
@@ -37,12 +38,13 @@ for candidate, reference in pairs:
         rng = random.Random(42)
         boot = sorted(sum(rng.choices(differences, k=len(differences))) / len(differences)
                       for _ in range(1000))
+        low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
         values[category] = {
             'n': len(differences),
             'candidate_accuracy': scores[candidate][category]['accuracy'],
             'reference_accuracy': scores[reference][category]['accuracy'],
             'delta_candidate_minus_reference': sum(differences) / len(differences),
-            'paired_case_bootstrap_ci95': [boot[25], boot[975]],
+            'paired_case_bootstrap_ci95': [boot[low_i], boot[high_i]],
             'improved_cases': differences.count(1),
             'regressed_cases': differences.count(-1),
         }
@@ -65,7 +67,8 @@ limitations = (
     'the executed training-policy contrast, not a fixed-token/step-budget causal effect. '
     'Paired percentile case bootstrap is conditional on these fitted models, not training-seed uncertainty; '
     'within-category resampling is used for each category and unstratified shared-case resampling for overall. '
-    'Case order is lexicographic ID; indices25/975 of1000 resamples, seed42. '
+    'Case order is lexicographic ID; paired-difference indices 25/975 of 1000 resamples, seed42. '
+    'Single-model score ci95 keeps the other published indices 24/974. '
     'No held-out score is inferred here. BFCL pretraining contamination and Glaive label noise/near-duplicates '
     'remain limitations. Agent review, not human-gold validation; no completed measurements changed.'
 )

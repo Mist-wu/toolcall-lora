@@ -37,12 +37,14 @@ os.environ['EXP_CHECKPOINT_SYNC'] = json.dumps([
 ])
 # Repoint the isolated editable package only after the earlier campaign has exited.
 subprocess.run(['uv', 'pip', 'install', '--python', sys.executable, '--no-deps', '-e', '.'], check=True)
+from toolcall_lora.checkpoint import format_hook, require_formal_persistence
+require_formal_persistence()
 configs = [f'n10000-r{rank}-neg{negative}' for rank in (8, 16, 64) for negative in (0, 10)]
 (root / 'ablation-plan.json').write_text(json.dumps({
     'scope': 'exploratory_single_seed', 'configs': configs, 'seeds': [42],
     'main_seeds': [42, 43, 44],
     'confirmation_rule': 'Only contrasts selected using development data receive seeds 43/44 before stable main-result claims; never select using test scores.',
-    'development_metric': 'Most recent fixed-256-example development loss, with its actual evaluation step recorded in each train.json',
+    'development_metric': 'latest_eval_step is the most recent fixed-256-example development loss. final_save_step is trainer.state.global_step of the saved adapter. selected_checkpoint stays false.',
     'blocked': {'n30000-r16-neg10': 'Current training split has only 18547 unique positives'},
 }, indent=2) + '\n')
 completed = []
@@ -56,8 +58,4 @@ for name in configs:
 status(state='exploratory_ablations_complete', seeds=[42], completed=completed,
        confirmation='Development-selected contrasts require seeds 43/44 before stable claims',
        blocked_30k='Only 18547 unique training positives')
-subprocess.run([
-    sys.executable, '-m', 'exp_common.checkpoint', '--source', str(root), '--experiment', 'E2',
-    '--run-id', os.environ['EXPERIMENT_RUN_ID'] + '-results',
-    '--receipt', 'ablation-results.drive-receipt.json',
-], check=True)
+subprocess.run(format_hook(root, os.environ['EXPERIMENT_RUN_ID'] + '-results', 'ablation-results.drive-receipt.json'), check=True)

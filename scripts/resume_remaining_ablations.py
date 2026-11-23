@@ -19,7 +19,7 @@ REMAINING = ['n10000-r16-neg10', 'n10000-r64-neg0', 'n10000-r64-neg10']
 
 
 def read_rows(path):
-    return [json.loads(line) for line in path.read_text().splitlines()]
+    return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
 
 def write_rows(path, rows):
@@ -70,6 +70,8 @@ def execute():
         sys.executable, '-m', 'exp_common.checkpoint', '--source', '{source}',
         '--experiment', '{experiment}', '--run-id', '{run_id}', '--receipt', '{receipt}',
     ])
+    from toolcall_lora.checkpoint import format_hook, require_formal_persistence
+    require_formal_persistence()
     artifacts = Path('/content/e2-artifacts')
     adapter = artifacts / VARIANT / 'adapter'
     data = Path('/content/data/e2-glaive')
@@ -120,9 +122,7 @@ def execute():
                                (result, f'{name}.score.json'),
                                (result.with_suffix('.details.jsonl'), f'{name}.score.details.jsonl')):
             shutil.copy2(source, destination / target)
-        subprocess.run([sys.executable, '-m', 'exp_common.checkpoint', '--source', str(destination),
-                        '--experiment', 'E2', '--run-id', run_id + '-' + VARIANT + '-results',
-                        '--receipt', str(STAGE / (name + '.drive-receipt.json'))], check=True)
+        subprocess.run(format_hook(destination, run_id + '-' + VARIANT + '-results', STAGE / (name + '.drive-receipt.json')), check=True)
     for name in REMAINING:
         subprocess.run([sys.executable, 'scripts/run_campaign.py', '--stage', 'train', '--run', name,
                         '--seeds', '42', '--data', str(data), '--artifacts', str(artifacts)], check=True)

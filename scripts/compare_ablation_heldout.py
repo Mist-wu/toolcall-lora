@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+from toolcall_lora.evaluate import published_bootstrap_indices
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--rank', type=int, choices=(8, 16, 64), required=True)
@@ -14,7 +15,7 @@ paths = {name: Path('results/formal-ablations') / name for name in names}
 scores = {name: json.loads((path / 'heldout.score.json').read_text())
           for name, path in paths.items()}
 details = {name: {row['id']: row for row in map(json.loads,
-           (path / 'heldout.score.details.jsonl').read_text().splitlines())}
+           (line for line in (path / 'heldout.score.details.jsonl').read_text().splitlines() if line.strip()))}
            for name, path in paths.items()}
 reference, candidate = names
 ids = sorted(details[candidate])
@@ -22,6 +23,7 @@ differences = [int(details[candidate][key]['valid']) - int(details[reference][ke
                for key in ids]
 rng = random.Random(42)
 boot = sorted(sum(rng.choices(differences, k=len(ids))) / len(ids) for _ in range(1000))
+low_i, high_i = published_bootstrap_indices(1000)['paired_comparison']
 limitations = (
     'Exploratory seed42 only; paired case uncertainty is conditional on the fitted models, '
     'not training-seed uncertainty or a fixed-step-budget causal effect. Both use10k positives '
@@ -39,8 +41,8 @@ result = {
     'individual': {name: scores[name]['overall_subset'] for name in names},
     'correct': {name: sum(int(row['valid']) for row in details[name].values()) for name in names},
     'delta_candidate_minus_reference': sum(differences) / len(ids),
-    'paired_case_bootstrap_ci95': [boot[25], boot[975]],
-    'bootstrap': '1000 paired case resamples, RNG seed42, lexicographic IDs, percentile indices25/975',
+    'paired_case_bootstrap_ci95': [boot[low_i], boot[high_i]],
+    'bootstrap': 'Estimand: paired case difference in lexicographic ID order. 1000 resamples, RNG seed42, published indices 25/975. Single-model score ci95 keeps indices 24/974.',
     'improved_cases': differences.count(1), 'regressed_cases': differences.count(-1),
     'sources': {}, 'limitations': limitations,
     'reviewer_type': 'agent', 'human_validation_complete': False, 'human_validation_required': False,
@@ -63,7 +65,7 @@ for name in names:
     metric = scores[name]['overall_subset']
     lo, hi = metric['ci95']
     lines.append(f"| {name} | {result['correct'][name]} / {metric['n']} | {metric['accuracy']:.2%} | [{lo:.2%}, {hi:.2%}] |")
-lines += ['', f"Neg10 minus neg0: **{100*result['delta_candidate_minus_reference']:+.2f}pp**, paired95% CI **[{100*boot[25]:+.2f},{100*boot[975]:+.2f}]pp**; {result['improved_cases']} improved/{result['regressed_cases']} regressed.",
+lines += ['', f"Neg10 minus neg0: **{100*result['delta_candidate_minus_reference']:+.2f}pp**, paired95% CI **[{100*boot[low_i]:+.2f},{100*boot[high_i]:+.2f}]pp**; {result['improved_cases']} improved/{result['regressed_cases']} regressed.",
           '', limitations, '', result['bootstrap'] + '.', '',
           f'Reproduce: `python3 scripts/compare_ablation_heldout.py --rank {rank}`. Full precision and source hashes are in the adjacent JSON.']
 (out / f'rank{rank}.heldout.md').write_text('\n'.join(lines) + '\n')
